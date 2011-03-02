@@ -17,6 +17,7 @@ import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.model.*;
+import org.mule.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -148,6 +149,11 @@ public class SalesForce implements Initialisable
             for (Object object : sObject.getAny())
             {
                 muleSObject.setType(sObject.getType());
+
+                if (!StringUtils.isBlank(sObject.getId()))
+                {
+                    muleSObject.put("Id", sObject.getId());
+                }
 
                 if (object instanceof ElementNSImpl)
                 {
