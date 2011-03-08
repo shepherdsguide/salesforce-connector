@@ -158,7 +158,14 @@ public class SalesForce implements Initialisable
                 if (object instanceof ElementNSImpl)
                 {
                     ElementNSImpl element = (ElementNSImpl) object;
-                    muleSObject.put(element.getLocalName(), element.getFirstChild().getTextContent());
+                    if (element.getFirstChild() != null)
+                    {
+                        muleSObject.put(element.getLocalName(), element.getFirstChild().getTextContent());
+                    }
+                    else
+                    {
+                        muleSObject.put(element.getLocalName(), "");
+                    }
                 }
             }
         }
