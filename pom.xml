@@ -7,6 +7,7 @@
     <name>SalesForce</name>
     <version>3.0.1</version>
     <packaging>cloud-connector</packaging>
+	<description>Mule SafeForce Connector</description>
 
     <url>http://www.mulesoft.org/documentation/display/MULE3USER/SalesForce</url>
 
@@ -231,14 +232,17 @@
     <distributionManagement>
         <repository>
             <id>muleforge.webdav.releases</id>
+			<name>MuleForge Releases</name>
             <url>dav:https://repository.muleforge.org/release/</url>
         </repository>
         <snapshotRepository>
             <id>muleforge.webdav.snapshots</id>
+			<name>MuleForge Snapshots</name>
             <url>dav:https://repository.muleforge.org/snapshot/</url>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
+
     <repositories>
         <repository>
             <id>muleforge-repo</id>
