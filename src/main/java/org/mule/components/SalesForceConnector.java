@@ -69,9 +69,9 @@ public class SalesForceConnector implements Initialisable
     private String username;
     @Property
     private String password;
-    @Property
+    @Property(optional=true)
     private String proxyHost;
-    @Property(defaultValue = "80")
+    @Property(optional=true, defaultValue = "80")
     private int proxyPort = -1;
     @Property
     private String securityToken;
