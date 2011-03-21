@@ -9,17 +9,36 @@
  */
 package org.mule.components;
 
-import com.sforce.soap.partner.*;
-import com.sforce.soap.partner.sobject.*;
-import org.apache.xerces.dom.ElementNSImpl;
-import org.apache.cxf.headers.Header;
-import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
-import org.mule.components.model.*;
+import org.mule.components.model.MuleSObject;
 import org.mule.util.StringUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+
+import com.sforce.soap.partner.DeleteResult;
+import com.sforce.soap.partner.EmptyRecycleBinResult;
+import com.sforce.soap.partner.GetDeletedResult;
+import com.sforce.soap.partner.GetUpdatedResult;
+import com.sforce.soap.partner.InvalidateSessionsResult;
+import com.sforce.soap.partner.LeadConvert;
+import com.sforce.soap.partner.LeadConvertResult;
+import com.sforce.soap.partner.LoginResult;
+import com.sforce.soap.partner.ProcessRequest;
+import com.sforce.soap.partner.ProcessResult;
+import com.sforce.soap.partner.ProcessSubmitRequest;
+import com.sforce.soap.partner.ProcessWorkitemRequest;
+import com.sforce.soap.partner.QueryOptions;
+import com.sforce.soap.partner.QueryResult;
+import com.sforce.soap.partner.SaveResult;
+import com.sforce.soap.partner.SessionHeader;
+import com.sforce.soap.partner.SforceService;
+import com.sforce.soap.partner.Soap;
+import com.sforce.soap.partner.UpsertResult;
+import com.sforce.soap.partner.sobject.SObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -31,13 +50,24 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.MessageContext;
-import java.util.*;
+
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.headers.Header;
+import org.apache.cxf.jaxb.JAXBDataBinding;
+import org.apache.cxf.transport.http.HTTPConduit;
+import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
+import org.apache.xerces.dom.ElementNSImpl;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class SalesForce implements Initialisable
 {
 
     private String username;
     private String password;
+    private String proxyHost;
+    private int proxyPort = -1;
     private String securityToken;
     private JAXBDataBinding jSessionDataBinding;
     private JAXBDataBinding jQueryOptionsDataBinding = null;
@@ -73,19 +103,37 @@ public class SalesForce implements Initialisable
         this.securityToken = securityToken;
     }
 
+    public String getProxyHost()
+    {
+        return proxyHost;
+    }
+
+    public void setProxyHost(String proxyHost)
+    {
+        this.proxyHost = proxyHost;
+    }
+
+    public int getProxyPort()
+    {
+        return proxyPort;
+    }
+
+    public void setProxyPort(int proxyPort)
+    {
+        this.proxyPort = proxyPort;
+    }
+
     protected Soap login() throws RuntimeException
     {
-
         Soap client = null;
         SforceService sforceService = null;
 
         sforceService = new SforceService(getClass().getResource("/partner.wsdl"));
         client = sforceService.getPort(Soap.class);
 
-        //ClientProxy clientProxy = ClientProxy.getClient();
+        initializeHttpProxy(client);
 
         LoginResult loginResult = null;
-
         try
         {
             loginResult = client.login(username, password + securityToken);
@@ -111,6 +159,20 @@ public class SalesForce implements Initialisable
         bindingProvider.getRequestContext().put(Header.HEADER_LIST, headers);
 
         return client;
+    }
+
+    private void initializeHttpProxy(Soap soap)
+    {
+        if (StringUtils.isNotBlank(proxyHost) && (proxyPort != -1))
+        {
+            HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
+            httpClientPolicy.setProxyServer(proxyHost);
+            httpClientPolicy.setProxyServerPort(proxyPort);
+
+            Client client = ClientProxy.getClient(soap);
+            HTTPConduit http = (HTTPConduit) client.getConduit();
+            http.setClient(httpClientPolicy);
+        }
     }
 
     private List<SObject> muleSObjectsToSObjects(String type, List<MuleSObject> sObjects) throws RuntimeException
@@ -174,7 +236,7 @@ public class SalesForce implements Initialisable
     }
 
     /**
-     * Adds one or more new records to your organizationÕs data. This specific call
+     * Adds one or more new records to your organizationï¿½s data. This specific call
      * is different from create() in that it takes true sObjects versus mule specific
      * MuleSObjects
      *
@@ -200,7 +262,7 @@ public class SalesForce implements Initialisable
     }
 
     /**
-     * Adds one or more new records to your organizationÕs data. This call differs
+     * Adds one or more new records to your organizationï¿½s data. This call differs
      * from the original create object by allowing for the setting of the type as part
      * of the method call along with the passing of a MuleSObject which is just an object
      * which extends a hashmap.
@@ -304,7 +366,7 @@ public class SalesForce implements Initialisable
 
     /**
      * Use delete() to delete one or more existing records, such as individual accounts or contacts, in your
-     * organizationÕs data. The delete() call is analogous to the DELETE statement in SQL.
+     * organizationï¿½s data. The delete() call is analogous to the DELETE statement in SQL.
      *
      * @param ids Array of one or more IDs associated with the objects to delete. In version 7.0 and later,
      *            you can pass a maximum of 200 object IDs to the delete() call. In version 6.0 and earlier,
@@ -364,10 +426,10 @@ public class SalesForce implements Initialisable
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
      *
      * @param type      Object type. The specified value must be a valid object for your organization.
-     * @param startTime Starting date/time (Coordinated Universal Time (UTC)Ñnot localÑ timezone) of the timespan for
+     * @param startTime Starting date/time (Coordinated Universal Time (UTC)ï¿½not localï¿½ timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
      *                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).
-     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)Ñnot localÑ timezone) of the timespan for
+     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)ï¿½not localï¿½ timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
      * @return
@@ -437,10 +499,10 @@ public class SalesForce implements Initialisable
      * the specified object.
      *
      * @param type      Object type. The specified value must be a valid object for your organization.
-     * @param startTime Starting date/time (Coordinated Universal Time (UTC) time zoneÑnot localÑ timezone) of the
+     * @param startTime Starting date/time (Coordinated Universal Time (UTC) time zoneï¿½not localï¿½ timezone) of the
      *                  timespan for which to retrieve the data. The API ignores the seconds portion of the specified
      *                  dateTime value (for example, 12:30:15 is interpreted as 12:30:00 UTC).
-     * @param endTime   Ending date/time (Coordinated Universal Time (UTC) time zoneÑnot localÑ timezone) of the
+     * @param endTime   Ending date/time (Coordinated Universal Time (UTC) time zoneï¿½not localï¿½ timezone) of the
      *                  timespan for which to retrieve the data. The API ignores the seconds portion of the specified
      *                  dateTime value (for example, 12:35:15 is interpreted as 12:35:00 UTC).
      * @return
@@ -729,7 +791,7 @@ public class SalesForce implements Initialisable
     }
 
     /**
-     * Use this call to update one or more existing records, such as accounts or contacts, in your organizationÕs data.
+     * Use this call to update one or more existing records, such as accounts or contacts, in your organizationï¿½s data.
      * The update() call is analogous to the UPDATE statement in SQL.
      *
      * @param sObjects
@@ -754,7 +816,7 @@ public class SalesForce implements Initialisable
     }
 
     /**
-     * Use this call to update one or more existing records, such as accounts or contacts, in your organizationÕs data.
+     * Use this call to update one or more existing records, such as accounts or contacts, in your organizationï¿½s data.
      * The update() call is analogous to the UPDATE statement in SQL.
      *
      * @param type         Object type. The specified value must be a valid object for your organization.

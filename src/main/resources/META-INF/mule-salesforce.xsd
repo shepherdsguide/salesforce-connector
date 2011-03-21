@@ -62,6 +62,20 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
+                <xsd:attribute name="proxyHost" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Hostname of the HTTP proxy to use when communicating with Salesforce.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="proxyPort" type="mule:substitutablePortNumber">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Port of the HTTP proxy to use when communicating with Salesforce.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
