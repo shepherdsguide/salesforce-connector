@@ -126,6 +126,7 @@
 			<groupId>org.mule.tools</groupId>
 			<artifactId>mule-cloud-connector-annotations</artifactId>
 			<version>${cloudconnect.version}</version>
+            <scope>provided</scope>
 		</dependency>
 
         <!-- jaxb-api is required when building on JDK5 -->

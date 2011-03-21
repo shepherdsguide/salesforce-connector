@@ -359,7 +359,7 @@ public class SalesForceConnector implements Initialisable
      * @return
      */
     @Operation
-    public List<EmptyRecycleBinResult> emptyrecyclebin(List<String> ids)
+    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids)
     {
 
         List<EmptyRecycleBinResult> emptyRecycleBinResults = null;
