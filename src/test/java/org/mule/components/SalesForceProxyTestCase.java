@@ -1,18 +1,9 @@
 package org.mule.components;
 
-import com.sforce.soap.partner.DeleteResult;
-import com.sforce.soap.partner.QueryResult;
-import com.sforce.soap.partner.SaveResult;
 import org.mule.api.MuleMessage;
-import org.mule.api.lifecycle.InitialisationException;
-import org.mule.components.model.MuleSObject;
 import org.mule.module.client.MuleClient;
 import org.mule.tck.FunctionalTestCase;
 import org.mule.transport.NullPayload;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class SalesForceProxyTestCase extends FunctionalTestCase
 {

@@ -4,20 +4,20 @@
       xmlns:sfdc="http://www.mulesoft.org/schema/mule/salesforce"
       xsi:schemaLocation="
                http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
-               http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/3.1/mule-salesforce.xsd
+               http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/3.1.1/mule-salesforce.xsd
                ">
     <sfdc:config name="salesforce" username="${login}" password="${password}" securityToken="${securityKey}"/>
 
     <flow name="salesforceFlow">
         <inbound-endpoint address="vm://createContact" exchange-pattern="request-response"/>
 
-        <sfdc:create type="Contact">
-            <sfdc:sObject>
-                <sfdc:field key="FirstName" value="#[map-payload:FirstName]"/>
-                <sfdc:field key="LastName" value="#[map-payload:LastName]"/>
-                <sfdc:field key="Department" value="#[map-payload:Department]"/>
-                <sfdc:field key="Title" value="#[map-payload:Title]"/>
-                <sfdc:field key="Phone" value="#[map-payload:Phone]"/>
+        <sfdc:create>
+            <sfdc:sObject type="Contact">
+                <FirstName>#[map-payload:FirstName]</FirstName>
+                <LastName>#[map-payload:LastName]</LastName>
+                <Department>#[map-payload:Department]</Department>
+                <Title>#[map-payload:Title]</Title>
+                <Phone>#[map-payload:Phone]</Phone>
             </sfdc:sObject>
         </sfdc:create>
     </flow>
@@ -31,10 +31,10 @@
     <flow name="updateFlow">
         <inbound-endpoint address="vm://updateContact" exchange-pattern="request-response"/>
 
-        <sfdc:update type="Contact">
-            <sfdc:sObject>
-                 <sfdc:field key="Id" value="#[map-payload:Id]"/>
-                 <sfdc:field key="LastName" value="#[map-payload:LastName]"/>
+        <sfdc:update>
+            <sfdc:sObject type="Contact">
+                <Id>#[map-payload:Id]</Id>
+                <LastName>#[map-payload:LastName]</LastName>
             </sfdc:sObject>
         </sfdc:update>
     </flow>
@@ -57,13 +57,13 @@
 
     <flow name="async">
 
-        <sfdc:create type="Contact">
-            <sfdc:sObject>
-                <sfdc:field key="FirstName" value="#[map-payload:FirstName]"/>
-                <sfdc:field key="LastName" value="#[map-payload:LastName]"/>
-                <sfdc:field key="Department" value="#[map-payload:Department]"/>
-                <sfdc:field key="Title" value="#[map-payload:Title]"/>
-                <sfdc:field key="Phone" value="#[map-payload:Phone]"/>
+        <sfdc:create>
+            <sfdc:sObject type="Contact">
+                <FirstName>#[map-payload:FirstName]</FirstName>
+                <LastName>#[map-payload:LastName]</LastName>
+                <Department>#[map-payload:Department]</Department>
+                <Title>#[map-payload:Title]</Title>
+                <Phone>#[map-payload:Phone]</Phone>
             </sfdc:sObject>
         </sfdc:create>
     </flow>

@@ -171,7 +171,7 @@
                         <id>generate-sources</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>${project.build.directory}/generated-sources</sourceRoot>
+                            <sourceRoot>${project.build.directory}/generated-sources/mule</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/partner.wsdl</wsdl>
@@ -191,7 +191,7 @@
 				<version>${cloudconnect.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<schemaVersion>1.0</schemaVersion>
+					<schemaVersion>3.1.1</schemaVersion>
 				</configuration>
 			</plugin>
             <plugin>
