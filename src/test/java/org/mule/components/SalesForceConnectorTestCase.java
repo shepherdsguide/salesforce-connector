@@ -1,30 +1,54 @@
 package org.mule.components;
 
+import org.mule.api.MuleMessage;
+import org.mule.api.lifecycle.InitialisationException;
+import org.mule.module.client.MuleClient;
+import org.mule.tck.FunctionalTestCase;
+
 import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
-import org.mule.api.MuleMessage;
-import org.mule.api.lifecycle.InitialisationException;
-import org.mule.components.model.MuleSObject;
-import org.mule.module.client.MuleClient;
-import org.mule.tck.FunctionalTestCase;
+import com.sforce.soap.partner.sobject.SObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.assertNotNull;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
-public class SalesForceTestCase extends FunctionalTestCase
+import org.junit.Before;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class SalesForceConnectorTestCase extends FunctionalTestCase
 {
-    protected SalesForce init()
+
+    private Document docBuilder;
+
+    @Before
+    public void initialise()
+    {
+        try
+        {
+            docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        }
+        catch (ParserConfigurationException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    protected SalesForceConnector init()
     {
 
-        SalesForce sf = new SalesForce();
+        SalesForceConnector sf = new SalesForceConnector();
         try
         {
             sf.initialise();
-        } catch (InitialisationException e)
+        }
+        catch (InitialisationException e)
         {
             throw new RuntimeException(e);
         }
@@ -38,26 +62,41 @@ public class SalesForceTestCase extends FunctionalTestCase
 
     public void testConfig() throws Exception
     {
-        SalesForce sfdc = muleContext.getRegistry().get("salesforce");
+        SalesForceConnector sfdc = muleContext.getRegistry().get("salesforce");
         assertNotNull(sfdc.getUsername());
     }
 
     public void testContactCreate() throws Exception
     {
-        SalesForce sf = init();
+        SalesForceConnector sf = init();
 
-        List<MuleSObject> list = new ArrayList<MuleSObject>();
-        MuleSObject sObject = new MuleSObject();
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put("FirstName", "Mule");
-        map.put("LastName", "Developer");
-        map.put("Department", "Engineering");
-        map.put("Title", "Slacker Of An Engineer");
-        map.put("Phone", "333-333-3333");
-        sObject.setFields(map);
+        List<SObject> list = new ArrayList<SObject>();
+        SObject sObject = new SObject();
+        sObject.setType("Contact");
+
+        Element el = docBuilder.createElement("FirstName");
+        el.setTextContent("Mule");
+        sObject.getAny().add(el);
+
+        el = docBuilder.createElement("LastName");
+        el.setTextContent("Developer");
+        sObject.getAny().add(el);
+
+        el = docBuilder.createElement("Department");
+        el.setTextContent("Engineering");
+        sObject.getAny().add(el);
+
+        el = docBuilder.createElement("Title");
+        el.setTextContent("Slacker Of An Engineer");
+        sObject.getAny().add(el);
+
+        el = docBuilder.createElement("Phone");
+        el.setTextContent("333-333-3333");
+        sObject.getAny().add(el);
+
         list.add(sObject);
 
-        List<SaveResult> sr = sf.create("Contact", list);
+        List<SaveResult> sr = sf.create(list);
 
         assertNotNull(sr);
         assertTrue(sr.size() > 0);
@@ -143,7 +182,7 @@ public class SalesForceTestCase extends FunctionalTestCase
 
     public void testQueryAndRetrive() throws Exception
     {
-        SalesForce sf = init();
+        SalesForceConnector sf = init();
 
         QueryResult qr = sf.querySObject("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
         assertNotNull(qr);
@@ -155,16 +194,16 @@ public class SalesForceTestCase extends FunctionalTestCase
         Ids.add(Id);
 
 
-        List<MuleSObject> list = sf.retrieve("Name", "Account", Ids);
+        List<SObject> list = sf.retrieve("Name", "Account", Ids);
         assertNotNull(list);
         assertTrue(list.size() > 0);
     }
 
     public void testQuery() throws Exception
     {
-        SalesForce sf = init();
+        SalesForceConnector sf = init();
 
-        List<MuleSObject> maps = sf.query("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
+        List<SObject> maps = sf.query("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
         assertNotNull(maps);
         assertTrue(maps.size() > 0);
     }

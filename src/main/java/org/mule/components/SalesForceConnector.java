@@ -11,7 +11,9 @@ package org.mule.components;
 
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
-import org.mule.components.model.MuleSObject;
+import org.mule.tools.cloudconnect.annotations.Connector;
+import org.mule.tools.cloudconnect.annotations.Operation;
+import org.mule.tools.cloudconnect.annotations.Property;
 import org.mule.util.StringUtils;
 
 import com.sforce.soap.partner.DeleteResult;
@@ -57,18 +59,23 @@ import org.apache.cxf.headers.Header;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
-import org.apache.xerces.dom.ElementNSImpl;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
-public class SalesForce implements Initialisable
+@Connector(namespacePrefix = "sfdc")
+public class SalesForceConnector implements Initialisable
 {
 
+    @Property
     private String username;
+    @Property
     private String password;
+    @Property
     private String proxyHost;
+    @Property(defaultValue = "80")
     private int proxyPort = -1;
+    @Property
     private String securityToken;
+
     private JAXBDataBinding jSessionDataBinding;
     private JAXBDataBinding jQueryOptionsDataBinding = null;
     private Document docBuilder;
@@ -137,7 +144,8 @@ public class SalesForce implements Initialisable
         try
         {
             loginResult = client.login(username, password + securityToken);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -175,66 +183,6 @@ public class SalesForce implements Initialisable
         }
     }
 
-    private List<SObject> muleSObjectsToSObjects(String type, List<MuleSObject> sObjects) throws RuntimeException
-    {
-        List<SObject> list = new ArrayList<SObject>();
-
-        for (MuleSObject muleSObject : sObjects)
-        {
-            SObject sObject = new SObject();
-            list.add(sObject);
-            sObject.setType(type);
-
-
-            for (Map.Entry<String, String> entry : muleSObject.entrySet())
-            {
-                Element el = null;
-                el = docBuilder.createElement(entry.getKey());
-
-                el.setTextContent(entry.getValue());
-                sObject.getAny().add(el);
-            }
-        }
-
-        return list;
-    }
-
-    private List<MuleSObject> sObjectsToMuleSObjects(List<SObject> sObjects) throws RuntimeException
-    {
-        List<MuleSObject> maps = new ArrayList<MuleSObject>();
-
-        for (SObject sObject : sObjects)
-        {
-            MuleSObject muleSObject = new MuleSObject();
-            maps.add(muleSObject);
-
-            for (Object object : sObject.getAny())
-            {
-                muleSObject.setType(sObject.getType());
-
-                if (!StringUtils.isBlank(sObject.getId()))
-                {
-                    muleSObject.put("Id", sObject.getId());
-                }
-
-                if (object instanceof ElementNSImpl)
-                {
-                    ElementNSImpl element = (ElementNSImpl) object;
-                    if (element.getFirstChild() != null)
-                    {
-                        muleSObject.put(element.getLocalName(), element.getFirstChild().getTextContent());
-                    }
-                    else
-                    {
-                        muleSObject.put(element.getLocalName(), "");
-                    }
-                }
-            }
-        }
-
-        return maps;
-    }
-
     /**
      * Adds one or more new records to your organization�s data. This specific call
      * is different from create() in that it takes true sObjects versus mule specific
@@ -243,6 +191,7 @@ public class SalesForce implements Initialisable
      * @param sObjects Salesforce specific sObjects.
      * @return
      */
+    @Operation
     public List<SaveResult> createSObjects(List<SObject> sObjects)
     {
         Soap client = login();
@@ -252,7 +201,8 @@ public class SalesForce implements Initialisable
         try
         {
             sr = client.create(sObjects);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -267,11 +217,11 @@ public class SalesForce implements Initialisable
      * of the method call along with the passing of a MuleSObject which is just an object
      * which extends a hashmap.
      *
-     * @param type
      * @param sObjects
      * @return
      */
-    public List<SaveResult> create(String type, List<MuleSObject> sObjects)
+    @Operation
+    public List<SaveResult> create(List<SObject> sObjects)
     {
         Soap client = login();
 
@@ -279,8 +229,9 @@ public class SalesForce implements Initialisable
 
         try
         {
-            sr = client.create(muleSObjectsToSObjects(type, sObjects));
-        } catch (Exception e)
+            sr = client.create(sObjects);
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -332,6 +283,7 @@ public class SalesForce implements Initialisable
      *                               ownerId (true) or not (false, the default).
      * @return
      */
+    @Operation
     public List<LeadConvertResult> convertLead(String leadId, String contactId,
                                                String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity,
                                                String opportunityName, String convertedStatus, Boolean sendEmailToOwner)
@@ -356,7 +308,8 @@ public class SalesForce implements Initialisable
         try
         {
             lcr = client.convertLead(list);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -373,6 +326,7 @@ public class SalesForce implements Initialisable
      *            the limit is 2,000.
      * @return
      */
+    @Operation
     public List<DeleteResult> delete(List<String> ids)
     {
 
@@ -383,7 +337,8 @@ public class SalesForce implements Initialisable
         try
         {
             deleteResults = client.delete(ids);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -403,6 +358,7 @@ public class SalesForce implements Initialisable
      *            Maximum number of records is 200.
      * @return
      */
+    @Operation
     public List<EmptyRecycleBinResult> emptyrecyclebin(List<String> ids)
     {
 
@@ -413,7 +369,8 @@ public class SalesForce implements Initialisable
         try
         {
             emptyRecycleBinResults = client.emptyRecycleBin(ids);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -444,7 +401,8 @@ public class SalesForce implements Initialisable
         try
         {
             gdr = client.getDeleted(type, startTime, endTime);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -459,6 +417,7 @@ public class SalesForce implements Initialisable
      * @param duration The amount of time in minutes before now for which to return records from.
      * @return
      */
+    @Operation
     public GetDeletedResult getDeleted(String type, int duration)
     {
         GetDeletedResult gdr = null;
@@ -468,10 +427,11 @@ public class SalesForce implements Initialisable
         try
         {
             serverTime = client.getServerTimestamp().getTimestamp();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             System.out.println("Unexpected error encountered in getTimestamp:\n\n" +
-                    e.getMessage());
+                               e.getMessage());
         }
         XMLGregorianCalendar startTime = (XMLGregorianCalendar) serverTime.clone();
         XMLGregorianCalendar endTime = serverTime;
@@ -481,7 +441,8 @@ public class SalesForce implements Initialisable
         try
         {
             df = DatatypeFactory.newInstance();
-        } catch (DatatypeConfigurationException e)
+        }
+        catch (DatatypeConfigurationException e)
         {
             throw new RuntimeException(e);
         }
@@ -517,7 +478,8 @@ public class SalesForce implements Initialisable
         try
         {
             gur = client.getUpdated(type, startTime, endTime);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -533,6 +495,7 @@ public class SalesForce implements Initialisable
      * @param duration
      * @return
      */
+    @Operation
     public GetUpdatedResult getUpdated(String type, int duration)
     {
 
@@ -543,10 +506,11 @@ public class SalesForce implements Initialisable
         try
         {
             serverTime = client.getServerTimestamp().getTimestamp();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             System.out.println("Unexpected error encountered in getTimestamp:\n\n" +
-                    e.getMessage());
+                               e.getMessage());
         }
         XMLGregorianCalendar startTime = (XMLGregorianCalendar) serverTime.clone();
         XMLGregorianCalendar endTime = serverTime;
@@ -556,7 +520,8 @@ public class SalesForce implements Initialisable
         try
         {
             df = DatatypeFactory.newInstance();
-        } catch (DatatypeConfigurationException e)
+        }
+        catch (DatatypeConfigurationException e)
         {
             throw new RuntimeException(e);
         }
@@ -569,6 +534,7 @@ public class SalesForce implements Initialisable
         return gur;
     }
 
+    @Operation
     public List<InvalidateSessionsResult> invalidateSessions(List<String> sessionIds)
     {
         Soap client = login();
@@ -577,7 +543,8 @@ public class SalesForce implements Initialisable
         try
         {
             results = client.invalidateSessions(sessionIds);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -585,6 +552,7 @@ public class SalesForce implements Initialisable
         return results;
     }
 
+    @Operation
     public List<ProcessResult> submitRequest(String comments, String id, List<String> approverIds)
     {
 
@@ -602,7 +570,8 @@ public class SalesForce implements Initialisable
         try
         {
             processResults = client.process(requests);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException();
         }
@@ -610,6 +579,7 @@ public class SalesForce implements Initialisable
         return processResults;
     }
 
+    @Operation
     public List<ProcessResult> process(String action, String id, String comments, List<String> approverIds)
     {
         Soap client = login();
@@ -627,7 +597,8 @@ public class SalesForce implements Initialisable
         try
         {
             processResults = client.process(list);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -644,7 +615,8 @@ public class SalesForce implements Initialisable
      * @param batchsize The amount of records to return
      * @return
      */
-    public List<MuleSObject> query(String query, int batchsize)
+    @Operation
+    public List<SObject> query(String query, int batchsize)
     {
         Soap client = login();
 
@@ -664,7 +636,8 @@ public class SalesForce implements Initialisable
             try
             {
                 jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
-            } catch (JAXBException e)
+            }
+            catch (JAXBException e)
             {
                 throw new RuntimeException(e);
             }
@@ -677,12 +650,13 @@ public class SalesForce implements Initialisable
         try
         {
             qr = client.query(query);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
 
-        return sObjectsToMuleSObjects(qr.getRecords());
+        return qr.getRecords();
     }
 
     /**
@@ -713,7 +687,8 @@ public class SalesForce implements Initialisable
             try
             {
                 jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
-            } catch (JAXBException e)
+            }
+            catch (JAXBException e)
             {
                 throw new RuntimeException(e);
             }
@@ -726,7 +701,8 @@ public class SalesForce implements Initialisable
         try
         {
             qr = client.query(query);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -745,6 +721,7 @@ public class SalesForce implements Initialisable
      *               the retrieve() call.
      * @return
      */
+    @Operation
     public List<SObject> retrieveSObjects(String fields, String type, List<String> ids)
     {
         Soap client = login();
@@ -754,7 +731,8 @@ public class SalesForce implements Initialisable
         try
         {
             sObjects = client.retrieve(fields, type, ids);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -773,7 +751,8 @@ public class SalesForce implements Initialisable
      *               the retrieve() call.
      * @return
      */
-    public List<MuleSObject> retrieve(String fields, String type, List<String> ids)
+    @Operation
+    public List<SObject> retrieve(String fields, String type, List<String> ids)
     {
         Soap client = login();
 
@@ -782,12 +761,13 @@ public class SalesForce implements Initialisable
         try
         {
             sObjects = client.retrieve(fields, type, ids);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
 
-        return sObjectsToMuleSObjects(sObjects);
+        return sObjects;
     }
 
     /**
@@ -797,6 +777,7 @@ public class SalesForce implements Initialisable
      * @param sObjects
      * @return
      */
+    @Operation
     public List<SaveResult> updateSObjects(List<SObject> sObjects)
     {
 
@@ -807,7 +788,8 @@ public class SalesForce implements Initialisable
         try
         {
             sr = client.update(sObjects);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -819,22 +801,22 @@ public class SalesForce implements Initialisable
      * Use this call to update one or more existing records, such as accounts or contacts, in your organization�s data.
      * The update() call is analogous to the UPDATE statement in SQL.
      *
-     * @param type         Object type. The specified value must be a valid object for your organization.
-     * @param muleSObjects Mule specific SObject which is extends a hashmap.
+     * @param sObjects Mule specific SObject which is extends a hashmap.
      * @return
      */
-    public List<SaveResult> update(String type, List<MuleSObject> muleSObjects)
+    @Operation
+    public List<SaveResult> update(List<SObject> sObjects)
     {
 
         Soap client = login();
 
         List<SaveResult> sr;
-        List<SObject> sObjects = muleSObjectsToSObjects(type, muleSObjects);
 
         try
         {
             sr = client.update(sObjects);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -853,20 +835,20 @@ public class SalesForce implements Initialisable
      *                            field property is usually on a field that is the object's ID field or name field, but
      *                            there are exceptions, so check for the presence of the property in the object you wish
      *                            to upsert().
-     * @param type                Object type. The specified value must be a valid object for your organization.
-     * @param muleSObjects
+     * @param sObjects
      * @return
      */
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<MuleSObject> muleSObjects)
+    @Operation
+    public List<UpsertResult> upsert(String externalIdFieldName, List<SObject> sObjects)
     {
 
         List<UpsertResult> ur;
-        List<SObject> sObjects = muleSObjectsToSObjects(type, muleSObjects);
 
         try
         {
             ur = upsertSObject(externalIdFieldName, sObjects);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -889,6 +871,7 @@ public class SalesForce implements Initialisable
      * @param sObjects
      * @return
      */
+    @Operation
     public List<UpsertResult> upsertSObject(String externalIdFieldName, List<SObject> sObjects)
     {
 
@@ -899,7 +882,8 @@ public class SalesForce implements Initialisable
         try
         {
             ur = client.upsert(externalIdFieldName, sObjects);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -907,13 +891,13 @@ public class SalesForce implements Initialisable
         return ur;
     }
 
-
     public void initialise() throws InitialisationException
     {
         try
         {
             jSessionDataBinding = new JAXBDataBinding(SessionHeader.class);
-        } catch (JAXBException e)
+        }
+        catch (JAXBException e)
         {
             throw new RuntimeException(e);
         }
@@ -922,7 +906,8 @@ public class SalesForce implements Initialisable
         try
         {
             docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-        } catch (ParserConfigurationException e)
+        }
+        catch (ParserConfigurationException e)
         {
             throw new RuntimeException(e);
         }
