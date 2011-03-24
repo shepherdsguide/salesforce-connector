@@ -9,6 +9,9 @@
  */
 package org.mule.components;
 
+import com.sforce.soap.partner.*;
+import com.sforce.soap.partner.sobject.*;
+import org.apache.xerces.dom.ElementNSImpl;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.config.ProxyConfigurator;
@@ -66,8 +69,8 @@ public class SalesForce implements Initialisable
     private String proxyHost;
     private int proxyPort = -1;
     private String securityToken;
-    private JAXBDataBinding jSessionDataBinding;
-    private JAXBDataBinding jQueryOptionsDataBinding = null;
+//    private JAXBDataBinding jSessionDataBinding;
+//    private JAXBDataBinding jQueryOptionsDataBinding = null;
     private Document docBuilder;
 
     public String getUsername()
@@ -139,21 +142,24 @@ public class SalesForce implements Initialisable
             throw new RuntimeException(e);
         }
 
+        sforceService = new SforceService(getClass().getResource("/partner.wsdl"));
+        sforceService.setHandlerResolver(new SalesForceHeaderHandlerResolver(loginResult.getSessionId()));
+        client = sforceService.getPort(Soap.class);
+
         BindingProvider bindingProvider = ((BindingProvider) client);
         bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, loginResult.getServerUrl());
 
-        //Enable GZip compression
-        Map<String, List<String>> httpHeaders = new HashMap<String, List<String>>();
-        Map<String, Object> reqContext = bindingProvider.getRequestContext();
-        reqContext.put(MessageContext.HTTP_REQUEST_HEADERS, httpHeaders);
+//        Map<String, List<String>> httpHeaders = new HashMap<String, List<String>>();
+//        Map<String, Object> reqContext = bindingProvider.getRequestContext();
+//        reqContext.put(MessageContext.HTTP_REQUEST_HEADERS, httpHeaders);
 
-        SessionHeader sh = new SessionHeader();
-        sh.setSessionId(loginResult.getSessionId());
-
-        List<Header> headers = new ArrayList<Header>();
-
-        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "SessionHeader"), sh, jSessionDataBinding));
-        bindingProvider.getRequestContext().put(Header.HEADER_LIST, headers);
+//        SessionHeader sh = new SessionHeader();
+//        sh.setSessionId(loginResult.getSessionId());
+//
+//        List<Header> headers = new ArrayList<Header>();
+//
+//        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "SessionHeader"), sh, jSessionDataBinding));
+//        bindingProvider.getRequestContext().put(Header.HEADER_LIST, headers);
 
         return client;
     }
@@ -647,27 +653,27 @@ public class SalesForce implements Initialisable
         QueryOptions qo = new QueryOptions();
         qo.setBatchSize(batchsize);
 
-        // We have already added the sessionId to the Header.HEADER_LIST so we must retrieve it first to use it.
-        List<Header> headers = (List<Header>) ((BindingProvider) client).getRequestContext().get(Header.HEADER_LIST);
-        if (headers == null)
-        {
-            throw new RuntimeException("The header list was not initialized.");
-        }
-
-        if (jQueryOptionsDataBinding == null)
-        {
-            try
-            {
-                jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
-            } catch (JAXBException e)
-            {
-                throw new RuntimeException(e);
-            }
-
-        }
-
-        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "QueryOptions"), qo, jQueryOptionsDataBinding));
-        ((BindingProvider) client).getRequestContext().put(Header.HEADER_LIST, headers);
+//        // We have already added the sessionId to the Header.HEADER_LIST so we must retrieve it first to use it.
+//        List<Header> headers = (List<Header>) ((BindingProvider) client).getRequestContext().get(Header.HEADER_LIST);
+//        if (headers == null)
+//        {
+//            throw new RuntimeException("The header list was not initialized.");
+//        }
+//
+//        if (jQueryOptionsDataBinding == null)
+//        {
+//            try
+//            {
+//                jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
+//            } catch (JAXBException e)
+//            {
+//                throw new RuntimeException(e);
+//            }
+//
+//        }
+//
+//        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "QueryOptions"), qo, jQueryOptionsDataBinding));
+//        ((BindingProvider) client).getRequestContext().put(Header.HEADER_LIST, headers);
 
         try
         {
@@ -693,30 +699,30 @@ public class SalesForce implements Initialisable
         Soap client = login();
 
         QueryResult qr = null;
-        QueryOptions qo = new QueryOptions();
-        qo.setBatchSize(batchsize);
-
-        // We have already added the sessionId to the Header.HEADER_LIST so we must retrieve it first to use it.
-        List<Header> headers = (List<Header>) ((BindingProvider) client).getRequestContext().get(Header.HEADER_LIST);
-        if (headers == null)
-        {
-            throw new RuntimeException("The header list was not initialized.");
-        }
-
-        if (jQueryOptionsDataBinding == null)
-        {
-            try
-            {
-                jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
-            } catch (JAXBException e)
-            {
-                throw new RuntimeException(e);
-            }
-
-        }
-
-        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "QueryOptions"), qo, jQueryOptionsDataBinding));
-        ((BindingProvider) client).getRequestContext().put(Header.HEADER_LIST, headers);
+//        QueryOptions qo = new QueryOptions();
+//        qo.setBatchSize(batchsize);
+//
+//        // We have already added the sessionId to the Header.HEADER_LIST so we must retrieve it first to use it.
+//        List<Header> headers = (List<Header>) ((BindingProvider) client).getRequestContext().get(Header.HEADER_LIST);
+//        if (headers == null)
+//        {
+//            throw new RuntimeException("The header list was not initialized.");
+//        }
+//
+//        if (jQueryOptionsDataBinding == null)
+//        {
+//            try
+//            {
+//                jQueryOptionsDataBinding = new JAXBDataBinding(QueryOptions.class);
+//            } catch (JAXBException e)
+//            {
+//                throw new RuntimeException(e);
+//            }
+//
+//        }
+//
+//        headers.add(new Header(new QName("urn:partner.soap.sforce.com", "QueryOptions"), qo, jQueryOptionsDataBinding));
+//        ((BindingProvider) client).getRequestContext().put(Header.HEADER_LIST, headers);
 
         try
         {
@@ -905,13 +911,13 @@ public class SalesForce implements Initialisable
 
     public void initialise() throws InitialisationException
     {
-        try
-        {
-            jSessionDataBinding = new JAXBDataBinding(SessionHeader.class);
-        } catch (JAXBException e)
-        {
-            throw new RuntimeException(e);
-        }
+//        try
+//        {
+//            jSessionDataBinding = new JAXBDataBinding(SessionHeader.class);
+//        } catch (JAXBException e)
+//        {
+//            throw new RuntimeException(e);
+//        }
 
 
         try

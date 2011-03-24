@@ -2,10 +2,10 @@
 
 
 <!--
-Salesforce.com Partner Web Services API Version 19.0
-Generated on 2010-07-26 11:12:09 +0000.
+Salesforce.com Partner Web Services API Version 21.0
+Generated on 2011-02-15 22:27:30 +0000.
 
-Copyright 1999-2010 salesforce.com, inc.
+Copyright 1999-2011 salesforce.com, inc.
 All Rights Reserved
 -->
 
@@ -132,6 +132,7 @@ All Rights Reserved
                 <sequence>
                     <element name="accessibilityMode"          type="xsd:boolean"/>
                     <element name="currencySymbol"             type="xsd:string" nillable="true"/>
+                    <element name="orgAttachmentFileSizeLimit" type="xsd:int"/>
                     <element name="orgDefaultCurrencyIsoCode"  type="xsd:string" nillable="true"/>
                     <element name="orgDisallowHtmlAttachments" type="xsd:boolean"/>
                     <element name="orgHasPersonAccounts"       type="xsd:boolean"/>
@@ -140,6 +141,7 @@ All Rights Reserved
                     <element name="organizationName"           type="xsd:string"/>
                     <element name="profileId"                  type="tns:ID"/>
                     <element name="roleId"                     type="tns:ID" nillable="true"/>
+                    <element name="sessionSecondsValid"        type="xsd:int"/>
                     <element name="userDefaultCurrencyIsoCode" type="xsd:string" nillable="true"/>
                     <element name="userEmail"                  type="xsd:string"/>
                     <element name="userFullName"               type="xsd:string"/>
@@ -168,6 +170,7 @@ All Rights Reserved
 
             <simpleType name="StatusCode">
                 <restriction base="xsd:string">
+                    <enumeration value="ALL_OR_NONE_OPERATION_ROLLED_BACK"/>
                     <enumeration value="ALREADY_IN_PROCESS"/>
                     <enumeration value="ASSIGNEE_TYPE_REQUIRED"/>
                     <enumeration value="BAD_CUSTOM_ENTITY_PARENT_DOMAIN"/>
@@ -239,6 +242,8 @@ All Rights Reserved
                     <enumeration value="INVALID_CURRENCY_CONV_RATE"/>
                     <enumeration value="INVALID_CURRENCY_CORP_RATE"/>
                     <enumeration value="INVALID_CURRENCY_ISO"/>
+                    <enumeration value="INVALID_DATA_CATEGORY_GROUP_REFERENCE"/>
+                    <enumeration value="INVALID_DATA_URI"/>
                     <enumeration value="INVALID_EMAIL_ADDRESS"/>
                     <enumeration value="INVALID_EMPTY_KEY_OWNER"/>
                     <enumeration value="INVALID_FIELD"/>
@@ -299,10 +304,12 @@ All Rights Reserved
                     <enumeration value="OPTED_OUT_OF_MASS_MAIL"/>
                     <enumeration value="OP_WITH_INVALID_USER_TYPE_EXCEPTION"/>
                     <enumeration value="PACKAGE_LICENSE_REQUIRED"/>
+                    <enumeration value="PORTAL_NO_ACCESS"/>
                     <enumeration value="PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT"/>
                     <enumeration value="PRIVATE_CONTACT_ON_ASSET"/>
                     <enumeration value="RECORD_IN_USE_BY_WORKFLOW"/>
                     <enumeration value="REQUEST_RUNNING_TOO_LONG"/>
+                    <enumeration value="REQUIRED_FEATURE_MISSING"/>
                     <enumeration value="REQUIRED_FIELD_MISSING"/>
                     <enumeration value="SELF_REFERENCE_FROM_TRIGGER"/>
                     <enumeration value="SHARE_NEEDED_FOR_CHILD_OWNER"/>
@@ -324,6 +331,8 @@ All Rights Reserved
                     <enumeration value="UNSPECIFIED_EMAIL_ADDRESS"/>
                     <enumeration value="UNSUPPORTED_APEX_TRIGGER_OPERATON"/>
                     <enumeration value="UNVERIFIED_SENDER_ADDRESS"/>
+                    <enumeration value="USER_OWNS_PORTAL_ACCOUNT_EXCEPTION"/>
+                    <enumeration value="USER_WITH_APEX_SHARES_EXCEPTION"/>
                     <enumeration value="WEBLINK_SIZE_LIMIT_EXCEEDED"/>
                     <enumeration value="WRONG_CONTROLLER_TYPE"/>
                 </restriction>
@@ -507,7 +516,7 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
-            <!-- this is a subset of properties for each MuleSObject that is returned by the describeGlobal call -->
+            <!-- this is a subset of properties for each SObject that is returned by the describeGlobal call -->
             <complexType name="DescribeGlobalSObjectResult">
                 <sequence>
                     <element name="activateable"        type="xsd:boolean"/>
@@ -1571,6 +1580,16 @@ All Rights Reserved
             </element>
 
 
+
+        <element name="AllOrNoneHeader">
+            <complexType>
+                <sequence>
+                    <element name="allOrNone" type="xsd:boolean" />
+                </sequence>
+            </complexType>
+        </element>
+
+
             <!-- ideally this could of just been elem name="..." type="xsd:boolean"
                  but is required to be nested within a complexType for .NET 1.1 compatibility -->
             <element name="MruHeader">
@@ -1642,6 +1661,7 @@ All Rights Reserved
                     <enumeration value="EXCEEDED_MAX_TYPES_LIMIT"/>
                     <enumeration value="EXCEEDED_QUOTA"/>
                     <enumeration value="FUNCTIONALITY_NOT_ENABLED"/>
+                    <enumeration value="FUNCTIONALITY_TEMPORARILY_UNAVAILABLE"/>
                     <enumeration value="INACTIVE_OWNER_OR_USER"/>
                     <enumeration value="INACTIVE_PORTAL"/>
                     <enumeration value="INSUFFICIENT_ACCESS"/>
@@ -1670,6 +1690,7 @@ All Rights Reserved
                     <enumeration value="INVALID_SSO_GATEWAY_URL"/>
                     <enumeration value="INVALID_TYPE"/>
                     <enumeration value="INVALID_TYPE_FOR_OPERATION"/>
+                    <enumeration value="JSON_PARSER_ERROR"/>
                     <enumeration value="LIMIT_EXCEEDED"/>
                     <enumeration value="LOGIN_CHALLENGE_ISSUED"/>
                     <enumeration value="LOGIN_CHALLENGE_PENDING"/>
@@ -1701,6 +1722,8 @@ All Rights Reserved
                     <enumeration value="UNKNOWN_EXCEPTION"/>
                     <enumeration value="UNSUPPORTED_API_VERSION"/>
                     <enumeration value="UNSUPPORTED_CLIENT"/>
+                    <enumeration value="UNSUPPORTED_MEDIA_TYPE"/>
+                    <enumeration value="XML_PARSER_ERROR"/>
                 </restriction>
             </simpleType>
             <!-- For convenience these QNames are returned in the standard soap faultcode element -->
@@ -1725,6 +1748,7 @@ All Rights Reserved
                     <enumeration value="fns:EXCEEDED_MAX_TYPES_LIMIT"/>
                     <enumeration value="fns:EXCEEDED_QUOTA"/>
                     <enumeration value="fns:FUNCTIONALITY_NOT_ENABLED"/>
+                    <enumeration value="fns:FUNCTIONALITY_TEMPORARILY_UNAVAILABLE"/>
                     <enumeration value="fns:INACTIVE_OWNER_OR_USER"/>
                     <enumeration value="fns:INACTIVE_PORTAL"/>
                     <enumeration value="fns:INSUFFICIENT_ACCESS"/>
@@ -1753,6 +1777,7 @@ All Rights Reserved
                     <enumeration value="fns:INVALID_SSO_GATEWAY_URL"/>
                     <enumeration value="fns:INVALID_TYPE"/>
                     <enumeration value="fns:INVALID_TYPE_FOR_OPERATION"/>
+                    <enumeration value="fns:JSON_PARSER_ERROR"/>
                     <enumeration value="fns:LIMIT_EXCEEDED"/>
                     <enumeration value="fns:LOGIN_CHALLENGE_ISSUED"/>
                     <enumeration value="fns:LOGIN_CHALLENGE_PENDING"/>
@@ -1784,6 +1809,8 @@ All Rights Reserved
                     <enumeration value="fns:UNKNOWN_EXCEPTION"/>
                     <enumeration value="fns:UNSUPPORTED_API_VERSION"/>
                     <enumeration value="fns:UNSUPPORTED_CLIENT"/>
+                    <enumeration value="fns:UNSUPPORTED_MEDIA_TYPE"/>
+                    <enumeration value="fns:XML_PARSER_ERROR"/>
                 </restriction>
             </simpleType>
 
@@ -1887,6 +1914,9 @@ All Rights Reserved
         <part element="tns:QueryOptions"                 name="QueryOptions"/>
         <part element="tns:AssignmentRuleHeader"         name="AssignmentRuleHeader"/>
         <part element="tns:AllowFieldTruncationHeader"   name="AllowFieldTruncationHeader"/>
+
+        <part element="tns:AllOrNoneHeader"              name="AllOrNoneHeader"/>
+
 
         <part element="tns:DisableFeedTrackingHeader"    name="DisableFeedTrackingHeader"/>
 
@@ -2608,6 +2638,7 @@ All Rights Reserved
                 <soap:header use="literal" message="tns:Header" part="MruHeader"/>
                 <soap:header use="literal" message="tns:Header" part="AllowFieldTruncationHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DisableFeedTrackingHeader"/>
+                <soap:header use="literal" message="tns:Header" part="AllOrNoneHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DebuggingHeader"/>
                 <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
                 <soap:header use="literal" message="tns:Header" part="EmailHeader"/>
@@ -2639,6 +2670,7 @@ All Rights Reserved
                 <soap:header use="literal" message="tns:Header" part="MruHeader"/>
                 <soap:header use="literal" message="tns:Header" part="AllowFieldTruncationHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DisableFeedTrackingHeader"/>
+                <soap:header use="literal" message="tns:Header" part="AllOrNoneHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DebuggingHeader"/>
                 <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
                 <soap:header use="literal" message="tns:Header" part="EmailHeader"/>
@@ -2670,6 +2702,7 @@ All Rights Reserved
                 <soap:header use="literal" message="tns:Header" part="MruHeader"/>
                 <soap:header use="literal" message="tns:Header" part="AllowFieldTruncationHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DisableFeedTrackingHeader"/>
+                <soap:header use="literal" message="tns:Header" part="AllOrNoneHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DebuggingHeader"/>
                 <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
                 <soap:header use="literal" message="tns:Header" part="EmailHeader"/>
@@ -2733,6 +2766,7 @@ All Rights Reserved
                 <soap:header use="literal" message="tns:Header" part="EmailHeader"/>
                 <soap:header use="literal" message="tns:Header" part="AllowFieldTruncationHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DisableFeedTrackingHeader"/>
+                <soap:header use="literal" message="tns:Header" part="AllOrNoneHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DebuggingHeader"/>
                 <soap:body parts="parameters" use="literal"/>
             </input>
@@ -2751,6 +2785,7 @@ All Rights Reserved
                 <soap:header use="literal" message="tns:Header" part="CallOptions"/>
                 <soap:header use="literal" message="tns:Header" part="AllowFieldTruncationHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DisableFeedTrackingHeader"/>
+                <soap:header use="literal" message="tns:Header" part="AllOrNoneHeader"/>
                 <soap:header use="literal" message="tns:Header" part="DebuggingHeader"/>
                 <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
                 <soap:body parts="parameters" use="literal"/>
@@ -3103,7 +3138,7 @@ All Rights Reserved
     <service name="SforceService">
         <documentation>Sforce SOAP API</documentation>
         <port binding="tns:SoapBinding" name="Soap">
-            <soap:address location="https://login.salesforce.com/services/Soap/u/19.0"/>
+            <soap:address location="https://login.salesforce.com/services/Soap/u/21.0"/>
         </port>
     </service>
 </definitions>
