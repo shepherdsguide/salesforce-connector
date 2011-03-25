@@ -11,6 +11,7 @@ package org.mule.components;
 
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
+import org.mule.components.config.ProxyConfigurator;
 import org.mule.components.model.MuleSObject;
 import org.mule.util.StringUtils;
 
@@ -51,12 +52,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.MessageContext;
 
-import org.apache.cxf.endpoint.Client;
-import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.headers.Header;
 import org.apache.cxf.jaxb.JAXBDataBinding;
-import org.apache.cxf.transport.http.HTTPConduit;
-import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 import org.apache.xerces.dom.ElementNSImpl;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -165,13 +162,11 @@ public class SalesForce implements Initialisable
     {
         if (StringUtils.isNotBlank(proxyHost) && (proxyPort != -1))
         {
-            HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
-            httpClientPolicy.setProxyServer(proxyHost);
-            httpClientPolicy.setProxyServerPort(proxyPort);
-
-            Client client = ClientProxy.getClient(soap);
-            HTTPConduit http = (HTTPConduit) client.getConduit();
-            http.setClient(httpClientPolicy);
+            // The purpose of JAX-WS is to be independent of the SPI implementation. The code for
+            // configuring the HTTP proxy *is* dependent on the CXF HTTP transport. A simple
+            // workaround for now is to pull this part out into a separate class which will not
+            // even be loaded if no proxy is configured.
+            new ProxyConfigurator(soap).configure(proxyHost, proxyPort);
         }
     }
 
