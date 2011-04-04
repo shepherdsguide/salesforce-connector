@@ -9,12 +9,15 @@
  */
 package org.mule.components.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MuleSObject extends HashMap<String, String>
 {
     protected String type;
+    protected List<MuleSObject> childern;
 
     public String getType()
     {
@@ -29,5 +32,20 @@ public class MuleSObject extends HashMap<String, String>
     public void setFields(Map<String, String> fields)
     {
         this.putAll(fields);
+    }
+
+    public List<MuleSObject> getChildern()
+    {
+        if (childern == null)
+        {
+            childern = new ArrayList();
+        }
+
+        return childern;
+    }
+
+    public void setChildern(List<MuleSObject> childern)
+    {
+        this.childern = childern;
     }
 }

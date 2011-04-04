@@ -187,6 +187,25 @@ public class SalesForceTestCase extends FunctionalTestCase
         assertNotNull(result);
     }
 
+//    public void testSandBox() throws Exception
+//    {
+//        SalesForce sf = init();
+//        sf.setLoginUrl("https://test.salesforce.com/services/Soap/u/21.0");
+//
+//        List<MuleSObject> maps = sf.query("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
+//        assertNotNull(maps);
+//        assertTrue(maps.size() > 0);
+//    }
+
+    public void testChildenElements() throws Exception
+    {
+        SalesForce sf = init();
+
+        List<MuleSObject> maps = sf.query("SELECT Account.Name, (SELECT Contact.FirstName, Contact.LastName FROM Account.Contacts) " +
+                "FROM Account WHERE Account.Name = 'United Oil & Gas Corp.'", 20);
+        assertNotNull(maps);
+
+    }
 
     @Override
     protected String getConfigResources()

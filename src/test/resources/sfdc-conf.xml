@@ -48,7 +48,7 @@
     <flow name="transformerTest">
         <inbound-endpoint address="vm://transformerTest" exchange-pattern="request-response"/>
 
-        <sfdc:query query="SELECT Id, Name FROM Account WHERE Name='GenePoint'" batchsize="1"/>
+        <sfdc:query query="SELECT Id, Name, Phone FROM Account WHERE Name='GenePoint'" batchsize="1"/>
 
         <sfdc:mule-sobjects-to-string-transformer/>
 

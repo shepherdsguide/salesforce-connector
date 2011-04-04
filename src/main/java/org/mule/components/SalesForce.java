@@ -9,6 +9,7 @@
  */
 package org.mule.components;
 
+import org.apache.xerces.dom.TextImpl;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.config.ProxyConfigurator;
@@ -57,6 +58,8 @@ import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.xerces.dom.ElementNSImpl;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class SalesForce implements Initialisable
 {
@@ -66,6 +69,7 @@ public class SalesForce implements Initialisable
     private String proxyHost;
     private int proxyPort = -1;
     private String securityToken;
+    private String loginUrl;
     private JAXBDataBinding jSessionDataBinding;
     private JAXBDataBinding jQueryOptionsDataBinding = null;
     private Document docBuilder;
@@ -120,6 +124,16 @@ public class SalesForce implements Initialisable
         this.proxyPort = proxyPort;
     }
 
+    public String getLoginUrl()
+    {
+        return loginUrl;
+    }
+
+    public void setLoginUrl(String loginUrl)
+    {
+        this.loginUrl = loginUrl;
+    }
+
     protected Soap login() throws RuntimeException
     {
         Soap client = null;
@@ -127,6 +141,12 @@ public class SalesForce implements Initialisable
 
         sforceService = new SforceService(getClass().getResource("/partner.wsdl"));
         client = sforceService.getPort(Soap.class);
+        BindingProvider bindingProvider = ((BindingProvider) client);
+
+        if (loginUrl != null && !loginUrl.isEmpty())
+        {
+            bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, loginUrl);
+        }
 
         initializeHttpProxy(client);
 
@@ -139,10 +159,8 @@ public class SalesForce implements Initialisable
             throw new RuntimeException(e);
         }
 
-        BindingProvider bindingProvider = ((BindingProvider) client);
         bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, loginResult.getServerUrl());
 
-        //Enable GZip compression
         Map<String, List<String>> httpHeaders = new HashMap<String, List<String>>();
         Map<String, Object> reqContext = bindingProvider.getRequestContext();
         reqContext.put(MessageContext.HTTP_REQUEST_HEADERS, httpHeaders);
@@ -215,9 +233,17 @@ public class SalesForce implements Initialisable
                 if (object instanceof ElementNSImpl)
                 {
                     ElementNSImpl element = (ElementNSImpl) object;
-                    if (element.getFirstChild() != null)
+                    if (element.getFirstChild() != null && element.getFirstChild() instanceof TextImpl)
                     {
                         muleSObject.put(element.getLocalName(), element.getFirstChild().getTextContent());
+                    }
+                    if (element.getFirstChild() != null && element.getFirstChild() instanceof ElementNSImpl)
+                    {
+                        populateChildern(muleSObject, element);
+                    }
+                    else if (element.getFirstChild() != null && element.getTextContent() != null)
+                    {
+                        muleSObject.put(element.getLocalName(), element.getTextContent());
                     }
                     else
                     {
@@ -228,6 +254,49 @@ public class SalesForce implements Initialisable
         }
 
         return maps;
+    }
+
+    private void populateChildern(MuleSObject muleSObject, Node node)
+    {
+        ElementNSImpl element = (ElementNSImpl) node;
+        NodeList list = element.getElementsByTagNameNS("urn:partner.soap.sforce.com", "records");
+
+        for (int i = 0; i < list.getLength(); i++)
+        {
+            MuleSObject childObject = new MuleSObject();
+            Node child = list.item(i);
+
+            for (int j = 0; j < child.getChildNodes().getLength(); j++)
+            {
+                Node field = (ElementNSImpl) child.getChildNodes().item(j);
+
+                if (StringUtils.equals(field.getLocalName(), "type"))
+                {
+                    childObject.setType(field.getTextContent());
+                }
+                else if (StringUtils.equals(field.getLocalName(), "Id"))
+                {
+                    childObject.put("Id", field.getTextContent());
+                }
+                else if (field.getFirstChild() != null && field.getFirstChild() instanceof ElementNSImpl)
+                {
+                    populateChildern(childObject, field);
+                }
+                else
+                {
+                    if (!StringUtils.isBlank(field.getTextContent()))
+                    {
+                        childObject.put(field.getLocalName(), field.getTextContent());
+                    }
+                    else
+                    {
+                        childObject.put(field.getLocalName(), null);
+                    }
+                }
+            }
+
+            muleSObject.getChildern().add(childObject);
+        }
     }
 
     /**
