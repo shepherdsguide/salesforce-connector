@@ -41,7 +41,7 @@ public class SalesForceTestCase extends FunctionalTestCase
         assertNotNull(sfdc.getUsername());
     }
 
-    public void testContactCreate() throws Exception
+    public void testCreateAndDeleteContactViaPojo() throws Exception
     {
         SalesForce sf = init();
 
@@ -73,7 +73,7 @@ public class SalesForceTestCase extends FunctionalTestCase
         assertTrue(dr.get(0).isSuccess());
     }
 
-    public void testContactCreateAndDeleteConfig() throws Exception
+    public void testCreateAndDeleteContactViaConfig() throws Exception
     {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("FirstName", "Mule");
