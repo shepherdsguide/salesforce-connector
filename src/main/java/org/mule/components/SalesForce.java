@@ -9,7 +9,6 @@
  */
 package org.mule.components;
 
-import org.apache.xerces.dom.TextImpl;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.config.ProxyConfigurator;
@@ -56,6 +55,7 @@ import javax.xml.ws.handler.MessageContext;
 import org.apache.cxf.headers.Header;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.xerces.dom.ElementNSImpl;
+import org.apache.xerces.dom.TextImpl;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -143,7 +143,7 @@ public class SalesForce implements Initialisable
         client = sforceService.getPort(Soap.class);
         BindingProvider bindingProvider = ((BindingProvider) client);
 
-        if (loginUrl != null && !loginUrl.isEmpty())
+        if (StringUtils.isNotEmpty(loginUrl))
         {
             bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, loginUrl);
         }
@@ -268,7 +268,7 @@ public class SalesForce implements Initialisable
 
             for (int j = 0; j < child.getChildNodes().getLength(); j++)
             {
-                Node field = (ElementNSImpl) child.getChildNodes().item(j);
+                Node field = child.getChildNodes().item(j);
 
                 if (StringUtils.equals(field.getLocalName(), "type"))
                 {
