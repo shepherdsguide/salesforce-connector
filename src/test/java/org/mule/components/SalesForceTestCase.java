@@ -1,5 +1,6 @@
 package org.mule.components;
 
+import com.sforce.soap.partner.SetPasswordResult;
 import org.mule.api.MuleMessage;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.model.MuleSObject;
@@ -39,6 +40,14 @@ public class SalesForceTestCase extends FunctionalTestCase
     {
         SalesForce sfdc = muleContext.getRegistry().get("salesforce");
         assertNotNull(sfdc.getUsername());
+    }
+
+    public void testSetPassword() throws Exception
+    {
+        MuleClient client = new MuleClient(muleContext);
+        MuleMessage result = client.send("vm://setPassword", null);
+
+        SetPasswordResult sr = (SetPasswordResult) result.getPayload();
     }
 
     public void testCreateAndDeleteContactViaPojo() throws Exception

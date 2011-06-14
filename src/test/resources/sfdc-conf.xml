@@ -68,5 +68,8 @@
         </sfdc:create>
     </flow>
 
-
+    <flow name="setPasswordFlow">
+        <inbound-endpoint address="vm://setPassword" exchange-pattern="request-response"/>
+        <sfdc:set-password userId="1234" password="muleftw"/>
+    </flow>
 </mule>

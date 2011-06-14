@@ -70,6 +70,12 @@ public class SalesForceNamespaceHandler extends AbstractPojoNamespaceHandler
         registerMuleBeanDefinitionParser("upsert-sobjects", new InvokerMessageProcessorDefinitionParser("messageProcessor",
                 SalesForce.class, "upsertSObjects", new String[]{"externalIdFieldName", "sObjects"}));
 
+        registerMuleBeanDefinitionParser("set-password", new InvokerMessageProcessorDefinitionParser("messageProcessor",
+                SalesForce.class, "setPassword", new String[]{"userId", "password"}));
+
+        registerMuleBeanDefinitionParser("reset-password", new InvokerMessageProcessorDefinitionParser("messageProcessor",
+                SalesForce.class, "resetPassword", new String[]{"userId"}));
+
         registerBeanDefinitionParser("sobject-to-string-transformer", new MessageProcessorDefinitionParser(SObjectToString.class));
 
         registerBeanDefinitionParser("mule-sobjects-to-string-transformer", new MessageProcessorDefinitionParser(MuleSObjectsToString.class));

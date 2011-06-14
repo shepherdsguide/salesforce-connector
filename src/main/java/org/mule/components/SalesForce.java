@@ -9,31 +9,13 @@
  */
 package org.mule.components;
 
+import com.sforce.soap.partner.*;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.config.ProxyConfigurator;
 import org.mule.components.model.MuleSObject;
 import org.mule.util.StringUtils;
 
-import com.sforce.soap.partner.DeleteResult;
-import com.sforce.soap.partner.EmptyRecycleBinResult;
-import com.sforce.soap.partner.GetDeletedResult;
-import com.sforce.soap.partner.GetUpdatedResult;
-import com.sforce.soap.partner.InvalidateSessionsResult;
-import com.sforce.soap.partner.LeadConvert;
-import com.sforce.soap.partner.LeadConvertResult;
-import com.sforce.soap.partner.LoginResult;
-import com.sforce.soap.partner.ProcessRequest;
-import com.sforce.soap.partner.ProcessResult;
-import com.sforce.soap.partner.ProcessSubmitRequest;
-import com.sforce.soap.partner.ProcessWorkitemRequest;
-import com.sforce.soap.partner.QueryOptions;
-import com.sforce.soap.partner.QueryResult;
-import com.sforce.soap.partner.SaveResult;
-import com.sforce.soap.partner.SessionHeader;
-import com.sforce.soap.partner.SforceService;
-import com.sforce.soap.partner.Soap;
-import com.sforce.soap.partner.UpsertResult;
 import com.sforce.soap.partner.sobject.SObject;
 
 import java.util.ArrayList;
@@ -971,6 +953,50 @@ public class SalesForce implements Initialisable
         return ur;
     }
 
+    /**
+     * Sets the specified user’s password to the specified value.
+     *
+     * @param userId ID of the User or SelfServiceUser whose password you want to set.
+     * @param password New password to use for the specified user.
+     */
+    public SetPasswordResult setPassword(String userId, String password)
+    {
+        Soap client = login();
+
+        SetPasswordResult spr;
+
+        try
+        {
+            spr = client.setPassword(userId, password);
+        } catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        return spr;
+    }
+
+    /**
+     * Changes a user’s password to a temporary, system-generated value.
+     *
+     * @param userId ID of the User or SelfServiceUser whose password you want to reset.
+     */
+    public ResetPasswordResult resetPassword(String userId)
+    {
+        Soap client = login();
+
+        ResetPasswordResult rpr;
+
+        try
+        {
+            rpr = client.resetPassword(userId);
+        } catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        return rpr;
+    }
 
     public void initialise() throws InitialisationException
     {

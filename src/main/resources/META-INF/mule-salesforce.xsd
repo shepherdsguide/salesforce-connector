@@ -799,6 +799,69 @@
         </xsd:complexContent>
     </xsd:complexType>
 
+    <xsd:element name="set-password" type="setPasswordType" substitutionGroup="mule:abstract-message-processor">
+        <xsd:annotation>
+            <xsd:documentation>
+                Sets the specified user’s password to the specified value.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="setPasswordType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:abstractInterceptingMessageProcessorType">
+                <xsd:attribute name="userId" type="xsd:string" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            ID of the User or SelfServiceUser whose password you want to set.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="password" type="xsd:string" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            New password to use for the specified user.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="config-ref" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the config element for Salesforce.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="reset-password" type="resetPasswordType" substitutionGroup="mule:abstract-message-processor">
+        <xsd:annotation>
+            <xsd:documentation>
+                Changes a user’s password to a temporary, system-generated value.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="resetPasswordType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:abstractInterceptingMessageProcessorType">
+                <xsd:attribute name="userId" type="xsd:string" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            ID of the User or SelfServiceUser whose password you want to set.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="config-ref" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the config element for Salesforce.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
     <xsd:element name="sobject-to-string-transformer" type="mule:abstractTransformerType"
                  substitutionGroup="mule:abstract-transformer">
         <xsd:annotation>
