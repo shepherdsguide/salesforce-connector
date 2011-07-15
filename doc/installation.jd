@@ -1,0 +1,39 @@
+page.group=Getting Started
+page.title=Installation
+@jd:body
+<p>The connector can either be installed for all applications running within the Mule instance or can be setup to be
+used for a single application.</p>
+
+<h2>All Applications</h2>
+
+<p>Download the connector from the link above and place the resulting jar file in /lib/user directory of the Mule
+installation folder.</p>
+
+<h2>Single Application</h2>
+
+<p>To make the connector available only to single application then place it in the lib directory of the application
+otherwise if using Maven to compile and deploy your application the following can be done:</p>
+
+<p>Add the module's Maven repo to your pom.xml:</p>
+
+<pre>
+&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;muleforge-releases&lt;/id&gt;
+        &lt;name&gt;MuleForge Releases Repository&lt;/name&gt;
+        &lt;url&gt;https://repository.mulesoft.org/releases/&lt;/url&gt;
+        &lt;layout&gt;default&lt;/layout&gt;
+    &lt;/repsitory&gt;
+&lt;/repositories&gt;
+</pre>
+
+<p>Add the connector as a dependency to your project. This can be done by adding the following under the dependencies
+element in the pom.xml file of the application:</p>
+
+<pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;<?cs var:project.groupId ?>&lt;/groupId&gt;
+    &lt;artifactId&gt;mule-module-sfdc&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>

@@ -1,0 +1,12 @@
+page.group=Getting Started
+page.title=Prerequisites
+@jd:body
+Prerequisites
+In order to implement a connection to your Salesforce account from Boomi AtomSphere, you'll need to complete the following:
+
+You will need both your login and password in order to access the Salesforce web service.
+You must confirm that your Salesforce account has privileges to connect to the Salesforce API. Your Salesforce representative can confirm this for you by providing you with a Sender ID and password specific to the integration API.
+An atom must be deployed on your local machine or hosted with Boomi AtomSphere.
+You should review and reference Boomi AtomSphere's Pre-Loaded Salesforce Processes and use them as a guide for building and customizing your own interfaces.
+Use the Salesforce API Guide for specific Salesforce object and field reference.
+Due to a security change with Salesforce, you must replace your current password with a combination of your password and a security token. Please see the instructions below.
