@@ -43,6 +43,7 @@ public class SalesforceBayeuxClient extends BayeuxClient {
             public void onMessage(ClientSessionChannel channel, Message message) {
                 if (message.isSuccessful()) {
                     for( String subscriptionChannel : subscriptions.keySet() ) {
+                        LOGGER.info("Subscribing to channel: " + subscriptionChannel);
                         getChannel(subscriptionChannel).subscribe(subscriptions.get(subscriptionChannel));
                     }
                 }
@@ -89,7 +90,7 @@ public class SalesforceBayeuxClient extends BayeuxClient {
     public void subscribe(String channel, ClientSessionChannel.MessageListener messageListener) {
         this.subscriptions.put(channel, messageListener);
 
-        if (isConnected()) {
+        if (isHandshook()) {
             getChannel(channel).subscribe(messageListener);
         }
     }

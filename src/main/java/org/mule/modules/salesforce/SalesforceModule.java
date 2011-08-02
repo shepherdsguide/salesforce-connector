@@ -550,8 +550,6 @@ public class SalesforceModule implements SalesforceSessionManager {
      */
     @Source
     public void subscribeTopic(String topic, final SourceCallback callback) {
-        initializeBayeuxClient();
-
         this.bc.subscribe(topic, new ClientSessionChannel.MessageListener() {
             @Override
             public void onMessage(ClientSessionChannel channel, Message message) {
@@ -568,6 +566,8 @@ public class SalesforceModule implements SalesforceSessionManager {
     protected void connect() throws ConnectionException {
         this.connection = Connector.newConnection(createConnectorConfig());
         login();
+
+        initializeBayeuxClient();
     }
 
     @Override
