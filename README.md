@@ -6,18 +6,18 @@ Congratulations you have just created a new Mule Cloud connector!
 Now you need to make sure that you update you pom.xml to use version
 3.1.2 of Mule. This will ensure you are compiling against the correct
 version of Mule and you will avoid issues arising from not being about to find
-configuration schemas for this module.
+configuration schemas for this sessionManager.
 
 This wizard created a number of new classes and resources useful for Mule
 cloud connectors.  Each of the created files contains documentation and TODO
 items where necessary.  Here is an overview of what was created.
 
 ./pom.xml:
-A maven project descriptor that describes how to build this module. It also
+A maven project descriptor that describes how to build this sessionManager. It also
 contains  additional information about how to share the connector on MuleForge.
 
 ./assembly.xml:
-A maven assembly descriptor that defines how this module will be packaged
+A maven assembly descriptor that defines how this sessionManager will be packaged
 when you make a release.
 
 ./LICENSE.txt:

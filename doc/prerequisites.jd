@@ -1,0 +1,11 @@
+page.group=Fundamentals
+page.title=Prerequisites
+@jd:body
+<p>In order to implement a connection to your Salesforce account from Mule, you'll need to complete the following:</p>
+<p>
+<ul>
+<li>You will need both your login and password in order to access the Salesforce web service.</li>
+<li>You must confirm that your Salesforce account has privileges to connect to the Salesforce API. Your Salesforce representative can confirm this for you by providing you with a Sender ID and password specific to the integration API.</li>
+<li>Use the Salesforce API Guide for specific Salesforce object and field reference.</li>
+<li>Due to a security change with Salesforce, you must replace your current password with a combination of your password and a security token. Please see the instructions below.</li>
+</ul></p>

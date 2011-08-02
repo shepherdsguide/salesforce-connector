@@ -1,4 +1,4 @@
-page.group=Getting Started
+page.group=Fundamentals
 page.title=Installation
 @jd:body
 <p>The connector can either be installed for all applications running within the Mule instance or can be setup to be
@@ -33,7 +33,7 @@ element in the pom.xml file of the application:</p>
 <pre>
 &lt;dependency&gt;
     &lt;groupId&gt;<?cs var:project.groupId ?>&lt;/groupId&gt;
-    &lt;artifactId&gt;mule-module-sfdc&lt;/artifactId&gt;
-    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;artifactId&gt;<?cs var:project.artifactId ?>&lt;/artifactId&gt;
+    &lt;version&gt;<?cs var:project.version ?>&lt;/version&gt;
 &lt;/dependency&gt;
 </pre>

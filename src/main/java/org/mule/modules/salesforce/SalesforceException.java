@@ -5,7 +5,7 @@ import com.sforce.soap.partner.StatusCode;
 /**
  * A runtime exception that wraps a {@link StatusCode}
  */
-public class SalesforceException extends RuntimeException {
+public class SalesforceException extends Exception {
     private StatusCode statusCode;
 
     public SalesforceException(Throwable e) {
