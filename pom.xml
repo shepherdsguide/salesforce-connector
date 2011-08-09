@@ -200,10 +200,6 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-</project>
-          </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
   <distributionManagement>
     <repository>
@@ -218,4 +214,5 @@
       <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
   </distributionManagement>
+
 </project>
