@@ -1,6 +1,7 @@
 package org.mule.components;
 
 import com.sforce.soap.partner.SetPasswordResult;
+import org.mule.DefaultMuleMessage;
 import org.mule.api.MuleMessage;
 import org.mule.api.lifecycle.InitialisationException;
 import org.mule.components.model.MuleSObject;
@@ -45,7 +46,7 @@ public class SalesForceTestCase extends FunctionalTestCase
     public void testSetPassword() throws Exception
     {
         MuleClient client = new MuleClient(muleContext);
-        MuleMessage result = client.send("vm://setPassword", null);
+        MuleMessage result = client.send("vm://setPassword", new DefaultMuleMessage("", muleContext));
 
         SetPasswordResult sr = (SetPasswordResult) result.getPayload();
     }
@@ -153,7 +154,7 @@ public class SalesForceTestCase extends FunctionalTestCase
     {
         SalesForce sf = init();
 
-        QueryResult qr = sf.querySObject("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
+        QueryResult qr = sf.querySObject("SELECT Id, Name FROM Account", 1);
         assertNotNull(qr);
         assertTrue(qr.getRecords().size() > 0);
 
@@ -172,9 +173,19 @@ public class SalesForceTestCase extends FunctionalTestCase
     {
         SalesForce sf = init();
 
-        List<MuleSObject> maps = sf.query("SELECT Id, Name FROM Account WHERE Name='GenePoint'", 1);
+        List<MuleSObject> maps = sf.query("Select c.CreatedBy.FirstName, c.CreatedBy.LastName, c.Id, c.LastName from Contact c", 1);
+
         assertNotNull(maps);
         assertTrue(maps.size() > 0);
+
+        assertNotNull(maps.get(0).get("Id"));
+        assertNotNull(maps.get(0).get("LastName"));
+
+        List<MuleSObject> childern = maps.get(0).getChildern();
+        assertEquals(1, childern.size());
+
+        assertNotNull(childern.get(0).get("FirstName"));
+        assertNotNull(childern.get(0).get("LastName"));
     }
 
     public void testQueryConfig() throws Exception

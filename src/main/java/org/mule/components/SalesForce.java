@@ -238,47 +238,38 @@ public class SalesForce implements Initialisable
         return maps;
     }
 
-    private void populateChildern(MuleSObject muleSObject, Node node)
+    private void populateChildern(MuleSObject muleSObject, ElementNSImpl node)
     {
-        ElementNSImpl element = (ElementNSImpl) node;
-        NodeList list = element.getElementsByTagNameNS("urn:partner.soap.sforce.com", "records");
-
-        for (int i = 0; i < list.getLength(); i++)
+        MuleSObject childObject = new MuleSObject();
+        for (int i = 0; i < node.getChildNodes().getLength(); i++)
         {
-            MuleSObject childObject = new MuleSObject();
-            Node child = list.item(i);
-
-            for (int j = 0; j < child.getChildNodes().getLength(); j++)
+            Node child = node.item(i);
+            String localName = child.getLocalName();
+            if (StringUtils.equals(localName, "type"))
             {
-                Node field = child.getChildNodes().item(j);
-
-                if (StringUtils.equals(field.getLocalName(), "type"))
+                childObject.setType(child.getTextContent());
+            }
+            else if (StringUtils.equals(localName, "Id"))
+            {
+                childObject.put("Id", child.getTextContent());
+            }
+            else if (child.getFirstChild() != null && child.getFirstChild() instanceof ElementNSImpl)
+            {
+                populateChildern(childObject, (ElementNSImpl)child);
+            }
+            else
+            {
+                if (!StringUtils.isBlank(child.getTextContent()))
                 {
-                    childObject.setType(field.getTextContent());
-                }
-                else if (StringUtils.equals(field.getLocalName(), "Id"))
-                {
-                    childObject.put("Id", field.getTextContent());
-                }
-                else if (field.getFirstChild() != null && field.getFirstChild() instanceof ElementNSImpl)
-                {
-                    populateChildern(childObject, field);
+                    childObject.put(localName, child.getTextContent());
                 }
                 else
                 {
-                    if (!StringUtils.isBlank(field.getTextContent()))
-                    {
-                        childObject.put(field.getLocalName(), field.getTextContent());
-                    }
-                    else
-                    {
-                        childObject.put(field.getLocalName(), null);
-                    }
+                    childObject.put(localName, null);
                 }
             }
-
-            muleSObject.getChildern().add(childObject);
         }
+        muleSObject.getChildern().add(childObject);
     }
 
     /**
