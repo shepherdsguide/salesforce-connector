@@ -1,6 +1,5 @@
 package org.mule.modules.salesforce;
 
-import com.sforce.soap.partner.Connector;
 import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
@@ -8,20 +7,13 @@ import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetDeletedResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
-import com.sforce.soap.partner.LoginResult;
-import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
-import com.sforce.ws.ConnectorConfig;
 import org.apache.log4j.Logger;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
-import org.cometd.client.BayeuxClient;
-import org.cometd.client.transport.ClientTransport;
-import org.cometd.client.transport.HttpClientTransport;
-import org.cometd.client.transport.LongPollingTransport;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
@@ -29,15 +21,15 @@ import org.mule.api.annotations.Source;
 import org.mule.api.annotations.callback.SourceCallback;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.api.annotations.param.Session;
+import org.mule.api.annotations.param.SessionKey;
+import org.mule.api.annotations.session.SessionCreate;
+import org.mule.api.annotations.session.SessionDestroy;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,20 +44,8 @@ import java.util.Map;
  * quick and easy.
  */
 @Module(name = "sfdc", version = "4.0")
-public class SalesforceModule implements SalesforceSessionManager {
+public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
-
-    /**
-     * Username for authenticating the connection
-     */
-    @Configurable
-    private String username;
-
-    /**
-     * Password
-     */
-    @Configurable
-    private String password;
 
     /**
      * Proxy host
@@ -97,14 +77,6 @@ public class SalesforceModule implements SalesforceSessionManager {
     private String proxyPassword;
 
     /**
-     * Poll timeout
-     */
-    @Configurable
-    @Optional
-    @Default("120000")
-    private int pollTimeout;
-
-    /**
      * SalesForce SOAP endpoint
      */
     @Configurable
@@ -113,29 +85,14 @@ public class SalesforceModule implements SalesforceSessionManager {
     private URL url;
 
     /**
-     * Partner connection
-     */
-    private PartnerConnection connection;
-
-    /**
-     * Login result
-     */
-    private LoginResult loginResult;
-
-    /**
-     * Bayeux client
-     */
-    private SalesforceBayeuxClient bc;
-
-    /**
-     * Adds one or more new records to your organization's data.
+     * Adds one or more new records to yosageSourceur organization's data.
      *
      * @param objects An array of one or more sObjects objects.
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> create(List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> create(@Session SalesforceSession session, List<Map<String, String>> objects) throws SalesforceException {
 
         SObject[] sobjects = new SObject[objects.size()];
 
@@ -148,7 +105,7 @@ public class SalesforceModule implements SalesforceSessionManager {
 
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(this.connection.create(sobjects));
+            saveResults = Arrays.asList(session.getConnection().create(sobjects));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in create: " +
                     e.getMessage(), e);
@@ -162,19 +119,9 @@ public class SalesforceModule implements SalesforceSessionManager {
      *
      * @throws SalesforceException
      */
-    @Processor
-    public synchronized void invalidateSession() throws SalesforceException {
-
-        if( this.getSessionId() == null || this.getSessionId().length() == 0 )
-            return;
-
-        try {
-            this.connection.logout();
-            this.loginResult = null;
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in invalidateSession: " +
-                    e.getMessage(), e);
-        }
+    @SessionDestroy
+    public synchronized void destroySession(@Session SalesforceSession session) throws SalesforceException {
+        session.destroy();
     }
 
     /**
@@ -185,7 +132,7 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> update(List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> update(@Session SalesforceSession session, List<Map<String, String>> objects) throws SalesforceException {
 
         SObject[] sobjects = new SObject[objects.size()];
 
@@ -198,7 +145,7 @@ public class SalesforceModule implements SalesforceSessionManager {
 
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(this.connection.update(sobjects));
+            saveResults = Arrays.asList(session.getConnection().update(sobjects));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in update: " +
                     e.getMessage(), e);
@@ -214,9 +161,9 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public DescribeGlobalResult describeGlobal() throws SalesforceException {
+    public DescribeGlobalResult describeGlobal(@Session SalesforceSession session) throws SalesforceException {
         try {
-            return this.connection.describeGlobal();
+            return session.getConnection().describeGlobal();
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in describeGlobal: " +
                     e.getMessage(), e);
@@ -233,9 +180,9 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public List<Map<String, Object>> query(String query) throws SalesforceException {
+    public List<Map<String, Object>> query(@Session SalesforceSession session, String query) throws SalesforceException {
         try {
-            SObject[] objects = this.connection.query(query).getRecords();
+            SObject[] objects = session.getConnection().query(query).getRecords();
             List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
             for (SObject object : objects) {
                 result.add(object.toMap());
@@ -262,9 +209,9 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public Map<String, Object> querySingle(String query) throws SalesforceException {
+    public Map<String, Object> querySingle(@Session SalesforceSession session, String query) throws SalesforceException {
         try {
-            SObject[] result = this.connection.query(query).getRecords();
+            SObject[] result = session.getConnection().query(query).getRecords();
             if (result.length > 0) {
                 return result[0].toMap();
             }
@@ -321,7 +268,8 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public LeadConvertResult convertLead(String leadId, String contactId,
+    public LeadConvertResult convertLead(@Session SalesforceSession session,
+                                         String leadId, String contactId,
                                          String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity,
                                          String opportunityName, String convertedStatus, Boolean sendEmailToOwner)
             throws SalesforceException {
@@ -341,7 +289,7 @@ public class SalesforceModule implements SalesforceSessionManager {
         LeadConvertResult[] lcr = null;
 
         try {
-            lcr = this.connection.convertLead(list);
+            lcr = session.getConnection().convertLead(list);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in convertLead: " +
                     e.getMessage(), e);
@@ -362,11 +310,11 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @return A list of {@link EmptyRecycleBinResult}
      */
     @Processor
-    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws SalesforceException {
+    public List<EmptyRecycleBinResult> emptyRecycleBin(@Session SalesforceSession session, List<String> ids) throws SalesforceException {
         EmptyRecycleBinResult[] emptyRecycleBinResults = null;
 
         try {
-            emptyRecycleBinResults = this.connection.emptyRecycleBin(ids.toArray(new String[]{}));
+            emptyRecycleBinResults = session.getConnection().emptyRecycleBin(ids.toArray(new String[]{}));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in emptyRecycleBin: " +
                     e.getMessage(), e);
@@ -384,10 +332,10 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public List<DeleteResult> delete(List<String> ids) throws SalesforceException {
+    public List<DeleteResult> delete(@Session SalesforceSession session, List<String> ids) throws SalesforceException {
         List<DeleteResult> deleteResults = null;
         try {
-            deleteResults = Arrays.asList(this.connection.delete((String[]) ids.toArray()));
+            deleteResults = Arrays.asList(session.getConnection().delete((String[]) ids.toArray()));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in delete: " +
                     e.getMessage(), e);
@@ -410,12 +358,12 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws SalesforceException {
+    public GetDeletedResult getDeletedRange(@Session SalesforceSession session, String type, Calendar startTime, Calendar endTime) throws SalesforceException {
 
         GetDeletedResult gdr = null;
 
         try {
-            gdr = this.connection.getDeleted(type, startTime, endTime);
+            gdr = session.getConnection().getDeleted(type, startTime, endTime);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in getDeletedRange: " +
                     e.getMessage(), e);
@@ -433,12 +381,12 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public DescribeSObjectResult describeSObject(String type) throws SalesforceException {
+    public DescribeSObjectResult describeSObject(@Session SalesforceSession session, String type) throws SalesforceException {
 
         DescribeSObjectResult dsobj = null;
 
         try {
-            dsobj = this.connection.describeSObject(type);
+            dsobj = session.getConnection().describeSObject(type);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in describeSObject: " +
                     e.getMessage(), e);
@@ -455,12 +403,12 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
-    public GetDeletedResult getDeleted(String type, int duration) throws SalesforceException {
+    public GetDeletedResult getDeleted(@Session SalesforceSession session, String type, int duration) throws SalesforceException {
         GetDeletedResult gdr = null;
         Calendar serverTime = null;
 
         try {
-            serverTime = this.connection.getServerTimestamp().getTimestamp();
+            serverTime = session.getConnection().getServerTimestamp().getTimestamp();
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in getTimestamp: " +
                     e.getMessage(), e);
@@ -469,7 +417,7 @@ public class SalesforceModule implements SalesforceSessionManager {
         Calendar endTime = (Calendar) serverTime.clone();
 
         endTime.add(Calendar.MINUTE, duration);
-        gdr = getDeletedRange(type, startTime, endTime);
+        gdr = getDeletedRange(session, type, startTime, endTime);
 
         return gdr;
     }
@@ -487,9 +435,9 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @throws SalesforceException
      */
     @Processor
-    public void publishTopic(String name, String query, @Optional String description) throws SalesforceException {
+    public void publishTopic(@Session SalesforceSession session, String name, String query, @Optional String description) throws SalesforceException {
         try {
-            QueryResult result = this.connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
+            QueryResult result = session.getConnection().query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
             if (result.getSize() == 0) {
                 SObject pushTopic = new SObject();
                 pushTopic.setType("PushTopic");
@@ -500,7 +448,7 @@ public class SalesforceModule implements SalesforceSessionManager {
                 pushTopic.setField("Name", name);
                 pushTopic.setField("Query", query);
 
-                SaveResult[] saveResults = this.connection.create(new SObject[]{pushTopic});
+                SaveResult[] saveResults = session.getConnection().create(new SObject[]{pushTopic});
                 if (!saveResults[0].isSuccess()) {
                     throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
                 }
@@ -511,7 +459,7 @@ public class SalesforceModule implements SalesforceSessionManager {
 
                 pushTopic.setField("Query", query);
 
-                SaveResult[] saveResults = this.connection.update(new SObject[]{pushTopic});
+                SaveResult[] saveResults = session.getConnection().update(new SObject[]{pushTopic});
                 if (!saveResults[0].isSuccess()) {
                     throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
                 }
@@ -522,26 +470,6 @@ public class SalesforceModule implements SalesforceSessionManager {
         }
     }
 
-    private synchronized void initializeBayeuxClient() {
-        try {
-            if (this.bc == null) {
-                Map<String, Object> options = new HashMap<String, Object>();
-                options.put(ClientTransport.TIMEOUT_OPTION, pollTimeout);
-
-                HttpClientTransport clientTransport = LongPollingTransport.create(options);
-
-                URL serviceEndpoint = new URL(this.connection.getConfig().getServiceEndpoint());
-                this.bc = new SalesforceBayeuxClient(this, "https://" + serviceEndpoint.getHost() + "/cometd", clientTransport);
-
-                if (!this.bc.isHandshook()) {
-                    this.bc.handshake();
-                }
-            }
-        } catch (MalformedURLException e) {
-            LOGGER.error(e.getMessage());
-        }
-    }
-
     /**
      * Subscribe to a topic.
      *
@@ -549,8 +477,8 @@ public class SalesforceModule implements SalesforceSessionManager {
      * @param callback The callback to be called when a message is received
      */
     @Source
-    public void subscribeTopic(String topic, final SourceCallback callback) {
-        this.bc.subscribe(topic, new ClientSessionChannel.MessageListener() {
+    public void subscribeTopic(@Session SalesforceSession session, String topic, final SourceCallback callback) {
+        session.getBayeuxClient().subscribe(topic, new ClientSessionChannel.MessageListener() {
             @Override
             public void onMessage(ClientSessionChannel channel, Message message) {
                 try {
@@ -562,101 +490,15 @@ public class SalesforceModule implements SalesforceSessionManager {
         });
     }
 
-    @PostConstruct
-    protected void connect() throws ConnectionException {
-        this.connection = Connector.newConnection(createConnectorConfig());
-        login();
+    @SessionCreate
+    public synchronized SalesforceSession createSession(@SessionKey String username, String password) throws ConnectionException {
+        SalesforceSession session = new SalesforceSession(this.url, username, password,
+                this.proxyHost, this.proxyPort,
+                this.proxyUsername, this.proxyPassword);
 
-        initializeBayeuxClient();
-    }
+        session.initialize();
 
-    @Override
-    public synchronized void login() throws ConnectionException {
-        LOGGER.debug("Attempting to login into Salesforce using " + this.username);
-        this.loginResult = this.connection.login(this.username, this.password);
-
-        LOGGER.debug("Session established sucessfully with ID " + this.loginResult.getSessionId());
-
-        this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
-        this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
-    }
-
-    @PreDestroy
-    protected void disconnect() {
-        if (this.bc != null) {
-            if (this.bc.isConnected()) {
-                this.bc.disconnect();
-            }
-        }
-
-        if (this.connection != null) {
-            try {
-                this.connection.logout();
-                this.loginResult = null;
-            } catch (ConnectionException ce) {
-                LOGGER.error(ce);
-            }
-        }
-    }
-
-    private ConnectorConfig createConnectorConfig() {
-        ConnectorConfig config = new ConnectorConfig();
-        config.setUsername(this.username);
-        config.setPassword(this.password);
-
-        config.setAuthEndpoint(url.toString());
-        config.setServiceEndpoint(url.toString());
-
-        config.setManualLogin(true);
-
-        if (this.proxyHost != null) {
-            config.setProxy(this.proxyHost, this.proxyPort);
-            if (this.proxyUsername != null) {
-                config.setProxyUsername(this.proxyUsername);
-            }
-            if (this.proxyPassword != null) {
-                config.setProxyPassword(this.proxyPassword);
-            }
-        }
-
-        return config;
-    }
-
-    /**
-     * Retrieve username
-     *
-     * @return The username
-     */
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * Set username
-     *
-     * @param username Username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * Retrieve password
-     *
-     * @return Password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Set password
-     *
-     * @param password Password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
+        return session;
     }
 
     /**
@@ -731,24 +573,8 @@ public class SalesforceModule implements SalesforceSessionManager {
         this.proxyPassword = proxyPassword;
     }
 
-    public int getPollTimeout() {
-        return pollTimeout;
-    }
-
-    public void setPollTimeout(int pollTimeout) {
-        this.pollTimeout = pollTimeout;
-    }
-
     public URL getUrl() {
         return url;
-    }
-
-    @Override
-    public String getSessionId() {
-        if( this.loginResult == null )
-            return null;
-
-        return this.loginResult.getSessionId();
     }
 
     /**

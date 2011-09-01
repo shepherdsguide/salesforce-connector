@@ -20,22 +20,26 @@ import java.util.Map;
 public class SalesforceBayeuxClient extends BayeuxClient {
     private static final int HANDSHAKE_TIMEOUT = 30 * 1000;
     private static final Logger LOGGER = Logger.getLogger(SalesforceBayeuxClient.class);
+    private static final String LOGIN_COOKIE = "login";
+    private static final String LOCALEINFO_COOKIE = "com.salesforce.LocaleInfo";
+    private static final String SESSIONID_COOKIE = "sid";
+    private static final String LANGUAGE_COOKIE = "language";
     private Map<String, org.cometd.bayeux.client.ClientSessionChannel.MessageListener> subscriptions;
-    private SalesforceSessionManager sessionManager;
+    private SalesforceSession session;
 
     /**
      * Create a new instance of this Bayeux client.
      *
-     * @param sessionManager Session information
+     * @param session Session information
      * @param url            Url to connect to
      * @param transport      the default (mandatory) transport to use
      * @param transports     additional optional transports to use in case the default transport cannot be used
      * @see #BayeuxClient(String, java.util.concurrent.ScheduledExecutorService, ClientTransport, ClientTransport...)
      */
-    public SalesforceBayeuxClient(SalesforceSessionManager sessionManager, String url, ClientTransport transport, ClientTransport... transports) {
+    public SalesforceBayeuxClient(SalesforceSession session, String url, ClientTransport transport, ClientTransport... transports) {
         super(url, transport, transports);
 
-        this.sessionManager = sessionManager;
+        this.session = session;
         this.subscriptions = Collections.synchronizedMap(new HashMap<String, ClientSessionChannel.MessageListener>());
         setCookies();
 
@@ -52,10 +56,10 @@ public class SalesforceBayeuxClient extends BayeuxClient {
     }
 
     private void setCookies() {
-        setCookie("com.salesforce.LocaleInfo", "us");
-        setCookie("login", this.sessionManager.getUsername());
-        setCookie("sid", this.sessionManager.getSessionId());
-        setCookie("language", "en_US");
+        setCookie(LOCALEINFO_COOKIE, "us");
+        setCookie(LOGIN_COOKIE, session.getConnection().getConfig().getUsername());
+        setCookie(SESSIONID_COOKIE, session.getLoginResult().getSessionId());
+        setCookie(LANGUAGE_COOKIE, "en_US");
     }
 
     /**
@@ -67,11 +71,9 @@ public class SalesforceBayeuxClient extends BayeuxClient {
      */
     public void onFailure(Throwable x, Message[] messages) {
         if (x instanceof ProtocolException) {
-            LOGGER.info("Session seem to have expired...");
-            LOGGER.debug(x);
             try {
-                disconnect();
-                this.sessionManager.login();
+                session.destroy();
+                session.initialize();
                 setCookies();
                 handshake(HANDSHAKE_TIMEOUT);
             } catch (ConnectionException e) {
