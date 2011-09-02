@@ -50,25 +50,6 @@ public class SalesforceSession {
         LOGGER.debug("Session established sucessfully with ID " + this.loginResult.getSessionId() + " at instance " + this.loginResult.getServerUrl());
         this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
         this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
-
-        try {
-            if (this.bc == null) {
-                Map<String, Object> options = new HashMap<String, Object>();
-                options.put(ClientTransport.TIMEOUT_OPTION, pollTimeout);
-
-                HttpClientTransport clientTransport = LongPollingTransport.create(options);
-
-                URL serviceEndpoint = new URL(this.connection.getConfig().getServiceEndpoint());
-                this.bc = new SalesforceBayeuxClient(this, "https://" + serviceEndpoint.getHost() + "/cometd", clientTransport);
-
-                if (!this.bc.isHandshook()) {
-                    this.bc.handshake();
-                }
-            }
-        } catch (MalformedURLException e) {
-            LOGGER.error(e.getMessage());
-        }
-
     }
 
     public void destroy() {
@@ -121,6 +102,24 @@ public class SalesforceSession {
     }
 
     public SalesforceBayeuxClient getBayeuxClient() {
+        try {
+            if (this.bc == null) {
+                Map<String, Object> options = new HashMap<String, Object>();
+                options.put(ClientTransport.TIMEOUT_OPTION, pollTimeout);
+
+                HttpClientTransport clientTransport = LongPollingTransport.create(options);
+
+                URL serviceEndpoint = new URL(this.connection.getConfig().getServiceEndpoint());
+                this.bc = new SalesforceBayeuxClient(this, "https://" + serviceEndpoint.getHost() + "/cometd", clientTransport);
+
+                if (!this.bc.isHandshook()) {
+                    this.bc.handshake();
+                }
+            }
+        } catch (MalformedURLException e) {
+            LOGGER.error(e.getMessage());
+        }
+
         return bc;
     }
 }
