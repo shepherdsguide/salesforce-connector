@@ -9,7 +9,7 @@
     <name>Mule Salesforce Connector</name>
 
     <properties>
-        <mule.version>3.1.2</mule.version>
+        <mule.version>3.2.0</mule.version>
         <mule.devkit.version>3.0-SNAPSHOT</mule.devkit.version>
         <junit.version>4.8.2</junit.version>
         <mockito.version>1.8.2</mockito.version>
