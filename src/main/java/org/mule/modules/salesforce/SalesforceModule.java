@@ -382,7 +382,7 @@ public class SalesforceModule {
      * @return {@link DescribeSObjectResult}
      * @throws SalesforceException
      */
-    @Processor
+    @Processor(name="describe-sobject")
     public DescribeSObjectResult describeSObject(@Session SalesforceSession session, String type) throws SalesforceException {
 
         DescribeSObjectResult dsobj = null;
