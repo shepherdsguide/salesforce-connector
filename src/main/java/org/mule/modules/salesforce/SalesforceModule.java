@@ -492,6 +492,14 @@ public class SalesforceModule {
         });
     }
 
+    /**
+     * Creates a new Salesforce session
+     *
+     * @param username Username used to initialize the session
+     * @param password Password used to authenticate the user
+     * @return A {@link SalesforceSession} object containing the session id
+     * @throws ConnectionException if a problem occurred while trying to create the session
+     */
     @SessionCreate
     public synchronized SalesforceSession createSession(@SessionKey String username, String password) throws ConnectionException {
         SalesforceSession session = new SalesforceSession(this.url, username, password,
