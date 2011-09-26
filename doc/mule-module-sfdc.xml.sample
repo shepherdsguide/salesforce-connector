@@ -1,0 +1,76 @@
+<!-- BEGIN_INCLUDE(sfdc:convert-lead) -->
+<enricher target="#[variable:accountId]" source="#[map-payload:id]">
+    <sfdc:query-single query="SELECT id FROM Account WHERE Name='CompanyNameOfLeadBeingMerged'"/>
+</enricher>
+<enricher target="#[variable:contactId]" source="#[map-payload:id]">
+    <sfdc:query-single query="SELECT id FROM contact WHERE FirstName='FirstName' and LastName='LastName' AND AccountId = '#[variable:accountId]"/>
+</enricher>
+<sfdc:convert-lead leadId="001..." contactId="#[variable:contactId]" overWriteLeadSource="false" doNotCreateOpportunity="true"
+                   convertedStatus="Qualified" sendEmailToOwner="true"/>
+<!-- END_INCLUDE(sfdc:convert-lead) -->
+<!-- BEGIN_INCLUDE(sfdc:create) -->
+<sfdc:create type="Account">
+    <sfdc:objects>
+        <sfdc:object>
+            <Name>MuleSoft</Name>
+            <BillingStreet>30 Maiden Lane</BillingStreet>
+            <BillingCity>San Francisco</BillingCity>
+            <BillingState>CA</BillingState>
+            <BillingPostalCode>94108</BillingPostalCode>
+            <BillingCountry>US</BillingCountry>
+        </sfdc:object>
+    </sfdc:objects>
+</sfdc:create>
+<!-- END_INCLUDE(sfdc:create) -->
+<!-- BEGIN_INCLUDE(sfdc:delete) -->
+<sfdc:delete>
+    <sfdc:ids>
+        <sfdc:id>001...</sfdc:id>
+    <sfdc:ids>
+</sfdc:delete>
+<!-- END_INCLUDE(sfdc:delete) -->
+<!-- BEGIN_INCLUDE(sfdc:describe-global) -->
+<sfdc:describe-global/>
+<!-- END_INCLUDE(sfdc:describe-global) -->
+<!-- BEGIN_INCLUDE(sfdc:describe-sobject) -->
+<sfdc:describe-sobject type="Account"/>
+<!-- END_INCLUDE(sfdc:describe-sobject) -->
+<!-- BEGIN_INCLUDE(sfdc:empty-recycle-bin) -->
+<sfdc:empty-recycle-bin>
+    <sfdc:ids>
+        <sfdc:id>001...</sfdc:id>
+    <sfdc:ids>
+</sfdc:empty-recycle-bin>
+<!-- END_INCLUDE(sfdc:empty-recycle-bin) -->
+<!-- BEGIN_INCLUDE(sfdc:get-deleted-range) -->
+<sfdc:get-deleted-range type="Account" startTime="#[variable:startTime]" endTime="#[variable:endTime]"/>
+<!-- END_INCLUDE(sfdc:get-deleted-range) -->
+<!-- BEGIN_INCLUDE(sfdc:publish-topic) -->
+<sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/>
+<!-- END_INCLUDE(sfdc:publish-topic) -->
+<!-- BEGIN_INCLUDE(sfdc:query) -->
+<sfdc:query query="SELECT Id FROM Account"/>
+<!-- END_INCLUDE(sfdc:query) -->
+<!-- BEGIN_INCLUDE(sfdc:query-single) -->
+<sfdc:query-single query="SELECT Id FROM Account"/>
+<!-- END_INCLUDE(sfdc:query-single) -->
+<!-- BEGIN_INCLUDE(sfdc:update) -->
+<sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/>
+<!-- Update Name of the Account -->
+<sfdc:update type="Account">
+    <sfdc:objects>
+        <sfdc:object ref="#[payload]"/>
+    </sfdc:objects>
+</sfdc:update>
+<!-- END_INCLUDE(sfdc:update) -->
+<!-- BEGIN_INCLUDE(sfdc:subscribe-topic) -->
+<flow name="sendSmsNotifications">
+    <sfdc:subscribe-topic config-ref="salesforce-default"
+                          topic="/NewsFeedStream"/>
+    <twilio:send-sms-message config-ref="twilio-default"
+                             accountSid="${twilio.accountSid}"
+                             from="${twilio.phoneNumber}"
+                             to="#[map-payload:To__c]"
+                             body="#[map-payload:Text__c]"/>
+</flow>
+<!-- END_INCLUDE(sfdc:subscribe-topic) -->

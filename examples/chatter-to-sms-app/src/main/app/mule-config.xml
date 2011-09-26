@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+      xmlns:twilio="http://www.mulesoft.org/schema/mule/twilio"
+      xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+        http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd
+        http://www.mulesoft.org/schema/mule/twilio http://www.mulesoft.org/schema/mule/twilio/1.0/mule-twilio.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <description>
+        SalesForce to Twilio Demo
+    </description>
+
+    <spring:beans>
+        <context:property-placeholder
+                location="classpath:credentials.properties"/>
+    </spring:beans>
+
+    <twilio:config name="twilio-default" accountSid="${twilio.accountSid}"
+                   authToken="${twilio.authToken}"/>
+    <sfdc:config name="salesforce-default" username="${salesforce.username}"
+                 password="${salesforce.password}"/>
+
+    <flow name="sendSmsNotifications">
+        <sfdc:subscribe-topic config-ref="salesforce-default"
+                              topic="/NewsFeedStream"/>
+        <logger level="INFO" message="#[payload]"/>
+        <regex-filter pattern="\#now"/>
+        <twilio:send-sms-message config-ref="twilio-default"
+                                 accountSid="${twilio.accountSid}"
+                                 from="${twilio.phoneNumber}"
+                                 to="#[map-payload:To__c]"
+                                 body="#[map-payload:Text__c]"/>
+    </flow>
+</mule>

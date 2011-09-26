@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:freshbooks="http://www.mulesoft.org/schema/mule/freshbooks"
+      xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+        http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/1.0/mule-mongo.xsd
+        http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/1.0/mule-sfdc.xsd
+        http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/1.0/mule-http.xsd
+        http://www.mulesoft.org/schema/mule/freshbooks http://www.mulesoft.org/schema/mule/freshbooks/1.0-SNAPSHOT/mule-freshbooks.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <description>
+        SalesForce to Freshbooks Demo
+    </description>
+
+    <sfdc:config name="salesforce-default" username="emiliano.lesende@mule.stream" password="muleftw1wZqr0qZsR4zInbg7hesSBHsLA"/>
+    <freshbooks:config apiUrl="https://mulesoft.freshbooks.com/api/2.1/xml-in"
+                       authenticationToken="d2712de2609e665e03948614ad7197fc"/>
+
+    <flow name="syncContactsWithFreshbooks">
+        <sfdc:subscribe-topic config-ref="salesforce-default"
+                              topic="/FreshbooksStream"/>
+        <logger level="INFO" message="#[payload]"/>
+        <enricher>
+            <sfdc:query-single query="SELECT Id,Name,Phone,Fax,BillingStreet,BillingState,
+                BillingPostalCode,BillingCountry,BillingCity FROM Account WHERE Id = '#[map-payload:AccountId]'"/>
+            <enrich target="#[variable:accountName]" source="#[map-payload:Name]" />
+            <enrich target="#[variable:accountPhone]" source="#[map-payload:Phone?]" />
+            <enrich target="#[variable:accountFax]" source="#[map-payload:Fax?]" />
+            <enrich target="#[variable:accountBillingStreet]" source="#[map-payload:BillingStreet?]"/>
+            <enrich target="#[variable:accountBillingState]" source="#[map-payload:BillingState?]"/>
+            <enrich target="#[variable:accountBillingPostalCode]" source="#[map-payload:BillingPostalCode?]"/>
+            <enrich target="#[variable:accountBillingCountry]" source="#[map-payload:BillingCountry?]"/>
+            <enrich target="#[variable:accountBillingCity]" source="#[map-payload:BillingCity?]"/>
+        </enricher>
+        <logger level="INFO" message="ENRICHED -> #[payload]"/>
+        <freshbooks:create-client firstName="#[map-payload:FirstName]" lastName="#[map-payload:LastName]" organization="#[variable:accountName]"
+                                  email="#[map-payload:Email]" workPhone="#[variable:accountPhone]" homePhone="#[map-payload:HomePhone?]"
+                                  mobile="#[map-payload:MobilePhone?]" fax="#[variable:accountFax]"
+                                  primaryStreet1="#[variable:accountBillingStreet]" primaryCity="#[variable:accountBillingCity]"
+                                  primaryState="#[variable:accountBillingState]" primaryCountry="#[variable:accountBillingCountry]"
+                                  primaryZipCode="#[variable:accountBillingPostalCode]"/>
+        <logger level="INFO" message="#[payload]"/>
+    </flow>
+</mule>
