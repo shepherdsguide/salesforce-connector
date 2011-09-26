@@ -87,20 +87,25 @@ public class SalesforceModule {
     private URL url;
 
     /**
-     * Adds one or more new records to yosageSourceur organization's data.
+     * Adds one or more new records to your organization's data.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create}
      *
      * @param objects An array of one or more sObjects objects.
+     * @param type Type of object to create
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> create(@Session SalesforceSession session, List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> create(@Session SalesforceSession session, String type, List<Map<String, String>> objects) throws SalesforceException {
 
         SObject[] sobjects = new SObject[objects.size()];
 
         for (Map<String, String> map : objects) {
             SObject sObject = new SObject();
             for (String key : map.keySet()) {
+                sObject.setType(type);
                 sObject.setField(key, map.get(key));
             }
         }
@@ -128,6 +133,9 @@ public class SalesforceModule {
 
     /**
      * Updates one or more existing records in your organization's data.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:update}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
      * @return An array of {@link SaveResult}
@@ -159,6 +167,9 @@ public class SalesforceModule {
     /**
      * Retrieves a list of available objects for your organization's data.
      *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-global}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-global}
+     *
      * @return A {@link DescribeGlobalResult}
      * @throws SalesforceException
      */
@@ -174,6 +185,9 @@ public class SalesforceModule {
 
     /**
      * Executes a query against the specified object and returns data that matches the specified criteria.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
@@ -199,10 +213,9 @@ public class SalesforceModule {
 
     /**
      * Executes a query against the specified object and returns the first record that matches the specified criteria.
-     * <p/>
-     * {@code
-     * <sfdc:query-single query="SELECT Id, Name FROM Account"/>
-     * }
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query-single}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query-single}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
@@ -227,6 +240,9 @@ public class SalesforceModule {
 
     /**
      * Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:convert-lead}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:convert-lead}
      *
      * @param leadId                 ID of the Lead to convert. Required. For information on IDs, see ID Field Type.
      * @param contactId              ID of the Contact into which the lead will be merged (this contact must be
@@ -272,8 +288,12 @@ public class SalesforceModule {
     @Processor
     public LeadConvertResult convertLead(@Session SalesforceSession session,
                                          String leadId, String contactId,
-                                         String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity,
-                                         String opportunityName, String convertedStatus, Boolean sendEmailToOwner)
+                                         @Optional String accountId,
+                                         @Optional @Default("false") Boolean overWriteLeadSource,
+                                         @Optional @Default("false") Boolean doNotCreateOpportunity,
+                                         @Optional String opportunityName,
+                                         String convertedStatus,
+                                         @Optional @Default("false") Boolean sendEmailToOwner)
             throws SalesforceException {
 
         LeadConvert leadConvert = new LeadConvert();
@@ -282,7 +302,9 @@ public class SalesforceModule {
         leadConvert.setAccountId(accountId);
         leadConvert.setOverwriteLeadSource(overWriteLeadSource);
         leadConvert.setDoNotCreateOpportunity(doNotCreateOpportunity);
-        leadConvert.setOpportunityName(opportunityName);
+        if( opportunityName != null ) {
+            leadConvert.setOpportunityName(opportunityName);
+        }
         leadConvert.setConvertedStatus(convertedStatus);
         leadConvert.setSendNotificationEmail(sendEmailToOwner);
         LeadConvert[] list = new LeadConvert[1];
@@ -307,6 +329,9 @@ public class SalesforceModule {
      * Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
      * the oldest records, as long as they have been in the recycle bin for at least two hours.
      *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:empty-recycle-bin}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:empty-recycle-bin}
+     *
      * @param ids Array of one or more IDs associated with the records to delete from the recycle bin.
      *            Maximum number of records is 200.
      * @return A list of {@link EmptyRecycleBinResult}
@@ -329,6 +354,9 @@ public class SalesforceModule {
     /**
      * Deletes one or more records from your organization’s data.
      *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:delete}
+     *
      * @param ids Array of one or more IDs associated with the objects to delete.
      * @return An array of {@link DeleteResult}
      * @throws SalesforceException
@@ -348,6 +376,9 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted-range}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted-range}
      *
      * @param type      Object type. The specified value must be a valid object for your organization.
      * @param startTime Starting date/time (Coordinated Universal Time (UTC)�not local� timezone) of the timespan for
@@ -377,6 +408,9 @@ public class SalesforceModule {
     /**
      * Describes metadata (field list and object properties) for the specified object.
      *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-sobject}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-sobject}
+     *
      * @param type Object. The specified value must be a valid object for your organization. For a complete list
      *             of objects, see Standard Objects
      * @return {@link DescribeSObjectResult}
@@ -399,6 +433,9 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted}
      *
      * @param type     Object type. The specified value must be a valid object for your organization.
      * @param duration The amount of time in minutes before now for which to return records from.
@@ -428,6 +465,9 @@ public class SalesforceModule {
     /**
      * Creates a topic which represents a query that is the basis for notifying
      * listeners of changes to records in an organization.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:publish-topic}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:publish-topic}
      *
      * @param name        Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
      *                    maximum length is 25 characters. This value identifies the channel.
@@ -474,6 +514,9 @@ public class SalesforceModule {
 
     /**
      * Subscribe to a topic.
+     *
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:subscribe-topic}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:subscribe-topic}
      *
      * @param topic    The name of the topic to subscribe to
      * @param callback The callback to be called when a message is received
