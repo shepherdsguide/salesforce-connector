@@ -350,7 +350,7 @@ public class SalesforceModule {
 
 
     /**
-     * Deletes one or more records from your organization’s data.
+     * Deletes one or more records from your organization's data.
      *
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:delete}
@@ -379,10 +379,10 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted-range}
      *
      * @param type      Object type. The specified value must be a valid object for your organization.
-     * @param startTime Starting date/time (Coordinated Universal Time (UTC)�not local� timezone) of the timespan for
+     * @param startTime Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
      *                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).
-     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)�not local� timezone) of the timespan for
+     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
      * @return {@link GetDeletedResult}
