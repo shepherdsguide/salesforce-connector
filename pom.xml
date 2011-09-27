@@ -10,7 +10,7 @@
 
     <properties>
         <mule.version>3.2.0</mule.version>
-        <mule.dsl.version>0.7-SNAPSHOT</mule.dsl.version>
+        <mule.dsl.version>0.7</mule.dsl.version>
         <mule.devkit.version>3.0-SNAPSHOT</mule.devkit.version>
         <junit.version>4.8.2</junit.version>
         <mockito.version>1.8.2</mockito.version>
