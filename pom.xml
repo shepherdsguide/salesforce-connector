@@ -149,6 +149,12 @@
             <artifactId>mule-devkit-annotations</artifactId>
             <version>${mule.devkit.version}</version>
         </dependency>
+		<dependency>
+			<groupId>org.mule.dsl</groupId>
+			<artifactId>dsl-api</artifactId>
+			<version>${mule.dsl.version}</version>
+			<scope>provided</scope>
+		</dependency>
         <dependency>
             <groupId>org.mule.tests</groupId>
             <artifactId>mule-tests-functional</artifactId>
