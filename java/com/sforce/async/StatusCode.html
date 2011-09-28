@@ -1,0 +1,6891 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Salesforce Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  StatusCode
+
+
+| Mule Salesforce Connector
+
+</title>
+<link href="../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Salesforce Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../guide/index.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../java/index.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../java/com/sforce/async/package-summary.html">com.sforce.async</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/soap/partner/package-summary.html">com.sforce.soap.partner</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/soap/partner/fault/package-summary.html">com.sforce.soap.partner.fault</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/soap/partner/sobject/package-summary.html">com.sforce.soap.partner.sobject</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/package-summary.html">com.sforce.ws</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/bind/package-summary.html">com.sforce.ws.bind</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/parser/package-summary.html">com.sforce.ws.parser</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/template/package-summary.html">com.sforce.ws.template</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/tools/package-summary.html">com.sforce.ws.tools</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/transport/package-summary.html">com.sforce.ws.transport</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/types/package-summary.html">com.sforce.ws.types</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/util/package-summary.html">com.sforce.ws.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/sforce/ws/wsdl/package-summary.html">com.sforce.ws.wsdl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/salesforce/dsl/package-summary.html">org.mule.modules.salesforce.dsl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/salesforce/dsl/internal/package-summary.html">org.mule.modules.salesforce.dsl.internal</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/AsyncXmlOutputStream.html">AsyncXmlOutputStream</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/BatchInfoList.html">BatchInfoList</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/BatchRequest.html">BatchRequest</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/BatchResult.html">BatchResult</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/CSVReader.html">CSVReader</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/Error.html">Error</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/JobInfo.html">JobInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/JobInfo.Builder.html">JobInfo.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/RestConnection.html">RestConnection</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/Result.html">Result</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/SObject.html">SObject</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/AsyncExceptionCode.html">AsyncExceptionCode</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/BatchStateEnum.html">BatchStateEnum</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/ConcurrencyMode.html">ConcurrencyMode</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/ContentType.html">ContentType</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/JobStateEnum.html">JobStateEnum</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/OperationEnum.html">OperationEnum</a></li>
+          <li class="selected api apilevel-"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/AsyncApiException.html">AsyncApiException</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/sforce/async/CSVReader.CSVParseException.html">CSVReader.CSVParseException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+  <a href="#enumconstants">Enums</a>
+  
+
+
+
+
+
+  &#124; <a href="#inhfields">Inherited Fields</a>
+  
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+    final 
+    
+    enum
+<h1>StatusCode</h1>
+
+
+
+  
+  
+  
+
+  
+    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.sforce.async.StatusCode</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>StatusCode --</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ALREADY_IN_PROCESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ALREADY_IN_PROCESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ASSIGNEE_TYPE_REQUIRED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ASSIGNEE_TYPE_REQUIRED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">BAD_CUSTOM_ENTITY_PARENT_DOMAIN&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : BAD_CUSTOM_ENTITY_PARENT_DOMAIN
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_CASCADE_PRODUCT_ACTIVE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_CASCADE_PRODUCT_ACTIVE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_DEACTIVATE_DIVISION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_DEACTIVATE_DIVISION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_DELETE_LAST_DATED_CONVERSION_RATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_DELETE_LAST_DATED_CONVERSION_RATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_DELETE_MANAGED_OBJECT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_DELETE_MANAGED_OBJECT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_DISABLE_LAST_ADMIN&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_DISABLE_LAST_ADMIN
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_ENABLE_IP_RESTRICT_REQUESTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_ENABLE_IP_RESTRICT_REQUESTS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_MODIFY_MANAGED_OBJECT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_MODIFY_MANAGED_OBJECT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_RENAME_APEX_REFERENCED_FIELD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_RENAME_APEX_REFERENCED_FIELD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_RENAME_APEX_REFERENCED_OBJECT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_RENAME_APEX_REFERENCED_OBJECT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_REPARENT_RECORD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_REPARENT_RECORD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANNOT_UPDATE_CONVERTED_LEAD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANNOT_UPDATE_CONVERTED_LEAD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANT_DISABLE_CORP_CURRENCY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANT_DISABLE_CORP_CURRENCY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CANT_UNSET_CORP_CURRENCY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CANT_UNSET_CORP_CURRENCY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CHILD_SHARE_FAILS_PARENT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CHILD_SHARE_FAILS_PARENT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CIRCULAR_DEPENDENCY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CIRCULAR_DEPENDENCY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_ENTITY_OR_FIELD_LIMIT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_ENTITY_OR_FIELD_LIMIT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_INDEX_EXISTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_INDEX_EXISTS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_LINK_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_LINK_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">CUSTOM_TAB_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : CUSTOM_TAB_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DELETE_FAILED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DELETE_FAILED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DELETE_REQUIRED_ON_CASCADE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DELETE_REQUIRED_ON_CASCADE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DEPENDENCY_EXISTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DEPENDENCY_EXISTS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_CASE_SOLUTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_CASE_SOLUTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_COMM_NICKNAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_COMM_NICKNAME
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_CUSTOM_ENTITY_DEFINITION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_CUSTOM_ENTITY_DEFINITION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_CUSTOM_TAB_MOTIF&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_CUSTOM_TAB_MOTIF
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_DEVELOPER_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_DEVELOPER_NAME
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_EXTERNAL_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_EXTERNAL_ID
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_MASTER_LABEL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_MASTER_LABEL
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_USERNAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_USERNAME
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">DUPLICATE_VALUE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : DUPLICATE_VALUE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">EMPTY_SCONTROL_FILE_NAME&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : EMPTY_SCONTROL_FILE_NAME
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ENTITY_IS_ARCHIVED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ENTITY_IS_ARCHIVED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ENTITY_IS_DELETED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ENTITY_IS_DELETED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ENTITY_IS_LOCKED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ENTITY_IS_LOCKED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">ERROR_IN_MAILER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : ERROR_IN_MAILER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">FAILED_ACTIVATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : FAILED_ACTIVATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">FIELD_CUSTOM_VALIDATION_EXCEPTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : FIELD_CUSTOM_VALIDATION_EXCEPTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">FIELD_INTEGRITY_EXCEPTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : FIELD_INTEGRITY_EXCEPTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">HTML_FILE_UPLOAD_NOT_ALLOWED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : HTML_FILE_UPLOAD_NOT_ALLOWED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">IMAGE_TOO_LARGE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : IMAGE_TOO_LARGE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INACTIVE_OWNER_OR_USER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INACTIVE_OWNER_OR_USER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INSUFFICIENT_ACCESS_OR_READONLY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INSUFFICIENT_ACCESS_OR_READONLY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_ACCESS_LEVEL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_ACCESS_LEVEL
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_ARGUMENT_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_ARGUMENT_TYPE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_ASSIGNEE_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_ASSIGNEE_TYPE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_ASSIGNMENT_RULE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_ASSIGNMENT_RULE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_BATCH_OPERATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_BATCH_OPERATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CREDIT_CARD_INFO&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CREDIT_CARD_INFO
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CROSS_REFERENCE_KEY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CROSS_REFERENCE_KEY
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CURRENCY_CONV_RATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CURRENCY_CONV_RATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CURRENCY_CORP_RATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CURRENCY_CORP_RATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_CURRENCY_ISO&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_CURRENCY_ISO
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_EMAIL_ADDRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_EMAIL_ADDRESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_EMPTY_KEY_OWNER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_EMPTY_KEY_OWNER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_FIELD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_FIELD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_FIELD_FOR_INSERT_UPDATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_FIELD_FOR_INSERT_UPDATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_FIELD_WHEN_USING_TEMPLATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_FIELD_WHEN_USING_TEMPLATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_FILTER_ACTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_FILTER_ACTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_GOOGLE_DOCS_URL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_GOOGLE_DOCS_URL
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_ID_FIELD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_ID_FIELD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_INET_ADDRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_INET_ADDRESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_LINEITEM_CLONE_STATE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_LINEITEM_CLONE_STATE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_MASTER_OR_TRANSLATED_SOLUTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_MASTER_OR_TRANSLATED_SOLUTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_OPERATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_OPERATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_OPERATOR&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_OPERATOR
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_PARTNER_NETWORK_STATUS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_PARTNER_NETWORK_STATUS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_PERSON_ACCOUNT_OPERATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_PERSON_ACCOUNT_OPERATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_SAVE_AS_ACTIVITY_FLAG&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_SAVE_AS_ACTIVITY_FLAG
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_SESSION_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_SESSION_ID
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_SETUP_OWNER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_SETUP_OWNER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_STATUS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_STATUS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_TYPE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_TYPE_FOR_OPERATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_TYPE_FOR_OPERATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_TYPE_ON_FIELD_IN_RECORD&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : INVALID_TYPE_ON_FIELD_IN_RECORD
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">IP_RANGE_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : IP_RANGE_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">LICENSE_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : LICENSE_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MALFORMED_ID&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MALFORMED_ID
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MANAGER_NOT_DEFINED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MANAGER_NOT_DEFINED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MASSMAIL_RETRY_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MASSMAIL_RETRY_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MASS_MAIL_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MASS_MAIL_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAXIMUM_CCEMAILS_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAXIMUM_CCEMAILS_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAXIMUM_HIERARCHY_LEVELS_REACHED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAXIMUM_HIERARCHY_LEVELS_REACHED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAXIMUM_SIZE_OF_ATTACHMENT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAXIMUM_SIZE_OF_ATTACHMENT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAXIMUM_SIZE_OF_DOCUMENT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAXIMUM_SIZE_OF_DOCUMENT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_ACTIONS_PER_RULE_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_ACTIONS_PER_RULE_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_ACTIVE_RULES_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_ACTIVE_RULES_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_APPROVAL_STEPS_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_APPROVAL_STEPS_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_FORMULAS_PER_RULE_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_FORMULAS_PER_RULE_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_RULES_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_RULES_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_RULE_ENTRIES_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_RULE_ENTRIES_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_TASK_DESCRIPTION_EXCEEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_TASK_DESCRIPTION_EXCEEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_TM_RULES_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_TM_RULES_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MAX_TM_RULE_ITEMS_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MAX_TM_RULE_ITEMS_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MERGE_FAILED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MERGE_FAILED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MISSING_ARGUMENT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MISSING_ARGUMENT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">MIXED_DML_OPERATION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : MIXED_DML_OPERATION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NONUNIQUE_SHIPPING_ADDRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NONUNIQUE_SHIPPING_ADDRESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NO_APPLICABLE_PROCESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NO_APPLICABLE_PROCESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NO_ATTACHMENT_PERMISSION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NO_ATTACHMENT_PERMISSION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NO_MASS_MAIL_PERMISSION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NO_MASS_MAIL_PERMISSION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NUMBER_OUTSIDE_VALID_RANGE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NUMBER_OUTSIDE_VALID_RANGE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">OPTED_OUT_OF_MASS_MAIL&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : OPTED_OUT_OF_MASS_MAIL
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">PACKAGE_LICENSE_REQUIRED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : PACKAGE_LICENSE_REQUIRED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">PRIVATE_CONTACT_ON_ASSET&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : PRIVATE_CONTACT_ON_ASSET
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">RECORD_IN_USE_BY_WORKFLOW&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : RECORD_IN_USE_BY_WORKFLOW
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">REQUEST_RUNNING_TOO_LONG&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : REQUEST_RUNNING_TOO_LONG
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">REQUIRED_FIELD_MISSING&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : REQUIRED_FIELD_MISSING
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">SELF_REFERENCE_FROM_TRIGGER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : SELF_REFERENCE_FROM_TRIGGER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">SHARE_NEEDED_FOR_CHILD_OWNER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : SHARE_NEEDED_FOR_CHILD_OWNER
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">STANDARD_PRICE_NOT_DEFINED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : STANDARD_PRICE_NOT_DEFINED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">STORAGE_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : STORAGE_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">STRING_TOO_LONG&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : STRING_TOO_LONG
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TABSET_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TABSET_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TEMPLATE_NOT_ACTIVE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TEMPLATE_NOT_ACTIVE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TERRITORY_REALIGN_IN_PROGRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TERRITORY_REALIGN_IN_PROGRESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TOO_MANY_APEX_REQUESTS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TOO_MANY_APEX_REQUESTS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TOO_MANY_ENUM_VALUE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TOO_MANY_ENUM_VALUE
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">TRANSFER_REQUIRES_READ&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : TRANSFER_REQUIRES_READ
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNABLE_TO_LOCK_ROW&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNABLE_TO_LOCK_ROW
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNAVAILABLE_RECORDTYPE_EXCEPTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNAVAILABLE_RECORDTYPE_EXCEPTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNDELETE_FAILED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNDELETE_FAILED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNKNOWN_EXCEPTION&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNKNOWN_EXCEPTION
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNSPECIFIED_EMAIL_ADDRESS&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNSPECIFIED_EMAIL_ADDRESS
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">UNSUPPORTED_APEX_TRIGGER_OPERATON&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : UNSUPPORTED_APEX_TRIGGER_OPERATON
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">WEBLINK_SIZE_LIMIT_EXCEEDED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : WEBLINK_SIZE_LIMIT_EXCEEDED
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>&nbsp;</td>
+        <td class="jd-linkcol">WRONG_CONTROLLER_TYPE&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Enumeration  : WRONG_CONTROLLER_TYPE
+&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-java.lang.Enum-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+java.lang.Enum
+<div id="inherited-fields-java.lang.Enum">
+  <div id="inherited-fields-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          String</nobr></td>
+          <td class="jd-linkcol">name</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          int</nobr></td>
+          <td class="jd-linkcol">ordinal</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/sforce/async/StatusCode.html#valueOf(java.lang.String)">valueOf</a></span>(String name)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            static
+            
+            <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/sforce/async/StatusCode.html#values()">values</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Enum
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(E arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;E&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDeclaringClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">name</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">ordinal</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
+            T</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  java.lang.Comparable
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">compareTo</span>(T arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<A NAME="ALREADY_IN_PROCESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ALREADY_IN_PROCESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ALREADY_IN_PROCESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ASSIGNEE_TYPE_REQUIRED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ASSIGNEE_TYPE_REQUIRED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ASSIGNEE_TYPE_REQUIRED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="BAD_CUSTOM_ENTITY_PARENT_DOMAIN"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        BAD_CUSTOM_ENTITY_PARENT_DOMAIN
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : BAD_CUSTOM_ENTITY_PARENT_DOMAIN
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_CASCADE_PRODUCT_ACTIVE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_CASCADE_PRODUCT_ACTIVE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_CASCADE_PRODUCT_ACTIVE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_DEACTIVATE_DIVISION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_DEACTIVATE_DIVISION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_DEACTIVATE_DIVISION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_DELETE_LAST_DATED_CONVERSION_RATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_DELETE_LAST_DATED_CONVERSION_RATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_DELETE_LAST_DATED_CONVERSION_RATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_DELETE_MANAGED_OBJECT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_DELETE_MANAGED_OBJECT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_DELETE_MANAGED_OBJECT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_DISABLE_LAST_ADMIN"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_DISABLE_LAST_ADMIN
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_DISABLE_LAST_ADMIN
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_ENABLE_IP_RESTRICT_REQUESTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_ENABLE_IP_RESTRICT_REQUESTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_ENABLE_IP_RESTRICT_REQUESTS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_MODIFY_MANAGED_OBJECT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_MODIFY_MANAGED_OBJECT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_MODIFY_MANAGED_OBJECT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_RENAME_APEX_REFERENCED_FIELD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_RENAME_APEX_REFERENCED_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_RENAME_APEX_REFERENCED_FIELD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_RENAME_APEX_REFERENCED_OBJECT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_RENAME_APEX_REFERENCED_OBJECT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_RENAME_APEX_REFERENCED_OBJECT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_REPARENT_RECORD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_REPARENT_RECORD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_REPARENT_RECORD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANNOT_UPDATE_CONVERTED_LEAD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANNOT_UPDATE_CONVERTED_LEAD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANNOT_UPDATE_CONVERTED_LEAD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANT_DISABLE_CORP_CURRENCY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANT_DISABLE_CORP_CURRENCY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANT_DISABLE_CORP_CURRENCY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CANT_UNSET_CORP_CURRENCY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CANT_UNSET_CORP_CURRENCY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CANT_UNSET_CORP_CURRENCY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CHILD_SHARE_FAILS_PARENT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CHILD_SHARE_FAILS_PARENT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CHILD_SHARE_FAILS_PARENT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CIRCULAR_DEPENDENCY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CIRCULAR_DEPENDENCY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CIRCULAR_DEPENDENCY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_ENTITY_OR_FIELD_LIMIT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_ENTITY_OR_FIELD_LIMIT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_ENTITY_OR_FIELD_LIMIT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_INDEX_EXISTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_INDEX_EXISTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_INDEX_EXISTS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_LINK_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_LINK_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_LINK_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="CUSTOM_TAB_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        CUSTOM_TAB_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : CUSTOM_TAB_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DELETE_FAILED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DELETE_FAILED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DELETE_FAILED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DELETE_REQUIRED_ON_CASCADE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DELETE_REQUIRED_ON_CASCADE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DELETE_REQUIRED_ON_CASCADE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DEPENDENCY_EXISTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DEPENDENCY_EXISTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DEPENDENCY_EXISTS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_CASE_SOLUTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_CASE_SOLUTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_CASE_SOLUTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_COMM_NICKNAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_COMM_NICKNAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_COMM_NICKNAME
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_CUSTOM_ENTITY_DEFINITION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_CUSTOM_ENTITY_DEFINITION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_CUSTOM_ENTITY_DEFINITION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_CUSTOM_TAB_MOTIF"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_CUSTOM_TAB_MOTIF
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_CUSTOM_TAB_MOTIF
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_DEVELOPER_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_DEVELOPER_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_DEVELOPER_NAME
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_EXTERNAL_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_EXTERNAL_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_EXTERNAL_ID
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_MASTER_LABEL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_MASTER_LABEL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_MASTER_LABEL
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_USERNAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_USERNAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_USERNAME
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="DUPLICATE_VALUE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        DUPLICATE_VALUE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : DUPLICATE_VALUE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="EMPTY_SCONTROL_FILE_NAME"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        EMPTY_SCONTROL_FILE_NAME
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : EMPTY_SCONTROL_FILE_NAME
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENTITY_IS_ARCHIVED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ENTITY_IS_ARCHIVED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ENTITY_IS_ARCHIVED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENTITY_IS_DELETED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ENTITY_IS_DELETED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ENTITY_IS_DELETED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ENTITY_IS_LOCKED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ENTITY_IS_LOCKED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ENTITY_IS_LOCKED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ERROR_IN_MAILER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        ERROR_IN_MAILER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : ERROR_IN_MAILER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="FAILED_ACTIVATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        FAILED_ACTIVATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : FAILED_ACTIVATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="FIELD_CUSTOM_VALIDATION_EXCEPTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        FIELD_CUSTOM_VALIDATION_EXCEPTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : FIELD_CUSTOM_VALIDATION_EXCEPTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="FIELD_INTEGRITY_EXCEPTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        FIELD_INTEGRITY_EXCEPTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : FIELD_INTEGRITY_EXCEPTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="HTML_FILE_UPLOAD_NOT_ALLOWED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        HTML_FILE_UPLOAD_NOT_ALLOWED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : HTML_FILE_UPLOAD_NOT_ALLOWED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="IMAGE_TOO_LARGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        IMAGE_TOO_LARGE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : IMAGE_TOO_LARGE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INACTIVE_OWNER_OR_USER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INACTIVE_OWNER_OR_USER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INACTIVE_OWNER_OR_USER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INSUFFICIENT_ACCESS_OR_READONLY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INSUFFICIENT_ACCESS_OR_READONLY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INSUFFICIENT_ACCESS_OR_READONLY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_ACCESS_LEVEL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_ACCESS_LEVEL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_ACCESS_LEVEL
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_ARGUMENT_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_ARGUMENT_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_ARGUMENT_TYPE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_ASSIGNEE_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_ASSIGNEE_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_ASSIGNEE_TYPE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_ASSIGNMENT_RULE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_ASSIGNMENT_RULE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_ASSIGNMENT_RULE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_BATCH_OPERATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_BATCH_OPERATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_BATCH_OPERATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CREDIT_CARD_INFO"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CREDIT_CARD_INFO
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CREDIT_CARD_INFO
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CROSS_REFERENCE_KEY"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CROSS_REFERENCE_KEY
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CROSS_REFERENCE_KEY
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CURRENCY_CONV_RATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CURRENCY_CONV_RATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CURRENCY_CONV_RATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CURRENCY_CORP_RATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CURRENCY_CORP_RATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CURRENCY_CORP_RATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_CURRENCY_ISO"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_CURRENCY_ISO
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_CURRENCY_ISO
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_EMAIL_ADDRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_EMAIL_ADDRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_EMAIL_ADDRESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_EMPTY_KEY_OWNER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_EMPTY_KEY_OWNER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_EMPTY_KEY_OWNER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_FIELD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_FIELD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_FIELD_FOR_INSERT_UPDATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_FIELD_FOR_INSERT_UPDATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_FIELD_FOR_INSERT_UPDATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_FIELD_WHEN_USING_TEMPLATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_FIELD_WHEN_USING_TEMPLATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_FIELD_WHEN_USING_TEMPLATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_FILTER_ACTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_FILTER_ACTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_FILTER_ACTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_GOOGLE_DOCS_URL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_GOOGLE_DOCS_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_GOOGLE_DOCS_URL
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_ID_FIELD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_ID_FIELD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_ID_FIELD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_INET_ADDRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_INET_ADDRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_INET_ADDRESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_LINEITEM_CLONE_STATE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_LINEITEM_CLONE_STATE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_LINEITEM_CLONE_STATE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_MASTER_OR_TRANSLATED_SOLUTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_MASTER_OR_TRANSLATED_SOLUTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_MASTER_OR_TRANSLATED_SOLUTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_OPERATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_OPERATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_OPERATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_OPERATOR"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_OPERATOR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_OPERATOR
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_PARTNER_NETWORK_STATUS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_PARTNER_NETWORK_STATUS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_PARTNER_NETWORK_STATUS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_PERSON_ACCOUNT_OPERATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_PERSON_ACCOUNT_OPERATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_PERSON_ACCOUNT_OPERATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_SAVE_AS_ACTIVITY_FLAG"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_SAVE_AS_ACTIVITY_FLAG
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_SAVE_AS_ACTIVITY_FLAG
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_SESSION_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_SESSION_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_SESSION_ID
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_SETUP_OWNER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_SETUP_OWNER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_SETUP_OWNER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_STATUS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_STATUS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_STATUS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_TYPE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_TYPE_FOR_OPERATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_TYPE_FOR_OPERATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_TYPE_FOR_OPERATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="INVALID_TYPE_ON_FIELD_IN_RECORD"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        INVALID_TYPE_ON_FIELD_IN_RECORD
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : INVALID_TYPE_ON_FIELD_IN_RECORD
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="IP_RANGE_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        IP_RANGE_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : IP_RANGE_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LICENSE_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        LICENSE_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : LICENSE_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MALFORMED_ID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MALFORMED_ID
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MALFORMED_ID
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MANAGER_NOT_DEFINED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MANAGER_NOT_DEFINED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MANAGER_NOT_DEFINED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MASSMAIL_RETRY_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MASSMAIL_RETRY_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MASSMAIL_RETRY_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MASS_MAIL_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MASS_MAIL_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MASS_MAIL_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAXIMUM_CCEMAILS_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAXIMUM_CCEMAILS_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAXIMUM_CCEMAILS_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAXIMUM_HIERARCHY_LEVELS_REACHED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAXIMUM_HIERARCHY_LEVELS_REACHED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAXIMUM_HIERARCHY_LEVELS_REACHED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAXIMUM_SIZE_OF_ATTACHMENT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAXIMUM_SIZE_OF_ATTACHMENT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAXIMUM_SIZE_OF_ATTACHMENT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAXIMUM_SIZE_OF_DOCUMENT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAXIMUM_SIZE_OF_DOCUMENT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAXIMUM_SIZE_OF_DOCUMENT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_ACTIONS_PER_RULE_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_ACTIONS_PER_RULE_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_ACTIONS_PER_RULE_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_ACTIVE_RULES_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_ACTIVE_RULES_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_ACTIVE_RULES_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_APPROVAL_STEPS_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_APPROVAL_STEPS_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_APPROVAL_STEPS_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_FORMULAS_PER_RULE_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_FORMULAS_PER_RULE_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_FORMULAS_PER_RULE_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_RULES_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_RULES_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_RULES_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_RULE_ENTRIES_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_RULE_ENTRIES_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_RULE_ENTRIES_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_TASK_DESCRIPTION_EXCEEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_TASK_DESCRIPTION_EXCEEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_TASK_DESCRIPTION_EXCEEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_TM_RULES_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_TM_RULES_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_TM_RULES_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MAX_TM_RULE_ITEMS_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MAX_TM_RULE_ITEMS_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MAX_TM_RULE_ITEMS_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MERGE_FAILED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MERGE_FAILED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MERGE_FAILED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MISSING_ARGUMENT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MISSING_ARGUMENT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MISSING_ARGUMENT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="MIXED_DML_OPERATION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        MIXED_DML_OPERATION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : MIXED_DML_OPERATION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NONUNIQUE_SHIPPING_ADDRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NONUNIQUE_SHIPPING_ADDRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NONUNIQUE_SHIPPING_ADDRESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NO_APPLICABLE_PROCESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NO_APPLICABLE_PROCESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NO_APPLICABLE_PROCESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NO_ATTACHMENT_PERMISSION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NO_ATTACHMENT_PERMISSION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NO_ATTACHMENT_PERMISSION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NO_MASS_MAIL_PERMISSION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NO_MASS_MAIL_PERMISSION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NO_MASS_MAIL_PERMISSION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NUMBER_OUTSIDE_VALID_RANGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NUMBER_OUTSIDE_VALID_RANGE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NUMBER_OUTSIDE_VALID_RANGE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="OPTED_OUT_OF_MASS_MAIL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        OPTED_OUT_OF_MASS_MAIL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : OPTED_OUT_OF_MASS_MAIL
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PACKAGE_LICENSE_REQUIRED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        PACKAGE_LICENSE_REQUIRED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : PACKAGE_LICENSE_REQUIRED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PRIVATE_CONTACT_ON_ASSET"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        PRIVATE_CONTACT_ON_ASSET
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : PRIVATE_CONTACT_ON_ASSET
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="RECORD_IN_USE_BY_WORKFLOW"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        RECORD_IN_USE_BY_WORKFLOW
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : RECORD_IN_USE_BY_WORKFLOW
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="REQUEST_RUNNING_TOO_LONG"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        REQUEST_RUNNING_TOO_LONG
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : REQUEST_RUNNING_TOO_LONG
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="REQUIRED_FIELD_MISSING"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        REQUIRED_FIELD_MISSING
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : REQUIRED_FIELD_MISSING
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SELF_REFERENCE_FROM_TRIGGER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        SELF_REFERENCE_FROM_TRIGGER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : SELF_REFERENCE_FROM_TRIGGER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="SHARE_NEEDED_FOR_CHILD_OWNER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        SHARE_NEEDED_FOR_CHILD_OWNER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : SHARE_NEEDED_FOR_CHILD_OWNER
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="STANDARD_PRICE_NOT_DEFINED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        STANDARD_PRICE_NOT_DEFINED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : STANDARD_PRICE_NOT_DEFINED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="STORAGE_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        STORAGE_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : STORAGE_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="STRING_TOO_LONG"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        STRING_TOO_LONG
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : STRING_TOO_LONG
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TABSET_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TABSET_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TABSET_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TEMPLATE_NOT_ACTIVE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TEMPLATE_NOT_ACTIVE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TEMPLATE_NOT_ACTIVE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TERRITORY_REALIGN_IN_PROGRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TERRITORY_REALIGN_IN_PROGRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TERRITORY_REALIGN_IN_PROGRESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TOO_MANY_APEX_REQUESTS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TOO_MANY_APEX_REQUESTS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TOO_MANY_APEX_REQUESTS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TOO_MANY_ENUM_VALUE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TOO_MANY_ENUM_VALUE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TOO_MANY_ENUM_VALUE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="TRANSFER_REQUIRES_READ"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        TRANSFER_REQUIRES_READ
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : TRANSFER_REQUIRES_READ
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNABLE_TO_LOCK_ROW"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNABLE_TO_LOCK_ROW
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNABLE_TO_LOCK_ROW
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNAVAILABLE_RECORDTYPE_EXCEPTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNAVAILABLE_RECORDTYPE_EXCEPTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNAVAILABLE_RECORDTYPE_EXCEPTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNDELETE_FAILED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNDELETE_FAILED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNDELETE_FAILED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNKNOWN_EXCEPTION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNKNOWN_EXCEPTION
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNKNOWN_EXCEPTION
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNSPECIFIED_EMAIL_ADDRESS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNSPECIFIED_EMAIL_ADDRESS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNSPECIFIED_EMAIL_ADDRESS
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNSUPPORTED_APEX_TRIGGER_OPERATON"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        UNSUPPORTED_APEX_TRIGGER_OPERATON
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : UNSUPPORTED_APEX_TRIGGER_OPERATON
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="WEBLINK_SIZE_LIMIT_EXCEEDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        WEBLINK_SIZE_LIMIT_EXCEEDED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : WEBLINK_SIZE_LIMIT_EXCEEDED
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="WRONG_CONTROLLER_TYPE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+        WRONG_CONTROLLER_TYPE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Enumeration  : WRONG_CONTROLLER_TYPE
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="valueOf(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode</a>
+      </span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(String name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="values()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        <a href="../../../../java/com/sforce/async/StatusCode.html">StatusCode[]</a>
+      </span>
+      <span class="sympad">values</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
