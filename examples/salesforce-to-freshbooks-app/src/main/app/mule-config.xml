@@ -17,9 +17,9 @@
         SalesForce to Freshbooks Demo
     </description>
 
-    <sfdc:config name="salesforce-default" username="emiliano.lesende@mule.stream" password="muleftw1wZqr0qZsR4zInbg7hesSBHsLA"/>
+    <sfdc:config name="salesforce-default" username="${salesforce.username}" password="${salesforce.password}"/>
     <freshbooks:config apiUrl="https://mulesoft.freshbooks.com/api/2.1/xml-in"
-                       authenticationToken="d2712de2609e665e03948614ad7197fc"/>
+                       authenticationToken="${freshbooks.authtoken}"/>
 
     <flow name="syncContactsWithFreshbooks">
         <sfdc:subscribe-topic config-ref="salesforce-default"
