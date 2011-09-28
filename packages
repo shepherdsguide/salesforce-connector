@@ -12,7 +12,5 @@ com.sforce.ws.tools
 com.sforce.ws.parser
 com.sforce.ws.wsdl
 com.sforce.ws.util
-org.mule.modules.salesforce.dsl
-org.mule.modules.salesforce.dsl.internal
 org.mule.modules.salesforce.config
 org.mule.modules.salesforce.config.spring
