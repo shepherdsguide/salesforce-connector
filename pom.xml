@@ -245,6 +245,15 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <scm>
+        <connection>scm:git:git://github.com:mulesoft/salesforce-connector.git
+        </connection>
+        <developerConnection>
+            scm:git:git@github.com:mulesoft/salesforce-connector.git
+        </developerConnection>
+        <url>http://github.com/mulesoft/salesforce-connector</url>
+    </scm>
+
     <distributionManagement>
         <repository>
             <id>mulesoft-releases</id>
