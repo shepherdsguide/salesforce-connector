@@ -15,5 +15,11 @@
                         -hdf project.groupId "org.mule.modules"
                         -hdf project.version "4.0-SNAPSHOT"
                         -hdf project.name "Mule Salesforce Connector"
+						-hdf project.repo.name "MuleForge Release Repository"
+						-hdf project.repo.id "mulesoft-releases"
+						-hdf project.repo.url "http://repository.mulesoft.org/releases/"
+						-hdf project.snapshotRepo.name "MuleForge Snapshot Repository"
+						-hdf project.snapshotRepo.id "mulesoft-snapshots"
+						-hdf project.snapshotRepo.url "http://repository.mulesoft.org/snapshots/"
                         -d /opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-SALESFORCE-JOB1/target/apidocs
                         -htmldir /opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-SALESFORCE-JOB1/doc
