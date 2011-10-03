@@ -659,7 +659,7 @@ Summary:
             <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#createSession(java.lang.String, java.lang.String)">createSession</a></span>(String username, String password)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#createSession(java.lang.String, java.lang.String, java.lang.String)">createSession</a></span>(String username, String password, String securityToken)</nobr>
         
         <div class="jd-descrdiv">Creates a new Salesforce session</div>
   
@@ -1732,7 +1732,7 @@ From class
 </div>
 
 
-<A NAME="createSession(java.lang.String, java.lang.String)"></A>
+<A NAME="createSession(java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1745,7 +1745,7 @@ From class
         <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a>
       </span>
       <span class="sympad">createSession</span>
-      <span class="normal">(String username, String password)</span>
+      <span class="normal">(String username, String password, String securityToken)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1768,6 +1768,10 @@ From class
         <tr>
           <th>password</td>
           <td>Password used to authenticate the user</td>
+        </tr>
+        <tr>
+          <th>securityToken</td>
+          <td>User's security token</td>
         </tr>
       </table>
   </div>

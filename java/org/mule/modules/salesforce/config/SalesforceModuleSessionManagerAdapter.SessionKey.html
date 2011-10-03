@@ -444,6 +444,17 @@ Summary:
           
           
           String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#securityToken">securityToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -474,7 +485,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#SalesforceModuleSessionManagerAdapter.SessionKey(java.lang.String, java.lang.String)">SalesforceModuleSessionManagerAdapter.SessionKey</a></span>(String username, String password)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#SalesforceModuleSessionManagerAdapter.SessionKey(java.lang.String, java.lang.String, java.lang.String)">SalesforceModuleSessionManagerAdapter.SessionKey</a></span>(String username, String password, String securityToken)</nobr>
         
   </td></tr>
 
@@ -539,6 +550,26 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#getSecurityToken()">getSecurityToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves securityToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#getUsername()">getUsername</a></span>()</nobr>
         
         <div class="jd-descrdiv">Retrieves username
@@ -549,7 +580,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -565,7 +596,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -578,6 +609,24 @@ Summary:
         <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#setPassword(java.lang.String)">setPassword</a></span>(String value)</nobr>
         
         <div class="jd-descrdiv">Sets password</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html#setSecurityToken(java.lang.String)">setSecurityToken</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets securityToken</div>
   
   </td></tr>
 
@@ -878,6 +927,36 @@ From class
 
 
 
+<A NAME="securityToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        securityToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="username"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -917,7 +996,7 @@ From class
 
 
 
-<A NAME="SalesforceModuleSessionManagerAdapter.SessionKey(java.lang.String, java.lang.String)"></A>
+<A NAME="SalesforceModuleSessionManagerAdapter.SessionKey(java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -930,7 +1009,7 @@ From class
         
       </span>
       <span class="sympad">SalesforceModuleSessionManagerAdapter.SessionKey</span>
-      <span class="normal">(String username, String password)</span>
+      <span class="normal">(String username, String password, String securityToken)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -952,6 +1031,10 @@ From class
         </tr>
         <tr>
           <th>password</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>securityToken</td>
           <td></td>
         </tr>
       </table>
@@ -1049,6 +1132,39 @@ From class
 </div>
 
 
+<A NAME="getSecurityToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getSecurityToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves securityToken
+ 
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getUsername()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1139,6 +1255,47 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSecurityToken(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSecurityToken</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets securityToken</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

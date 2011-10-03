@@ -749,6 +749,17 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html#securityToken">securityToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           GenericKeyedObjectPool</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html#sessionPool">sessionPool</a></td>
           <td class="jd-descrcol" width="100%">Session Pool
@@ -757,7 +768,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           protected
           
@@ -768,7 +779,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1003,6 +1014,26 @@ org.mule.api.lifecycle.Stoppable
             
             
             
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html#getSecurityToken()">getSecurityToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves securityToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             PoolingProfile</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1016,7 +1047,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1036,7 +1067,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1052,7 +1083,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1068,7 +1099,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1081,6 +1112,24 @@ org.mule.api.lifecycle.Stoppable
         <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html#setPassword(java.lang.String)">setPassword</a></span>(String value)</nobr>
         
         <div class="jd-descrdiv">Sets password</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html#setSecurityToken(java.lang.String)">setSecurityToken</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets securityToken</div>
   
   </td></tr>
 
@@ -1338,7 +1387,7 @@ From class
             <a href="../../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#createSession(java.lang.String, java.lang.String)">createSession</a></span>(String username, String password)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#createSession(java.lang.String, java.lang.String, java.lang.String)">createSession</a></span>(String username, String password, String securityToken)</nobr>
         
         <div class="jd-descrdiv">Creates a new Salesforce session</div>
   
@@ -2327,6 +2376,36 @@ From interface
 
 
 
+<A NAME="securityToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        securityToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="sessionPool"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2609,6 +2688,39 @@ From interface
 </div>
 
 
+<A NAME="getSecurityToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getSecurityToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves securityToken
+ 
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getSessionPoolingProfile()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2785,6 +2897,47 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSecurityToken(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSecurityToken</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets securityToken</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
