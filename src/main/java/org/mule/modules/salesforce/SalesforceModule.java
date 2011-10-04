@@ -42,6 +42,8 @@ import java.util.Map;
  * over an HTTPS connection. The technical details of this connection such as request headers,
  * error handling, HTTPS connection, etc. are all abstracted from the user to make implementation
  * quick and easy.
+ *
+ * @author MuleSoft, Inc.
  */
 @Module(name = "sfdc", version = "4.0")
 public class SalesforceModule {
@@ -92,6 +94,7 @@ public class SalesforceModule {
      *
      * @param objects An array of one or more sObjects objects.
      * @param type Type of object to create
+     * @param session Salesforce's session
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
@@ -122,6 +125,7 @@ public class SalesforceModule {
     /**
      * End the current session
      *
+     * @param session Salesforce's session
      * @throws SalesforceException
      */
     @SessionDestroy
@@ -136,6 +140,7 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
+     * @param session Salesforce's session
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
@@ -168,6 +173,7 @@ public class SalesforceModule {
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-global}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-global}
      *
+     * @param session Salesforce's session
      * @return A {@link DescribeGlobalResult}
      * @throws SalesforceException
      */
@@ -190,6 +196,7 @@ public class SalesforceModule {
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
+     * @param session Salesforce's session
      * @return An array of {@link SObject}s
      * @throws SalesforceException
      */
@@ -218,6 +225,7 @@ public class SalesforceModule {
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
+     * @param session Salesforce's session
      * @return A single {@link SObject}
      * @throws SalesforceException
      */
@@ -280,6 +288,7 @@ public class SalesforceModule {
      *                               Select Id, MasterLabel from LeadStatus where IsConverted=true
      * @param sendEmailToOwner       Specifies whether to send a notification email to the owner specified in the
      *                               ownerId (true) or not (false, the default).
+     * @param session Salesforce's session
      * @return A list of {@link LeadConvertResult}
      * @throws SalesforceException
      */
@@ -332,6 +341,7 @@ public class SalesforceModule {
      *
      * @param ids Array of one or more IDs associated with the records to delete from the recycle bin.
      *            Maximum number of records is 200.
+     * @param session Salesforce's session
      * @return A list of {@link EmptyRecycleBinResult}
      */
     @Processor
@@ -356,6 +366,7 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:delete}
      *
      * @param ids Array of one or more IDs associated with the objects to delete.
+     * @param session Salesforce's session
      * @return An array of {@link DeleteResult}
      * @throws SalesforceException
      */
@@ -385,6 +396,7 @@ public class SalesforceModule {
      * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
+     * @param session Salesforce's session
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
@@ -411,6 +423,7 @@ public class SalesforceModule {
      *
      * @param type Object. The specified value must be a valid object for your organization. For a complete list
      *             of objects, see Standard Objects
+     * @param session Salesforce's session
      * @return {@link DescribeSObjectResult}
      * @throws SalesforceException
      */
@@ -437,6 +450,7 @@ public class SalesforceModule {
      *
      * @param type     Object type. The specified value must be a valid object for your organization.
      * @param duration The amount of time in minutes before now for which to return records from.
+     * @param session Salesforce's session
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
@@ -472,6 +486,7 @@ public class SalesforceModule {
      * @param description Description of what kinds of records are returned by the query. Limit: 400 characters
      * @param query       The SOQL query statement that determines which records' changes trigger events to be sent to
      *                    the channel. Maximum length: 1200 characters
+     * @param session Salesforce's session
      * @throws SalesforceException
      */
     @Processor
@@ -518,6 +533,7 @@ public class SalesforceModule {
      *
      * @param topic    The name of the topic to subscribe to
      * @param callback The callback to be called when a message is received
+     * @param session Salesforce's session
      */
     @Source
     public void subscribeTopic(@Session SalesforceSession session, String topic, final SourceCallback callback) {
