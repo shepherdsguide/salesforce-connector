@@ -74,3 +74,6 @@
                              body="#[map-payload:Text__c]"/>
 </flow>
 <!-- END_INCLUDE(sfdc:subscribe-topic) -->
+<!-- BEGIN_INCLUDE(sfdc:get-deleted) -->
+<sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" />
+<!-- END_INCLUDE(sfdc:get-deleted) -->

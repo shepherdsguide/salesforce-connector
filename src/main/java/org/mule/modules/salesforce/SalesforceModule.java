@@ -454,6 +454,7 @@ public class SalesforceModule {
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
+    @Processor
     public GetDeletedResult getDeleted(@Session SalesforceSession session, String type, int duration) throws SalesforceException {
         GetDeletedResult gdr = null;
         Calendar serverTime = null;
@@ -472,7 +473,6 @@ public class SalesforceModule {
 
         return gdr;
     }
-
 
     /**
      * Creates a topic which represents a query that is the basis for notifying
