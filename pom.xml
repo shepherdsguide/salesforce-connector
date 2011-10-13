@@ -55,6 +55,9 @@
                 <groupId>org.mule.tools.devkit</groupId>
                 <artifactId>mule-devkit-maven-plugin</artifactId>
                 <version>${mule.devkit.version}</version>
+<configuration>
+	<skipJavaDocValidation>true</skipJavaDocValidation>
+</configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
