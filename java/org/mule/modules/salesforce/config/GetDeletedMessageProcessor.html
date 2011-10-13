@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  ConvertLeadMessageProcessor
+  GetDeletedMessageProcessor
 
 
 | Mule Salesforce Connector
@@ -215,13 +215,13 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
@@ -393,7 +393,7 @@ Summary:
      
     
     class
-<h1>ConvertLeadMessageProcessor</h1>
+<h1>GetDeletedMessageProcessor</h1>
 
 
 
@@ -443,7 +443,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.ConvertLeadMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.GetDeletedMessageProcessor</td>
     </tr>
     
 
@@ -459,7 +459,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>ConvertLeadMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#convertLead(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>GetDeletedMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#getDeleted(org.mule.modules.salesforce.SalesforceSession, java.lang.String, int)">getDeleted(org.mule.modules.salesforce.SalesforceSession, java.lang.String, int)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -656,8 +656,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_accountIdType">_accountIdType</a></td>
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#_durationType">_durationType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -668,7 +668,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_contactIdType">_contactIdType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#_passwordType">_passwordType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -679,29 +679,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_convertedStatusType">_convertedStatusType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Boolean</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_doNotCreateOpportunityType">_doNotCreateOpportunityType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_leadIdType">_leadIdType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -712,29 +690,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_opportunityNameType">_opportunityNameType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Boolean</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_overWriteLeadSourceType">_overWriteLeadSourceType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_passwordType">_passwordType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#_typeType">_typeType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -745,29 +701,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Boolean</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_sendEmailToOwnerType">_sendEmailToOwnerType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#_usernameType">_usernameType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#_usernameType">_usernameType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -778,78 +712,34 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#accountId">accountId</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#duration">duration</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#contactId">contactId</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#convertedStatus">convertedStatus</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#doNotCreateOpportunity">doNotCreateOpportunity</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           ExpressionManager</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#expressionManager">expressionManager</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#expressionManager">expressionManager</a></td>
           <td class="jd-descrcol" width="100%">Mule Expression Manager
  
 </td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          FlowConstruct</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#flowConstruct">flowConstruct</a></td>
-          <td class="jd-descrcol" width="100%">Flow construct
- 
-</td>
-      </tr>
-      
-    
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#leadId">leadId</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          FlowConstruct</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#flowConstruct">flowConstruct</a></td>
+          <td class="jd-descrcol" width="100%">Flow construct
+ 
+</td>
       </tr>
       
     
@@ -859,7 +749,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           <a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#moduleObject">moduleObject</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#moduleObject">moduleObject</a></td>
           <td class="jd-descrcol" width="100%">Module object
  
 </td>
@@ -872,7 +762,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#muleContext">muleContext</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#muleContext">muleContext</a></td>
           <td class="jd-descrcol" width="100%">Mule Context
  
 </td>
@@ -885,29 +775,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#opportunityName">opportunityName</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#overWriteLeadSource">overWriteLeadSource</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#password">password</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#password">password</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -918,7 +786,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           TemplateParser.PatternInfo</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#patternInfo">patternInfo</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#patternInfo">patternInfo</a></td>
           <td class="jd-descrcol" width="100%">Mule Pattern Info
  
 </td>
@@ -931,7 +799,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#securityToken">securityToken</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#securityToken">securityToken</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -942,7 +810,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#sendEmailToOwner">sendEmailToOwner</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#type">type</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -953,7 +821,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#username">username</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -983,7 +851,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#ConvertLeadMessageProcessor()">ConvertLeadMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#GetDeletedMessageProcessor()">GetDeletedMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -1012,7 +880,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -1028,7 +896,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -1046,7 +914,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1064,9 +932,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setAccountId(java.lang.Object)">setAccountId</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setDuration(java.lang.Object)">setDuration</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets accountId</div>
+        <div class="jd-descrdiv">Sets duration</div>
   
   </td></tr>
 
@@ -1082,61 +950,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setContactId(java.lang.Object)">setContactId</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets contactId</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setConvertedStatus(java.lang.Object)">setConvertedStatus</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets convertedStatus</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setDoNotCreateOpportunity(java.lang.Object)">setDoNotCreateOpportunity</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets doNotCreateOpportunity</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1144,24 +958,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setLeadId(java.lang.Object)">setLeadId</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets leadId</div>
-  
-  </td></tr>
-
-
-	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1172,7 +968,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setModuleObject(org.mule.modules.salesforce.config.SalesforceModuleSessionManagerAdapter)">setModuleObject</a></span>(<a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a> moduleObject)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setModuleObject(org.mule.modules.salesforce.config.SalesforceModuleSessionManagerAdapter)">setModuleObject</a></span>(<a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a> moduleObject)</nobr>
         
         <div class="jd-descrdiv">Sets the instance of the object under which the processor will execute</div>
   
@@ -1190,7 +986,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1208,43 +1004,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setOpportunityName(java.lang.Object)">setOpportunityName</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets opportunityName</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setOverWriteLeadSource(java.lang.Object)">setOverWriteLeadSource</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets overWriteLeadSource</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets password</div>
   
@@ -1262,7 +1022,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets securityToken</div>
   
@@ -1280,9 +1040,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setSendEmailToOwner(java.lang.Object)">setSendEmailToOwner</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setType(java.lang.Object)">setType</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets sendEmailToOwner</div>
+        <div class="jd-descrdiv">Sets type</div>
   
   </td></tr>
 
@@ -1298,7 +1058,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets username</div>
   
@@ -1316,7 +1076,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1332,7 +1092,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -1879,7 +1639,7 @@ From interface
 
 
 
-<A NAME="_accountIdType"></A>
+<A NAME="_durationType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1887,189 +1647,9 @@ From interface
         private 
          
          
-        String
+        int
       </span>
-        _accountIdType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_contactIdType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        _contactIdType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_convertedStatusType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        _convertedStatusType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_doNotCreateOpportunityType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Boolean
-      </span>
-        _doNotCreateOpportunityType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_leadIdType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        _leadIdType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_opportunityNameType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        _opportunityNameType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_overWriteLeadSourceType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Boolean
-      </span>
-        _overWriteLeadSourceType
+        _durationType
     </h4>
       <div class="api-level">
         
@@ -2149,7 +1729,7 @@ From interface
 
 
 
-<A NAME="_sendEmailToOwnerType"></A>
+<A NAME="_typeType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2157,9 +1737,9 @@ From interface
         private 
          
          
-        Boolean
+        String
       </span>
-        _sendEmailToOwnerType
+        _typeType
     </h4>
       <div class="api-level">
         
@@ -2209,7 +1789,7 @@ From interface
 
 
 
-<A NAME="accountId"></A>
+<A NAME="duration"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2219,97 +1799,7 @@ From interface
          
         Object
       </span>
-        accountId
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="contactId"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        contactId
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="convertedStatus"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        convertedStatus
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="doNotCreateOpportunity"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        doNotCreateOpportunity
+        duration
     </h4>
       <div class="api-level">
         
@@ -2393,36 +1883,6 @@ From interface
 
 
 
-<A NAME="leadId"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        leadId
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="moduleObject"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2480,66 +1940,6 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Mule Context
  
 </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="opportunityName"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        opportunityName
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="overWriteLeadSource"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        overWriteLeadSource
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2639,7 +2039,7 @@ From interface
 
 
 
-<A NAME="sendEmailToOwner"></A>
+<A NAME="type"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2649,7 +2049,7 @@ From interface
          
         Object
       </span>
-        sendEmailToOwner
+        type
     </h4>
       <div class="api-level">
         
@@ -2708,7 +2108,7 @@ From interface
 
 
 
-<A NAME="ConvertLeadMessageProcessor()"></A>
+<A NAME="GetDeletedMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2720,7 +2120,7 @@ From interface
          
         
       </span>
-      <span class="sympad">ConvertLeadMessageProcessor</span>
+      <span class="sympad">GetDeletedMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2874,7 +2274,7 @@ From interface
 </div>
 
 
-<A NAME="setAccountId(java.lang.Object)"></A>
+<A NAME="setDuration(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2886,7 +2286,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setAccountId</span>
+      <span class="sympad">setDuration</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2899,130 +2299,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets accountId</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setContactId(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setContactId</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets contactId</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setConvertedStatus(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setConvertedStatus</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets convertedStatus</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setDoNotCreateOpportunity(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setDoNotCreateOpportunity</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets doNotCreateOpportunity</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets duration</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3070,47 +2347,6 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setLeadId(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setLeadId</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets leadId</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
 </td>
         </tr>
       </table>
@@ -3202,88 +2438,6 @@ From interface
 </div>
 
 
-<A NAME="setOpportunityName(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setOpportunityName</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets opportunityName</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setOverWriteLeadSource(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setOverWriteLeadSource</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets overWriteLeadSource</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="setPassword(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -3366,7 +2520,7 @@ From interface
 </div>
 
 
-<A NAME="setSendEmailToOwner(java.lang.Object)"></A>
+<A NAME="setType(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3378,7 +2532,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setSendEmailToOwner</span>
+      <span class="sympad">setType</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -3391,7 +2545,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets sendEmailToOwner</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets type</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
