@@ -45,7 +45,7 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "sfdc", version = "4.0")
+@Module(name = "sfdc", schemaVersion = "4.0")
 public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
 
