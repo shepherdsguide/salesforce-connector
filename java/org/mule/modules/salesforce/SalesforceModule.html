@@ -216,8 +216,8 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceLongPollingTransport.html">SalesforceLongPollingTransport</a></li>
           <li class="selected api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></li>
       </ul>
     </li>
               
@@ -514,6 +514,42 @@ Summary:
           private
           
           
+          <a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#bc">bc</a></td>
+          <td class="jd-descrcol" width="100%">Bayeux client
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#connection">connection</a></td>
+          <td class="jd-descrcol" width="100%">Partner connection
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#loginResult">loginResult</a></td>
+          <td class="jd-descrcol" width="100%">Login result
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#proxyHost">proxyHost</a></td>
           <td class="jd-descrcol" width="100%">Proxy host
@@ -521,7 +557,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -533,7 +569,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -545,7 +581,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -557,7 +593,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -616,16 +652,16 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
+            synchronized
             
             
             
-            
-            <a href="../../../../../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></nobr>
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#convertLead(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String leadId, String contactId, String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity, String opportunityName, String convertedStatus, Boolean sendEmailToOwner)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#connect(java.lang.String, java.lang.String, java.lang.String)">connect</a></span>(String username, String password, String securityToken)</nobr>
         
-        <div class="jd-descrdiv">Converts a Lead into an Account, Contact, or (optionally) an Opportunity.</div>
+        <div class="jd-descrdiv">Creates a new Salesforce session</div>
   
   </td></tr>
 
@@ -638,12 +674,12 @@ Summary:
             
             
             
-            List&lt;<a href="../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a>&gt;</nobr>
+            <a href="../../../../../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#create(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead</a></span>(String leadId, String contactId, String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity, String opportunityName, String convertedStatus, Boolean sendEmailToOwner)</nobr>
         
-        <div class="jd-descrdiv">Adds one or more new records to your organization's data.</div>
+        <div class="jd-descrdiv">Converts a Lead into an Account, Contact, or (optionally) an Opportunity.</div>
   
   </td></tr>
 
@@ -652,16 +688,16 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
-            synchronized
             
             
             
-            <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></nobr>
+            
+            List&lt;<a href="../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#createSession(java.lang.String, java.lang.String, java.lang.String)">createSession</a></span>(String username, String password, String securityToken)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create</a></span>(String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
         
-        <div class="jd-descrdiv">Creates a new Salesforce session</div>
+        <div class="jd-descrdiv">Adds one or more new records to your organization's data.</div>
   
   </td></tr>
 
@@ -677,7 +713,7 @@ Summary:
             List&lt;<a href="../../../../../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#delete(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.lang.String>)">delete</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;String&gt; ids)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#delete(java.util.List<java.lang.String>)">delete</a></span>(List&lt;String&gt; ids)</nobr>
         
         <div class="jd-descrdiv">Deletes one or more records from your organization's data.</div>
   
@@ -695,7 +731,7 @@ Summary:
             <a href="../../../../../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#describeGlobal(org.mule.modules.salesforce.SalesforceSession)">describeGlobal</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#describeGlobal()">describeGlobal</a></span>()</nobr>
         
         <div class="jd-descrdiv">Retrieves a list of available objects for your organization's data.</div>
   
@@ -713,7 +749,7 @@ Summary:
             <a href="../../../../../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#describeSObject(org.mule.modules.salesforce.SalesforceSession, java.lang.String)">describeSObject</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#describeSObject(java.lang.String)">describeSObject</a></span>(String type)</nobr>
         
         <div class="jd-descrdiv">Describes metadata (field list and object properties) for the specified object.</div>
   
@@ -731,7 +767,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#destroySession(org.mule.modules.salesforce.SalesforceSession)">destroySession</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#destroySession()">destroySession</a></span>()</nobr>
         
         <div class="jd-descrdiv">End the current session</div>
   
@@ -749,7 +785,7 @@ Summary:
             List&lt;<a href="../../../../../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#emptyRecycleBin(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.lang.String>)">emptyRecycleBin</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;String&gt; ids)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#emptyRecycleBin(java.util.List<java.lang.String>)">emptyRecycleBin</a></span>(List&lt;String&gt; ids)</nobr>
         
         <div class="jd-descrdiv">The recycle bin lets you view and restore recently deleted records for 30 days before they are
  permanently deleted.</div>
@@ -765,10 +801,42 @@ Summary:
             
             
             
+            <a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getBayeuxClient()">getBayeuxClient</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getConnection()">getConnection</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             <a href="../../../../../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getDeleted(org.mule.modules.salesforce.SalesforceSession, java.lang.String, int)">getDeleted</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, int duration)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getDeleted(java.lang.String, int)">getDeleted</a></span>(String type, int duration)</nobr>
         
         <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted between the range of now to the duration before now.</div>
   
@@ -786,7 +854,7 @@ Summary:
             <a href="../../../../../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, Calendar startTime, Calendar endTime)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange</a></span>(String type, Calendar startTime, Calendar endTime)</nobr>
         
         <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted within the given timespan for the specified object.</div>
   
@@ -795,6 +863,22 @@ Summary:
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#getLoginResult()">getLoginResult</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -812,7 +896,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -830,7 +914,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -848,7 +932,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -866,7 +950,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -882,7 +966,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -892,10 +976,28 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#publishTopic(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String)">publishTopic</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String name, String query, String description)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#publishTopic(java.lang.String, java.lang.String, java.lang.String)">publishTopic</a></span>(String name, String query, String description)</nobr>
         
         <div class="jd-descrdiv">Creates a topic which represents a query that is the basis for notifying
  listeners of changes to records in an organization.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#query(java.lang.String)">query</a></span>(String query)</nobr>
+        
+        <div class="jd-descrdiv">Executes a query against the specified object and returns data that matches the specified criteria.</div>
   
   </td></tr>
 
@@ -908,12 +1010,12 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            Map&lt;String,&nbsp;Object&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#query(org.mule.modules.salesforce.SalesforceSession, java.lang.String)">query</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String query)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#querySingle(java.lang.String)">querySingle</a></span>(String query)</nobr>
         
-        <div class="jd-descrdiv">Executes a query against the specified object and returns data that matches the specified criteria.</div>
+        <div class="jd-descrdiv">Executes a query against the specified object and returns the first record that matches the specified criteria.</div>
   
   </td></tr>
 
@@ -926,13 +1028,11 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#querySingle(org.mule.modules.salesforce.SalesforceSession, java.lang.String)">querySingle</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String query)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#reconnect()">reconnect</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Executes a query against the specified object and returns the first record that matches the specified criteria.</div>
-  
   </td></tr>
 
 
@@ -1037,7 +1137,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(org.mule.modules.salesforce.SalesforceSession, java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String topic, SourceCallback callback)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic</a></span>(String topic, SourceCallback callback)</nobr>
         
         <div class="jd-descrdiv">Subscribe to a topic.</div>
   
@@ -1055,7 +1155,7 @@ Summary:
             List&lt;<a href="../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#update(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">update</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#update(java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">update</a></span>(List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
         
         <div class="jd-descrdiv">Updates one or more existing records in your organization's data.</div>
   
@@ -1340,6 +1440,99 @@ From class
 
 
 
+<A NAME="bc"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a>
+      </span>
+        bc
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Bayeux client
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="connection"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a>
+      </span>
+        connection
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Partner connection
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="loginResult"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a>
+      </span>
+        loginResult
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Login result
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="proxyHost"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1550,7 +1743,69 @@ From class
 
 
 
-<A NAME="convertLead(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)"></A>
+<A NAME="connect(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+        synchronized 
+        void
+      </span>
+      <span class="sympad">connect</span>
+      <span class="normal">(String username, String password, String securityToken)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new Salesforce session</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>username</td>
+          <td>Username used to initialize the session</td>
+        </tr>
+        <tr>
+          <th>password</td>
+          <td>Password used to authenticate the user</td>
+        </tr>
+        <tr>
+          <th>securityToken</td>
+          <td>User's security token</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../java/com/sforce/ws/ConnectionException.html">ConnectionException</a></td>
+            <td>if a problem occurred while trying to create the session
+</td>
+        </tr>  
+        <tr>
+            <th>ConnectionException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1563,7 +1818,7 @@ From class
         <a href="../../../../../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a>
       </span>
       <span class="sympad">convertLead</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String leadId, String contactId, String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity, String opportunityName, String convertedStatus, Boolean sendEmailToOwner)</span>
+      <span class="normal">(String leadId, String contactId, String accountId, Boolean overWriteLeadSource, Boolean doNotCreateOpportunity, String opportunityName, String convertedStatus, Boolean sendEmailToOwner)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1576,16 +1831,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre></pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>leadId</td>
           <td>ID of the Lead to convert. Required. For information on IDs, see ID Field Type.</td>
@@ -1668,7 +1919,7 @@ From class
 </div>
 
 
-<A NAME="create(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
+<A NAME="create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1681,7 +1932,7 @@ From class
         List&lt;<a href="../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a>&gt;
       </span>
       <span class="sympad">create</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
+      <span class="normal">(String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1694,16 +1945,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds one or more new records to your organization's data.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>type</td>
           <td>Type of object to create</td>
@@ -1732,69 +1979,7 @@ From class
 </div>
 
 
-<A NAME="createSession(java.lang.String, java.lang.String, java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-        synchronized 
-        <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a>
-      </span>
-      <span class="sympad">createSession</span>
-      <span class="normal">(String username, String password, String securityToken)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new Salesforce session</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>username</td>
-          <td>Username used to initialize the session</td>
-        </tr>
-        <tr>
-          <th>password</td>
-          <td>Password used to authenticate the user</td>
-        </tr>
-        <tr>
-          <th>securityToken</td>
-          <td>User's security token</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>A <code><a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></code> object containing the session id</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th><a href="../../../../../java/com/sforce/ws/ConnectionException.html">ConnectionException</a></td>
-            <td>if a problem occurred while trying to create the session
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="delete(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.lang.String>)"></A>
+<A NAME="delete(java.util.List<java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1807,7 +1992,7 @@ From class
         List&lt;<a href="../../../../../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a>&gt;
       </span>
       <span class="sympad">delete</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;String&gt; ids)</span>
+      <span class="normal">(List&lt;String&gt; ids)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1820,16 +2005,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Deletes one or more records from your organization's data.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>ids</td>
           <td>Array of one or more IDs associated with the objects to delete.</td>
@@ -1854,7 +2035,7 @@ From class
 </div>
 
 
-<A NAME="describeGlobal(org.mule.modules.salesforce.SalesforceSession)"></A>
+<A NAME="describeGlobal()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1867,7 +2048,7 @@ From class
         <a href="../../../../../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a>
       </span>
       <span class="sympad">describeGlobal</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session)</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1880,18 +2061,9 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves a list of available objects for your organization's data.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
-      </table>
-  </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>A <code><a href="../../../../../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></code></li></ul>
@@ -1910,7 +2082,7 @@ From class
 </div>
 
 
-<A NAME="describeSObject(org.mule.modules.salesforce.SalesforceSession, java.lang.String)"></A>
+<A NAME="describeSObject(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1923,7 +2095,7 @@ From class
         <a href="../../../../../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a>
       </span>
       <span class="sympad">describeSObject</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type)</span>
+      <span class="normal">(String type)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1936,16 +2108,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Describes metadata (field list and object properties) for the specified object.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>type</td>
           <td>Object. The specified value must be a valid object for your organization. For a complete list
@@ -1971,7 +2139,7 @@ From class
 </div>
 
 
-<A NAME="destroySession(org.mule.modules.salesforce.SalesforceSession)"></A>
+<A NAME="destroySession()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1984,7 +2152,7 @@ From class
         void
       </span>
       <span class="sympad">destroySession</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session)</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1997,15 +2165,6 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>End the current session</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
-      </table>
-  </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
@@ -2020,7 +2179,7 @@ From class
 </div>
 
 
-<A NAME="emptyRecycleBin(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.lang.String>)"></A>
+<A NAME="emptyRecycleBin(java.util.List<java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2033,7 +2192,7 @@ From class
         List&lt;<a href="../../../../../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a>&gt;
       </span>
       <span class="sympad">emptyRecycleBin</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;String&gt; ids)</span>
+      <span class="normal">(List&lt;String&gt; ids)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2050,16 +2209,12 @@ From class
  one time. For example, if your organization has five user licenses, 25,000 records can be stored in the
  Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
  the oldest records, as long as they have been in the recycle bin for at least two hours.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>ids</td>
           <td>Array of one or more IDs associated with the records to delete from the recycle bin.
@@ -2086,7 +2241,69 @@ From class
 </div>
 
 
-<A NAME="getDeleted(org.mule.modules.salesforce.SalesforceSession, java.lang.String, int)"></A>
+<A NAME="getBayeuxClient()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a>
+      </span>
+      <span class="sympad">getBayeuxClient</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getConnection()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a>
+      </span>
+      <span class="sympad">getConnection</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDeleted(java.lang.String, int)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2099,7 +2316,7 @@ From class
         <a href="../../../../../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a>
       </span>
       <span class="sympad">getDeleted</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, int duration)</span>
+      <span class="normal">(String type, int duration)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2112,16 +2329,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>type</td>
           <td>Object type. The specified value must be a valid object for your organization.</td>
@@ -2150,7 +2363,7 @@ From class
 </div>
 
 
-<A NAME="getDeletedRange(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.util.Calendar, java.util.Calendar)"></A>
+<A NAME="getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2163,7 +2376,7 @@ From class
         <a href="../../../../../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a>
       </span>
       <span class="sympad">getDeletedRange</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String type, Calendar startTime, Calendar endTime)</span>
+      <span class="normal">(String type, Calendar startTime, Calendar endTime)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2176,16 +2389,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>type</td>
           <td>Object type. The specified value must be a valid object for your organization.</td>
@@ -2217,6 +2426,37 @@ From class
         </tr>
       </table>
   </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLoginResult()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a>
+      </span>
+      <span class="sympad">getLoginResult</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -2397,7 +2637,7 @@ From class
 </div>
 
 
-<A NAME="publishTopic(org.mule.modules.salesforce.SalesforceSession, java.lang.String, java.lang.String, java.lang.String)"></A>
+<A NAME="publishTopic(java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2410,7 +2650,7 @@ From class
         void
       </span>
       <span class="sympad">publishTopic</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String name, String query, String description)</span>
+      <span class="normal">(String name, String query, String description)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2424,16 +2664,12 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a topic which represents a query that is the basis for notifying
  listeners of changes to records in an organization.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>name</td>
           <td>Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
@@ -2464,7 +2700,7 @@ From class
 </div>
 
 
-<A NAME="query(org.mule.modules.salesforce.SalesforceSession, java.lang.String)"></A>
+<A NAME="query(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2477,7 +2713,7 @@ From class
         List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
       </span>
       <span class="sympad">query</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String query)</span>
+      <span class="normal">(String query)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2490,16 +2726,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns data that matches the specified criteria.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>query</td>
           <td>Query string that specifies the object to query, the fields to return, and any conditions for
@@ -2526,7 +2758,7 @@ From class
 </div>
 
 
-<A NAME="querySingle(org.mule.modules.salesforce.SalesforceSession, java.lang.String)"></A>
+<A NAME="querySingle(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2539,7 +2771,7 @@ From class
         Map&lt;String,&nbsp;Object&gt;
       </span>
       <span class="sympad">querySingle</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String query)</span>
+      <span class="normal">(String query)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2552,16 +2784,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns the first record that matches the specified criteria.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>query</td>
           <td>Query string that specifies the object to query, the fields to return, and any conditions for
@@ -2579,6 +2807,46 @@ From class
       <table class="jd-tagtable">  
         <tr>
             <th><a href="../../../../../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="reconnect()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">reconnect</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>ConnectionException</td>
             <td></td>
         </tr>
       </table>
@@ -2777,10 +3045,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Set Salesforce endpoint.
- <p/>
- Example:
- https://prerelna1.pre.salesforce.com/services/Soap/u/21.0</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Set Salesforce endpoint.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2796,7 +3061,7 @@ From class
 </div>
 
 
-<A NAME="subscribeTopic(org.mule.modules.salesforce.SalesforceSession, java.lang.String, org.mule.api.callback.SourceCallback)"></A>
+<A NAME="subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2809,7 +3074,7 @@ From class
         void
       </span>
       <span class="sympad">subscribeTopic</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String topic, SourceCallback callback)</span>
+      <span class="normal">(String topic, SourceCallback callback)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2822,24 +3087,20 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Subscribe to a topic.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>session</td>
-          <td>Salesforce's session
-</td>
-        </tr>
-        <tr>
           <th>topic</td>
           <td>The name of the topic to subscribe to</td>
         </tr>
         <tr>
           <th>callback</td>
-          <td>The callback to be called when a message is received</td>
+          <td>The callback to be called when a message is received
+</td>
         </tr>
       </table>
   </div>
@@ -2848,7 +3109,7 @@ From class
 </div>
 
 
-<A NAME="update(org.mule.modules.salesforce.SalesforceSession, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
+<A NAME="update(java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2861,7 +3122,7 @@ From class
         List&lt;<a href="../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a>&gt;
       </span>
       <span class="sympad">update</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
+      <span class="normal">(List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2874,16 +3135,12 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates one or more existing records in your organization's data.
-
+ <p/>
  
  <h5 class="jd-tagtitle">Java Sample</h5><pre>INCLUDE_ERROR</pre></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
-        <tr>
-          <th>session</td>
-          <td>Salesforce's session</td>
-        </tr>
         <tr>
           <th>objects</td>
           <td>An array of one or more sObjects objects.</td>

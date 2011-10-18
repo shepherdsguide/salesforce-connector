@@ -69,29 +69,29 @@
 
   <meta name="description" content="Documentation for Mule Salesforce Connector." />
 
-<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  SalesforceException
+  SalesforceModuleConnectionManager.ConnectionKey
 
 
 | Mule Salesforce Connector
 
 </title>
-<link href="../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
-<link href="../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
-<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
-<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
-<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
-<script src="../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
-<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
-  setToRoot("../../../../../", "../../../../../assets/");
+  setToRoot("../../../../../../", "../../../../../../assets/");
 </script>
-<script src="../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
-<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
-<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
 <noscript>
   <style type="text/css">
     html,body{overflow:auto;}
@@ -112,20 +112,20 @@
       <span id="masthead-title">Mule Salesforce Connector</span>
     
     <ul id="header-tabs" class="">
-    	<li id="guide"><a href="../../../../../guide/install.html">
+    	<li id="guide"><a href="../../../../../../guide/install.html">
 	    	<span class="en">Install Guide</span>
     	</a></li>
-    	<li id="java"><a href="../../../../../java/packages.html">
+    	<li id="java"><a href="../../../../../../java/packages.html">
 	    	<span class="en">Java API</span>
     	</a></li>
-    	<li id="mule"><a href="../../../../../mule/modules.html">
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
 	    	<span class="en">Mule API</span>
     	</a></li>
     </ul>
     </div>
     <div id="headerRight">
       <a href="http://www.mulesoft.com" tabindex="-1">
-      <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
   <div id="search" >
       <div id="searchForm">
@@ -139,8 +139,8 @@
                       value="search developer docs"
                       onFocus="search_focus_changed(this, true)"
                       onBlur="search_focus_changed(this, false)"
-                      onkeydown="return search_changed(event, true, '../../../../../')"
-                      onkeyup="return search_changed(event, false, '../../../../../')" />
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
                   <div id="search_filtered_div" class="no-display">
                       <table id="search_filtered" cellspacing=0>
                       </table>
@@ -169,43 +169,43 @@
           <div id="resize-packages-nav">
             <div id="packages-nav">
               <div id="index-links"><nobr>
-                <a href="../../../../../java/packages.html"  >Package Index</a> |
-                <a href="../../../../../java/classes.html" >Class Index</a></nobr>
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a></nobr>
               </div>
               <ul>
                 
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/async/package-summary.html">com.sforce.async</a></li>
+  <a href="../../../../../../java/com/sforce/async/package-summary.html">com.sforce.async</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/soap/partner/package-summary.html">com.sforce.soap.partner</a></li>
+  <a href="../../../../../../java/com/sforce/soap/partner/package-summary.html">com.sforce.soap.partner</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/soap/partner/fault/package-summary.html">com.sforce.soap.partner.fault</a></li>
+  <a href="../../../../../../java/com/sforce/soap/partner/fault/package-summary.html">com.sforce.soap.partner.fault</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/soap/partner/sobject/package-summary.html">com.sforce.soap.partner.sobject</a></li>
+  <a href="../../../../../../java/com/sforce/soap/partner/sobject/package-summary.html">com.sforce.soap.partner.sobject</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/package-summary.html">com.sforce.ws</a></li>
+  <a href="../../../../../../java/com/sforce/ws/package-summary.html">com.sforce.ws</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/bind/package-summary.html">com.sforce.ws.bind</a></li>
+  <a href="../../../../../../java/com/sforce/ws/bind/package-summary.html">com.sforce.ws.bind</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/parser/package-summary.html">com.sforce.ws.parser</a></li>
+  <a href="../../../../../../java/com/sforce/ws/parser/package-summary.html">com.sforce.ws.parser</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/template/package-summary.html">com.sforce.ws.template</a></li>
+  <a href="../../../../../../java/com/sforce/ws/template/package-summary.html">com.sforce.ws.template</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/tools/package-summary.html">com.sforce.ws.tools</a></li>
+  <a href="../../../../../../java/com/sforce/ws/tools/package-summary.html">com.sforce.ws.tools</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/transport/package-summary.html">com.sforce.ws.transport</a></li>
+  <a href="../../../../../../java/com/sforce/ws/transport/package-summary.html">com.sforce.ws.transport</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/types/package-summary.html">com.sforce.ws.types</a></li>
+  <a href="../../../../../../java/com/sforce/ws/types/package-summary.html">com.sforce.ws.types</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/util/package-summary.html">com.sforce.ws.util</a></li>
+  <a href="../../../../../../java/com/sforce/ws/util/package-summary.html">com.sforce.ws.util</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/com/sforce/ws/wsdl/package-summary.html">com.sforce.ws.wsdl</a></li>
+  <a href="../../../../../../java/com/sforce/ws/wsdl/package-summary.html">com.sforce.ws.wsdl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
     <li class="selected api apilevel-">
-  <a href="../../../../../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
+  <a href="../../../../../../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+  <a href="../../../../../../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -215,27 +215,38 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceLongPollingTransport.html">SalesforceLongPollingTransport</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html">SalesforceModuleConnectionManager.ConnectionKey</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html">SalesforceModuleSessionManagerAdapter.SessionKey</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></li>
       </ul>
     </li>
               
               
               
-    <li><h2>Exceptions</h2>
-      <ul>
-          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></li>
-      </ul>
-    </li>
               
             </ul><br/>
           </div><!-- end classes -->
         </div><!-- end nav-panels -->
         <div id="nav-tree" style="display:none">
           <div id="index-links"><nobr>
-            <a href="../../../../../packages.html"  >Package Index</a> | 
-            <a href="../../../../../classes.html" >Class Index</a></nobr>
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a></nobr>
           </div>
         </div><!-- end nav-tree -->
       </div><!-- end swapper -->
@@ -245,7 +256,7 @@
         $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
         chooseDefaultNav();
         if ($("#nav-tree").is(':visible')) {
-          init_default_navtree("../../../../../");
+          init_default_navtree("../../../../../../");
         } else {
           addLoadEvent(function() {
             scrollIntoView("packages-nav");
@@ -267,30 +278,7 @@
 
 
   
-  
    
-  
-  
-  
-
-  
-   
-  
-  
-   
-  
-  
-   
-  
-  
-
-  
-   
-  
-  
-  
-  
-
   
   
   
@@ -307,16 +295,10 @@ Summary:
 
 
 
-  <a href="#inhconstants">Inherited Constants</a>
+
+  <a href="#lfields">Fields</a>
   
 
-
-  &#124; <a href="#lfields">Fields</a>
-  
-
-
-  &#124; <a href="#inhfields">Inherited Fields</a>
-  
 
 
   &#124; <a href="#pubctors">Ctors</a>
@@ -349,24 +331,16 @@ Summary:
 
 <div id="jd-header">
     public
-     
+    static 
      
     
     class
-<h1>SalesforceException</h1>
+<h1>SalesforceModuleConnectionManager.ConnectionKey</h1>
 
 
 
   
-  
-  
-
-  
-  
-  
-
-  
-    extends Exception<br/>
+    extends Object<br/>
   
   
   
@@ -386,7 +360,7 @@ Summary:
 
     <tr>
         
-        <td colspan="4" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -394,29 +368,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Throwable</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-        
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Exception</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-        
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.SalesforceException</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.SalesforceModuleConnectionManager.ConnectionKey</td>
     </tr>
     
 
@@ -430,10 +382,6 @@ Summary:
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>A runtime exception that wraps a <code><a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a></code>
-</p>
 
 
 
@@ -476,80 +424,6 @@ Summary:
 
 
 
-<!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="inhconstants" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Constants</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-java.lang.Exception" class="jd-expando-trigger closed"
-          ><img id="inherited-constants-java.lang.Exception-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>From class
-java.lang.Exception
-<div id="inherited-constants-java.lang.Exception">
-  <div id="inherited-constants-java.lang.Exception-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-constants-java.lang.Exception-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">long</td>
-        <td class="jd-linkcol">serialVersionUID</td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-java.lang.Throwable" class="jd-expando-trigger closed"
-          ><img id="inherited-constants-java.lang.Throwable-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>From class
-java.lang.Throwable
-<div id="inherited-constants-java.lang.Throwable">
-  <div id="inherited-constants-java.lang.Throwable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-constants-java.lang.Throwable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">long</td>
-        <td class="jd-linkcol">serialVersionUID</td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-
-
-
-</table>
-
-
 
 
 <!-- =========== FIELD SUMMARY =========== -->
@@ -562,51 +436,8 @@ java.lang.Throwable
           private
           
           
-          <a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#statusCode">statusCode</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-
-</table>
-
-
-
-
-
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="inhfields" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Fields</div></th></tr>
-
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-java.lang.Throwable" class="jd-expando-trigger closed"
-          ><img id="inherited-fields-java.lang.Throwable-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>From class
-java.lang.Throwable
-<div id="inherited-fields-java.lang.Throwable">
-  <div id="inherited-fields-java.lang.Throwable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-fields-java.lang.Throwable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol">backtrace</td>
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#password">password</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -616,8 +447,8 @@ java.lang.Throwable
           private
           
           
-          Throwable</nobr></td>
-          <td class="jd-linkcol">cause</td>
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#securityToken">securityToken</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -628,33 +459,16 @@ java.lang.Throwable
           
           
           String</nobr></td>
-          <td class="jd-linkcol">detailMessage</td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          StackTraceElement[]</nobr></td>
-          <td class="jd-linkcol">stackTrace</td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-
-
 
 </table>
+
+
+
 
 
 
@@ -675,39 +489,7 @@ java.lang.Throwable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#SalesforceException(java.lang.Throwable)">SalesforceException</a></span>(Throwable e)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#SalesforceException(java.lang.String, java.lang.Throwable)">SalesforceException</a></span>(String message, Throwable e)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#SalesforceException(com.sforce.soap.partner.StatusCode, java.lang.String)">SalesforceException</a></span>(<a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a> statusCode, String message)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#SalesforceModuleConnectionManager.ConnectionKey(java.lang.String, java.lang.String, java.lang.String)">SalesforceModuleConnectionManager.ConnectionKey</a></span>(String username, String password, String securityToken)</nobr>
         
   </td></tr>
 
@@ -733,10 +515,86 @@ java.lang.Throwable
             
             
             
-            <a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a></nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#getStatusCode()">getStatusCode</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#equals(java.lang.Object)">equals</a></span>(Object obj)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#getPassword()">getPassword</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves password
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#getSecurityToken()">getSecurityToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves securityToken
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#getUsername()">getUsername</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves username
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#hashCode()">hashCode</a></span>()</nobr>
         
   </td></tr>
 
@@ -752,8 +610,46 @@ java.lang.Throwable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceException.html#setStatusCode(com.sforce.soap.partner.StatusCode)">setStatusCode</a></span>(<a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a> statusCode)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#setPassword(java.lang.String)">setPassword</a></span>(String value)</nobr>
         
+        <div class="jd-descrdiv">Sets password</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#setSecurityToken(java.lang.String)">setSecurityToken</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets securityToken</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html#setUsername(java.lang.String)">setUsername</a></span>(String value)</nobr>
+        
+        <div class="jd-descrdiv">Sets username</div>
+  
   </td></tr>
 
 
@@ -772,215 +668,11 @@ java.lang.Throwable
   <div style="clear:left;">Inherited Methods</div></th></tr>
 
 
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Throwable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Throwable-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Throwable
-
-<div id="inherited-methods-java.lang.Throwable">
-  <div id="inherited-methods-java.lang.Throwable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Throwable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            synchronized
-            
-            
-            
-            Throwable</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">fillInStackTrace</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Throwable</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getCause</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getLocalizedMessage</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getMessage</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            StackTraceElement[]</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">getStackTrace</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            synchronized
-            
-            
-            
-            Throwable</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">initCause</span>(Throwable arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">printStackTrace</span>(PrintWriter arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">printStackTrace</span>(PrintStream arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">printStackTrace</span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setStackTrace</span>(StackTraceElement[] arg0)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">toString</span>()</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
 <tr class="api apilevel-" >
 <td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
           ><img id="inherited-methods-java.lang.Object-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
+          src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From class
 
@@ -1177,8 +869,6 @@ From class
 </td></tr>
 
 
-
-
 </table>
 
 
@@ -1211,7 +901,7 @@ From class
 
 
 
-<A NAME="statusCode"></A>
+<A NAME="password"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1219,9 +909,69 @@ From class
         private 
          
          
-        <a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a>
+        String
       </span>
-        statusCode
+        password
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="securityToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        securityToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="username"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        username
     </h4>
       <div class="api-level">
         
@@ -1250,7 +1000,7 @@ From class
 
 
 
-<A NAME="SalesforceException(java.lang.Throwable)"></A>
+<A NAME="SalesforceModuleConnectionManager.ConnectionKey(java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1262,8 +1012,8 @@ From class
          
         
       </span>
-      <span class="sympad">SalesforceException</span>
-      <span class="normal">(Throwable e)</span>
+      <span class="sympad">SalesforceModuleConnectionManager.ConnectionKey</span>
+      <span class="normal">(String username, String password, String securityToken)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1280,95 +1030,15 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>e</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="SalesforceException(java.lang.String, java.lang.Throwable)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">SalesforceException</span>
-      <span class="normal">(String message, Throwable e)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>message</td>
+          <th>username</td>
           <td></td>
         </tr>
         <tr>
-          <th>e</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="SalesforceException(com.sforce.soap.partner.StatusCode, java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">SalesforceException</span>
-      <span class="normal">(<a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a> statusCode, String message)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>statusCode</td>
+          <th>password</td>
           <td></td>
         </tr>
         <tr>
-          <th>message</td>
+          <th>securityToken</td>
           <td></td>
         </tr>
       </table>
@@ -1393,7 +1063,7 @@ From class
 
 
 
-<A NAME="getStatusCode()"></A>
+<A NAME="equals(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1403,9 +1073,148 @@ From class
          
          
          
-        <a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a>
+        boolean
       </span>
-      <span class="sympad">getStatusCode</span>
+      <span class="sympad">equals</span>
+      <span class="normal">(Object obj)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>obj</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPassword()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getPassword</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves password
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getSecurityToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getSecurityToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves securityToken
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUsername()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getUsername</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves username
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="hashCode()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">hashCode</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1424,7 +1233,7 @@ From class
 </div>
 
 
-<A NAME="setStatusCode(com.sforce.soap.partner.StatusCode)"></A>
+<A NAME="setPassword(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1436,8 +1245,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setStatusCode</span>
-      <span class="normal">(<a href="../../../../../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a> statusCode)</span>
+      <span class="sympad">setPassword</span>
+      <span class="normal">(String value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1449,13 +1258,96 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>statusCode</td>
-          <td></td>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSecurityToken(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSecurityToken</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets securityToken</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setUsername(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setUsername</span>
+      <span class="normal">(String value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets username</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
         </tr>
       </table>
   </div>

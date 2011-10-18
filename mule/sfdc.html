@@ -503,7 +503,7 @@ specify which configuration to use.</p>
           <td class="jd-typecol"><nobr>
           xs:anyUri</nobr></td>
           <td class="jd-linkcol"><nobr>url</nobr></td>
-          <td class="jd-descrcol">https://login.salesforce.com/services/Soap/u/21.0</td>
+          <td class="jd-descrcol">https://login.salesforce.com/services/Soap/u/23.0</td>
           <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>SalesForce SOAP endpoint
 </td>
       </tr>
@@ -514,23 +514,22 @@ specify which configuration to use.</p>
 
 
 
-<!-- ========= SESSION MANAGEMENT DETAIL ======== -->
-<h2>Session Management</h2>
-<p>This module offers automatic session management via the use of a session pool. The session pool is fully configurable
-by the user of the module. The pool will act a storage mechanism for all the sessions that are currently being
-handled by different module processors.</p>
-<p>Prior to execution of a processor, the module will attempt to lookup a session and if one doesn't exists it will
-create one. That lookup mechanism is done in the session pool via the use of session variables declared as keys.</p>
-<p>The user of the connector can configure the pool by adding a <code>session-pooling-profile</code> to the connector configuration like this:</p>
+<!-- ========= CONNECTION MANAGEMENT DETAIL ======== -->
+<h2>Connection Pool</h2>
+<p>This connector offers automatic connection management via the use of a connection pool. The pool will act a storage mechanism for all the connections that are in-use by the user of
+this connector.</p>
+<p>Prior to execution of a processor, the connector will attempt to lookup an already established connection and if one doesn't exists it will
+create one. That lookup mechanism is done in the connection pool via the use of connection variables declared as keys.</p>
+<p>The user of the connector can configure the pool by adding a <code>connection-pooling-profile</code> to the connector configuration like this:</p>
 <pre>
-    &lt;sfdc:session-pooling-profile maxActive="10" maxIdle="10"
+    &lt;sfdc:connection-pooling-profile maxActive="10" maxIdle="10"
                              exhaustedAction="WHEN_EXHAUSTED_GROW" maxWait="120"/&gt;
 </pre>
-<p>The following is a list of session variables, each session variable can be configured at the config element level or
+<p>The following is a list of connection attributes, each connection attribute can be configured at the config element level or
 they can also be added to each processor. If they are used at the processor level they get the benefit of full expression
 resolution.</p>
 <table id="lconfig" class="jd-sumtable">
-<tr><th colspan="12">Session Variables</th></tr>
+<tr><th colspan="12">Connection Attributes</th></tr>
 <tr><th>Name</th><th>Description</th></tr>
 
     
@@ -579,7 +578,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;enricher target="#[variable:accountId]" source="#[map-payload:id]"&gt;
     &lt;sfdc:query-single query="SELECT id FROM Account WHERE Name='CompanyNameOfLeadBeingMerged'"/&gt;
 &lt;/enricher&gt;
@@ -600,32 +599,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>leadId</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">ID of the Lead to convert. Required. For information on IDs, see ID Field Type.<br/></td>
@@ -636,7 +610,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>contactId</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">ID of the Contact into which the lead will be merged (this contact must be
@@ -658,7 +632,7 @@ resolution.</p>
           
             
                 
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>accountId</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>ID of the Account into which the lead will be merged. Required
@@ -676,7 +650,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>overWriteLeadSource</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to overwrite the LeadSource field on the target Contact object
@@ -690,7 +664,7 @@ resolution.</p>
           
             
                 
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>doNotCreateOpportunity</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to create an Opportunity during lead conversion (false, the
@@ -703,7 +677,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>opportunityName</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Name of the opportunity to create. If no name is specified, then this value
@@ -717,7 +691,7 @@ resolution.</p>
           
             
                 
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>convertedStatus</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Valid LeadStatus value for a converted lead. Required.
@@ -731,7 +705,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmailToOwner</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to send a notification email to the owner specified in the
@@ -748,8 +722,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -802,7 +774,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds one or more new records to your organization's data.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
     &lt;sfdc:objects&gt;
         &lt;sfdc:object&gt;
@@ -827,32 +799,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Type of object to create<br/></td>
@@ -863,7 +810,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>objects</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
@@ -879,8 +826,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -921,7 +866,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Deletes one or more records from your organization's data.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:delete&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
@@ -939,32 +884,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>ids</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the objects to delete.<br/></td>
@@ -980,8 +900,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1020,7 +938,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves a list of available objects for your organization's data.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-global/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1032,31 +950,6 @@ resolution.</p>
       <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
-            
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
       </table>
   </div>
   <div class="jd-tagdata">
@@ -1064,8 +957,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
       </table>
   </div>
@@ -1102,7 +993,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Describes metadata (field list and object properties) for the specified object.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-sobject type="Account"/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1116,32 +1007,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Object. The specified value must be a valid object for your organization. For a complete list
@@ -1158,8 +1024,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1202,7 +1066,7 @@ resolution.</p>
  one time. For example, if your organization has five user licenses, 25,000 records can be stored in the
  Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
  the oldest records, as long as they have been in the recycle bin for at least two hours.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:empty-recycle-bin&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
@@ -1220,32 +1084,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>ids</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the records to delete from the recycle bin.
@@ -1262,8 +1101,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1303,7 +1140,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" /&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1317,32 +1154,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
@@ -1353,7 +1165,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>duration</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">The amount of time in minutes before now for which to return records from.<br/></td>
@@ -1369,8 +1181,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1411,7 +1221,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted-range type="Account" startTime-ref="#[variable:startTime]" endTime-ref="#[variable:endTime]"/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1425,32 +1235,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
@@ -1461,7 +1246,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>startTime</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
@@ -1474,7 +1259,7 @@ resolution.</p>
           
             
                 
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>endTime</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
@@ -1492,8 +1277,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1537,7 +1320,7 @@ resolution.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a topic which represents a query that is the basis for notifying
  listeners of changes to records in an organization.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1551,32 +1334,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>name</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
@@ -1588,7 +1346,7 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>query</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">The SOQL query statement that determines which records' changes trigger events to be sent to
@@ -1600,7 +1358,7 @@ resolution.</p>
           
             
                 
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>description</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Description of what kinds of records are returned by the query. Limit: 400 characters<br/></td>
@@ -1616,8 +1374,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1656,7 +1412,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns data that matches the specified criteria.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query query="SELECT Id FROM Account"/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1670,32 +1426,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>query</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
@@ -1713,8 +1444,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1753,7 +1482,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns the first record that matches the specified criteria.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id FROM Account"/&gt;</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
@@ -1767,32 +1496,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>query</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
@@ -1810,8 +1514,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1850,7 +1552,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates one or more existing records in your organization's data.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/&gt;
 &lt;!-- Update Name of the Account --&gt;
 &lt;sfdc:update type="Account"&gt;
@@ -1870,32 +1572,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>objects</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
@@ -1911,8 +1588,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           
@@ -1961,7 +1636,7 @@ resolution.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Subscribe to a topic.
-
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;flow name="sendSmsNotifications"&gt;
     &lt;sfdc:subscribe-topic config-ref="salesforce-default"
                           topic="/NewsFeedStream"/&gt;
@@ -1983,32 +1658,7 @@ resolution.</p>
           
             
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>username</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>password</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-                    </tr>
-                    
-                
-            
-          
-            
-                
-                <tr class="alt-color api apilevel-" >
+                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>topic</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">The name of the topic to subscribe to<br/></td>
@@ -2019,10 +1669,11 @@ resolution.</p>
           
             
                 
-                <tr class=" api apilevel-" >
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The callback to be called when a message is received<br/></td>
+                    <td class="jd-descrcol" width="100%">The callback to be called when a message is received
+<br/></td>
                 </tr>
                 
                 
@@ -2035,8 +1686,6 @@ resolution.</p>
 
       <table class="jd-tagtable">
           
-          
-            
           
             
           

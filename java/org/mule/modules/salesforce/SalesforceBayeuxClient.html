@@ -216,8 +216,8 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="selected api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceLongPollingTransport.html">SalesforceLongPollingTransport</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></li>
       </ul>
     </li>
               
@@ -529,6 +529,13 @@ Summary:
     
     
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#LONG_POLLING_TIMEOUT">LONG_POLLING_TIMEOUT</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#SESSIONID_COOKIE">SESSIONID_COOKIE</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -626,15 +633,26 @@ org.cometd.client.BayeuxClient
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
-          
-          
-          <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#session">session</a></td>
+          static
+          final
+          Map&lt;String,&nbsp;Object&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#LONG_POLLING_OPTIONS">LONG_POLLING_OPTIONS</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#salesforceModule">salesforceModule</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -954,7 +972,7 @@ org.cometd.common.AbstractClientSession
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#SalesforceBayeuxClient(org.mule.modules.salesforce.SalesforceSession, java.lang.String, org.cometd.client.transport.ClientTransport, org.cometd.client.transport.ClientTransport...)">SalesforceBayeuxClient</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String url, ClientTransport transport, ClientTransport... transports)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxClient.html#SalesforceBayeuxClient(org.mule.modules.salesforce.SalesforceModule)">SalesforceBayeuxClient</a></span>(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a> salesforceModule)</nobr>
         
         <div class="jd-descrdiv">Create a new instance of this Bayeux client.</div>
   
@@ -2996,6 +3014,46 @@ From interface
 
 
 
+<A NAME="LONG_POLLING_TIMEOUT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        int
+      </span>
+        LONG_POLLING_TIMEOUT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                120000
+                (0x0001d4c0)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <A NAME="SESSIONID_COOKIE"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -3075,7 +3133,37 @@ From interface
 
 
 
-<A NAME="session"></A>
+<A NAME="LONG_POLLING_OPTIONS"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        Map&lt;String,&nbsp;Object&gt;
+      </span>
+        LONG_POLLING_OPTIONS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="salesforceModule"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3083,9 +3171,9 @@ From interface
         private 
          
          
-        <a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a>
+        <a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a>
       </span>
-        session
+        salesforceModule
     </h4>
       <div class="api-level">
         
@@ -3144,7 +3232,7 @@ From interface
 
 
 
-<A NAME="SalesforceBayeuxClient(org.mule.modules.salesforce.SalesforceSession, java.lang.String, org.cometd.client.transport.ClientTransport, org.cometd.client.transport.ClientTransport...)"></A>
+<A NAME="SalesforceBayeuxClient(org.mule.modules.salesforce.SalesforceModule)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3157,7 +3245,7 @@ From interface
         
       </span>
       <span class="sympad">SalesforceBayeuxClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceSession.html">SalesforceSession</a> session, String url, ClientTransport transport, ClientTransport... transports)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a> salesforceModule)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3174,20 +3262,17 @@ From interface
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>session</td>
-          <td>Session information</td>
+          <th>salesforceModule</td>
+          <td>Salesforce connection</td>
         </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
         <tr>
-          <th>url</td>
-          <td>Url to connect to</td>
-        </tr>
-        <tr>
-          <th>transport</td>
-          <td>the default (mandatory) transport to use</td>
-        </tr>
-        <tr>
-          <th>transports</td>
-          <td>additional optional transports to use in case the default transport cannot be used</td>
+            <th>MalformedURLException</td>
+            <td></td>
         </tr>
       </table>
   </div>
