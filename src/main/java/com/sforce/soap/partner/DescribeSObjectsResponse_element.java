@@ -21,15 +21,15 @@ public class DescribeSObjectsResponse_element implements com.sforce.ws.bind.XMLi
 
   private boolean result__is_set = false;
 
-  private DescribeSObjectResult[] result = new DescribeSObjectResult[0];
+  private com.sforce.soap.partner.DescribeSObjectResult[] result = new com.sforce.soap.partner.DescribeSObjectResult[0];
 
-  public DescribeSObjectResult[] getResult() {
+  public com.sforce.soap.partner.DescribeSObjectResult[] getResult() {
     return result;
   }
 
   
 
-  public void setResult(DescribeSObjectResult[] result) {
+  public void setResult(com.sforce.soap.partner.DescribeSObjectResult[] result) {
     this.result = result;
     result__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeSObjectsResponse_element implements com.sforce.ws.bind.XMLi
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, result__typeInfo)) {
-      setResult((DescribeSObjectResult[])__typeMapper.readObject(__in, result__typeInfo, DescribeSObjectResult[].class));
+      setResult((com.sforce.soap.partner.DescribeSObjectResult[])__typeMapper.readObject(__in, result__typeInfo, com.sforce.soap.partner.DescribeSObjectResult[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSObjectsResponse_element ");
     
     sb.append(" result=");

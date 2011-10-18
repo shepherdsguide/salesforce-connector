@@ -21,15 +21,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean bccSender__is_set = false;
 
-  private Boolean bccSender;
+  private java.lang.Boolean bccSender;
 
-  public Boolean getBccSender() {
+  public java.lang.Boolean getBccSender() {
     return bccSender;
   }
 
   
 
-  public void setBccSender(Boolean bccSender) {
+  public void setBccSender(java.lang.Boolean bccSender) {
     this.bccSender = bccSender;
     bccSender__is_set = true;
   }
@@ -65,15 +65,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean replyTo__is_set = false;
 
-  private String replyTo;
+  private java.lang.String replyTo;
 
-  public String getReplyTo() {
+  public java.lang.String getReplyTo() {
     return replyTo;
   }
 
   
 
-  public void setReplyTo(String replyTo) {
+  public void setReplyTo(java.lang.String replyTo) {
     this.replyTo = replyTo;
     replyTo__is_set = true;
   }
@@ -87,15 +87,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean saveAsActivity__is_set = false;
 
-  private Boolean saveAsActivity;
+  private java.lang.Boolean saveAsActivity;
 
-  public Boolean getSaveAsActivity() {
+  public java.lang.Boolean getSaveAsActivity() {
     return saveAsActivity;
   }
 
   
 
-  public void setSaveAsActivity(Boolean saveAsActivity) {
+  public void setSaveAsActivity(java.lang.Boolean saveAsActivity) {
     this.saveAsActivity = saveAsActivity;
     saveAsActivity__is_set = true;
   }
@@ -109,15 +109,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean senderDisplayName__is_set = false;
 
-  private String senderDisplayName;
+  private java.lang.String senderDisplayName;
 
-  public String getSenderDisplayName() {
+  public java.lang.String getSenderDisplayName() {
     return senderDisplayName;
   }
 
   
 
-  public void setSenderDisplayName(String senderDisplayName) {
+  public void setSenderDisplayName(java.lang.String senderDisplayName) {
     this.senderDisplayName = senderDisplayName;
     senderDisplayName__is_set = true;
   }
@@ -131,15 +131,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean subject__is_set = false;
 
-  private String subject;
+  private java.lang.String subject;
 
-  public String getSubject() {
+  public java.lang.String getSubject() {
     return subject;
   }
 
   
 
-  public void setSubject(String subject) {
+  public void setSubject(java.lang.String subject) {
     this.subject = subject;
     subject__is_set = true;
   }
@@ -153,15 +153,15 @@ public class Email implements com.sforce.ws.bind.XMLizable {
 
   private boolean useSignature__is_set = false;
 
-  private Boolean useSignature;
+  private java.lang.Boolean useSignature;
 
-  public Boolean getUseSignature() {
+  public java.lang.Boolean getUseSignature() {
     return useSignature;
   }
 
   
 
-  public void setUseSignature(Boolean useSignature) {
+  public void setUseSignature(java.lang.Boolean useSignature) {
     this.useSignature = useSignature;
     useSignature__is_set = true;
   }
@@ -203,7 +203,7 @@ public class Email implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, bccSender__typeInfo)) {
-      setBccSender((Boolean)__typeMapper.readObject(__in, bccSender__typeInfo, Boolean.class));
+      setBccSender((java.lang.Boolean)__typeMapper.readObject(__in, bccSender__typeInfo, java.lang.Boolean.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, emailPriority__typeInfo)) {
@@ -211,28 +211,28 @@ public class Email implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, replyTo__typeInfo)) {
-      setReplyTo((String)__typeMapper.readString(__in, replyTo__typeInfo, String.class));
+      setReplyTo((java.lang.String)__typeMapper.readString(__in, replyTo__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, saveAsActivity__typeInfo)) {
-      setSaveAsActivity((Boolean)__typeMapper.readObject(__in, saveAsActivity__typeInfo, Boolean.class));
+      setSaveAsActivity((java.lang.Boolean)__typeMapper.readObject(__in, saveAsActivity__typeInfo, java.lang.Boolean.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, senderDisplayName__typeInfo)) {
-      setSenderDisplayName((String)__typeMapper.readString(__in, senderDisplayName__typeInfo, String.class));
+      setSenderDisplayName((java.lang.String)__typeMapper.readString(__in, senderDisplayName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, subject__typeInfo)) {
-      setSubject((String)__typeMapper.readString(__in, subject__typeInfo, String.class));
+      setSubject((java.lang.String)__typeMapper.readString(__in, subject__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, useSignature__typeInfo)) {
-      setUseSignature((Boolean)__typeMapper.readObject(__in, useSignature__typeInfo, Boolean.class));
+      setUseSignature((java.lang.Boolean)__typeMapper.readObject(__in, useSignature__typeInfo, java.lang.Boolean.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Email ");
     
     sb.append(" bccSender=");

@@ -21,15 +21,15 @@ public class SessionHeader_element extends com.sforce.ws.bind.SoapHeaderObject i
 
   private boolean sessionId__is_set = false;
 
-  private String sessionId;
+  private java.lang.String sessionId;
 
-  public String getSessionId() {
+  public java.lang.String getSessionId() {
     return sessionId;
   }
 
   
 
-  public void setSessionId(String sessionId) {
+  public void setSessionId(java.lang.String sessionId) {
     this.sessionId = sessionId;
     sessionId__is_set = true;
   }
@@ -65,12 +65,12 @@ public class SessionHeader_element extends com.sforce.ws.bind.SoapHeaderObject i
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sessionId__typeInfo)) {
-      setSessionId((String)__typeMapper.readString(__in, sessionId__typeInfo, String.class));
+      setSessionId((java.lang.String)__typeMapper.readString(__in, sessionId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SessionHeader_element ");
     sb.append(super.toString());
     sb.append(" sessionId=");

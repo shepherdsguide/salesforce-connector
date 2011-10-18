@@ -49,15 +49,15 @@ public class DescribeLayoutItem implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -71,15 +71,15 @@ public class DescribeLayoutItem implements com.sforce.ws.bind.XMLizable {
 
   private boolean layoutComponents__is_set = false;
 
-  private DescribeLayoutComponent[] layoutComponents = new DescribeLayoutComponent[0];
+  private com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents = new com.sforce.soap.partner.DescribeLayoutComponent[0];
 
-  public DescribeLayoutComponent[] getLayoutComponents() {
+  public com.sforce.soap.partner.DescribeLayoutComponent[] getLayoutComponents() {
     return layoutComponents;
   }
 
   
 
-  public void setLayoutComponents(DescribeLayoutComponent[] layoutComponents) {
+  public void setLayoutComponents(com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents) {
     this.layoutComponents = layoutComponents;
     layoutComponents__is_set = true;
   }
@@ -179,11 +179,11 @@ public class DescribeLayoutItem implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, layoutComponents__typeInfo)) {
-      setLayoutComponents((DescribeLayoutComponent[])__typeMapper.readObject(__in, layoutComponents__typeInfo, DescribeLayoutComponent[].class));
+      setLayoutComponents((com.sforce.soap.partner.DescribeLayoutComponent[])__typeMapper.readObject(__in, layoutComponents__typeInfo, com.sforce.soap.partner.DescribeLayoutComponent[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, placeholder__typeInfo)) {
@@ -196,7 +196,7 @@ public class DescribeLayoutItem implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutItem ");
     
     sb.append(" editable=");

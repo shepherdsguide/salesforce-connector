@@ -77,15 +77,15 @@ public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {
 
   private boolean layoutId__is_set = false;
 
-  private String layoutId;
+  private java.lang.String layoutId;
 
-  public String getLayoutId() {
+  public java.lang.String getLayoutId() {
     return layoutId;
   }
 
   
 
-  public void setLayoutId(String layoutId) {
+  public void setLayoutId(java.lang.String layoutId) {
     this.layoutId = layoutId;
     layoutId__is_set = true;
   }
@@ -99,15 +99,15 @@ public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -121,15 +121,15 @@ public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {
 
   private boolean picklistsForRecordType__is_set = false;
 
-  private PicklistForRecordType[] picklistsForRecordType = new PicklistForRecordType[0];
+  private com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType = new com.sforce.soap.partner.PicklistForRecordType[0];
 
-  public PicklistForRecordType[] getPicklistsForRecordType() {
+  public com.sforce.soap.partner.PicklistForRecordType[] getPicklistsForRecordType() {
     return picklistsForRecordType;
   }
 
   
 
-  public void setPicklistsForRecordType(PicklistForRecordType[] picklistsForRecordType) {
+  public void setPicklistsForRecordType(com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType) {
     this.picklistsForRecordType = picklistsForRecordType;
     picklistsForRecordType__is_set = true;
   }
@@ -143,15 +143,15 @@ public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {
 
   private boolean recordTypeId__is_set = false;
 
-  private String recordTypeId;
+  private java.lang.String recordTypeId;
 
-  public String getRecordTypeId() {
+  public java.lang.String getRecordTypeId() {
     return recordTypeId;
   }
 
   
 
-  public void setRecordTypeId(String recordTypeId) {
+  public void setRecordTypeId(java.lang.String recordTypeId) {
     this.recordTypeId = recordTypeId;
     recordTypeId__is_set = true;
   }
@@ -200,24 +200,24 @@ public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layoutId__typeInfo)) {
-      setLayoutId((String)__typeMapper.readString(__in, layoutId__typeInfo, String.class));
+      setLayoutId((java.lang.String)__typeMapper.readString(__in, layoutId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, picklistsForRecordType__typeInfo)) {
-      setPicklistsForRecordType((PicklistForRecordType[])__typeMapper.readObject(__in, picklistsForRecordType__typeInfo, PicklistForRecordType[].class));
+      setPicklistsForRecordType((com.sforce.soap.partner.PicklistForRecordType[])__typeMapper.readObject(__in, picklistsForRecordType__typeInfo, com.sforce.soap.partner.PicklistForRecordType[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, recordTypeId__typeInfo)) {
-      setRecordTypeId((String)__typeMapper.readString(__in, recordTypeId__typeInfo, String.class));
+      setRecordTypeId((java.lang.String)__typeMapper.readString(__in, recordTypeId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[RecordTypeMapping ");
     
     sb.append(" available=");

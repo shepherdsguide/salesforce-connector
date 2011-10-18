@@ -3,7 +3,7 @@ package com.sforce.soap.partner.fault;
 /**
  * Generated class, please do not edit.
  */
-public class LoginFault extends ApiFault {
+public class LoginFault extends com.sforce.soap.partner.fault.ApiFault {
 
   /**
    * Constructor
@@ -43,7 +43,7 @@ public class LoginFault extends ApiFault {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LoginFault ");
     sb.append(super.toString());
     sb.append("]\n");

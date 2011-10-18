@@ -70,7 +70,7 @@ public class EmptyRecycleBinResponse_element implements com.sforce.ws.bind.XMLiz
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[EmptyRecycleBinResponse_element ");
     
     sb.append(" result=");

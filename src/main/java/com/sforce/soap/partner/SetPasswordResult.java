@@ -43,7 +43,7 @@ public class SetPasswordResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SetPasswordResult ");
     
     sb.append("]\n");

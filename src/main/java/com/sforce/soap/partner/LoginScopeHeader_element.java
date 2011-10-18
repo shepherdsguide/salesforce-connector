@@ -21,15 +21,15 @@ public class LoginScopeHeader_element extends com.sforce.ws.bind.SoapHeaderObjec
 
   private boolean organizationId__is_set = false;
 
-  private String organizationId;
+  private java.lang.String organizationId;
 
-  public String getOrganizationId() {
+  public java.lang.String getOrganizationId() {
     return organizationId;
   }
 
   
 
-  public void setOrganizationId(String organizationId) {
+  public void setOrganizationId(java.lang.String organizationId) {
     this.organizationId = organizationId;
     organizationId__is_set = true;
   }
@@ -43,15 +43,15 @@ public class LoginScopeHeader_element extends com.sforce.ws.bind.SoapHeaderObjec
 
   private boolean portalId__is_set = false;
 
-  private String portalId;
+  private java.lang.String portalId;
 
-  public String getPortalId() {
+  public java.lang.String getPortalId() {
     return portalId;
   }
 
   
 
-  public void setPortalId(String portalId) {
+  public void setPortalId(java.lang.String portalId) {
     this.portalId = portalId;
     portalId__is_set = true;
   }
@@ -88,16 +88,16 @@ public class LoginScopeHeader_element extends com.sforce.ws.bind.SoapHeaderObjec
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, organizationId__typeInfo)) {
-      setOrganizationId((String)__typeMapper.readString(__in, organizationId__typeInfo, String.class));
+      setOrganizationId((java.lang.String)__typeMapper.readString(__in, organizationId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, portalId__typeInfo)) {
-      setPortalId((String)__typeMapper.readString(__in, portalId__typeInfo, String.class));
+      setPortalId((java.lang.String)__typeMapper.readString(__in, portalId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LoginScopeHeader_element ");
     sb.append(super.toString());
     sb.append(" organizationId=");

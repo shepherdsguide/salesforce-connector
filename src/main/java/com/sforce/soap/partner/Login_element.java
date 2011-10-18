@@ -21,15 +21,15 @@ public class Login_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean username__is_set = false;
 
-  private String username;
+  private java.lang.String username;
 
-  public String getUsername() {
+  public java.lang.String getUsername() {
     return username;
   }
 
   
 
-  public void setUsername(String username) {
+  public void setUsername(java.lang.String username) {
     this.username = username;
     username__is_set = true;
   }
@@ -43,15 +43,15 @@ public class Login_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean password__is_set = false;
 
-  private String password;
+  private java.lang.String password;
 
-  public String getPassword() {
+  public java.lang.String getPassword() {
     return password;
   }
 
   
 
-  public void setPassword(String password) {
+  public void setPassword(java.lang.String password) {
     this.password = password;
     password__is_set = true;
   }
@@ -88,16 +88,16 @@ public class Login_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, username__typeInfo)) {
-      setUsername((String)__typeMapper.readString(__in, username__typeInfo, String.class));
+      setUsername((java.lang.String)__typeMapper.readString(__in, username__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, password__typeInfo)) {
-      setPassword((String)__typeMapper.readString(__in, password__typeInfo, String.class));
+      setPassword((java.lang.String)__typeMapper.readString(__in, password__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Login_element ");
     
     sb.append(" username=");

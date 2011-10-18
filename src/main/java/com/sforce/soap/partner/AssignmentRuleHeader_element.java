@@ -21,15 +21,15 @@ public class AssignmentRuleHeader_element extends com.sforce.ws.bind.SoapHeaderO
 
   private boolean assignmentRuleId__is_set = false;
 
-  private String assignmentRuleId;
+  private java.lang.String assignmentRuleId;
 
-  public String getAssignmentRuleId() {
+  public java.lang.String getAssignmentRuleId() {
     return assignmentRuleId;
   }
 
   
 
-  public void setAssignmentRuleId(String assignmentRuleId) {
+  public void setAssignmentRuleId(java.lang.String assignmentRuleId) {
     this.assignmentRuleId = assignmentRuleId;
     assignmentRuleId__is_set = true;
   }
@@ -43,15 +43,15 @@ public class AssignmentRuleHeader_element extends com.sforce.ws.bind.SoapHeaderO
 
   private boolean useDefaultRule__is_set = false;
 
-  private Boolean useDefaultRule;
+  private java.lang.Boolean useDefaultRule;
 
-  public Boolean getUseDefaultRule() {
+  public java.lang.Boolean getUseDefaultRule() {
     return useDefaultRule;
   }
 
   
 
-  public void setUseDefaultRule(Boolean useDefaultRule) {
+  public void setUseDefaultRule(java.lang.Boolean useDefaultRule) {
     this.useDefaultRule = useDefaultRule;
     useDefaultRule__is_set = true;
   }
@@ -88,16 +88,16 @@ public class AssignmentRuleHeader_element extends com.sforce.ws.bind.SoapHeaderO
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, assignmentRuleId__typeInfo)) {
-      setAssignmentRuleId((String)__typeMapper.readString(__in, assignmentRuleId__typeInfo, String.class));
+      setAssignmentRuleId((java.lang.String)__typeMapper.readString(__in, assignmentRuleId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, useDefaultRule__typeInfo)) {
-      setUseDefaultRule((Boolean)__typeMapper.readObject(__in, useDefaultRule__typeInfo, Boolean.class));
+      setUseDefaultRule((java.lang.Boolean)__typeMapper.readObject(__in, useDefaultRule__typeInfo, java.lang.Boolean.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[AssignmentRuleHeader_element ");
     sb.append(super.toString());
     sb.append(" assignmentRuleId=");

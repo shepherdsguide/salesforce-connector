@@ -21,15 +21,15 @@ public class DescribeLayoutButtonSection implements com.sforce.ws.bind.XMLizable
 
   private boolean detailButtons__is_set = false;
 
-  private DescribeLayoutButton[] detailButtons = new DescribeLayoutButton[0];
+  private com.sforce.soap.partner.DescribeLayoutButton[] detailButtons = new com.sforce.soap.partner.DescribeLayoutButton[0];
 
-  public DescribeLayoutButton[] getDetailButtons() {
+  public com.sforce.soap.partner.DescribeLayoutButton[] getDetailButtons() {
     return detailButtons;
   }
 
   
 
-  public void setDetailButtons(DescribeLayoutButton[] detailButtons) {
+  public void setDetailButtons(com.sforce.soap.partner.DescribeLayoutButton[] detailButtons) {
     this.detailButtons = detailButtons;
     detailButtons__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeLayoutButtonSection implements com.sforce.ws.bind.XMLizable
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, detailButtons__typeInfo)) {
-      setDetailButtons((DescribeLayoutButton[])__typeMapper.readObject(__in, detailButtons__typeInfo, DescribeLayoutButton[].class));
+      setDetailButtons((com.sforce.soap.partner.DescribeLayoutButton[])__typeMapper.readObject(__in, detailButtons__typeInfo, com.sforce.soap.partner.DescribeLayoutButton[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutButtonSection ");
     
     sb.append(" detailButtons=");

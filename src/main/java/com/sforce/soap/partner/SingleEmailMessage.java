@@ -3,7 +3,7 @@ package com.sforce.soap.partner;
 /**
  * Generated class, please do not edit.
  */
-public class SingleEmailMessage extends Email {
+public class SingleEmailMessage extends com.sforce.soap.partner.Email {
 
   /**
    * Constructor
@@ -21,15 +21,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean bccAddresses__is_set = false;
 
-  private String[] bccAddresses = new String[0];
+  private java.lang.String[] bccAddresses = new java.lang.String[0];
 
-  public String[] getBccAddresses() {
+  public java.lang.String[] getBccAddresses() {
     return bccAddresses;
   }
 
   
 
-  public void setBccAddresses(String[] bccAddresses) {
+  public void setBccAddresses(java.lang.String[] bccAddresses) {
     this.bccAddresses = bccAddresses;
     bccAddresses__is_set = true;
   }
@@ -43,15 +43,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean ccAddresses__is_set = false;
 
-  private String[] ccAddresses = new String[0];
+  private java.lang.String[] ccAddresses = new java.lang.String[0];
 
-  public String[] getCcAddresses() {
+  public java.lang.String[] getCcAddresses() {
     return ccAddresses;
   }
 
   
 
-  public void setCcAddresses(String[] ccAddresses) {
+  public void setCcAddresses(java.lang.String[] ccAddresses) {
     this.ccAddresses = ccAddresses;
     ccAddresses__is_set = true;
   }
@@ -65,15 +65,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean charset__is_set = false;
 
-  private String charset;
+  private java.lang.String charset;
 
-  public String getCharset() {
+  public java.lang.String getCharset() {
     return charset;
   }
 
   
 
-  public void setCharset(String charset) {
+  public void setCharset(java.lang.String charset) {
     this.charset = charset;
     charset__is_set = true;
   }
@@ -87,15 +87,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean documentAttachments__is_set = false;
 
-  private String[] documentAttachments = new String[0];
+  private java.lang.String[] documentAttachments = new java.lang.String[0];
 
-  public String[] getDocumentAttachments() {
+  public java.lang.String[] getDocumentAttachments() {
     return documentAttachments;
   }
 
   
 
-  public void setDocumentAttachments(String[] documentAttachments) {
+  public void setDocumentAttachments(java.lang.String[] documentAttachments) {
     this.documentAttachments = documentAttachments;
     documentAttachments__is_set = true;
   }
@@ -109,15 +109,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean htmlBody__is_set = false;
 
-  private String htmlBody;
+  private java.lang.String htmlBody;
 
-  public String getHtmlBody() {
+  public java.lang.String getHtmlBody() {
     return htmlBody;
   }
 
   
 
-  public void setHtmlBody(String htmlBody) {
+  public void setHtmlBody(java.lang.String htmlBody) {
     this.htmlBody = htmlBody;
     htmlBody__is_set = true;
   }
@@ -131,15 +131,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean inReplyTo__is_set = false;
 
-  private String inReplyTo;
+  private java.lang.String inReplyTo;
 
-  public String getInReplyTo() {
+  public java.lang.String getInReplyTo() {
     return inReplyTo;
   }
 
   
 
-  public void setInReplyTo(String inReplyTo) {
+  public void setInReplyTo(java.lang.String inReplyTo) {
     this.inReplyTo = inReplyTo;
     inReplyTo__is_set = true;
   }
@@ -153,15 +153,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean fileAttachments__is_set = false;
 
-  private EmailFileAttachment[] fileAttachments = new EmailFileAttachment[0];
+  private com.sforce.soap.partner.EmailFileAttachment[] fileAttachments = new com.sforce.soap.partner.EmailFileAttachment[0];
 
-  public EmailFileAttachment[] getFileAttachments() {
+  public com.sforce.soap.partner.EmailFileAttachment[] getFileAttachments() {
     return fileAttachments;
   }
 
   
 
-  public void setFileAttachments(EmailFileAttachment[] fileAttachments) {
+  public void setFileAttachments(com.sforce.soap.partner.EmailFileAttachment[] fileAttachments) {
     this.fileAttachments = fileAttachments;
     fileAttachments__is_set = true;
   }
@@ -175,15 +175,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean orgWideEmailAddressId__is_set = false;
 
-  private String orgWideEmailAddressId;
+  private java.lang.String orgWideEmailAddressId;
 
-  public String getOrgWideEmailAddressId() {
+  public java.lang.String getOrgWideEmailAddressId() {
     return orgWideEmailAddressId;
   }
 
   
 
-  public void setOrgWideEmailAddressId(String orgWideEmailAddressId) {
+  public void setOrgWideEmailAddressId(java.lang.String orgWideEmailAddressId) {
     this.orgWideEmailAddressId = orgWideEmailAddressId;
     orgWideEmailAddressId__is_set = true;
   }
@@ -197,15 +197,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean plainTextBody__is_set = false;
 
-  private String plainTextBody;
+  private java.lang.String plainTextBody;
 
-  public String getPlainTextBody() {
+  public java.lang.String getPlainTextBody() {
     return plainTextBody;
   }
 
   
 
-  public void setPlainTextBody(String plainTextBody) {
+  public void setPlainTextBody(java.lang.String plainTextBody) {
     this.plainTextBody = plainTextBody;
     plainTextBody__is_set = true;
   }
@@ -219,15 +219,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean references__is_set = false;
 
-  private String references;
+  private java.lang.String references;
 
-  public String getReferences() {
+  public java.lang.String getReferences() {
     return references;
   }
 
   
 
-  public void setReferences(String references) {
+  public void setReferences(java.lang.String references) {
     this.references = references;
     references__is_set = true;
   }
@@ -241,15 +241,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean targetObjectId__is_set = false;
 
-  private String targetObjectId;
+  private java.lang.String targetObjectId;
 
-  public String getTargetObjectId() {
+  public java.lang.String getTargetObjectId() {
     return targetObjectId;
   }
 
   
 
-  public void setTargetObjectId(String targetObjectId) {
+  public void setTargetObjectId(java.lang.String targetObjectId) {
     this.targetObjectId = targetObjectId;
     targetObjectId__is_set = true;
   }
@@ -263,15 +263,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean templateId__is_set = false;
 
-  private String templateId;
+  private java.lang.String templateId;
 
-  public String getTemplateId() {
+  public java.lang.String getTemplateId() {
     return templateId;
   }
 
   
 
-  public void setTemplateId(String templateId) {
+  public void setTemplateId(java.lang.String templateId) {
     this.templateId = templateId;
     templateId__is_set = true;
   }
@@ -285,15 +285,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean toAddresses__is_set = false;
 
-  private String[] toAddresses = new String[0];
+  private java.lang.String[] toAddresses = new java.lang.String[0];
 
-  public String[] getToAddresses() {
+  public java.lang.String[] getToAddresses() {
     return toAddresses;
   }
 
   
 
-  public void setToAddresses(String[] toAddresses) {
+  public void setToAddresses(java.lang.String[] toAddresses) {
     this.toAddresses = toAddresses;
     toAddresses__is_set = true;
   }
@@ -307,15 +307,15 @@ public class SingleEmailMessage extends Email {
 
   private boolean whatId__is_set = false;
 
-  private String whatId;
+  private java.lang.String whatId;
 
-  public String getWhatId() {
+  public java.lang.String getWhatId() {
     return whatId;
   }
 
   
 
-  public void setWhatId(String whatId) {
+  public void setWhatId(java.lang.String whatId) {
     this.whatId = whatId;
     whatId__is_set = true;
   }
@@ -364,64 +364,64 @@ public class SingleEmailMessage extends Email {
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.isElement(__in, bccAddresses__typeInfo)) {
-      setBccAddresses((String[])__typeMapper.readObject(__in, bccAddresses__typeInfo, String[].class));
+      setBccAddresses((java.lang.String[])__typeMapper.readObject(__in, bccAddresses__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, ccAddresses__typeInfo)) {
-      setCcAddresses((String[])__typeMapper.readObject(__in, ccAddresses__typeInfo, String[].class));
+      setCcAddresses((java.lang.String[])__typeMapper.readObject(__in, ccAddresses__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, charset__typeInfo)) {
-      setCharset((String)__typeMapper.readString(__in, charset__typeInfo, String.class));
+      setCharset((java.lang.String)__typeMapper.readString(__in, charset__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, documentAttachments__typeInfo)) {
-      setDocumentAttachments((String[])__typeMapper.readObject(__in, documentAttachments__typeInfo, String[].class));
+      setDocumentAttachments((java.lang.String[])__typeMapper.readObject(__in, documentAttachments__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, htmlBody__typeInfo)) {
-      setHtmlBody((String)__typeMapper.readString(__in, htmlBody__typeInfo, String.class));
+      setHtmlBody((java.lang.String)__typeMapper.readString(__in, htmlBody__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, inReplyTo__typeInfo)) {
-      setInReplyTo((String)__typeMapper.readString(__in, inReplyTo__typeInfo, String.class));
+      setInReplyTo((java.lang.String)__typeMapper.readString(__in, inReplyTo__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, fileAttachments__typeInfo)) {
-      setFileAttachments((EmailFileAttachment[])__typeMapper.readObject(__in, fileAttachments__typeInfo, EmailFileAttachment[].class));
+      setFileAttachments((com.sforce.soap.partner.EmailFileAttachment[])__typeMapper.readObject(__in, fileAttachments__typeInfo, com.sforce.soap.partner.EmailFileAttachment[].class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, orgWideEmailAddressId__typeInfo)) {
-      setOrgWideEmailAddressId((String)__typeMapper.readString(__in, orgWideEmailAddressId__typeInfo, String.class));
+      setOrgWideEmailAddressId((java.lang.String)__typeMapper.readString(__in, orgWideEmailAddressId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, plainTextBody__typeInfo)) {
-      setPlainTextBody((String)__typeMapper.readString(__in, plainTextBody__typeInfo, String.class));
+      setPlainTextBody((java.lang.String)__typeMapper.readString(__in, plainTextBody__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, references__typeInfo)) {
-      setReferences((String)__typeMapper.readString(__in, references__typeInfo, String.class));
+      setReferences((java.lang.String)__typeMapper.readString(__in, references__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, targetObjectId__typeInfo)) {
-      setTargetObjectId((String)__typeMapper.readString(__in, targetObjectId__typeInfo, String.class));
+      setTargetObjectId((java.lang.String)__typeMapper.readString(__in, targetObjectId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, templateId__typeInfo)) {
-      setTemplateId((String)__typeMapper.readString(__in, templateId__typeInfo, String.class));
+      setTemplateId((java.lang.String)__typeMapper.readString(__in, templateId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, toAddresses__typeInfo)) {
-      setToAddresses((String[])__typeMapper.readObject(__in, toAddresses__typeInfo, String[].class));
+      setToAddresses((java.lang.String[])__typeMapper.readObject(__in, toAddresses__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, whatId__typeInfo)) {
-      setWhatId((String)__typeMapper.readString(__in, whatId__typeInfo, String.class));
+      setWhatId((java.lang.String)__typeMapper.readString(__in, whatId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SingleEmailMessage ");
     sb.append(super.toString());
     sb.append(" bccAddresses=");

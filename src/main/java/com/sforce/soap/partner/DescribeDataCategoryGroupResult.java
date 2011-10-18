@@ -43,15 +43,15 @@ public class DescribeDataCategoryGroupResult implements com.sforce.ws.bind.XMLiz
 
   private boolean description__is_set = false;
 
-  private String description;
+  private java.lang.String description;
 
-  public String getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
   
 
-  public void setDescription(String description) {
+  public void setDescription(java.lang.String description) {
     this.description = description;
     description__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DescribeDataCategoryGroupResult implements com.sforce.ws.bind.XMLiz
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -87,15 +87,15 @@ public class DescribeDataCategoryGroupResult implements com.sforce.ws.bind.XMLiz
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -109,15 +109,15 @@ public class DescribeDataCategoryGroupResult implements com.sforce.ws.bind.XMLiz
 
   private boolean sobject__is_set = false;
 
-  private String sobject;
+  private java.lang.String sobject;
 
-  public String getSobject() {
+  public java.lang.String getSobject() {
     return sobject;
   }
 
   
 
-  public void setSobject(String sobject) {
+  public void setSobject(java.lang.String sobject) {
     this.sobject = sobject;
     sobject__is_set = true;
   }
@@ -161,24 +161,24 @@ public class DescribeDataCategoryGroupResult implements com.sforce.ws.bind.XMLiz
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, description__typeInfo)) {
-      setDescription((String)__typeMapper.readString(__in, description__typeInfo, String.class));
+      setDescription((java.lang.String)__typeMapper.readString(__in, description__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sobject__typeInfo)) {
-      setSobject((String)__typeMapper.readString(__in, sobject__typeInfo, String.class));
+      setSobject((java.lang.String)__typeMapper.readString(__in, sobject__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeDataCategoryGroupResult ");
     
     sb.append(" categoryCount=");

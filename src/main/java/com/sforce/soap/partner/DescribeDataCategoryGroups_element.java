@@ -21,15 +21,15 @@ public class DescribeDataCategoryGroups_element implements com.sforce.ws.bind.XM
 
   private boolean sObjectType__is_set = false;
 
-  private String[] sObjectType = new String[0];
+  private java.lang.String[] sObjectType = new java.lang.String[0];
 
-  public String[] getSObjectType() {
+  public java.lang.String[] getSObjectType() {
     return sObjectType;
   }
 
   
 
-  public void setSObjectType(String[] sObjectType) {
+  public void setSObjectType(java.lang.String[] sObjectType) {
     this.sObjectType = sObjectType;
     sObjectType__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeDataCategoryGroups_element implements com.sforce.ws.bind.XM
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, sObjectType__typeInfo)) {
-      setSObjectType((String[])__typeMapper.readObject(__in, sObjectType__typeInfo, String[].class));
+      setSObjectType((java.lang.String[])__typeMapper.readObject(__in, sObjectType__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeDataCategoryGroups_element ");
     
     sb.append(" sObjectType=");

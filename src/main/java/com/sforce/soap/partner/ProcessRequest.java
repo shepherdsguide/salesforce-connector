@@ -21,15 +21,15 @@ public class ProcessRequest implements com.sforce.ws.bind.XMLizable {
 
   private boolean comments__is_set = false;
 
-  private String comments;
+  private java.lang.String comments;
 
-  public String getComments() {
+  public java.lang.String getComments() {
     return comments;
   }
 
   
 
-  public void setComments(String comments) {
+  public void setComments(java.lang.String comments) {
     this.comments = comments;
     comments__is_set = true;
   }
@@ -43,15 +43,15 @@ public class ProcessRequest implements com.sforce.ws.bind.XMLizable {
 
   private boolean nextApproverIds__is_set = false;
 
-  private String[] nextApproverIds = new String[0];
+  private java.lang.String[] nextApproverIds = new java.lang.String[0];
 
-  public String[] getNextApproverIds() {
+  public java.lang.String[] getNextApproverIds() {
     return nextApproverIds;
   }
 
   
 
-  public void setNextApproverIds(String[] nextApproverIds) {
+  public void setNextApproverIds(java.lang.String[] nextApproverIds) {
     this.nextApproverIds = nextApproverIds;
     nextApproverIds__is_set = true;
   }
@@ -88,16 +88,16 @@ public class ProcessRequest implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, comments__typeInfo)) {
-      setComments((String)__typeMapper.readString(__in, comments__typeInfo, String.class));
+      setComments((java.lang.String)__typeMapper.readString(__in, comments__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, nextApproverIds__typeInfo)) {
-      setNextApproverIds((String[])__typeMapper.readObject(__in, nextApproverIds__typeInfo, String[].class));
+      setNextApproverIds((java.lang.String[])__typeMapper.readObject(__in, nextApproverIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ProcessRequest ");
     
     sb.append(" comments=");

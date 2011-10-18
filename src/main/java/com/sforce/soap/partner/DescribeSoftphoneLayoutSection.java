@@ -21,15 +21,15 @@ public class DescribeSoftphoneLayoutSection implements com.sforce.ws.bind.XMLiza
 
   private boolean entityApiName__is_set = false;
 
-  private String entityApiName;
+  private java.lang.String entityApiName;
 
-  public String getEntityApiName() {
+  public java.lang.String getEntityApiName() {
     return entityApiName;
   }
 
   
 
-  public void setEntityApiName(String entityApiName) {
+  public void setEntityApiName(java.lang.String entityApiName) {
     this.entityApiName = entityApiName;
     entityApiName__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DescribeSoftphoneLayoutSection implements com.sforce.ws.bind.XMLiza
 
   private boolean items__is_set = false;
 
-  private DescribeSoftphoneLayoutItem[] items = new DescribeSoftphoneLayoutItem[0];
+  private com.sforce.soap.partner.DescribeSoftphoneLayoutItem[] items = new com.sforce.soap.partner.DescribeSoftphoneLayoutItem[0];
 
-  public DescribeSoftphoneLayoutItem[] getItems() {
+  public com.sforce.soap.partner.DescribeSoftphoneLayoutItem[] getItems() {
     return items;
   }
 
   
 
-  public void setItems(DescribeSoftphoneLayoutItem[] items) {
+  public void setItems(com.sforce.soap.partner.DescribeSoftphoneLayoutItem[] items) {
     this.items = items;
     items__is_set = true;
   }
@@ -88,16 +88,16 @@ public class DescribeSoftphoneLayoutSection implements com.sforce.ws.bind.XMLiza
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, entityApiName__typeInfo)) {
-      setEntityApiName((String)__typeMapper.readString(__in, entityApiName__typeInfo, String.class));
+      setEntityApiName((java.lang.String)__typeMapper.readString(__in, entityApiName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, items__typeInfo)) {
-      setItems((DescribeSoftphoneLayoutItem[])__typeMapper.readObject(__in, items__typeInfo, DescribeSoftphoneLayoutItem[].class));
+      setItems((com.sforce.soap.partner.DescribeSoftphoneLayoutItem[])__typeMapper.readObject(__in, items__typeInfo, com.sforce.soap.partner.DescribeSoftphoneLayoutItem[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayoutSection ");
     
     sb.append(" entityApiName=");

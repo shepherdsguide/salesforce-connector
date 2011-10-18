@@ -21,15 +21,15 @@ public class Undelete_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean ids__is_set = false;
 
-  private String[] ids = new String[0];
+  private java.lang.String[] ids = new java.lang.String[0];
 
-  public String[] getIds() {
+  public java.lang.String[] getIds() {
     return ids;
   }
 
   
 
-  public void setIds(String[] ids) {
+  public void setIds(java.lang.String[] ids) {
     this.ids = ids;
     ids__is_set = true;
   }
@@ -65,12 +65,12 @@ public class Undelete_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, ids__typeInfo)) {
-      setIds((String[])__typeMapper.readObject(__in, ids__typeInfo, String[].class));
+      setIds((java.lang.String[])__typeMapper.readObject(__in, ids__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Undelete_element ");
     
     sb.append(" ids=");

@@ -3,7 +3,7 @@ package com.sforce.soap.partner;
 /**
  * Generated class, please do not edit.
  */
-public class ProcessWorkitemRequest extends ProcessRequest {
+public class ProcessWorkitemRequest extends com.sforce.soap.partner.ProcessRequest {
 
   /**
    * Constructor
@@ -21,15 +21,15 @@ public class ProcessWorkitemRequest extends ProcessRequest {
 
   private boolean action__is_set = false;
 
-  private String action;
+  private java.lang.String action;
 
-  public String getAction() {
+  public java.lang.String getAction() {
     return action;
   }
 
   
 
-  public void setAction(String action) {
+  public void setAction(java.lang.String action) {
     this.action = action;
     action__is_set = true;
   }
@@ -43,15 +43,15 @@ public class ProcessWorkitemRequest extends ProcessRequest {
 
   private boolean workitemId__is_set = false;
 
-  private String workitemId;
+  private java.lang.String workitemId;
 
-  public String getWorkitemId() {
+  public java.lang.String getWorkitemId() {
     return workitemId;
   }
 
   
 
-  public void setWorkitemId(String workitemId) {
+  public void setWorkitemId(java.lang.String workitemId) {
     this.workitemId = workitemId;
     workitemId__is_set = true;
   }
@@ -88,16 +88,16 @@ public class ProcessWorkitemRequest extends ProcessRequest {
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, action__typeInfo)) {
-      setAction((String)__typeMapper.readString(__in, action__typeInfo, String.class));
+      setAction((java.lang.String)__typeMapper.readString(__in, action__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, workitemId__typeInfo)) {
-      setWorkitemId((String)__typeMapper.readString(__in, workitemId__typeInfo, String.class));
+      setWorkitemId((java.lang.String)__typeMapper.readString(__in, workitemId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ProcessWorkitemRequest ");
     sb.append(super.toString());
     sb.append(" action=");

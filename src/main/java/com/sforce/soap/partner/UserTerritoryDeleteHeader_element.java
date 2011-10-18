@@ -21,15 +21,15 @@ public class UserTerritoryDeleteHeader_element extends com.sforce.ws.bind.SoapHe
 
   private boolean transferToUserId__is_set = false;
 
-  private String transferToUserId;
+  private java.lang.String transferToUserId;
 
-  public String getTransferToUserId() {
+  public java.lang.String getTransferToUserId() {
     return transferToUserId;
   }
 
   
 
-  public void setTransferToUserId(String transferToUserId) {
+  public void setTransferToUserId(java.lang.String transferToUserId) {
     this.transferToUserId = transferToUserId;
     transferToUserId__is_set = true;
   }
@@ -65,12 +65,12 @@ public class UserTerritoryDeleteHeader_element extends com.sforce.ws.bind.SoapHe
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, transferToUserId__typeInfo)) {
-      setTransferToUserId((String)__typeMapper.readString(__in, transferToUserId__typeInfo, String.class));
+      setTransferToUserId((java.lang.String)__typeMapper.readString(__in, transferToUserId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[UserTerritoryDeleteHeader_element ");
     sb.append(super.toString());
     sb.append(" transferToUserId=");

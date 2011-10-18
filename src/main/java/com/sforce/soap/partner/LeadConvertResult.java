@@ -21,15 +21,15 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean accountId__is_set = false;
 
-  private String accountId;
+  private java.lang.String accountId;
 
-  public String getAccountId() {
+  public java.lang.String getAccountId() {
     return accountId;
   }
 
   
 
-  public void setAccountId(String accountId) {
+  public void setAccountId(java.lang.String accountId) {
     this.accountId = accountId;
     accountId__is_set = true;
   }
@@ -43,15 +43,15 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean contactId__is_set = false;
 
-  private String contactId;
+  private java.lang.String contactId;
 
-  public String getContactId() {
+  public java.lang.String getContactId() {
     return contactId;
   }
 
   
 
-  public void setContactId(String contactId) {
+  public void setContactId(java.lang.String contactId) {
     this.contactId = contactId;
     contactId__is_set = true;
   }
@@ -65,15 +65,15 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean errors__is_set = false;
 
-  private Error[] errors = new Error[0];
+  private com.sforce.soap.partner.Error[] errors = new com.sforce.soap.partner.Error[0];
 
-  public Error[] getErrors() {
+  public com.sforce.soap.partner.Error[] getErrors() {
     return errors;
   }
 
   
 
-  public void setErrors(Error[] errors) {
+  public void setErrors(com.sforce.soap.partner.Error[] errors) {
     this.errors = errors;
     errors__is_set = true;
   }
@@ -87,15 +87,15 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean leadId__is_set = false;
 
-  private String leadId;
+  private java.lang.String leadId;
 
-  public String getLeadId() {
+  public java.lang.String getLeadId() {
     return leadId;
   }
 
   
 
-  public void setLeadId(String leadId) {
+  public void setLeadId(java.lang.String leadId) {
     this.leadId = leadId;
     leadId__is_set = true;
   }
@@ -109,15 +109,15 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean opportunityId__is_set = false;
 
-  private String opportunityId;
+  private java.lang.String opportunityId;
 
-  public String getOpportunityId() {
+  public java.lang.String getOpportunityId() {
     return opportunityId;
   }
 
   
 
-  public void setOpportunityId(String opportunityId) {
+  public void setOpportunityId(java.lang.String opportunityId) {
     this.opportunityId = opportunityId;
     opportunityId__is_set = true;
   }
@@ -186,23 +186,23 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, accountId__typeInfo)) {
-      setAccountId((String)__typeMapper.readString(__in, accountId__typeInfo, String.class));
+      setAccountId((java.lang.String)__typeMapper.readString(__in, accountId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, contactId__typeInfo)) {
-      setContactId((String)__typeMapper.readString(__in, contactId__typeInfo, String.class));
+      setContactId((java.lang.String)__typeMapper.readString(__in, contactId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, errors__typeInfo)) {
-      setErrors((Error[])__typeMapper.readObject(__in, errors__typeInfo, Error[].class));
+      setErrors((com.sforce.soap.partner.Error[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.Error[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, leadId__typeInfo)) {
-      setLeadId((String)__typeMapper.readString(__in, leadId__typeInfo, String.class));
+      setLeadId((java.lang.String)__typeMapper.readString(__in, leadId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, opportunityId__typeInfo)) {
-      setOpportunityId((String)__typeMapper.readString(__in, opportunityId__typeInfo, String.class));
+      setOpportunityId((java.lang.String)__typeMapper.readString(__in, opportunityId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, success__typeInfo)) {
@@ -211,7 +211,7 @@ public class LeadConvertResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LeadConvertResult ");
     
     sb.append(" accountId=");

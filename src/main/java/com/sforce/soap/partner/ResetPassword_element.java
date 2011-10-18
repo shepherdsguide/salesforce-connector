@@ -21,15 +21,15 @@ public class ResetPassword_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean userId__is_set = false;
 
-  private String userId;
+  private java.lang.String userId;
 
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   
 
-  public void setUserId(String userId) {
+  public void setUserId(java.lang.String userId) {
     this.userId = userId;
     userId__is_set = true;
   }
@@ -65,12 +65,12 @@ public class ResetPassword_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userId__typeInfo)) {
-      setUserId((String)__typeMapper.readString(__in, userId__typeInfo, String.class));
+      setUserId((java.lang.String)__typeMapper.readString(__in, userId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ResetPassword_element ");
     
     sb.append(" userId=");

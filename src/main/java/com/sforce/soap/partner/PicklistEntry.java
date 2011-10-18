@@ -77,15 +77,15 @@ public class PicklistEntry implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -121,15 +121,15 @@ public class PicklistEntry implements com.sforce.ws.bind.XMLizable {
 
   private boolean value__is_set = false;
 
-  private String value;
+  private java.lang.String value;
 
-  public String getValue() {
+  public java.lang.String getValue() {
     return value;
   }
 
   
 
-  public void setValue(String value) {
+  public void setValue(java.lang.String value) {
     this.value = value;
     value__is_set = true;
   }
@@ -177,7 +177,7 @@ public class PicklistEntry implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, validFor__typeInfo)) {
@@ -185,12 +185,12 @@ public class PicklistEntry implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, value__typeInfo)) {
-      setValue((String)__typeMapper.readString(__in, value__typeInfo, String.class));
+      setValue((java.lang.String)__typeMapper.readString(__in, value__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[PicklistEntry ");
     
     sb.append(" active=");

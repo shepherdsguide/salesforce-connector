@@ -21,15 +21,15 @@ public class GetDeleted_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean sObjectType__is_set = false;
 
-  private String sObjectType;
+  private java.lang.String sObjectType;
 
-  public String getSObjectType() {
+  public java.lang.String getSObjectType() {
     return sObjectType;
   }
 
   
 
-  public void setSObjectType(String sObjectType) {
+  public void setSObjectType(java.lang.String sObjectType) {
     this.sObjectType = sObjectType;
     sObjectType__is_set = true;
   }
@@ -111,7 +111,7 @@ public class GetDeleted_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sObjectType__typeInfo)) {
-      setSObjectType((String)__typeMapper.readString(__in, sObjectType__typeInfo, String.class));
+      setSObjectType((java.lang.String)__typeMapper.readString(__in, sObjectType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, startDate__typeInfo)) {
@@ -124,7 +124,7 @@ public class GetDeleted_element implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[GetDeleted_element ");
     
     sb.append(" sObjectType=");

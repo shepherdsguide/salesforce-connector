@@ -21,15 +21,15 @@ public class ResetPasswordResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean password__is_set = false;
 
-  private String password;
+  private java.lang.String password;
 
-  public String getPassword() {
+  public java.lang.String getPassword() {
     return password;
   }
 
   
 
-  public void setPassword(String password) {
+  public void setPassword(java.lang.String password) {
     this.password = password;
     password__is_set = true;
   }
@@ -65,12 +65,12 @@ public class ResetPasswordResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, password__typeInfo)) {
-      setPassword((String)__typeMapper.readString(__in, password__typeInfo, String.class));
+      setPassword((java.lang.String)__typeMapper.readString(__in, password__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ResetPasswordResult ");
     
     sb.append(" password=");

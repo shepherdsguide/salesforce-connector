@@ -217,15 +217,15 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
 
   private boolean keyPrefix__is_set = false;
 
-  private String keyPrefix;
+  private java.lang.String keyPrefix;
 
-  public String getKeyPrefix() {
+  public java.lang.String getKeyPrefix() {
     return keyPrefix;
   }
 
   
 
-  public void setKeyPrefix(String keyPrefix) {
+  public void setKeyPrefix(java.lang.String keyPrefix) {
     this.keyPrefix = keyPrefix;
     keyPrefix__is_set = true;
   }
@@ -239,15 +239,15 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -261,15 +261,15 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
 
   private boolean labelPlural__is_set = false;
 
-  private String labelPlural;
+  private java.lang.String labelPlural;
 
-  public String getLabelPlural() {
+  public java.lang.String getLabelPlural() {
     return labelPlural;
   }
 
   
 
-  public void setLabelPlural(String labelPlural) {
+  public void setLabelPlural(java.lang.String labelPlural) {
     this.labelPlural = labelPlural;
     labelPlural__is_set = true;
   }
@@ -339,15 +339,15 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -626,15 +626,15 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, keyPrefix__typeInfo)) {
-      setKeyPrefix((String)__typeMapper.readString(__in, keyPrefix__typeInfo, String.class));
+      setKeyPrefix((java.lang.String)__typeMapper.readString(__in, keyPrefix__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, labelPlural__typeInfo)) {
-      setLabelPlural((String)__typeMapper.readString(__in, labelPlural__typeInfo, String.class));
+      setLabelPlural((java.lang.String)__typeMapper.readString(__in, labelPlural__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layoutable__typeInfo)) {
@@ -646,7 +646,7 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, queryable__typeInfo)) {
@@ -679,7 +679,7 @@ public class DescribeGlobalSObjectResult implements com.sforce.ws.bind.XMLizable
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeGlobalSObjectResult ");
     
     sb.append(" activateable=");

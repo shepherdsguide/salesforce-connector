@@ -21,15 +21,15 @@ public class DebuggingInfo_element extends com.sforce.ws.bind.SoapHeaderObject i
 
   private boolean debugLog__is_set = false;
 
-  private String debugLog;
+  private java.lang.String debugLog;
 
-  public String getDebugLog() {
+  public java.lang.String getDebugLog() {
     return debugLog;
   }
 
   
 
-  public void setDebugLog(String debugLog) {
+  public void setDebugLog(java.lang.String debugLog) {
     this.debugLog = debugLog;
     debugLog__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DebuggingInfo_element extends com.sforce.ws.bind.SoapHeaderObject i
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, debugLog__typeInfo)) {
-      setDebugLog((String)__typeMapper.readString(__in, debugLog__typeInfo, String.class));
+      setDebugLog((java.lang.String)__typeMapper.readString(__in, debugLog__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DebuggingInfo_element ");
     sb.append(super.toString());
     sb.append(" debugLog=");

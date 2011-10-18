@@ -21,15 +21,15 @@ public class PicklistForRecordType implements com.sforce.ws.bind.XMLizable {
 
   private boolean picklistName__is_set = false;
 
-  private String picklistName;
+  private java.lang.String picklistName;
 
-  public String getPicklistName() {
+  public java.lang.String getPicklistName() {
     return picklistName;
   }
 
   
 
-  public void setPicklistName(String picklistName) {
+  public void setPicklistName(java.lang.String picklistName) {
     this.picklistName = picklistName;
     picklistName__is_set = true;
   }
@@ -43,15 +43,15 @@ public class PicklistForRecordType implements com.sforce.ws.bind.XMLizable {
 
   private boolean picklistValues__is_set = false;
 
-  private PicklistEntry[] picklistValues = new PicklistEntry[0];
+  private com.sforce.soap.partner.PicklistEntry[] picklistValues = new com.sforce.soap.partner.PicklistEntry[0];
 
-  public PicklistEntry[] getPicklistValues() {
+  public com.sforce.soap.partner.PicklistEntry[] getPicklistValues() {
     return picklistValues;
   }
 
   
 
-  public void setPicklistValues(PicklistEntry[] picklistValues) {
+  public void setPicklistValues(com.sforce.soap.partner.PicklistEntry[] picklistValues) {
     this.picklistValues = picklistValues;
     picklistValues__is_set = true;
   }
@@ -88,16 +88,16 @@ public class PicklistForRecordType implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, picklistName__typeInfo)) {
-      setPicklistName((String)__typeMapper.readString(__in, picklistName__typeInfo, String.class));
+      setPicklistName((java.lang.String)__typeMapper.readString(__in, picklistName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, picklistValues__typeInfo)) {
-      setPicklistValues((PicklistEntry[])__typeMapper.readObject(__in, picklistValues__typeInfo, PicklistEntry[].class));
+      setPicklistValues((com.sforce.soap.partner.PicklistEntry[])__typeMapper.readObject(__in, picklistValues__typeInfo, com.sforce.soap.partner.PicklistEntry[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[PicklistForRecordType ");
     
     sb.append(" picklistName=");

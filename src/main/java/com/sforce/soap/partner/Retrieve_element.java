@@ -21,15 +21,15 @@ public class Retrieve_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean fieldList__is_set = false;
 
-  private String fieldList;
+  private java.lang.String fieldList;
 
-  public String getFieldList() {
+  public java.lang.String getFieldList() {
     return fieldList;
   }
 
   
 
-  public void setFieldList(String fieldList) {
+  public void setFieldList(java.lang.String fieldList) {
     this.fieldList = fieldList;
     fieldList__is_set = true;
   }
@@ -43,15 +43,15 @@ public class Retrieve_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean sObjectType__is_set = false;
 
-  private String sObjectType;
+  private java.lang.String sObjectType;
 
-  public String getSObjectType() {
+  public java.lang.String getSObjectType() {
     return sObjectType;
   }
 
   
 
-  public void setSObjectType(String sObjectType) {
+  public void setSObjectType(java.lang.String sObjectType) {
     this.sObjectType = sObjectType;
     sObjectType__is_set = true;
   }
@@ -65,15 +65,15 @@ public class Retrieve_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean ids__is_set = false;
 
-  private String[] ids = new String[0];
+  private java.lang.String[] ids = new java.lang.String[0];
 
-  public String[] getIds() {
+  public java.lang.String[] getIds() {
     return ids;
   }
 
   
 
-  public void setIds(String[] ids) {
+  public void setIds(java.lang.String[] ids) {
     this.ids = ids;
     ids__is_set = true;
   }
@@ -111,20 +111,20 @@ public class Retrieve_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, fieldList__typeInfo)) {
-      setFieldList((String)__typeMapper.readString(__in, fieldList__typeInfo, String.class));
+      setFieldList((java.lang.String)__typeMapper.readString(__in, fieldList__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sObjectType__typeInfo)) {
-      setSObjectType((String)__typeMapper.readString(__in, sObjectType__typeInfo, String.class));
+      setSObjectType((java.lang.String)__typeMapper.readString(__in, sObjectType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, ids__typeInfo)) {
-      setIds((String[])__typeMapper.readObject(__in, ids__typeInfo, String[].class));
+      setIds((java.lang.String[])__typeMapper.readObject(__in, ids__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Retrieve_element ");
     
     sb.append(" fieldList=");

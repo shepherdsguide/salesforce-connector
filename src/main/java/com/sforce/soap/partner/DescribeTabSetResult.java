@@ -21,15 +21,15 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean logoUrl__is_set = false;
 
-  private String logoUrl;
+  private java.lang.String logoUrl;
 
-  public String getLogoUrl() {
+  public java.lang.String getLogoUrl() {
     return logoUrl;
   }
 
   
 
-  public void setLogoUrl(String logoUrl) {
+  public void setLogoUrl(java.lang.String logoUrl) {
     this.logoUrl = logoUrl;
     logoUrl__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean namespace__is_set = false;
 
-  private String namespace;
+  private java.lang.String namespace;
 
-  public String getNamespace() {
+  public java.lang.String getNamespace() {
     return namespace;
   }
 
   
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(java.lang.String namespace) {
     this.namespace = namespace;
     namespace__is_set = true;
   }
@@ -115,15 +115,15 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean tabs__is_set = false;
 
-  private DescribeTab[] tabs = new DescribeTab[0];
+  private com.sforce.soap.partner.DescribeTab[] tabs = new com.sforce.soap.partner.DescribeTab[0];
 
-  public DescribeTab[] getTabs() {
+  public com.sforce.soap.partner.DescribeTab[] getTabs() {
     return tabs;
   }
 
   
 
-  public void setTabs(DescribeTab[] tabs) {
+  public void setTabs(com.sforce.soap.partner.DescribeTab[] tabs) {
     this.tabs = tabs;
     tabs__is_set = true;
   }
@@ -163,15 +163,15 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, logoUrl__typeInfo)) {
-      setLogoUrl((String)__typeMapper.readString(__in, logoUrl__typeInfo, String.class));
+      setLogoUrl((java.lang.String)__typeMapper.readString(__in, logoUrl__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, namespace__typeInfo)) {
-      setNamespace((String)__typeMapper.readString(__in, namespace__typeInfo, String.class));
+      setNamespace((java.lang.String)__typeMapper.readString(__in, namespace__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, selected__typeInfo)) {
@@ -179,12 +179,12 @@ public class DescribeTabSetResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, tabs__typeInfo)) {
-      setTabs((DescribeTab[])__typeMapper.readObject(__in, tabs__typeInfo, DescribeTab[].class));
+      setTabs((com.sforce.soap.partner.DescribeTab[])__typeMapper.readObject(__in, tabs__typeInfo, com.sforce.soap.partner.DescribeTab[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeTabSetResult ");
     
     sb.append(" label=");

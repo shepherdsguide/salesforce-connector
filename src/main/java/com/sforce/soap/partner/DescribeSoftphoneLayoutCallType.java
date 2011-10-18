@@ -43,15 +43,15 @@ public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLiz
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -87,15 +87,15 @@ public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLiz
 
   private boolean screenPopsOpenWithin__is_set = false;
 
-  private String screenPopsOpenWithin;
+  private java.lang.String screenPopsOpenWithin;
 
-  public String getScreenPopsOpenWithin() {
+  public java.lang.String getScreenPopsOpenWithin() {
     return screenPopsOpenWithin;
   }
 
   
 
-  public void setScreenPopsOpenWithin(String screenPopsOpenWithin) {
+  public void setScreenPopsOpenWithin(java.lang.String screenPopsOpenWithin) {
     this.screenPopsOpenWithin = screenPopsOpenWithin;
     screenPopsOpenWithin__is_set = true;
   }
@@ -161,7 +161,7 @@ public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLiz
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, screenPopOptions__typeInfo)) {
@@ -169,7 +169,7 @@ public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLiz
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, screenPopsOpenWithin__typeInfo)) {
-      setScreenPopsOpenWithin((String)__typeMapper.readString(__in, screenPopsOpenWithin__typeInfo, String.class));
+      setScreenPopsOpenWithin((java.lang.String)__typeMapper.readString(__in, screenPopsOpenWithin__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sections__typeInfo)) {
@@ -178,7 +178,7 @@ public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLiz
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayoutCallType ");
     
     sb.append(" infoFields=");

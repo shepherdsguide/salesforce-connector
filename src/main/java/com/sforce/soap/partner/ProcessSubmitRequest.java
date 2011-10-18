@@ -3,7 +3,7 @@ package com.sforce.soap.partner;
 /**
  * Generated class, please do not edit.
  */
-public class ProcessSubmitRequest extends ProcessRequest {
+public class ProcessSubmitRequest extends com.sforce.soap.partner.ProcessRequest {
 
   /**
    * Constructor
@@ -21,15 +21,15 @@ public class ProcessSubmitRequest extends ProcessRequest {
 
   private boolean objectId__is_set = false;
 
-  private String objectId;
+  private java.lang.String objectId;
 
-  public String getObjectId() {
+  public java.lang.String getObjectId() {
     return objectId;
   }
 
   
 
-  public void setObjectId(String objectId) {
+  public void setObjectId(java.lang.String objectId) {
     this.objectId = objectId;
     objectId__is_set = true;
   }
@@ -65,12 +65,12 @@ public class ProcessSubmitRequest extends ProcessRequest {
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, objectId__typeInfo)) {
-      setObjectId((String)__typeMapper.readString(__in, objectId__typeInfo, String.class));
+      setObjectId((java.lang.String)__typeMapper.readString(__in, objectId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ProcessSubmitRequest ");
     sb.append(super.toString());
     sb.append(" objectId=");

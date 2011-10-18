@@ -3,7 +3,7 @@ package com.sforce.soap.partner.fault;
 /**
  * Generated class, please do not edit.
  */
-public class MalformedQueryFault extends ApiQueryFault {
+public class MalformedQueryFault extends com.sforce.soap.partner.fault.ApiQueryFault {
 
   /**
    * Constructor
@@ -43,7 +43,7 @@ public class MalformedQueryFault extends ApiQueryFault {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[MalformedQueryFault ");
     sb.append(super.toString());
     sb.append("]\n");

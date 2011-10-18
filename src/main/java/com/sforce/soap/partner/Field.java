@@ -99,15 +99,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean calculatedFormula__is_set = false;
 
-  private String calculatedFormula;
+  private java.lang.String calculatedFormula;
 
-  public String getCalculatedFormula() {
+  public java.lang.String getCalculatedFormula() {
     return calculatedFormula;
   }
 
   
 
-  public void setCalculatedFormula(String calculatedFormula) {
+  public void setCalculatedFormula(java.lang.String calculatedFormula) {
     this.calculatedFormula = calculatedFormula;
     calculatedFormula__is_set = true;
   }
@@ -149,15 +149,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean controllerName__is_set = false;
 
-  private String controllerName;
+  private java.lang.String controllerName;
 
-  public String getControllerName() {
+  public java.lang.String getControllerName() {
     return controllerName;
   }
 
   
 
-  public void setControllerName(String controllerName) {
+  public void setControllerName(java.lang.String controllerName) {
     this.controllerName = controllerName;
     controllerName__is_set = true;
   }
@@ -227,15 +227,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean defaultValueFormula__is_set = false;
 
-  private String defaultValueFormula;
+  private java.lang.String defaultValueFormula;
 
-  public String getDefaultValueFormula() {
+  public java.lang.String getDefaultValueFormula() {
     return defaultValueFormula;
   }
 
   
 
-  public void setDefaultValueFormula(String defaultValueFormula) {
+  public void setDefaultValueFormula(java.lang.String defaultValueFormula) {
     this.defaultValueFormula = defaultValueFormula;
     defaultValueFormula__is_set = true;
   }
@@ -495,15 +495,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean inlineHelpText__is_set = false;
 
-  private String inlineHelpText;
+  private java.lang.String inlineHelpText;
 
-  public String getInlineHelpText() {
+  public java.lang.String getInlineHelpText() {
     return inlineHelpText;
   }
 
   
 
-  public void setInlineHelpText(String inlineHelpText) {
+  public void setInlineHelpText(java.lang.String inlineHelpText) {
     this.inlineHelpText = inlineHelpText;
     inlineHelpText__is_set = true;
   }
@@ -517,15 +517,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -561,15 +561,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -711,15 +711,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean referenceTo__is_set = false;
 
-  private String[] referenceTo = new String[0];
+  private java.lang.String[] referenceTo = new java.lang.String[0];
 
-  public String[] getReferenceTo() {
+  public java.lang.String[] getReferenceTo() {
     return referenceTo;
   }
 
   
 
-  public void setReferenceTo(String[] referenceTo) {
+  public void setReferenceTo(java.lang.String[] referenceTo) {
     this.referenceTo = referenceTo;
     referenceTo__is_set = true;
   }
@@ -733,15 +733,15 @@ public class Field implements com.sforce.ws.bind.XMLizable {
 
   private boolean relationshipName__is_set = false;
 
-  private String relationshipName;
+  private java.lang.String relationshipName;
 
-  public String getRelationshipName() {
+  public java.lang.String getRelationshipName() {
     return relationshipName;
   }
 
   
 
-  public void setRelationshipName(String relationshipName) {
+  public void setRelationshipName(java.lang.String relationshipName) {
     this.relationshipName = relationshipName;
     relationshipName__is_set = true;
   }
@@ -1054,7 +1054,7 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, calculatedFormula__typeInfo)) {
-      setCalculatedFormula((String)__typeMapper.readString(__in, calculatedFormula__typeInfo, String.class));
+      setCalculatedFormula((java.lang.String)__typeMapper.readString(__in, calculatedFormula__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, caseSensitive__typeInfo)) {
@@ -1062,7 +1062,7 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, controllerName__typeInfo)) {
-      setControllerName((String)__typeMapper.readString(__in, controllerName__typeInfo, String.class));
+      setControllerName((java.lang.String)__typeMapper.readString(__in, controllerName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, createable__typeInfo)) {
@@ -1074,7 +1074,7 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, defaultValueFormula__typeInfo)) {
-      setDefaultValueFormula((String)__typeMapper.readString(__in, defaultValueFormula__typeInfo, String.class));
+      setDefaultValueFormula((java.lang.String)__typeMapper.readString(__in, defaultValueFormula__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, defaultedOnCreate__typeInfo)) {
@@ -1114,11 +1114,11 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, inlineHelpText__typeInfo)) {
-      setInlineHelpText((String)__typeMapper.readString(__in, inlineHelpText__typeInfo, String.class));
+      setInlineHelpText((java.lang.String)__typeMapper.readString(__in, inlineHelpText__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, length__typeInfo)) {
@@ -1126,7 +1126,7 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, nameField__typeInfo)) {
@@ -1150,11 +1150,11 @@ public class Field implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, referenceTo__typeInfo)) {
-      setReferenceTo((String[])__typeMapper.readObject(__in, referenceTo__typeInfo, String[].class));
+      setReferenceTo((java.lang.String[])__typeMapper.readObject(__in, referenceTo__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, relationshipName__typeInfo)) {
-      setRelationshipName((String)__typeMapper.readString(__in, relationshipName__typeInfo, String.class));
+      setRelationshipName((java.lang.String)__typeMapper.readString(__in, relationshipName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, relationshipOrder__typeInfo)) {
@@ -1195,7 +1195,7 @@ public class Field implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Field ");
     
     sb.append(" autoNumber=");

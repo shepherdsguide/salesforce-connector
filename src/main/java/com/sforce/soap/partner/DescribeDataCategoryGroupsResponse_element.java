@@ -21,15 +21,15 @@ public class DescribeDataCategoryGroupsResponse_element implements com.sforce.ws
 
   private boolean result__is_set = false;
 
-  private DescribeDataCategoryGroupResult[] result = new DescribeDataCategoryGroupResult[0];
+  private com.sforce.soap.partner.DescribeDataCategoryGroupResult[] result = new com.sforce.soap.partner.DescribeDataCategoryGroupResult[0];
 
-  public DescribeDataCategoryGroupResult[] getResult() {
+  public com.sforce.soap.partner.DescribeDataCategoryGroupResult[] getResult() {
     return result;
   }
 
   
 
-  public void setResult(DescribeDataCategoryGroupResult[] result) {
+  public void setResult(com.sforce.soap.partner.DescribeDataCategoryGroupResult[] result) {
     this.result = result;
     result__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeDataCategoryGroupsResponse_element implements com.sforce.ws
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, result__typeInfo)) {
-      setResult((DescribeDataCategoryGroupResult[])__typeMapper.readObject(__in, result__typeInfo, DescribeDataCategoryGroupResult[].class));
+      setResult((com.sforce.soap.partner.DescribeDataCategoryGroupResult[])__typeMapper.readObject(__in, result__typeInfo, com.sforce.soap.partner.DescribeDataCategoryGroupResult[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeDataCategoryGroupsResponse_element ");
     
     sb.append(" result=");

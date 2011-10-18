@@ -43,7 +43,7 @@ public class DescribeSoftphoneLayout_element implements com.sforce.ws.bind.XMLiz
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayout_element ");
     
     sb.append("]\n");

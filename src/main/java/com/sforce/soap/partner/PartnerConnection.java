@@ -2,11 +2,12 @@ package com.sforce.soap.partner;
 
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
-import com.sforce.ws.bind.TypeMapper;
 import com.sforce.ws.bind.XMLizable;
+import com.sforce.ws.bind.TypeMapper;
+
+import java.util.HashMap;
 
 import javax.xml.namespace.QName;
-import java.util.HashMap;
 
 /**
  * Generated class, please do not edit.
@@ -43,10 +44,10 @@ public class PartnerConnection {
   }
 
   
-  private MruHeader_element __MruHeader;
+  private com.sforce.soap.partner.MruHeader_element __MruHeader;
 
   public void setMruHeader(boolean updateMru) {
-    __MruHeader = new MruHeader_element();
+    __MruHeader = new com.sforce.soap.partner.MruHeader_element();
      
        __MruHeader.setUpdateMru(updateMru);
   }
@@ -55,19 +56,19 @@ public class PartnerConnection {
     __MruHeader = null;
   }
 
-  public MruHeader_element getMruHeader() {
+  public com.sforce.soap.partner.MruHeader_element getMruHeader() {
     return  __MruHeader;
   }
 
-  public void __setMruHeader(MruHeader_element __header) {
+  public void __setMruHeader(com.sforce.soap.partner.MruHeader_element __header) {
     __MruHeader = __header ;
   }
 
   
-  private CallOptions_element __CallOptions;
+  private com.sforce.soap.partner.CallOptions_element __CallOptions;
 
-  public void setCallOptions(String client,String defaultNamespace) {
-    __CallOptions = new CallOptions_element();
+  public void setCallOptions(java.lang.String client,java.lang.String defaultNamespace) {
+    __CallOptions = new com.sforce.soap.partner.CallOptions_element();
      
        __CallOptions.setClient(client);
        __CallOptions.setDefaultNamespace(defaultNamespace);
@@ -77,19 +78,19 @@ public class PartnerConnection {
     __CallOptions = null;
   }
 
-  public CallOptions_element getCallOptions() {
+  public com.sforce.soap.partner.CallOptions_element getCallOptions() {
     return  __CallOptions;
   }
 
-  public void __setCallOptions(CallOptions_element __header) {
+  public void __setCallOptions(com.sforce.soap.partner.CallOptions_element __header) {
     __CallOptions = __header ;
   }
 
   
-  private PackageVersionHeader_element __PackageVersionHeader;
+  private com.sforce.soap.partner.PackageVersionHeader_element __PackageVersionHeader;
 
-  public void setPackageVersionHeader(PackageVersion[] packageVersions) {
-    __PackageVersionHeader = new PackageVersionHeader_element();
+  public void setPackageVersionHeader(com.sforce.soap.partner.PackageVersion[] packageVersions) {
+    __PackageVersionHeader = new com.sforce.soap.partner.PackageVersionHeader_element();
      
        __PackageVersionHeader.setPackageVersions(packageVersions);
   }
@@ -98,19 +99,19 @@ public class PartnerConnection {
     __PackageVersionHeader = null;
   }
 
-  public PackageVersionHeader_element getPackageVersionHeader() {
+  public com.sforce.soap.partner.PackageVersionHeader_element getPackageVersionHeader() {
     return  __PackageVersionHeader;
   }
 
-  public void __setPackageVersionHeader(PackageVersionHeader_element __header) {
+  public void __setPackageVersionHeader(com.sforce.soap.partner.PackageVersionHeader_element __header) {
     __PackageVersionHeader = __header ;
   }
 
   
-  private LocaleOptions_element __LocaleOptions;
+  private com.sforce.soap.partner.LocaleOptions_element __LocaleOptions;
 
-  public void setLocaleOptions(String language) {
-    __LocaleOptions = new LocaleOptions_element();
+  public void setLocaleOptions(java.lang.String language) {
+    __LocaleOptions = new com.sforce.soap.partner.LocaleOptions_element();
      
        __LocaleOptions.setLanguage(language);
   }
@@ -119,19 +120,19 @@ public class PartnerConnection {
     __LocaleOptions = null;
   }
 
-  public LocaleOptions_element getLocaleOptions() {
+  public com.sforce.soap.partner.LocaleOptions_element getLocaleOptions() {
     return  __LocaleOptions;
   }
 
-  public void __setLocaleOptions(LocaleOptions_element __header) {
+  public void __setLocaleOptions(com.sforce.soap.partner.LocaleOptions_element __header) {
     __LocaleOptions = __header ;
   }
 
   
-  private EmailHeader_element __EmailHeader;
+  private com.sforce.soap.partner.EmailHeader_element __EmailHeader;
 
   public void setEmailHeader(boolean triggerAutoResponseEmail,boolean triggerOtherEmail,boolean triggerUserEmail) {
-    __EmailHeader = new EmailHeader_element();
+    __EmailHeader = new com.sforce.soap.partner.EmailHeader_element();
      
        __EmailHeader.setTriggerAutoResponseEmail(triggerAutoResponseEmail);
        __EmailHeader.setTriggerOtherEmail(triggerOtherEmail);
@@ -142,19 +143,19 @@ public class PartnerConnection {
     __EmailHeader = null;
   }
 
-  public EmailHeader_element getEmailHeader() {
+  public com.sforce.soap.partner.EmailHeader_element getEmailHeader() {
     return  __EmailHeader;
   }
 
-  public void __setEmailHeader(EmailHeader_element __header) {
+  public void __setEmailHeader(com.sforce.soap.partner.EmailHeader_element __header) {
     __EmailHeader = __header ;
   }
 
   
-  private DebuggingInfo_element __DebuggingInfo;
+  private com.sforce.soap.partner.DebuggingInfo_element __DebuggingInfo;
 
-  public void setDebuggingInfo(String debugLog) {
-    __DebuggingInfo = new DebuggingInfo_element();
+  public void setDebuggingInfo(java.lang.String debugLog) {
+    __DebuggingInfo = new com.sforce.soap.partner.DebuggingInfo_element();
      
        __DebuggingInfo.setDebugLog(debugLog);
   }
@@ -163,18 +164,18 @@ public class PartnerConnection {
     __DebuggingInfo = null;
   }
 
-  public DebuggingInfo_element getDebuggingInfo() {
+  public com.sforce.soap.partner.DebuggingInfo_element getDebuggingInfo() {
     return  __DebuggingInfo;
   }
 
-  public void __setDebuggingInfo(DebuggingInfo_element __header) {
+  public void __setDebuggingInfo(com.sforce.soap.partner.DebuggingInfo_element __header) {
     __DebuggingInfo = __header ;
   }
 
   
   private com.sforce.soap.partner.SessionHeader_element __SessionHeader;
 
-  public void setSessionHeader(String sessionId) {
+  public void setSessionHeader(java.lang.String sessionId) {
     __SessionHeader = new com.sforce.soap.partner.SessionHeader_element();
      
        __SessionHeader.setSessionId(sessionId);
@@ -193,10 +194,10 @@ public class PartnerConnection {
   }
 
   
-  private DebuggingHeader_element __DebuggingHeader;
+  private com.sforce.soap.partner.DebuggingHeader_element __DebuggingHeader;
 
-  public void setDebuggingHeader(DebugLevel debugLevel) {
-    __DebuggingHeader = new DebuggingHeader_element();
+  public void setDebuggingHeader(com.sforce.soap.partner.DebugLevel debugLevel) {
+    __DebuggingHeader = new com.sforce.soap.partner.DebuggingHeader_element();
      
        __DebuggingHeader.setDebugLevel(debugLevel);
   }
@@ -205,19 +206,19 @@ public class PartnerConnection {
     __DebuggingHeader = null;
   }
 
-  public DebuggingHeader_element getDebuggingHeader() {
+  public com.sforce.soap.partner.DebuggingHeader_element getDebuggingHeader() {
     return  __DebuggingHeader;
   }
 
-  public void __setDebuggingHeader(DebuggingHeader_element __header) {
+  public void __setDebuggingHeader(com.sforce.soap.partner.DebuggingHeader_element __header) {
     __DebuggingHeader = __header ;
   }
 
   
-  private LoginScopeHeader_element __LoginScopeHeader;
+  private com.sforce.soap.partner.LoginScopeHeader_element __LoginScopeHeader;
 
-  public void setLoginScopeHeader(String organizationId,String portalId) {
-    __LoginScopeHeader = new LoginScopeHeader_element();
+  public void setLoginScopeHeader(java.lang.String organizationId,java.lang.String portalId) {
+    __LoginScopeHeader = new com.sforce.soap.partner.LoginScopeHeader_element();
      
        __LoginScopeHeader.setOrganizationId(organizationId);
        __LoginScopeHeader.setPortalId(portalId);
@@ -227,19 +228,19 @@ public class PartnerConnection {
     __LoginScopeHeader = null;
   }
 
-  public LoginScopeHeader_element getLoginScopeHeader() {
+  public com.sforce.soap.partner.LoginScopeHeader_element getLoginScopeHeader() {
     return  __LoginScopeHeader;
   }
 
-  public void __setLoginScopeHeader(LoginScopeHeader_element __header) {
+  public void __setLoginScopeHeader(com.sforce.soap.partner.LoginScopeHeader_element __header) {
     __LoginScopeHeader = __header ;
   }
 
   
-  private DisableFeedTrackingHeader_element __DisableFeedTrackingHeader;
+  private com.sforce.soap.partner.DisableFeedTrackingHeader_element __DisableFeedTrackingHeader;
 
   public void setDisableFeedTrackingHeader(boolean disableFeedTracking) {
-    __DisableFeedTrackingHeader = new DisableFeedTrackingHeader_element();
+    __DisableFeedTrackingHeader = new com.sforce.soap.partner.DisableFeedTrackingHeader_element();
      
        __DisableFeedTrackingHeader.setDisableFeedTracking(disableFeedTracking);
   }
@@ -248,18 +249,18 @@ public class PartnerConnection {
     __DisableFeedTrackingHeader = null;
   }
 
-  public DisableFeedTrackingHeader_element getDisableFeedTrackingHeader() {
+  public com.sforce.soap.partner.DisableFeedTrackingHeader_element getDisableFeedTrackingHeader() {
     return  __DisableFeedTrackingHeader;
   }
 
-  public void __setDisableFeedTrackingHeader(DisableFeedTrackingHeader_element __header) {
+  public void __setDisableFeedTrackingHeader(com.sforce.soap.partner.DisableFeedTrackingHeader_element __header) {
     __DisableFeedTrackingHeader = __header ;
   }
 
   
   private com.sforce.soap.partner.UserTerritoryDeleteHeader_element __UserTerritoryDeleteHeader;
 
-  public void setUserTerritoryDeleteHeader(String transferToUserId) {
+  public void setUserTerritoryDeleteHeader(java.lang.String transferToUserId) {
     __UserTerritoryDeleteHeader = new com.sforce.soap.partner.UserTerritoryDeleteHeader_element();
      
        __UserTerritoryDeleteHeader.setTransferToUserId(transferToUserId);
@@ -278,10 +279,10 @@ public class PartnerConnection {
   }
 
   
-  private AllowFieldTruncationHeader_element __AllowFieldTruncationHeader;
+  private com.sforce.soap.partner.AllowFieldTruncationHeader_element __AllowFieldTruncationHeader;
 
   public void setAllowFieldTruncationHeader(boolean allowFieldTruncation) {
-    __AllowFieldTruncationHeader = new AllowFieldTruncationHeader_element();
+    __AllowFieldTruncationHeader = new com.sforce.soap.partner.AllowFieldTruncationHeader_element();
      
        __AllowFieldTruncationHeader.setAllowFieldTruncation(allowFieldTruncation);
   }
@@ -290,11 +291,11 @@ public class PartnerConnection {
     __AllowFieldTruncationHeader = null;
   }
 
-  public AllowFieldTruncationHeader_element getAllowFieldTruncationHeader() {
+  public com.sforce.soap.partner.AllowFieldTruncationHeader_element getAllowFieldTruncationHeader() {
     return  __AllowFieldTruncationHeader;
   }
 
-  public void __setAllowFieldTruncationHeader(AllowFieldTruncationHeader_element __header) {
+  public void __setAllowFieldTruncationHeader(com.sforce.soap.partner.AllowFieldTruncationHeader_element __header) {
     __AllowFieldTruncationHeader = __header ;
   }
 
@@ -320,10 +321,10 @@ public class PartnerConnection {
   }
 
   
-  private AssignmentRuleHeader_element __AssignmentRuleHeader;
+  private com.sforce.soap.partner.AssignmentRuleHeader_element __AssignmentRuleHeader;
 
-  public void setAssignmentRuleHeader(String assignmentRuleId,Boolean useDefaultRule) {
-    __AssignmentRuleHeader = new AssignmentRuleHeader_element();
+  public void setAssignmentRuleHeader(java.lang.String assignmentRuleId,java.lang.Boolean useDefaultRule) {
+    __AssignmentRuleHeader = new com.sforce.soap.partner.AssignmentRuleHeader_element();
      
        __AssignmentRuleHeader.setAssignmentRuleId(assignmentRuleId);
        __AssignmentRuleHeader.setUseDefaultRule(useDefaultRule);
@@ -333,19 +334,19 @@ public class PartnerConnection {
     __AssignmentRuleHeader = null;
   }
 
-  public AssignmentRuleHeader_element getAssignmentRuleHeader() {
+  public com.sforce.soap.partner.AssignmentRuleHeader_element getAssignmentRuleHeader() {
     return  __AssignmentRuleHeader;
   }
 
-  public void __setAssignmentRuleHeader(AssignmentRuleHeader_element __header) {
+  public void __setAssignmentRuleHeader(com.sforce.soap.partner.AssignmentRuleHeader_element __header) {
     __AssignmentRuleHeader = __header ;
   }
 
   
-  private AllOrNoneHeader_element __AllOrNoneHeader;
+  private com.sforce.soap.partner.AllOrNoneHeader_element __AllOrNoneHeader;
 
   public void setAllOrNoneHeader(boolean allOrNone) {
-    __AllOrNoneHeader = new AllOrNoneHeader_element();
+    __AllOrNoneHeader = new com.sforce.soap.partner.AllOrNoneHeader_element();
      
        __AllOrNoneHeader.setAllOrNone(allOrNone);
   }
@@ -354,11 +355,11 @@ public class PartnerConnection {
     __AllOrNoneHeader = null;
   }
 
-  public AllOrNoneHeader_element getAllOrNoneHeader() {
+  public com.sforce.soap.partner.AllOrNoneHeader_element getAllOrNoneHeader() {
     return  __AllOrNoneHeader;
   }
 
-  public void __setAllOrNoneHeader(AllOrNoneHeader_element __header) {
+  public void __setAllOrNoneHeader(com.sforce.soap.partner.AllOrNoneHeader_element __header) {
     __AllOrNoneHeader = __header ;
   }
 
@@ -374,12 +375,12 @@ public class PartnerConnection {
     if (!config.isManualLogin()) {
       if (config.getSessionId()==null) {
         config.setServiceEndpoint(config.getAuthEndpoint());
-        LoginResult result = login(config.getUsername(), config.getPassword());
+        com.sforce.soap.partner.LoginResult result = login(config.getUsername(), config.getPassword());
         config.setSessionId(result.getSessionId());
         config.setServiceEndpoint(result.getServerUrl());
       } else {
         if (config.getServiceEndpoint() == null) {
-          throw new ConnectionException("Please set ServiceEndpoint");
+          throw new com.sforce.ws.ConnectionException("Please set ServiceEndpoint");
         }
       }
     }
@@ -401,11 +402,11 @@ public class PartnerConnection {
    }
 
   
-  public LeadConvertResult[] convertLead(LeadConvert[] leadConverts)
-       throws ConnectionException {
+  public com.sforce.soap.partner.LeadConvertResult[] convertLead(com.sforce.soap.partner.LeadConvert[] leadConverts)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    ConvertLead_element __request = new ConvertLead_element();
-    ConvertLeadResponse_element __response = new ConvertLeadResponse_element();
+    com.sforce.soap.partner.ConvertLead_element __request = new com.sforce.soap.partner.ConvertLead_element();
+    com.sforce.soap.partner.ConvertLeadResponse_element __response = new com.sforce.soap.partner.ConvertLeadResponse_element();
 
   
     __request.setLeadConverts(leadConverts);
@@ -428,18 +429,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (ConvertLeadResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.ConvertLeadResponse_element) __connection.send("",
        convertLead_qname, __request, convertLeadResponse_qname,
-       ConvertLeadResponse_element.class);
+       com.sforce.soap.partner.ConvertLeadResponse_element.class);
 
     return __response.getResult();
   }
   
-  public DescribeDataCategoryGroupStructureResult[] describeDataCategoryGroupStructures(DataCategoryGroupSobjectTypePair[] pairs,boolean topCategoriesOnly)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[] describeDataCategoryGroupStructures(com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[] pairs,boolean topCategoriesOnly)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeDataCategoryGroupStructures_element __request = new DescribeDataCategoryGroupStructures_element();
-    DescribeDataCategoryGroupStructuresResponse_element __response = new DescribeDataCategoryGroupStructuresResponse_element();
+    com.sforce.soap.partner.DescribeDataCategoryGroupStructures_element __request = new com.sforce.soap.partner.DescribeDataCategoryGroupStructures_element();
+    com.sforce.soap.partner.DescribeDataCategoryGroupStructuresResponse_element __response = new com.sforce.soap.partner.DescribeDataCategoryGroupStructuresResponse_element();
 
   
     __request.setPairs(pairs);
@@ -455,15 +456,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeDataCategoryGroupStructuresResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeDataCategoryGroupStructuresResponse_element) __connection.send("",
        describeDataCategoryGroupStructures_qname, __request, describeDataCategoryGroupStructuresResponse_qname,
-       DescribeDataCategoryGroupStructuresResponse_element.class);
+       com.sforce.soap.partner.DescribeDataCategoryGroupStructuresResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.SendEmailResult[] sendEmail(Email[] messages)
-       throws ConnectionException {
+  public com.sforce.soap.partner.SendEmailResult[] sendEmail(com.sforce.soap.partner.Email[] messages)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.SendEmail_element __request = new com.sforce.soap.partner.SendEmail_element();
     com.sforce.soap.partner.SendEmailResponse_element __response = new com.sforce.soap.partner.SendEmailResponse_element();
@@ -486,11 +487,11 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public DescribeGlobalResult describeGlobal()
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeGlobalResult describeGlobal()
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeGlobal_element __request = new DescribeGlobal_element();
-    DescribeGlobalResponse_element __response = new DescribeGlobalResponse_element();
+    com.sforce.soap.partner.DescribeGlobal_element __request = new com.sforce.soap.partner.DescribeGlobal_element();
+    com.sforce.soap.partner.DescribeGlobalResponse_element __response = new com.sforce.soap.partner.DescribeGlobalResponse_element();
 
   
 
@@ -504,15 +505,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeGlobalResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeGlobalResponse_element) __connection.send("",
        describeGlobal_qname, __request, describeGlobalResponse_qname,
-       DescribeGlobalResponse_element.class);
+       com.sforce.soap.partner.DescribeGlobalResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.sobject.SObject[] retrieve(String fieldList,String sObjectType,String[] ids)
-       throws ConnectionException {
+  public com.sforce.soap.partner.sobject.SObject[] retrieve(java.lang.String fieldList,java.lang.String sObjectType,java.lang.String[] ids)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Retrieve_element __request = new com.sforce.soap.partner.Retrieve_element();
     com.sforce.soap.partner.RetrieveResponse_element __response = new com.sforce.soap.partner.RetrieveResponse_element();
@@ -543,11 +544,11 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public DescribeLayoutResult describeLayout(String sObjectType,String[] recordTypeIds)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeLayoutResult describeLayout(java.lang.String sObjectType,java.lang.String[] recordTypeIds)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeLayout_element __request = new DescribeLayout_element();
-    DescribeLayoutResponse_element __response = new DescribeLayoutResponse_element();
+    com.sforce.soap.partner.DescribeLayout_element __request = new com.sforce.soap.partner.DescribeLayout_element();
+    com.sforce.soap.partner.DescribeLayoutResponse_element __response = new com.sforce.soap.partner.DescribeLayoutResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -563,18 +564,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeLayoutResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeLayoutResponse_element) __connection.send("",
        describeLayout_qname, __request, describeLayoutResponse_qname,
-       DescribeLayoutResponse_element.class);
+       com.sforce.soap.partner.DescribeLayoutResponse_element.class);
 
     return __response.getResult();
   }
   
-  public EmptyRecycleBinResult[] emptyRecycleBin(String[] ids)
-       throws ConnectionException {
+  public com.sforce.soap.partner.EmptyRecycleBinResult[] emptyRecycleBin(java.lang.String[] ids)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    EmptyRecycleBin_element __request = new EmptyRecycleBin_element();
-    EmptyRecycleBinResponse_element __response = new EmptyRecycleBinResponse_element();
+    com.sforce.soap.partner.EmptyRecycleBin_element __request = new com.sforce.soap.partner.EmptyRecycleBin_element();
+    com.sforce.soap.partner.EmptyRecycleBinResponse_element __response = new com.sforce.soap.partner.EmptyRecycleBinResponse_element();
 
   
     __request.setIds(ids);
@@ -587,15 +588,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (EmptyRecycleBinResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.EmptyRecycleBinResponse_element) __connection.send("",
        emptyRecycleBin_qname, __request, emptyRecycleBinResponse_qname,
-       EmptyRecycleBinResponse_element.class);
+       com.sforce.soap.partner.EmptyRecycleBinResponse_element.class);
 
     return __response.getResult();
   }
   
   public com.sforce.soap.partner.ProcessResult[] process(com.sforce.soap.partner.ProcessRequest[] actions)
-       throws ConnectionException {
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Process_element __request = new com.sforce.soap.partner.Process_element();
     com.sforce.soap.partner.ProcessResponse_element __response = new com.sforce.soap.partner.ProcessResponse_element();
@@ -629,10 +630,10 @@ public class PartnerConnection {
   }
   
   public void logout()
-       throws ConnectionException {
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    Logout_element __request = new Logout_element();
-    LogoutResponse_element __response = new LogoutResponse_element();
+    com.sforce.soap.partner.Logout_element __request = new com.sforce.soap.partner.Logout_element();
+    com.sforce.soap.partner.LogoutResponse_element __response = new com.sforce.soap.partner.LogoutResponse_element();
 
   
 
@@ -644,18 +645,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (LogoutResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.LogoutResponse_element) __connection.send("",
        logout_qname, __request, logoutResponse_qname,
-       LogoutResponse_element.class);
+       com.sforce.soap.partner.LogoutResponse_element.class);
 
     
   }
   
   public com.sforce.soap.partner.SaveResult[] create(com.sforce.soap.partner.sobject.SObject[] sObjects)
-       throws ConnectionException {
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    Create_element __request = new Create_element();
-    CreateResponse_element __response = new CreateResponse_element();
+    com.sforce.soap.partner.Create_element __request = new com.sforce.soap.partner.Create_element();
+    com.sforce.soap.partner.CreateResponse_element __response = new com.sforce.soap.partner.CreateResponse_element();
 
   
     __request.setSObjects(sObjects);
@@ -686,18 +687,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (CreateResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.CreateResponse_element) __connection.send("",
        create_qname, __request, createResponse_qname,
-       CreateResponse_element.class);
+       com.sforce.soap.partner.CreateResponse_element.class);
 
     return __response.getResult();
   }
   
-  public InvalidateSessionsResult[] invalidateSessions(String[] sessionIds)
-       throws ConnectionException {
+  public com.sforce.soap.partner.InvalidateSessionsResult[] invalidateSessions(java.lang.String[] sessionIds)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    InvalidateSessions_element __request = new InvalidateSessions_element();
-    InvalidateSessionsResponse_element __response = new InvalidateSessionsResponse_element();
+    com.sforce.soap.partner.InvalidateSessions_element __request = new com.sforce.soap.partner.InvalidateSessions_element();
+    com.sforce.soap.partner.InvalidateSessionsResponse_element __response = new com.sforce.soap.partner.InvalidateSessionsResponse_element();
 
   
     __request.setSessionIds(sessionIds);
@@ -710,18 +711,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (InvalidateSessionsResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.InvalidateSessionsResponse_element) __connection.send("",
        invalidateSessions_qname, __request, invalidateSessionsResponse_qname,
-       InvalidateSessionsResponse_element.class);
+       com.sforce.soap.partner.InvalidateSessionsResponse_element.class);
 
     return __response.getResult();
   }
   
-  public GetUserInfoResult getUserInfo()
-       throws ConnectionException {
+  public com.sforce.soap.partner.GetUserInfoResult getUserInfo()
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    GetUserInfo_element __request = new GetUserInfo_element();
-    GetUserInfoResponse_element __response = new GetUserInfoResponse_element();
+    com.sforce.soap.partner.GetUserInfo_element __request = new com.sforce.soap.partner.GetUserInfo_element();
+    com.sforce.soap.partner.GetUserInfoResponse_element __response = new com.sforce.soap.partner.GetUserInfoResponse_element();
 
   
 
@@ -733,18 +734,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (GetUserInfoResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.GetUserInfoResponse_element) __connection.send("",
        getUserInfo_qname, __request, getUserInfoResponse_qname,
-       GetUserInfoResponse_element.class);
+       com.sforce.soap.partner.GetUserInfoResponse_element.class);
 
     return __response.getResult();
   }
   
-  public GetServerTimestampResult getServerTimestamp()
-       throws ConnectionException {
+  public com.sforce.soap.partner.GetServerTimestampResult getServerTimestamp()
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    GetServerTimestamp_element __request = new GetServerTimestamp_element();
-    GetServerTimestampResponse_element __response = new GetServerTimestampResponse_element();
+    com.sforce.soap.partner.GetServerTimestamp_element __request = new com.sforce.soap.partner.GetServerTimestamp_element();
+    com.sforce.soap.partner.GetServerTimestampResponse_element __response = new com.sforce.soap.partner.GetServerTimestampResponse_element();
 
   
 
@@ -756,18 +757,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (GetServerTimestampResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.GetServerTimestampResponse_element) __connection.send("",
        getServerTimestamp_qname, __request, getServerTimestampResponse_qname,
-       GetServerTimestampResponse_element.class);
+       com.sforce.soap.partner.GetServerTimestampResponse_element.class);
 
     return __response.getResult();
   }
   
-  public GetDeletedResult getDeleted(String sObjectType,java.util.Calendar startDate,java.util.Calendar endDate)
-       throws ConnectionException {
+  public com.sforce.soap.partner.GetDeletedResult getDeleted(java.lang.String sObjectType,java.util.Calendar startDate,java.util.Calendar endDate)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    GetDeleted_element __request = new GetDeleted_element();
-    GetDeletedResponse_element __response = new GetDeletedResponse_element();
+    com.sforce.soap.partner.GetDeleted_element __request = new com.sforce.soap.partner.GetDeleted_element();
+    com.sforce.soap.partner.GetDeletedResponse_element __response = new com.sforce.soap.partner.GetDeletedResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -782,15 +783,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (GetDeletedResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.GetDeletedResponse_element) __connection.send("",
        getDeleted_qname, __request, getDeletedResponse_qname,
-       GetDeletedResponse_element.class);
+       com.sforce.soap.partner.GetDeletedResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.SetPasswordResult setPassword(String userId,String password)
-       throws ConnectionException {
+  public com.sforce.soap.partner.SetPasswordResult setPassword(java.lang.String userId,java.lang.String password)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.SetPassword_element __request = new com.sforce.soap.partner.SetPassword_element();
     com.sforce.soap.partner.SetPasswordResponse_element __response = new com.sforce.soap.partner.SetPasswordResponse_element();
@@ -814,11 +815,11 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public DeleteResult[] delete(String[] ids)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DeleteResult[] delete(java.lang.String[] ids)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    Delete_element __request = new Delete_element();
-    DeleteResponse_element __response = new DeleteResponse_element();
+    com.sforce.soap.partner.Delete_element __request = new com.sforce.soap.partner.Delete_element();
+    com.sforce.soap.partner.DeleteResponse_element __response = new com.sforce.soap.partner.DeleteResponse_element();
 
   
     __request.setIds(ids);
@@ -847,18 +848,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DeleteResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DeleteResponse_element) __connection.send("",
        delete_qname, __request, deleteResponse_qname,
-       DeleteResponse_element.class);
+       com.sforce.soap.partner.DeleteResponse_element.class);
 
     return __response.getResult();
   }
   
-  public DescribeTabSetResult[] describeTabs()
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeTabSetResult[] describeTabs()
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeTabs_element __request = new DescribeTabs_element();
-    DescribeTabsResponse_element __response = new DescribeTabsResponse_element();
+    com.sforce.soap.partner.DescribeTabs_element __request = new com.sforce.soap.partner.DescribeTabs_element();
+    com.sforce.soap.partner.DescribeTabsResponse_element __response = new com.sforce.soap.partner.DescribeTabsResponse_element();
 
   
 
@@ -872,18 +873,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeTabsResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeTabsResponse_element) __connection.send("",
        describeTabs_qname, __request, describeTabsResponse_qname,
-       DescribeTabsResponse_element.class);
+       com.sforce.soap.partner.DescribeTabsResponse_element.class);
 
     return __response.getResult();
   }
   
-  public LoginResult login(String username,String password)
-       throws ConnectionException {
+  public com.sforce.soap.partner.LoginResult login(java.lang.String username,java.lang.String password)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    Login_element __request = new Login_element();
-    LoginResponse_element __response = new LoginResponse_element();
+    com.sforce.soap.partner.Login_element __request = new com.sforce.soap.partner.Login_element();
+    com.sforce.soap.partner.LoginResponse_element __response = new com.sforce.soap.partner.LoginResponse_element();
 
   
     __request.setUsername(username);
@@ -897,15 +898,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (LoginResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.LoginResponse_element) __connection.send("",
        login_qname, __request, loginResponse_qname,
-       LoginResponse_element.class);
+       com.sforce.soap.partner.LoginResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.SearchResult search(String searchString)
-       throws ConnectionException {
+  public com.sforce.soap.partner.SearchResult search(java.lang.String searchString)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Search_element __request = new com.sforce.soap.partner.Search_element();
     com.sforce.soap.partner.SearchResponse_element __response = new com.sforce.soap.partner.SearchResponse_element();
@@ -930,8 +931,8 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.QueryResult queryMore(String queryLocator)
-       throws ConnectionException {
+  public com.sforce.soap.partner.QueryResult queryMore(java.lang.String queryLocator)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.QueryMore_element __request = new com.sforce.soap.partner.QueryMore_element();
     com.sforce.soap.partner.QueryMoreResponse_element __response = new com.sforce.soap.partner.QueryMoreResponse_element();
@@ -956,11 +957,11 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public DescribeDataCategoryGroupResult[] describeDataCategoryGroups(String[] sObjectType)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeDataCategoryGroupResult[] describeDataCategoryGroups(java.lang.String[] sObjectType)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeDataCategoryGroups_element __request = new DescribeDataCategoryGroups_element();
-    DescribeDataCategoryGroupsResponse_element __response = new DescribeDataCategoryGroupsResponse_element();
+    com.sforce.soap.partner.DescribeDataCategoryGroups_element __request = new com.sforce.soap.partner.DescribeDataCategoryGroups_element();
+    com.sforce.soap.partner.DescribeDataCategoryGroupsResponse_element __response = new com.sforce.soap.partner.DescribeDataCategoryGroupsResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -975,18 +976,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeDataCategoryGroupsResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeDataCategoryGroupsResponse_element) __connection.send("",
        describeDataCategoryGroups_qname, __request, describeDataCategoryGroupsResponse_qname,
-       DescribeDataCategoryGroupsResponse_element.class);
+       com.sforce.soap.partner.DescribeDataCategoryGroupsResponse_element.class);
 
     return __response.getResult();
   }
   
-  public DescribeSoftphoneLayoutResult describeSoftphoneLayout()
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeSoftphoneLayoutResult describeSoftphoneLayout()
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeSoftphoneLayout_element __request = new DescribeSoftphoneLayout_element();
-    DescribeSoftphoneLayoutResponse_element __response = new DescribeSoftphoneLayoutResponse_element();
+    com.sforce.soap.partner.DescribeSoftphoneLayout_element __request = new com.sforce.soap.partner.DescribeSoftphoneLayout_element();
+    com.sforce.soap.partner.DescribeSoftphoneLayoutResponse_element __response = new com.sforce.soap.partner.DescribeSoftphoneLayoutResponse_element();
 
   
 
@@ -1000,18 +1001,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeSoftphoneLayoutResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeSoftphoneLayoutResponse_element) __connection.send("",
        describeSoftphoneLayout_qname, __request, describeSoftphoneLayoutResponse_qname,
-       DescribeSoftphoneLayoutResponse_element.class);
+       com.sforce.soap.partner.DescribeSoftphoneLayoutResponse_element.class);
 
     return __response.getResult();
   }
   
-  public DescribeSObjectResult describeSObject(String sObjectType)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeSObjectResult describeSObject(java.lang.String sObjectType)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeSObject_element __request = new DescribeSObject_element();
-    DescribeSObjectResponse_element __response = new DescribeSObjectResponse_element();
+    com.sforce.soap.partner.DescribeSObject_element __request = new com.sforce.soap.partner.DescribeSObject_element();
+    com.sforce.soap.partner.DescribeSObjectResponse_element __response = new com.sforce.soap.partner.DescribeSObjectResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -1028,18 +1029,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeSObjectResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeSObjectResponse_element) __connection.send("",
        describeSObject_qname, __request, describeSObjectResponse_qname,
-       DescribeSObjectResponse_element.class);
+       com.sforce.soap.partner.DescribeSObjectResponse_element.class);
 
     return __response.getResult();
   }
   
-  public DescribeSObjectResult[] describeSObjects(String[] sObjectType)
-       throws ConnectionException {
+  public com.sforce.soap.partner.DescribeSObjectResult[] describeSObjects(java.lang.String[] sObjectType)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    DescribeSObjects_element __request = new DescribeSObjects_element();
-    DescribeSObjectsResponse_element __response = new DescribeSObjectsResponse_element();
+    com.sforce.soap.partner.DescribeSObjects_element __request = new com.sforce.soap.partner.DescribeSObjects_element();
+    com.sforce.soap.partner.DescribeSObjectsResponse_element __response = new com.sforce.soap.partner.DescribeSObjectsResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -1056,18 +1057,18 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (DescribeSObjectsResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.DescribeSObjectsResponse_element) __connection.send("",
        describeSObjects_qname, __request, describeSObjectsResponse_qname,
-       DescribeSObjectsResponse_element.class);
+       com.sforce.soap.partner.DescribeSObjectsResponse_element.class);
 
     return __response.getResult();
   }
   
-  public GetUpdatedResult getUpdated(String sObjectType,java.util.Calendar startDate,java.util.Calendar endDate)
-       throws ConnectionException {
+  public com.sforce.soap.partner.GetUpdatedResult getUpdated(java.lang.String sObjectType,java.util.Calendar startDate,java.util.Calendar endDate)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    GetUpdated_element __request = new GetUpdated_element();
-    GetUpdatedResponse_element __response = new GetUpdatedResponse_element();
+    com.sforce.soap.partner.GetUpdated_element __request = new com.sforce.soap.partner.GetUpdated_element();
+    com.sforce.soap.partner.GetUpdatedResponse_element __response = new com.sforce.soap.partner.GetUpdatedResponse_element();
 
   
     __request.setSObjectType(sObjectType);
@@ -1082,15 +1083,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (GetUpdatedResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.GetUpdatedResponse_element) __connection.send("",
        getUpdated_qname, __request, getUpdatedResponse_qname,
-       GetUpdatedResponse_element.class);
+       com.sforce.soap.partner.GetUpdatedResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.UpsertResult[] upsert(String externalIDFieldName,com.sforce.soap.partner.sobject.SObject[] sObjects)
-       throws ConnectionException {
+  public com.sforce.soap.partner.UpsertResult[] upsert(java.lang.String externalIDFieldName,com.sforce.soap.partner.sobject.SObject[] sObjects)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Upsert_element __request = new com.sforce.soap.partner.Upsert_element();
     com.sforce.soap.partner.UpsertResponse_element __response = new com.sforce.soap.partner.UpsertResponse_element();
@@ -1132,8 +1133,8 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.QueryResult queryAll(String queryString)
-       throws ConnectionException {
+  public com.sforce.soap.partner.QueryResult queryAll(java.lang.String queryString)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.QueryAll_element __request = new com.sforce.soap.partner.QueryAll_element();
     com.sforce.soap.partner.QueryAllResponse_element __response = new com.sforce.soap.partner.QueryAllResponse_element();
@@ -1158,8 +1159,8 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.ResetPasswordResult resetPassword(String userId)
-       throws ConnectionException {
+  public com.sforce.soap.partner.ResetPasswordResult resetPassword(java.lang.String userId)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.ResetPassword_element __request = new com.sforce.soap.partner.ResetPassword_element();
     com.sforce.soap.partner.ResetPasswordResponse_element __response = new com.sforce.soap.partner.ResetPasswordResponse_element();
@@ -1184,11 +1185,11 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public MergeResult[] merge(MergeRequest[] request)
-       throws ConnectionException {
+  public com.sforce.soap.partner.MergeResult[] merge(com.sforce.soap.partner.MergeRequest[] request)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
-    Merge_element __request = new Merge_element();
-    MergeResponse_element __response = new MergeResponse_element();
+    com.sforce.soap.partner.Merge_element __request = new com.sforce.soap.partner.Merge_element();
+    com.sforce.soap.partner.MergeResponse_element __response = new com.sforce.soap.partner.MergeResponse_element();
 
   
     __request.setRequest(request);
@@ -1217,15 +1218,15 @@ public class PartnerConnection {
 
     addHeaders(__connection);
 
-    __response = (MergeResponse_element) __connection.send("",
+    __response = (com.sforce.soap.partner.MergeResponse_element) __connection.send("",
        merge_qname, __request, mergeResponse_qname,
-       MergeResponse_element.class);
+       com.sforce.soap.partner.MergeResponse_element.class);
 
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.QueryResult query(String queryString)
-       throws ConnectionException {
+  public com.sforce.soap.partner.QueryResult query(java.lang.String queryString)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Query_element __request = new com.sforce.soap.partner.Query_element();
     com.sforce.soap.partner.QueryResponse_element __response = new com.sforce.soap.partner.QueryResponse_element();
@@ -1255,7 +1256,7 @@ public class PartnerConnection {
   }
   
   public com.sforce.soap.partner.SaveResult[] update(com.sforce.soap.partner.sobject.SObject[] sObjects)
-       throws ConnectionException {
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Update_element __request = new com.sforce.soap.partner.Update_element();
     com.sforce.soap.partner.UpdateResponse_element __response = new com.sforce.soap.partner.UpdateResponse_element();
@@ -1296,8 +1297,8 @@ public class PartnerConnection {
     return __response.getResult();
   }
   
-  public com.sforce.soap.partner.UndeleteResult[] undelete(String[] ids)
-       throws ConnectionException {
+  public com.sforce.soap.partner.UndeleteResult[] undelete(java.lang.String[] ids)
+       throws com.sforce.ws.ConnectionException {
     com.sforce.ws.transport.SoapConnection __connection = newConnection();
     com.sforce.soap.partner.Undelete_element __request = new com.sforce.soap.partner.Undelete_element();
     com.sforce.soap.partner.UndeleteResponse_element __response = new com.sforce.soap.partner.UndeleteResponse_element();
@@ -1354,106 +1355,106 @@ public class PartnerConnection {
 	
 	public void clearExtraHeaders() {
 		__extraHeaders = new HashMap<QName, XMLizable>();
-	}    private static final QName convertLead_qname = new QName("urn:partner.soap.sforce.com", "convertLead");
-    private static final QName convertLeadResponse_qname = new QName("urn:partner.soap.sforce.com", "convertLeadResponse");
-    private static final QName describeDataCategoryGroupStructures_qname = new QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupStructures");
-    private static final QName describeDataCategoryGroupStructuresResponse_qname = new QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupStructuresResponse");
-    private static final QName sendEmail_qname = new QName("urn:partner.soap.sforce.com", "sendEmail");
-    private static final QName sendEmailResponse_qname = new QName("urn:partner.soap.sforce.com", "sendEmailResponse");
-    private static final QName describeGlobal_qname = new QName("urn:partner.soap.sforce.com", "describeGlobal");
-    private static final QName describeGlobalResponse_qname = new QName("urn:partner.soap.sforce.com", "describeGlobalResponse");
-    private static final QName retrieve_qname = new QName("urn:partner.soap.sforce.com", "retrieve");
-    private static final QName retrieveResponse_qname = new QName("urn:partner.soap.sforce.com", "retrieveResponse");
-    private static final QName describeLayout_qname = new QName("urn:partner.soap.sforce.com", "describeLayout");
-    private static final QName describeLayoutResponse_qname = new QName("urn:partner.soap.sforce.com", "describeLayoutResponse");
-    private static final QName emptyRecycleBin_qname = new QName("urn:partner.soap.sforce.com", "emptyRecycleBin");
-    private static final QName emptyRecycleBinResponse_qname = new QName("urn:partner.soap.sforce.com", "emptyRecycleBinResponse");
-    private static final QName process_qname = new QName("urn:partner.soap.sforce.com", "process");
-    private static final QName processResponse_qname = new QName("urn:partner.soap.sforce.com", "processResponse");
-    private static final QName logout_qname = new QName("urn:partner.soap.sforce.com", "logout");
-    private static final QName logoutResponse_qname = new QName("urn:partner.soap.sforce.com", "logoutResponse");
-    private static final QName create_qname = new QName("urn:partner.soap.sforce.com", "create");
-    private static final QName createResponse_qname = new QName("urn:partner.soap.sforce.com", "createResponse");
-    private static final QName invalidateSessions_qname = new QName("urn:partner.soap.sforce.com", "invalidateSessions");
-    private static final QName invalidateSessionsResponse_qname = new QName("urn:partner.soap.sforce.com", "invalidateSessionsResponse");
-    private static final QName getUserInfo_qname = new QName("urn:partner.soap.sforce.com", "getUserInfo");
-    private static final QName getUserInfoResponse_qname = new QName("urn:partner.soap.sforce.com", "getUserInfoResponse");
-    private static final QName getServerTimestamp_qname = new QName("urn:partner.soap.sforce.com", "getServerTimestamp");
-    private static final QName getServerTimestampResponse_qname = new QName("urn:partner.soap.sforce.com", "getServerTimestampResponse");
-    private static final QName getDeleted_qname = new QName("urn:partner.soap.sforce.com", "getDeleted");
-    private static final QName getDeletedResponse_qname = new QName("urn:partner.soap.sforce.com", "getDeletedResponse");
-    private static final QName setPassword_qname = new QName("urn:partner.soap.sforce.com", "setPassword");
-    private static final QName setPasswordResponse_qname = new QName("urn:partner.soap.sforce.com", "setPasswordResponse");
-    private static final QName delete_qname = new QName("urn:partner.soap.sforce.com", "delete");
-    private static final QName deleteResponse_qname = new QName("urn:partner.soap.sforce.com", "deleteResponse");
-    private static final QName describeTabs_qname = new QName("urn:partner.soap.sforce.com", "describeTabs");
-    private static final QName describeTabsResponse_qname = new QName("urn:partner.soap.sforce.com", "describeTabsResponse");
-    private static final QName login_qname = new QName("urn:partner.soap.sforce.com", "login");
-    private static final QName loginResponse_qname = new QName("urn:partner.soap.sforce.com", "loginResponse");
-    private static final QName search_qname = new QName("urn:partner.soap.sforce.com", "search");
-    private static final QName searchResponse_qname = new QName("urn:partner.soap.sforce.com", "searchResponse");
-    private static final QName queryMore_qname = new QName("urn:partner.soap.sforce.com", "queryMore");
-    private static final QName queryMoreResponse_qname = new QName("urn:partner.soap.sforce.com", "queryMoreResponse");
-    private static final QName describeDataCategoryGroups_qname = new QName("urn:partner.soap.sforce.com", "describeDataCategoryGroups");
-    private static final QName describeDataCategoryGroupsResponse_qname = new QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupsResponse");
-    private static final QName describeSoftphoneLayout_qname = new QName("urn:partner.soap.sforce.com", "describeSoftphoneLayout");
-    private static final QName describeSoftphoneLayoutResponse_qname = new QName("urn:partner.soap.sforce.com", "describeSoftphoneLayoutResponse");
-    private static final QName describeSObject_qname = new QName("urn:partner.soap.sforce.com", "describeSObject");
-    private static final QName describeSObjectResponse_qname = new QName("urn:partner.soap.sforce.com", "describeSObjectResponse");
-    private static final QName describeSObjects_qname = new QName("urn:partner.soap.sforce.com", "describeSObjects");
-    private static final QName describeSObjectsResponse_qname = new QName("urn:partner.soap.sforce.com", "describeSObjectsResponse");
-    private static final QName getUpdated_qname = new QName("urn:partner.soap.sforce.com", "getUpdated");
-    private static final QName getUpdatedResponse_qname = new QName("urn:partner.soap.sforce.com", "getUpdatedResponse");
-    private static final QName upsert_qname = new QName("urn:partner.soap.sforce.com", "upsert");
-    private static final QName upsertResponse_qname = new QName("urn:partner.soap.sforce.com", "upsertResponse");
-    private static final QName queryAll_qname = new QName("urn:partner.soap.sforce.com", "queryAll");
-    private static final QName queryAllResponse_qname = new QName("urn:partner.soap.sforce.com", "queryAllResponse");
-    private static final QName resetPassword_qname = new QName("urn:partner.soap.sforce.com", "resetPassword");
-    private static final QName resetPasswordResponse_qname = new QName("urn:partner.soap.sforce.com", "resetPasswordResponse");
-    private static final QName merge_qname = new QName("urn:partner.soap.sforce.com", "merge");
-    private static final QName mergeResponse_qname = new QName("urn:partner.soap.sforce.com", "mergeResponse");
-    private static final QName query_qname = new QName("urn:partner.soap.sforce.com", "query");
-    private static final QName queryResponse_qname = new QName("urn:partner.soap.sforce.com", "queryResponse");
-    private static final QName update_qname = new QName("urn:partner.soap.sforce.com", "update");
-    private static final QName updateResponse_qname = new QName("urn:partner.soap.sforce.com", "updateResponse");
-    private static final QName undelete_qname = new QName("urn:partner.soap.sforce.com", "undelete");
-    private static final QName undeleteResponse_qname = new QName("urn:partner.soap.sforce.com", "undeleteResponse");
-    private static final QName StreamingEnabledHeader_qname = new QName("urn:partner.soap.sforce.com", "StreamingEnabledHeader");
-    private static final QName MruHeader_qname = new QName("urn:partner.soap.sforce.com", "MruHeader");
-    private static final QName CallOptions_qname = new QName("urn:partner.soap.sforce.com", "CallOptions");
-    private static final QName PackageVersionHeader_qname = new QName("urn:partner.soap.sforce.com", "PackageVersionHeader");
-    private static final QName LocaleOptions_qname = new QName("urn:partner.soap.sforce.com", "LocaleOptions");
-    private static final QName EmailHeader_qname = new QName("urn:partner.soap.sforce.com", "EmailHeader");
-    private static final QName DebuggingInfo_qname = new QName("urn:partner.soap.sforce.com", "DebuggingInfo");
-    private static final QName SessionHeader_qname = new QName("urn:partner.soap.sforce.com", "SessionHeader");
-    private static final QName DebuggingHeader_qname = new QName("urn:partner.soap.sforce.com", "DebuggingHeader");
-    private static final QName LoginScopeHeader_qname = new QName("urn:partner.soap.sforce.com", "LoginScopeHeader");
-    private static final QName DisableFeedTrackingHeader_qname = new QName("urn:partner.soap.sforce.com", "DisableFeedTrackingHeader");
-    private static final QName UserTerritoryDeleteHeader_qname = new QName("urn:partner.soap.sforce.com", "UserTerritoryDeleteHeader");
-    private static final QName AllowFieldTruncationHeader_qname = new QName("urn:partner.soap.sforce.com", "AllowFieldTruncationHeader");
-    private static final QName QueryOptions_qname = new QName("urn:partner.soap.sforce.com", "QueryOptions");
-    private static final QName AssignmentRuleHeader_qname = new QName("urn:partner.soap.sforce.com", "AssignmentRuleHeader");
-    private static final QName AllOrNoneHeader_qname = new QName("urn:partner.soap.sforce.com", "AllOrNoneHeader");
+	}    private static final javax.xml.namespace.QName convertLead_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "convertLead");
+    private static final javax.xml.namespace.QName convertLeadResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "convertLeadResponse");
+    private static final javax.xml.namespace.QName describeDataCategoryGroupStructures_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupStructures");
+    private static final javax.xml.namespace.QName describeDataCategoryGroupStructuresResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupStructuresResponse");
+    private static final javax.xml.namespace.QName sendEmail_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "sendEmail");
+    private static final javax.xml.namespace.QName sendEmailResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "sendEmailResponse");
+    private static final javax.xml.namespace.QName describeGlobal_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeGlobal");
+    private static final javax.xml.namespace.QName describeGlobalResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeGlobalResponse");
+    private static final javax.xml.namespace.QName retrieve_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "retrieve");
+    private static final javax.xml.namespace.QName retrieveResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "retrieveResponse");
+    private static final javax.xml.namespace.QName describeLayout_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeLayout");
+    private static final javax.xml.namespace.QName describeLayoutResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeLayoutResponse");
+    private static final javax.xml.namespace.QName emptyRecycleBin_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "emptyRecycleBin");
+    private static final javax.xml.namespace.QName emptyRecycleBinResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "emptyRecycleBinResponse");
+    private static final javax.xml.namespace.QName process_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "process");
+    private static final javax.xml.namespace.QName processResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "processResponse");
+    private static final javax.xml.namespace.QName logout_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "logout");
+    private static final javax.xml.namespace.QName logoutResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "logoutResponse");
+    private static final javax.xml.namespace.QName create_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "create");
+    private static final javax.xml.namespace.QName createResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "createResponse");
+    private static final javax.xml.namespace.QName invalidateSessions_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "invalidateSessions");
+    private static final javax.xml.namespace.QName invalidateSessionsResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "invalidateSessionsResponse");
+    private static final javax.xml.namespace.QName getUserInfo_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getUserInfo");
+    private static final javax.xml.namespace.QName getUserInfoResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getUserInfoResponse");
+    private static final javax.xml.namespace.QName getServerTimestamp_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getServerTimestamp");
+    private static final javax.xml.namespace.QName getServerTimestampResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getServerTimestampResponse");
+    private static final javax.xml.namespace.QName getDeleted_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getDeleted");
+    private static final javax.xml.namespace.QName getDeletedResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getDeletedResponse");
+    private static final javax.xml.namespace.QName setPassword_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "setPassword");
+    private static final javax.xml.namespace.QName setPasswordResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "setPasswordResponse");
+    private static final javax.xml.namespace.QName delete_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "delete");
+    private static final javax.xml.namespace.QName deleteResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "deleteResponse");
+    private static final javax.xml.namespace.QName describeTabs_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeTabs");
+    private static final javax.xml.namespace.QName describeTabsResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeTabsResponse");
+    private static final javax.xml.namespace.QName login_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "login");
+    private static final javax.xml.namespace.QName loginResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "loginResponse");
+    private static final javax.xml.namespace.QName search_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "search");
+    private static final javax.xml.namespace.QName searchResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchResponse");
+    private static final javax.xml.namespace.QName queryMore_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryMore");
+    private static final javax.xml.namespace.QName queryMoreResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryMoreResponse");
+    private static final javax.xml.namespace.QName describeDataCategoryGroups_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeDataCategoryGroups");
+    private static final javax.xml.namespace.QName describeDataCategoryGroupsResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeDataCategoryGroupsResponse");
+    private static final javax.xml.namespace.QName describeSoftphoneLayout_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSoftphoneLayout");
+    private static final javax.xml.namespace.QName describeSoftphoneLayoutResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSoftphoneLayoutResponse");
+    private static final javax.xml.namespace.QName describeSObject_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSObject");
+    private static final javax.xml.namespace.QName describeSObjectResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSObjectResponse");
+    private static final javax.xml.namespace.QName describeSObjects_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSObjects");
+    private static final javax.xml.namespace.QName describeSObjectsResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "describeSObjectsResponse");
+    private static final javax.xml.namespace.QName getUpdated_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getUpdated");
+    private static final javax.xml.namespace.QName getUpdatedResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "getUpdatedResponse");
+    private static final javax.xml.namespace.QName upsert_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "upsert");
+    private static final javax.xml.namespace.QName upsertResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "upsertResponse");
+    private static final javax.xml.namespace.QName queryAll_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryAll");
+    private static final javax.xml.namespace.QName queryAllResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryAllResponse");
+    private static final javax.xml.namespace.QName resetPassword_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "resetPassword");
+    private static final javax.xml.namespace.QName resetPasswordResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "resetPasswordResponse");
+    private static final javax.xml.namespace.QName merge_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "merge");
+    private static final javax.xml.namespace.QName mergeResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "mergeResponse");
+    private static final javax.xml.namespace.QName query_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "query");
+    private static final javax.xml.namespace.QName queryResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryResponse");
+    private static final javax.xml.namespace.QName update_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "update");
+    private static final javax.xml.namespace.QName updateResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "updateResponse");
+    private static final javax.xml.namespace.QName undelete_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "undelete");
+    private static final javax.xml.namespace.QName undeleteResponse_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "undeleteResponse");
+    private static final javax.xml.namespace.QName StreamingEnabledHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "StreamingEnabledHeader");
+    private static final javax.xml.namespace.QName MruHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "MruHeader");
+    private static final javax.xml.namespace.QName CallOptions_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "CallOptions");
+    private static final javax.xml.namespace.QName PackageVersionHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "PackageVersionHeader");
+    private static final javax.xml.namespace.QName LocaleOptions_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "LocaleOptions");
+    private static final javax.xml.namespace.QName EmailHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "EmailHeader");
+    private static final javax.xml.namespace.QName DebuggingInfo_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DebuggingInfo");
+    private static final javax.xml.namespace.QName SessionHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SessionHeader");
+    private static final javax.xml.namespace.QName DebuggingHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DebuggingHeader");
+    private static final javax.xml.namespace.QName LoginScopeHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "LoginScopeHeader");
+    private static final javax.xml.namespace.QName DisableFeedTrackingHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DisableFeedTrackingHeader");
+    private static final javax.xml.namespace.QName UserTerritoryDeleteHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "UserTerritoryDeleteHeader");
+    private static final javax.xml.namespace.QName AllowFieldTruncationHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "AllowFieldTruncationHeader");
+    private static final javax.xml.namespace.QName QueryOptions_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "QueryOptions");
+    private static final javax.xml.namespace.QName AssignmentRuleHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "AssignmentRuleHeader");
+    private static final javax.xml.namespace.QName AllOrNoneHeader_qname = new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "AllOrNoneHeader");
 
 
-  private static HashMap<QName, Class> knownHeaders = new HashMap<QName, Class>();
+  private static HashMap<QName, java.lang.Class> knownHeaders = new HashMap<QName, java.lang.Class>();
 
   static {  knownHeaders.put(StreamingEnabledHeader_qname,com.sforce.soap.partner.StreamingEnabledHeader_element.class);
-  knownHeaders.put(MruHeader_qname,MruHeader_element.class);
-  knownHeaders.put(CallOptions_qname,CallOptions_element.class);
-  knownHeaders.put(PackageVersionHeader_qname,PackageVersionHeader_element.class);
-  knownHeaders.put(LocaleOptions_qname,LocaleOptions_element.class);
-  knownHeaders.put(EmailHeader_qname,EmailHeader_element.class);
-  knownHeaders.put(DebuggingInfo_qname,DebuggingInfo_element.class);
+  knownHeaders.put(MruHeader_qname,com.sforce.soap.partner.MruHeader_element.class);
+  knownHeaders.put(CallOptions_qname,com.sforce.soap.partner.CallOptions_element.class);
+  knownHeaders.put(PackageVersionHeader_qname,com.sforce.soap.partner.PackageVersionHeader_element.class);
+  knownHeaders.put(LocaleOptions_qname,com.sforce.soap.partner.LocaleOptions_element.class);
+  knownHeaders.put(EmailHeader_qname,com.sforce.soap.partner.EmailHeader_element.class);
+  knownHeaders.put(DebuggingInfo_qname,com.sforce.soap.partner.DebuggingInfo_element.class);
   knownHeaders.put(SessionHeader_qname,com.sforce.soap.partner.SessionHeader_element.class);
-  knownHeaders.put(DebuggingHeader_qname,DebuggingHeader_element.class);
-  knownHeaders.put(LoginScopeHeader_qname,LoginScopeHeader_element.class);
-  knownHeaders.put(DisableFeedTrackingHeader_qname,DisableFeedTrackingHeader_element.class);
+  knownHeaders.put(DebuggingHeader_qname,com.sforce.soap.partner.DebuggingHeader_element.class);
+  knownHeaders.put(LoginScopeHeader_qname,com.sforce.soap.partner.LoginScopeHeader_element.class);
+  knownHeaders.put(DisableFeedTrackingHeader_qname,com.sforce.soap.partner.DisableFeedTrackingHeader_element.class);
   knownHeaders.put(UserTerritoryDeleteHeader_qname,com.sforce.soap.partner.UserTerritoryDeleteHeader_element.class);
-  knownHeaders.put(AllowFieldTruncationHeader_qname,AllowFieldTruncationHeader_element.class);
+  knownHeaders.put(AllowFieldTruncationHeader_qname,com.sforce.soap.partner.AllowFieldTruncationHeader_element.class);
   knownHeaders.put(QueryOptions_qname,com.sforce.soap.partner.QueryOptions_element.class);
-  knownHeaders.put(AssignmentRuleHeader_qname,AssignmentRuleHeader_element.class);
-  knownHeaders.put(AllOrNoneHeader_qname,AllOrNoneHeader_element.class);
+  knownHeaders.put(AssignmentRuleHeader_qname,com.sforce.soap.partner.AssignmentRuleHeader_element.class);
+  knownHeaders.put(AllOrNoneHeader_qname,com.sforce.soap.partner.AllOrNoneHeader_element.class);
 
   }
 }

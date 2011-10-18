@@ -21,15 +21,15 @@ public class Upsert_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean externalIDFieldName__is_set = false;
 
-  private String externalIDFieldName;
+  private java.lang.String externalIDFieldName;
 
-  public String getExternalIDFieldName() {
+  public java.lang.String getExternalIDFieldName() {
     return externalIDFieldName;
   }
 
   
 
-  public void setExternalIDFieldName(String externalIDFieldName) {
+  public void setExternalIDFieldName(java.lang.String externalIDFieldName) {
     this.externalIDFieldName = externalIDFieldName;
     externalIDFieldName__is_set = true;
   }
@@ -88,7 +88,7 @@ public class Upsert_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, externalIDFieldName__typeInfo)) {
-      setExternalIDFieldName((String)__typeMapper.readString(__in, externalIDFieldName__typeInfo, String.class));
+      setExternalIDFieldName((java.lang.String)__typeMapper.readString(__in, externalIDFieldName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sObjects__typeInfo)) {
@@ -97,7 +97,7 @@ public class Upsert_element implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Upsert_element ");
     
     sb.append(" externalIDFieldName=");

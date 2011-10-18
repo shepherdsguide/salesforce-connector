@@ -65,15 +65,15 @@ public class PackageVersion implements com.sforce.ws.bind.XMLizable {
 
   private boolean namespace__is_set = false;
 
-  private String namespace;
+  private java.lang.String namespace;
 
-  public String getNamespace() {
+  public java.lang.String getNamespace() {
     return namespace;
   }
 
   
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(java.lang.String namespace) {
     this.namespace = namespace;
     namespace__is_set = true;
   }
@@ -119,12 +119,12 @@ public class PackageVersion implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, namespace__typeInfo)) {
-      setNamespace((String)__typeMapper.readString(__in, namespace__typeInfo, String.class));
+      setNamespace((java.lang.String)__typeMapper.readString(__in, namespace__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[PackageVersion ");
     
     sb.append(" majorNumber=");

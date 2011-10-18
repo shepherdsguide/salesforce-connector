@@ -70,7 +70,7 @@ public class SendEmailResponse_element implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SendEmailResponse_element ");
     
     sb.append(" result=");

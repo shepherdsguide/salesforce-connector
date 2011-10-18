@@ -21,15 +21,15 @@ public class DataCategory implements com.sforce.ws.bind.XMLizable {
 
   private boolean childCategories__is_set = false;
 
-  private DataCategory[] childCategories = new DataCategory[0];
+  private com.sforce.soap.partner.DataCategory[] childCategories = new com.sforce.soap.partner.DataCategory[0];
 
-  public DataCategory[] getChildCategories() {
+  public com.sforce.soap.partner.DataCategory[] getChildCategories() {
     return childCategories;
   }
 
   
 
-  public void setChildCategories(DataCategory[] childCategories) {
+  public void setChildCategories(com.sforce.soap.partner.DataCategory[] childCategories) {
     this.childCategories = childCategories;
     childCategories__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DataCategory implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DataCategory implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -111,20 +111,20 @@ public class DataCategory implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, childCategories__typeInfo)) {
-      setChildCategories((DataCategory[])__typeMapper.readObject(__in, childCategories__typeInfo, DataCategory[].class));
+      setChildCategories((com.sforce.soap.partner.DataCategory[])__typeMapper.readObject(__in, childCategories__typeInfo, com.sforce.soap.partner.DataCategory[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DataCategory ");
     
     sb.append(" childCategories=");

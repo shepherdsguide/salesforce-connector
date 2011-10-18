@@ -21,15 +21,15 @@ public class DescribeTabsResponse_element implements com.sforce.ws.bind.XMLizabl
 
   private boolean result__is_set = false;
 
-  private DescribeTabSetResult[] result = new DescribeTabSetResult[0];
+  private com.sforce.soap.partner.DescribeTabSetResult[] result = new com.sforce.soap.partner.DescribeTabSetResult[0];
 
-  public DescribeTabSetResult[] getResult() {
+  public com.sforce.soap.partner.DescribeTabSetResult[] getResult() {
     return result;
   }
 
   
 
-  public void setResult(DescribeTabSetResult[] result) {
+  public void setResult(com.sforce.soap.partner.DescribeTabSetResult[] result) {
     this.result = result;
     result__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeTabsResponse_element implements com.sforce.ws.bind.XMLizabl
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, result__typeInfo)) {
-      setResult((DescribeTabSetResult[])__typeMapper.readObject(__in, result__typeInfo, DescribeTabSetResult[].class));
+      setResult((com.sforce.soap.partner.DescribeTabSetResult[])__typeMapper.readObject(__in, result__typeInfo, com.sforce.soap.partner.DescribeTabSetResult[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeTabsResponse_element ");
     
     sb.append(" result=");

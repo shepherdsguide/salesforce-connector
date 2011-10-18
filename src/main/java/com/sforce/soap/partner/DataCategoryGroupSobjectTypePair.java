@@ -21,15 +21,15 @@ public class DataCategoryGroupSobjectTypePair implements com.sforce.ws.bind.XMLi
 
   private boolean dataCategoryGroupName__is_set = false;
 
-  private String dataCategoryGroupName;
+  private java.lang.String dataCategoryGroupName;
 
-  public String getDataCategoryGroupName() {
+  public java.lang.String getDataCategoryGroupName() {
     return dataCategoryGroupName;
   }
 
   
 
-  public void setDataCategoryGroupName(String dataCategoryGroupName) {
+  public void setDataCategoryGroupName(java.lang.String dataCategoryGroupName) {
     this.dataCategoryGroupName = dataCategoryGroupName;
     dataCategoryGroupName__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DataCategoryGroupSobjectTypePair implements com.sforce.ws.bind.XMLi
 
   private boolean sobject__is_set = false;
 
-  private String sobject;
+  private java.lang.String sobject;
 
-  public String getSobject() {
+  public java.lang.String getSobject() {
     return sobject;
   }
 
   
 
-  public void setSobject(String sobject) {
+  public void setSobject(java.lang.String sobject) {
     this.sobject = sobject;
     sobject__is_set = true;
   }
@@ -88,16 +88,16 @@ public class DataCategoryGroupSobjectTypePair implements com.sforce.ws.bind.XMLi
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, dataCategoryGroupName__typeInfo)) {
-      setDataCategoryGroupName((String)__typeMapper.readString(__in, dataCategoryGroupName__typeInfo, String.class));
+      setDataCategoryGroupName((java.lang.String)__typeMapper.readString(__in, dataCategoryGroupName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sobject__typeInfo)) {
-      setSobject((String)__typeMapper.readString(__in, sobject__typeInfo, String.class));
+      setSobject((java.lang.String)__typeMapper.readString(__in, sobject__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DataCategoryGroupSobjectTypePair ");
     
     sb.append(" dataCategoryGroupName=");

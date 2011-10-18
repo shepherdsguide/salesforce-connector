@@ -21,15 +21,15 @@ public class DescribeLayoutResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean layouts__is_set = false;
 
-  private DescribeLayout[] layouts = new DescribeLayout[0];
+  private com.sforce.soap.partner.DescribeLayout[] layouts = new com.sforce.soap.partner.DescribeLayout[0];
 
-  public DescribeLayout[] getLayouts() {
+  public com.sforce.soap.partner.DescribeLayout[] getLayouts() {
     return layouts;
   }
 
   
 
-  public void setLayouts(DescribeLayout[] layouts) {
+  public void setLayouts(com.sforce.soap.partner.DescribeLayout[] layouts) {
     this.layouts = layouts;
     layouts__is_set = true;
   }
@@ -117,7 +117,7 @@ public class DescribeLayoutResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layouts__typeInfo)) {
-      setLayouts((DescribeLayout[])__typeMapper.readObject(__in, layouts__typeInfo, DescribeLayout[].class));
+      setLayouts((com.sforce.soap.partner.DescribeLayout[])__typeMapper.readObject(__in, layouts__typeInfo, com.sforce.soap.partner.DescribeLayout[].class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, recordTypeMappings__typeInfo)) {
@@ -130,7 +130,7 @@ public class DescribeLayoutResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutResult ");
     
     sb.append(" layouts=");

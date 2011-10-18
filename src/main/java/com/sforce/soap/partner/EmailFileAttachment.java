@@ -43,15 +43,15 @@ public class EmailFileAttachment implements com.sforce.ws.bind.XMLizable {
 
   private boolean contentType__is_set = false;
 
-  private String contentType;
+  private java.lang.String contentType;
 
-  public String getContentType() {
+  public java.lang.String getContentType() {
     return contentType;
   }
 
   
 
-  public void setContentType(String contentType) {
+  public void setContentType(java.lang.String contentType) {
     this.contentType = contentType;
     contentType__is_set = true;
   }
@@ -65,15 +65,15 @@ public class EmailFileAttachment implements com.sforce.ws.bind.XMLizable {
 
   private boolean fileName__is_set = false;
 
-  private String fileName;
+  private java.lang.String fileName;
 
-  public String getFileName() {
+  public java.lang.String getFileName() {
     return fileName;
   }
 
   
 
-  public void setFileName(String fileName) {
+  public void setFileName(java.lang.String fileName) {
     this.fileName = fileName;
     fileName__is_set = true;
   }
@@ -144,11 +144,11 @@ public class EmailFileAttachment implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, contentType__typeInfo)) {
-      setContentType((String)__typeMapper.readString(__in, contentType__typeInfo, String.class));
+      setContentType((java.lang.String)__typeMapper.readString(__in, contentType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, fileName__typeInfo)) {
-      setFileName((String)__typeMapper.readString(__in, fileName__typeInfo, String.class));
+      setFileName((java.lang.String)__typeMapper.readString(__in, fileName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, inline__typeInfo)) {
@@ -157,7 +157,7 @@ public class EmailFileAttachment implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[EmailFileAttachment ");
     
     sb.append(" body=");

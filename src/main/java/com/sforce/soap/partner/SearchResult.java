@@ -21,15 +21,15 @@ public class SearchResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean searchRecords__is_set = false;
 
-  private SearchRecord[] searchRecords = new SearchRecord[0];
+  private com.sforce.soap.partner.SearchRecord[] searchRecords = new com.sforce.soap.partner.SearchRecord[0];
 
-  public SearchRecord[] getSearchRecords() {
+  public com.sforce.soap.partner.SearchRecord[] getSearchRecords() {
     return searchRecords;
   }
 
   
 
-  public void setSearchRecords(SearchRecord[] searchRecords) {
+  public void setSearchRecords(com.sforce.soap.partner.SearchRecord[] searchRecords) {
     this.searchRecords = searchRecords;
     searchRecords__is_set = true;
   }
@@ -43,15 +43,15 @@ public class SearchResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean sforceReserved__is_set = false;
 
-  private String sforceReserved;
+  private java.lang.String sforceReserved;
 
-  public String getSforceReserved() {
+  public java.lang.String getSforceReserved() {
     return sforceReserved;
   }
 
   
 
-  public void setSforceReserved(String sforceReserved) {
+  public void setSforceReserved(java.lang.String sforceReserved) {
     this.sforceReserved = sforceReserved;
     sforceReserved__is_set = true;
   }
@@ -88,16 +88,16 @@ public class SearchResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, searchRecords__typeInfo)) {
-      setSearchRecords((SearchRecord[])__typeMapper.readObject(__in, searchRecords__typeInfo, SearchRecord[].class));
+      setSearchRecords((com.sforce.soap.partner.SearchRecord[])__typeMapper.readObject(__in, searchRecords__typeInfo, com.sforce.soap.partner.SearchRecord[].class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sforceReserved__typeInfo)) {
-      setSforceReserved((String)__typeMapper.readString(__in, sforceReserved__typeInfo, String.class));
+      setSforceReserved((java.lang.String)__typeMapper.readString(__in, sforceReserved__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SearchResult ");
     
     sb.append(" searchRecords=");

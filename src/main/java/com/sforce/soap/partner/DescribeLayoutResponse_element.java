@@ -70,7 +70,7 @@ public class DescribeLayoutResponse_element implements com.sforce.ws.bind.XMLiza
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutResponse_element ");
     
     sb.append(" result=");

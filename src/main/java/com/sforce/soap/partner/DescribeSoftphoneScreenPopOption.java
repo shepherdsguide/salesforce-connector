@@ -21,15 +21,15 @@ public class DescribeSoftphoneScreenPopOption implements com.sforce.ws.bind.XMLi
 
   private boolean matchType__is_set = false;
 
-  private String matchType;
+  private java.lang.String matchType;
 
-  public String getMatchType() {
+  public java.lang.String getMatchType() {
     return matchType;
   }
 
   
 
-  public void setMatchType(String matchType) {
+  public void setMatchType(java.lang.String matchType) {
     this.matchType = matchType;
     matchType__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DescribeSoftphoneScreenPopOption implements com.sforce.ws.bind.XMLi
 
   private boolean screenPopData__is_set = false;
 
-  private String screenPopData;
+  private java.lang.String screenPopData;
 
-  public String getScreenPopData() {
+  public java.lang.String getScreenPopData() {
     return screenPopData;
   }
 
   
 
-  public void setScreenPopData(String screenPopData) {
+  public void setScreenPopData(java.lang.String screenPopData) {
     this.screenPopData = screenPopData;
     screenPopData__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DescribeSoftphoneScreenPopOption implements com.sforce.ws.bind.XMLi
 
   private boolean screenPopType__is_set = false;
 
-  private String screenPopType;
+  private java.lang.String screenPopType;
 
-  public String getScreenPopType() {
+  public java.lang.String getScreenPopType() {
     return screenPopType;
   }
 
   
 
-  public void setScreenPopType(String screenPopType) {
+  public void setScreenPopType(java.lang.String screenPopType) {
     this.screenPopType = screenPopType;
     screenPopType__is_set = true;
   }
@@ -111,20 +111,20 @@ public class DescribeSoftphoneScreenPopOption implements com.sforce.ws.bind.XMLi
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, matchType__typeInfo)) {
-      setMatchType((String)__typeMapper.readString(__in, matchType__typeInfo, String.class));
+      setMatchType((java.lang.String)__typeMapper.readString(__in, matchType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, screenPopData__typeInfo)) {
-      setScreenPopData((String)__typeMapper.readString(__in, screenPopData__typeInfo, String.class));
+      setScreenPopData((java.lang.String)__typeMapper.readString(__in, screenPopData__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, screenPopType__typeInfo)) {
-      setScreenPopType((String)__typeMapper.readString(__in, screenPopType__typeInfo, String.class));
+      setScreenPopType((java.lang.String)__typeMapper.readString(__in, screenPopType__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneScreenPopOption ");
     
     sb.append(" matchType=");

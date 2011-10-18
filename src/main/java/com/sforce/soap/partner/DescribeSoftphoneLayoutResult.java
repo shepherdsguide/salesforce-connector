@@ -21,15 +21,15 @@ public class DescribeSoftphoneLayoutResult implements com.sforce.ws.bind.XMLizab
 
   private boolean callTypes__is_set = false;
 
-  private DescribeSoftphoneLayoutCallType[] callTypes = new DescribeSoftphoneLayoutCallType[0];
+  private com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[] callTypes = new com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[0];
 
-  public DescribeSoftphoneLayoutCallType[] getCallTypes() {
+  public com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[] getCallTypes() {
     return callTypes;
   }
 
   
 
-  public void setCallTypes(DescribeSoftphoneLayoutCallType[] callTypes) {
+  public void setCallTypes(com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[] callTypes) {
     this.callTypes = callTypes;
     callTypes__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DescribeSoftphoneLayoutResult implements com.sforce.ws.bind.XMLizab
 
   private boolean id__is_set = false;
 
-  private String id;
+  private java.lang.String id;
 
-  public String getId() {
+  public java.lang.String getId() {
     return id;
   }
 
   
 
-  public void setId(String id) {
+  public void setId(java.lang.String id) {
     this.id = id;
     id__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DescribeSoftphoneLayoutResult implements com.sforce.ws.bind.XMLizab
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -111,20 +111,20 @@ public class DescribeSoftphoneLayoutResult implements com.sforce.ws.bind.XMLizab
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, callTypes__typeInfo)) {
-      setCallTypes((DescribeSoftphoneLayoutCallType[])__typeMapper.readObject(__in, callTypes__typeInfo, DescribeSoftphoneLayoutCallType[].class));
+      setCallTypes((com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[])__typeMapper.readObject(__in, callTypes__typeInfo, com.sforce.soap.partner.DescribeSoftphoneLayoutCallType[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, id__typeInfo)) {
-      setId((String)__typeMapper.readString(__in, id__typeInfo, String.class));
+      setId((java.lang.String)__typeMapper.readString(__in, id__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayoutResult ");
     
     sb.append(" callTypes=");

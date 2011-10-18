@@ -21,15 +21,15 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean metadataServerUrl__is_set = false;
 
-  private String metadataServerUrl;
+  private java.lang.String metadataServerUrl;
 
-  public String getMetadataServerUrl() {
+  public java.lang.String getMetadataServerUrl() {
     return metadataServerUrl;
   }
 
   
 
-  public void setMetadataServerUrl(String metadataServerUrl) {
+  public void setMetadataServerUrl(java.lang.String metadataServerUrl) {
     this.metadataServerUrl = metadataServerUrl;
     metadataServerUrl__is_set = true;
   }
@@ -99,15 +99,15 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean serverUrl__is_set = false;
 
-  private String serverUrl;
+  private java.lang.String serverUrl;
 
-  public String getServerUrl() {
+  public java.lang.String getServerUrl() {
     return serverUrl;
   }
 
   
 
-  public void setServerUrl(String serverUrl) {
+  public void setServerUrl(java.lang.String serverUrl) {
     this.serverUrl = serverUrl;
     serverUrl__is_set = true;
   }
@@ -121,15 +121,15 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean sessionId__is_set = false;
 
-  private String sessionId;
+  private java.lang.String sessionId;
 
-  public String getSessionId() {
+  public java.lang.String getSessionId() {
     return sessionId;
   }
 
   
 
-  public void setSessionId(String sessionId) {
+  public void setSessionId(java.lang.String sessionId) {
     this.sessionId = sessionId;
     sessionId__is_set = true;
   }
@@ -143,15 +143,15 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userId__is_set = false;
 
-  private String userId;
+  private java.lang.String userId;
 
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   
 
-  public void setUserId(String userId) {
+  public void setUserId(java.lang.String userId) {
     this.userId = userId;
     userId__is_set = true;
   }
@@ -165,15 +165,15 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userInfo__is_set = false;
 
-  private GetUserInfoResult userInfo;
+  private com.sforce.soap.partner.GetUserInfoResult userInfo;
 
-  public GetUserInfoResult getUserInfo() {
+  public com.sforce.soap.partner.GetUserInfoResult getUserInfo() {
     return userInfo;
   }
 
   
 
-  public void setUserInfo(GetUserInfoResult userInfo) {
+  public void setUserInfo(com.sforce.soap.partner.GetUserInfoResult userInfo) {
     this.userInfo = userInfo;
     userInfo__is_set = true;
   }
@@ -215,7 +215,7 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, metadataServerUrl__typeInfo)) {
-      setMetadataServerUrl((String)__typeMapper.readString(__in, metadataServerUrl__typeInfo, String.class));
+      setMetadataServerUrl((java.lang.String)__typeMapper.readString(__in, metadataServerUrl__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, passwordExpired__typeInfo)) {
@@ -227,24 +227,24 @@ public class LoginResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, serverUrl__typeInfo)) {
-      setServerUrl((String)__typeMapper.readString(__in, serverUrl__typeInfo, String.class));
+      setServerUrl((java.lang.String)__typeMapper.readString(__in, serverUrl__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sessionId__typeInfo)) {
-      setSessionId((String)__typeMapper.readString(__in, sessionId__typeInfo, String.class));
+      setSessionId((java.lang.String)__typeMapper.readString(__in, sessionId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userId__typeInfo)) {
-      setUserId((String)__typeMapper.readString(__in, userId__typeInfo, String.class));
+      setUserId((java.lang.String)__typeMapper.readString(__in, userId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, userInfo__typeInfo)) {
-      setUserInfo((GetUserInfoResult)__typeMapper.readObject(__in, userInfo__typeInfo, GetUserInfoResult.class));
+      setUserInfo((com.sforce.soap.partner.GetUserInfoResult)__typeMapper.readObject(__in, userInfo__typeInfo, com.sforce.soap.partner.GetUserInfoResult.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LoginResult ");
     
     sb.append(" metadataServerUrl=");

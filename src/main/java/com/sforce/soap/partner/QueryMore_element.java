@@ -21,15 +21,15 @@ public class QueryMore_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean queryLocator__is_set = false;
 
-  private String queryLocator;
+  private java.lang.String queryLocator;
 
-  public String getQueryLocator() {
+  public java.lang.String getQueryLocator() {
     return queryLocator;
   }
 
   
 
-  public void setQueryLocator(String queryLocator) {
+  public void setQueryLocator(java.lang.String queryLocator) {
     this.queryLocator = queryLocator;
     queryLocator__is_set = true;
   }
@@ -65,12 +65,12 @@ public class QueryMore_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, queryLocator__typeInfo)) {
-      setQueryLocator((String)__typeMapper.readString(__in, queryLocator__typeInfo, String.class));
+      setQueryLocator((java.lang.String)__typeMapper.readString(__in, queryLocator__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[QueryMore_element ");
     
     sb.append(" queryLocator=");

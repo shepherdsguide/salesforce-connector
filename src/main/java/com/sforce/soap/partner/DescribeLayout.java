@@ -87,15 +87,15 @@ public class DescribeLayout implements com.sforce.ws.bind.XMLizable {
 
   private boolean id__is_set = false;
 
-  private String id;
+  private java.lang.String id;
 
-  public String getId() {
+  public java.lang.String getId() {
     return id;
   }
 
   
 
-  public void setId(String id) {
+  public void setId(java.lang.String id) {
     this.id = id;
     id__is_set = true;
   }
@@ -169,7 +169,7 @@ public class DescribeLayout implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, id__typeInfo)) {
-      setId((String)__typeMapper.readString(__in, id__typeInfo, String.class));
+      setId((java.lang.String)__typeMapper.readString(__in, id__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, relatedLists__typeInfo)) {
@@ -178,7 +178,7 @@ public class DescribeLayout implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayout ");
     
     sb.append(" buttonLayoutSection=");

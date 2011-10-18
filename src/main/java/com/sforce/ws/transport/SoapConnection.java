@@ -106,7 +106,7 @@ public class SoapConnection {
                     return result;
                 } catch (SessionTimedOutException se) {
                     if (config.getSessionRenewer() == null || !firstTime) {
-                        throw (ConnectionException) se.getCause();
+                        throw se;
                     } else {
                         config.getSessionRenewer().renewSession(config);
                     }

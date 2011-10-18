@@ -49,15 +49,15 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
 
   private boolean iconUrl__is_set = false;
 
-  private String iconUrl;
+  private java.lang.String iconUrl;
 
-  public String getIconUrl() {
+  public java.lang.String getIconUrl() {
     return iconUrl;
   }
 
   
 
-  public void setIconUrl(String iconUrl) {
+  public void setIconUrl(java.lang.String iconUrl) {
     this.iconUrl = iconUrl;
     iconUrl__is_set = true;
   }
@@ -71,15 +71,15 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -93,15 +93,15 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
 
   private boolean miniIconUrl__is_set = false;
 
-  private String miniIconUrl;
+  private java.lang.String miniIconUrl;
 
-  public String getMiniIconUrl() {
+  public java.lang.String getMiniIconUrl() {
     return miniIconUrl;
   }
 
   
 
-  public void setMiniIconUrl(String miniIconUrl) {
+  public void setMiniIconUrl(java.lang.String miniIconUrl) {
     this.miniIconUrl = miniIconUrl;
     miniIconUrl__is_set = true;
   }
@@ -115,15 +115,15 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
 
   private boolean sobjectName__is_set = false;
 
-  private String sobjectName;
+  private java.lang.String sobjectName;
 
-  public String getSobjectName() {
+  public java.lang.String getSobjectName() {
     return sobjectName;
   }
 
   
 
-  public void setSobjectName(String sobjectName) {
+  public void setSobjectName(java.lang.String sobjectName) {
     this.sobjectName = sobjectName;
     sobjectName__is_set = true;
   }
@@ -137,15 +137,15 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
 
   private boolean url__is_set = false;
 
-  private String url;
+  private java.lang.String url;
 
-  public String getUrl() {
+  public java.lang.String getUrl() {
     return url;
   }
 
   
 
-  public void setUrl(String url) {
+  public void setUrl(java.lang.String url) {
     this.url = url;
     url__is_set = true;
   }
@@ -190,28 +190,28 @@ public class DescribeTab implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, iconUrl__typeInfo)) {
-      setIconUrl((String)__typeMapper.readString(__in, iconUrl__typeInfo, String.class));
+      setIconUrl((java.lang.String)__typeMapper.readString(__in, iconUrl__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, miniIconUrl__typeInfo)) {
-      setMiniIconUrl((String)__typeMapper.readString(__in, miniIconUrl__typeInfo, String.class));
+      setMiniIconUrl((java.lang.String)__typeMapper.readString(__in, miniIconUrl__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sobjectName__typeInfo)) {
-      setSobjectName((String)__typeMapper.readString(__in, sobjectName__typeInfo, String.class));
+      setSobjectName((java.lang.String)__typeMapper.readString(__in, sobjectName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, url__typeInfo)) {
-      setUrl((String)__typeMapper.readString(__in, url__typeInfo, String.class));
+      setUrl((java.lang.String)__typeMapper.readString(__in, url__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeTab ");
     
     sb.append(" custom=");

@@ -49,15 +49,15 @@ public class RelatedListSort implements com.sforce.ws.bind.XMLizable {
 
   private boolean column__is_set = false;
 
-  private String column;
+  private java.lang.String column;
 
-  public String getColumn() {
+  public java.lang.String getColumn() {
     return column;
   }
 
   
 
-  public void setColumn(String column) {
+  public void setColumn(java.lang.String column) {
     this.column = column;
     column__is_set = true;
   }
@@ -98,12 +98,12 @@ public class RelatedListSort implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, column__typeInfo)) {
-      setColumn((String)__typeMapper.readString(__in, column__typeInfo, String.class));
+      setColumn((java.lang.String)__typeMapper.readString(__in, column__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[RelatedListSort ");
     
     sb.append(" ascending=");

@@ -21,15 +21,15 @@ public class Search_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean searchString__is_set = false;
 
-  private String searchString;
+  private java.lang.String searchString;
 
-  public String getSearchString() {
+  public java.lang.String getSearchString() {
     return searchString;
   }
 
   
 
-  public void setSearchString(String searchString) {
+  public void setSearchString(java.lang.String searchString) {
     this.searchString = searchString;
     searchString__is_set = true;
   }
@@ -65,12 +65,12 @@ public class Search_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, searchString__typeInfo)) {
-      setSearchString((String)__typeMapper.readString(__in, searchString__typeInfo, String.class));
+      setSearchString((java.lang.String)__typeMapper.readString(__in, searchString__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Search_element ");
     
     sb.append(" searchString=");

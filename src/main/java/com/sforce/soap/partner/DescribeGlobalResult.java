@@ -21,15 +21,15 @@ public class DescribeGlobalResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean encoding__is_set = false;
 
-  private String encoding;
+  private java.lang.String encoding;
 
-  public String getEncoding() {
+  public java.lang.String getEncoding() {
     return encoding;
   }
 
   
 
-  public void setEncoding(String encoding) {
+  public void setEncoding(java.lang.String encoding) {
     this.encoding = encoding;
     encoding__is_set = true;
   }
@@ -111,7 +111,7 @@ public class DescribeGlobalResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, encoding__typeInfo)) {
-      setEncoding((String)__typeMapper.readString(__in, encoding__typeInfo, String.class));
+      setEncoding((java.lang.String)__typeMapper.readString(__in, encoding__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, maxBatchSize__typeInfo)) {
@@ -124,7 +124,7 @@ public class DescribeGlobalResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeGlobalResult ");
     
     sb.append(" encoding=");

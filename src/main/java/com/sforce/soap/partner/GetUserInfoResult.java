@@ -49,15 +49,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean currencySymbol__is_set = false;
 
-  private String currencySymbol;
+  private java.lang.String currencySymbol;
 
-  public String getCurrencySymbol() {
+  public java.lang.String getCurrencySymbol() {
     return currencySymbol;
   }
 
   
 
-  public void setCurrencySymbol(String currencySymbol) {
+  public void setCurrencySymbol(java.lang.String currencySymbol) {
     this.currencySymbol = currencySymbol;
     currencySymbol__is_set = true;
   }
@@ -93,15 +93,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean orgDefaultCurrencyIsoCode__is_set = false;
 
-  private String orgDefaultCurrencyIsoCode;
+  private java.lang.String orgDefaultCurrencyIsoCode;
 
-  public String getOrgDefaultCurrencyIsoCode() {
+  public java.lang.String getOrgDefaultCurrencyIsoCode() {
     return orgDefaultCurrencyIsoCode;
   }
 
   
 
-  public void setOrgDefaultCurrencyIsoCode(String orgDefaultCurrencyIsoCode) {
+  public void setOrgDefaultCurrencyIsoCode(java.lang.String orgDefaultCurrencyIsoCode) {
     this.orgDefaultCurrencyIsoCode = orgDefaultCurrencyIsoCode;
     orgDefaultCurrencyIsoCode__is_set = true;
   }
@@ -171,15 +171,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean organizationId__is_set = false;
 
-  private String organizationId;
+  private java.lang.String organizationId;
 
-  public String getOrganizationId() {
+  public java.lang.String getOrganizationId() {
     return organizationId;
   }
 
   
 
-  public void setOrganizationId(String organizationId) {
+  public void setOrganizationId(java.lang.String organizationId) {
     this.organizationId = organizationId;
     organizationId__is_set = true;
   }
@@ -221,15 +221,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean organizationName__is_set = false;
 
-  private String organizationName;
+  private java.lang.String organizationName;
 
-  public String getOrganizationName() {
+  public java.lang.String getOrganizationName() {
     return organizationName;
   }
 
   
 
-  public void setOrganizationName(String organizationName) {
+  public void setOrganizationName(java.lang.String organizationName) {
     this.organizationName = organizationName;
     organizationName__is_set = true;
   }
@@ -243,15 +243,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean profileId__is_set = false;
 
-  private String profileId;
+  private java.lang.String profileId;
 
-  public String getProfileId() {
+  public java.lang.String getProfileId() {
     return profileId;
   }
 
   
 
-  public void setProfileId(String profileId) {
+  public void setProfileId(java.lang.String profileId) {
     this.profileId = profileId;
     profileId__is_set = true;
   }
@@ -265,15 +265,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean roleId__is_set = false;
 
-  private String roleId;
+  private java.lang.String roleId;
 
-  public String getRoleId() {
+  public java.lang.String getRoleId() {
     return roleId;
   }
 
   
 
-  public void setRoleId(String roleId) {
+  public void setRoleId(java.lang.String roleId) {
     this.roleId = roleId;
     roleId__is_set = true;
   }
@@ -309,15 +309,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userDefaultCurrencyIsoCode__is_set = false;
 
-  private String userDefaultCurrencyIsoCode;
+  private java.lang.String userDefaultCurrencyIsoCode;
 
-  public String getUserDefaultCurrencyIsoCode() {
+  public java.lang.String getUserDefaultCurrencyIsoCode() {
     return userDefaultCurrencyIsoCode;
   }
 
   
 
-  public void setUserDefaultCurrencyIsoCode(String userDefaultCurrencyIsoCode) {
+  public void setUserDefaultCurrencyIsoCode(java.lang.String userDefaultCurrencyIsoCode) {
     this.userDefaultCurrencyIsoCode = userDefaultCurrencyIsoCode;
     userDefaultCurrencyIsoCode__is_set = true;
   }
@@ -331,15 +331,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userEmail__is_set = false;
 
-  private String userEmail;
+  private java.lang.String userEmail;
 
-  public String getUserEmail() {
+  public java.lang.String getUserEmail() {
     return userEmail;
   }
 
   
 
-  public void setUserEmail(String userEmail) {
+  public void setUserEmail(java.lang.String userEmail) {
     this.userEmail = userEmail;
     userEmail__is_set = true;
   }
@@ -353,15 +353,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userFullName__is_set = false;
 
-  private String userFullName;
+  private java.lang.String userFullName;
 
-  public String getUserFullName() {
+  public java.lang.String getUserFullName() {
     return userFullName;
   }
 
   
 
-  public void setUserFullName(String userFullName) {
+  public void setUserFullName(java.lang.String userFullName) {
     this.userFullName = userFullName;
     userFullName__is_set = true;
   }
@@ -375,15 +375,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userId__is_set = false;
 
-  private String userId;
+  private java.lang.String userId;
 
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   
 
-  public void setUserId(String userId) {
+  public void setUserId(java.lang.String userId) {
     this.userId = userId;
     userId__is_set = true;
   }
@@ -397,15 +397,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userLanguage__is_set = false;
 
-  private String userLanguage;
+  private java.lang.String userLanguage;
 
-  public String getUserLanguage() {
+  public java.lang.String getUserLanguage() {
     return userLanguage;
   }
 
   
 
-  public void setUserLanguage(String userLanguage) {
+  public void setUserLanguage(java.lang.String userLanguage) {
     this.userLanguage = userLanguage;
     userLanguage__is_set = true;
   }
@@ -419,15 +419,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userLocale__is_set = false;
 
-  private String userLocale;
+  private java.lang.String userLocale;
 
-  public String getUserLocale() {
+  public java.lang.String getUserLocale() {
     return userLocale;
   }
 
   
 
-  public void setUserLocale(String userLocale) {
+  public void setUserLocale(java.lang.String userLocale) {
     this.userLocale = userLocale;
     userLocale__is_set = true;
   }
@@ -441,15 +441,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userName__is_set = false;
 
-  private String userName;
+  private java.lang.String userName;
 
-  public String getUserName() {
+  public java.lang.String getUserName() {
     return userName;
   }
 
   
 
-  public void setUserName(String userName) {
+  public void setUserName(java.lang.String userName) {
     this.userName = userName;
     userName__is_set = true;
   }
@@ -463,15 +463,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userTimeZone__is_set = false;
 
-  private String userTimeZone;
+  private java.lang.String userTimeZone;
 
-  public String getUserTimeZone() {
+  public java.lang.String getUserTimeZone() {
     return userTimeZone;
   }
 
   
 
-  public void setUserTimeZone(String userTimeZone) {
+  public void setUserTimeZone(java.lang.String userTimeZone) {
     this.userTimeZone = userTimeZone;
     userTimeZone__is_set = true;
   }
@@ -485,15 +485,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userType__is_set = false;
 
-  private String userType;
+  private java.lang.String userType;
 
-  public String getUserType() {
+  public java.lang.String getUserType() {
     return userType;
   }
 
   
 
-  public void setUserType(String userType) {
+  public void setUserType(java.lang.String userType) {
     this.userType = userType;
     userType__is_set = true;
   }
@@ -507,15 +507,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean userUiSkin__is_set = false;
 
-  private String userUiSkin;
+  private java.lang.String userUiSkin;
 
-  public String getUserUiSkin() {
+  public java.lang.String getUserUiSkin() {
     return userUiSkin;
   }
 
   
 
-  public void setUserUiSkin(String userUiSkin) {
+  public void setUserUiSkin(java.lang.String userUiSkin) {
     this.userUiSkin = userUiSkin;
     userUiSkin__is_set = true;
   }
@@ -576,7 +576,7 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, currencySymbol__typeInfo)) {
-      setCurrencySymbol((String)__typeMapper.readString(__in, currencySymbol__typeInfo, String.class));
+      setCurrencySymbol((java.lang.String)__typeMapper.readString(__in, currencySymbol__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, orgAttachmentFileSizeLimit__typeInfo)) {
@@ -584,7 +584,7 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, orgDefaultCurrencyIsoCode__typeInfo)) {
-      setOrgDefaultCurrencyIsoCode((String)__typeMapper.readString(__in, orgDefaultCurrencyIsoCode__typeInfo, String.class));
+      setOrgDefaultCurrencyIsoCode((java.lang.String)__typeMapper.readString(__in, orgDefaultCurrencyIsoCode__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, orgDisallowHtmlAttachments__typeInfo)) {
@@ -596,7 +596,7 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, organizationId__typeInfo)) {
-      setOrganizationId((String)__typeMapper.readString(__in, organizationId__typeInfo, String.class));
+      setOrganizationId((java.lang.String)__typeMapper.readString(__in, organizationId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, organizationMultiCurrency__typeInfo)) {
@@ -604,15 +604,15 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, organizationName__typeInfo)) {
-      setOrganizationName((String)__typeMapper.readString(__in, organizationName__typeInfo, String.class));
+      setOrganizationName((java.lang.String)__typeMapper.readString(__in, organizationName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, profileId__typeInfo)) {
-      setProfileId((String)__typeMapper.readString(__in, profileId__typeInfo, String.class));
+      setProfileId((java.lang.String)__typeMapper.readString(__in, profileId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, roleId__typeInfo)) {
-      setRoleId((String)__typeMapper.readString(__in, roleId__typeInfo, String.class));
+      setRoleId((java.lang.String)__typeMapper.readString(__in, roleId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sessionSecondsValid__typeInfo)) {
@@ -620,48 +620,48 @@ public class GetUserInfoResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userDefaultCurrencyIsoCode__typeInfo)) {
-      setUserDefaultCurrencyIsoCode((String)__typeMapper.readString(__in, userDefaultCurrencyIsoCode__typeInfo, String.class));
+      setUserDefaultCurrencyIsoCode((java.lang.String)__typeMapper.readString(__in, userDefaultCurrencyIsoCode__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userEmail__typeInfo)) {
-      setUserEmail((String)__typeMapper.readString(__in, userEmail__typeInfo, String.class));
+      setUserEmail((java.lang.String)__typeMapper.readString(__in, userEmail__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userFullName__typeInfo)) {
-      setUserFullName((String)__typeMapper.readString(__in, userFullName__typeInfo, String.class));
+      setUserFullName((java.lang.String)__typeMapper.readString(__in, userFullName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userId__typeInfo)) {
-      setUserId((String)__typeMapper.readString(__in, userId__typeInfo, String.class));
+      setUserId((java.lang.String)__typeMapper.readString(__in, userId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userLanguage__typeInfo)) {
-      setUserLanguage((String)__typeMapper.readString(__in, userLanguage__typeInfo, String.class));
+      setUserLanguage((java.lang.String)__typeMapper.readString(__in, userLanguage__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userLocale__typeInfo)) {
-      setUserLocale((String)__typeMapper.readString(__in, userLocale__typeInfo, String.class));
+      setUserLocale((java.lang.String)__typeMapper.readString(__in, userLocale__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userName__typeInfo)) {
-      setUserName((String)__typeMapper.readString(__in, userName__typeInfo, String.class));
+      setUserName((java.lang.String)__typeMapper.readString(__in, userName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userTimeZone__typeInfo)) {
-      setUserTimeZone((String)__typeMapper.readString(__in, userTimeZone__typeInfo, String.class));
+      setUserTimeZone((java.lang.String)__typeMapper.readString(__in, userTimeZone__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userType__typeInfo)) {
-      setUserType((String)__typeMapper.readString(__in, userType__typeInfo, String.class));
+      setUserType((java.lang.String)__typeMapper.readString(__in, userType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userUiSkin__typeInfo)) {
-      setUserUiSkin((String)__typeMapper.readString(__in, userUiSkin__typeInfo, String.class));
+      setUserUiSkin((java.lang.String)__typeMapper.readString(__in, userUiSkin__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[GetUserInfoResult ");
     
     sb.append(" accessibilityMode=");

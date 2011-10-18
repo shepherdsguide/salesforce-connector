@@ -43,15 +43,15 @@ public class ApiFault extends com.sforce.ws.SoapFaultException implements com.sf
 
   private boolean exceptionMessage__is_set = false;
 
-  private String exceptionMessage;
+  private java.lang.String exceptionMessage;
 
-  public String getExceptionMessage() {
+  public java.lang.String getExceptionMessage() {
     return exceptionMessage;
   }
 
   
 
-  public void setExceptionMessage(String exceptionMessage) {
+  public void setExceptionMessage(java.lang.String exceptionMessage) {
     this.exceptionMessage = exceptionMessage;
     exceptionMessage__is_set = true;
   }
@@ -92,12 +92,12 @@ public class ApiFault extends com.sforce.ws.SoapFaultException implements com.sf
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, exceptionMessage__typeInfo)) {
-      setExceptionMessage((String)__typeMapper.readString(__in, exceptionMessage__typeInfo, String.class));
+      setExceptionMessage((java.lang.String)__typeMapper.readString(__in, exceptionMessage__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ApiFault ");
     
     sb.append(" exceptionCode=");

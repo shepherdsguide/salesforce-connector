@@ -43,15 +43,15 @@ public class MergeRequest implements com.sforce.ws.bind.XMLizable {
 
   private boolean recordToMergeIds__is_set = false;
 
-  private String[] recordToMergeIds = new String[0];
+  private java.lang.String[] recordToMergeIds = new java.lang.String[0];
 
-  public String[] getRecordToMergeIds() {
+  public java.lang.String[] getRecordToMergeIds() {
     return recordToMergeIds;
   }
 
   
 
-  public void setRecordToMergeIds(String[] recordToMergeIds) {
+  public void setRecordToMergeIds(java.lang.String[] recordToMergeIds) {
     this.recordToMergeIds = recordToMergeIds;
     recordToMergeIds__is_set = true;
   }
@@ -92,12 +92,12 @@ public class MergeRequest implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, recordToMergeIds__typeInfo)) {
-      setRecordToMergeIds((String[])__typeMapper.readObject(__in, recordToMergeIds__typeInfo, String[].class));
+      setRecordToMergeIds((java.lang.String[])__typeMapper.readObject(__in, recordToMergeIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[MergeRequest ");
     
     sb.append(" masterRecord=");

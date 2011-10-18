@@ -21,15 +21,15 @@ public class Query_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean queryString__is_set = false;
 
-  private String queryString;
+  private java.lang.String queryString;
 
-  public String getQueryString() {
+  public java.lang.String getQueryString() {
     return queryString;
   }
 
   
 
-  public void setQueryString(String queryString) {
+  public void setQueryString(java.lang.String queryString) {
     this.queryString = queryString;
     queryString__is_set = true;
   }
@@ -65,12 +65,12 @@ public class Query_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, queryString__typeInfo)) {
-      setQueryString((String)__typeMapper.readString(__in, queryString__typeInfo, String.class));
+      setQueryString((java.lang.String)__typeMapper.readString(__in, queryString__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Query_element ");
     
     sb.append(" queryString=");

@@ -21,15 +21,15 @@ public class CallOptions_element extends com.sforce.ws.bind.SoapHeaderObject imp
 
   private boolean client__is_set = false;
 
-  private String client;
+  private java.lang.String client;
 
-  public String getClient() {
+  public java.lang.String getClient() {
     return client;
   }
 
   
 
-  public void setClient(String client) {
+  public void setClient(java.lang.String client) {
     this.client = client;
     client__is_set = true;
   }
@@ -43,15 +43,15 @@ public class CallOptions_element extends com.sforce.ws.bind.SoapHeaderObject imp
 
   private boolean defaultNamespace__is_set = false;
 
-  private String defaultNamespace;
+  private java.lang.String defaultNamespace;
 
-  public String getDefaultNamespace() {
+  public java.lang.String getDefaultNamespace() {
     return defaultNamespace;
   }
 
   
 
-  public void setDefaultNamespace(String defaultNamespace) {
+  public void setDefaultNamespace(java.lang.String defaultNamespace) {
     this.defaultNamespace = defaultNamespace;
     defaultNamespace__is_set = true;
   }
@@ -88,16 +88,16 @@ public class CallOptions_element extends com.sforce.ws.bind.SoapHeaderObject imp
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, client__typeInfo)) {
-      setClient((String)__typeMapper.readString(__in, client__typeInfo, String.class));
+      setClient((java.lang.String)__typeMapper.readString(__in, client__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, defaultNamespace__typeInfo)) {
-      setDefaultNamespace((String)__typeMapper.readString(__in, defaultNamespace__typeInfo, String.class));
+      setDefaultNamespace((java.lang.String)__typeMapper.readString(__in, defaultNamespace__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[CallOptions_element ");
     sb.append(super.toString());
     sb.append(" client=");

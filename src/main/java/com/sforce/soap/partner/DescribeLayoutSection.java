@@ -43,15 +43,15 @@ public class DescribeLayoutSection implements com.sforce.ws.bind.XMLizable {
 
   private boolean heading__is_set = false;
 
-  private String heading;
+  private java.lang.String heading;
 
-  public String getHeading() {
+  public java.lang.String getHeading() {
     return heading;
   }
 
   
 
-  public void setHeading(String heading) {
+  public void setHeading(java.lang.String heading) {
     this.heading = heading;
     heading__is_set = true;
   }
@@ -65,15 +65,15 @@ public class DescribeLayoutSection implements com.sforce.ws.bind.XMLizable {
 
   private boolean layoutRows__is_set = false;
 
-  private DescribeLayoutRow[] layoutRows = new DescribeLayoutRow[0];
+  private com.sforce.soap.partner.DescribeLayoutRow[] layoutRows = new com.sforce.soap.partner.DescribeLayoutRow[0];
 
-  public DescribeLayoutRow[] getLayoutRows() {
+  public com.sforce.soap.partner.DescribeLayoutRow[] getLayoutRows() {
     return layoutRows;
   }
 
   
 
-  public void setLayoutRows(DescribeLayoutRow[] layoutRows) {
+  public void setLayoutRows(com.sforce.soap.partner.DescribeLayoutRow[] layoutRows) {
     this.layoutRows = layoutRows;
     layoutRows__is_set = true;
   }
@@ -196,11 +196,11 @@ public class DescribeLayoutSection implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, heading__typeInfo)) {
-      setHeading((String)__typeMapper.readString(__in, heading__typeInfo, String.class));
+      setHeading((java.lang.String)__typeMapper.readString(__in, heading__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layoutRows__typeInfo)) {
-      setLayoutRows((DescribeLayoutRow[])__typeMapper.readObject(__in, layoutRows__typeInfo, DescribeLayoutRow[].class));
+      setLayoutRows((com.sforce.soap.partner.DescribeLayoutRow[])__typeMapper.readObject(__in, layoutRows__typeInfo, com.sforce.soap.partner.DescribeLayoutRow[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, rows__typeInfo)) {
@@ -217,7 +217,7 @@ public class DescribeLayoutSection implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutSection ");
     
     sb.append(" columns=");

@@ -70,7 +70,7 @@ public class GetServerTimestampResponse_element implements com.sforce.ws.bind.XM
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[GetServerTimestampResponse_element ");
     
     sb.append(" result=");

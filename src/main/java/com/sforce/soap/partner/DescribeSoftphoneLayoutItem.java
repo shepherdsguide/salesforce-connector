@@ -21,15 +21,15 @@ public class DescribeSoftphoneLayoutItem implements com.sforce.ws.bind.XMLizable
 
   private boolean itemApiName__is_set = false;
 
-  private String itemApiName;
+  private java.lang.String itemApiName;
 
-  public String getItemApiName() {
+  public java.lang.String getItemApiName() {
     return itemApiName;
   }
 
   
 
-  public void setItemApiName(String itemApiName) {
+  public void setItemApiName(java.lang.String itemApiName) {
     this.itemApiName = itemApiName;
     itemApiName__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeSoftphoneLayoutItem implements com.sforce.ws.bind.XMLizable
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, itemApiName__typeInfo)) {
-      setItemApiName((String)__typeMapper.readString(__in, itemApiName__typeInfo, String.class));
+      setItemApiName((java.lang.String)__typeMapper.readString(__in, itemApiName__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayoutItem ");
     
     sb.append(" itemApiName=");

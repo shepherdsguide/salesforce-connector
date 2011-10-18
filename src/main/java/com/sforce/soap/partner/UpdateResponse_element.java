@@ -21,15 +21,15 @@ public class UpdateResponse_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean result__is_set = false;
 
-  private SaveResult[] result = new SaveResult[0];
+  private com.sforce.soap.partner.SaveResult[] result = new com.sforce.soap.partner.SaveResult[0];
 
-  public SaveResult[] getResult() {
+  public com.sforce.soap.partner.SaveResult[] getResult() {
     return result;
   }
 
   
 
-  public void setResult(SaveResult[] result) {
+  public void setResult(com.sforce.soap.partner.SaveResult[] result) {
     this.result = result;
     result__is_set = true;
   }
@@ -65,12 +65,12 @@ public class UpdateResponse_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, result__typeInfo)) {
-      setResult((SaveResult[])__typeMapper.readObject(__in, result__typeInfo, SaveResult[].class));
+      setResult((com.sforce.soap.partner.SaveResult[])__typeMapper.readObject(__in, result__typeInfo, com.sforce.soap.partner.SaveResult[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[UpdateResponse_element ");
     
     sb.append(" result=");

@@ -21,15 +21,15 @@ public class SetPassword_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean userId__is_set = false;
 
-  private String userId;
+  private java.lang.String userId;
 
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   
 
-  public void setUserId(String userId) {
+  public void setUserId(java.lang.String userId) {
     this.userId = userId;
     userId__is_set = true;
   }
@@ -43,15 +43,15 @@ public class SetPassword_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean password__is_set = false;
 
-  private String password;
+  private java.lang.String password;
 
-  public String getPassword() {
+  public java.lang.String getPassword() {
     return password;
   }
 
   
 
-  public void setPassword(String password) {
+  public void setPassword(java.lang.String password) {
     this.password = password;
     password__is_set = true;
   }
@@ -88,16 +88,16 @@ public class SetPassword_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, userId__typeInfo)) {
-      setUserId((String)__typeMapper.readString(__in, userId__typeInfo, String.class));
+      setUserId((java.lang.String)__typeMapper.readString(__in, userId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, password__typeInfo)) {
-      setPassword((String)__typeMapper.readString(__in, password__typeInfo, String.class));
+      setPassword((java.lang.String)__typeMapper.readString(__in, password__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SetPassword_element ");
     
     sb.append(" userId=");

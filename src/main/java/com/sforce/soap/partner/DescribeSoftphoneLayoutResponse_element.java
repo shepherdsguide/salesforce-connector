@@ -70,7 +70,7 @@ public class DescribeSoftphoneLayoutResponse_element implements com.sforce.ws.bi
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSoftphoneLayoutResponse_element ");
     
     sb.append(" result=");

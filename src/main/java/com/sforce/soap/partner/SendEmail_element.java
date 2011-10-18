@@ -21,15 +21,15 @@ public class SendEmail_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean messages__is_set = false;
 
-  private Email[] messages = new Email[0];
+  private com.sforce.soap.partner.Email[] messages = new com.sforce.soap.partner.Email[0];
 
-  public Email[] getMessages() {
+  public com.sforce.soap.partner.Email[] getMessages() {
     return messages;
   }
 
   
 
-  public void setMessages(Email[] messages) {
+  public void setMessages(com.sforce.soap.partner.Email[] messages) {
     this.messages = messages;
     messages__is_set = true;
   }
@@ -65,12 +65,12 @@ public class SendEmail_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, messages__typeInfo)) {
-      setMessages((Email[])__typeMapper.readObject(__in, messages__typeInfo, Email[].class));
+      setMessages((com.sforce.soap.partner.Email[])__typeMapper.readObject(__in, messages__typeInfo, com.sforce.soap.partner.Email[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SendEmail_element ");
     
     sb.append(" messages=");

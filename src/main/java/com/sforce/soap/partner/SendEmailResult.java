@@ -21,15 +21,15 @@ public class SendEmailResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean errors__is_set = false;
 
-  private SendEmailError[] errors = new SendEmailError[0];
+  private com.sforce.soap.partner.SendEmailError[] errors = new com.sforce.soap.partner.SendEmailError[0];
 
-  public SendEmailError[] getErrors() {
+  public com.sforce.soap.partner.SendEmailError[] getErrors() {
     return errors;
   }
 
   
 
-  public void setErrors(SendEmailError[] errors) {
+  public void setErrors(com.sforce.soap.partner.SendEmailError[] errors) {
     this.errors = errors;
     errors__is_set = true;
   }
@@ -94,7 +94,7 @@ public class SendEmailResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, errors__typeInfo)) {
-      setErrors((SendEmailError[])__typeMapper.readObject(__in, errors__typeInfo, SendEmailError[].class));
+      setErrors((com.sforce.soap.partner.SendEmailError[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.SendEmailError[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, success__typeInfo)) {
@@ -103,7 +103,7 @@ public class SendEmailResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[SendEmailResult ");
     
     sb.append(" errors=");

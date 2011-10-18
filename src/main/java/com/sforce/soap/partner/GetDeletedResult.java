@@ -21,15 +21,15 @@ public class GetDeletedResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean deletedRecords__is_set = false;
 
-  private DeletedRecord[] deletedRecords = new DeletedRecord[0];
+  private com.sforce.soap.partner.DeletedRecord[] deletedRecords = new com.sforce.soap.partner.DeletedRecord[0];
 
-  public DeletedRecord[] getDeletedRecords() {
+  public com.sforce.soap.partner.DeletedRecord[] getDeletedRecords() {
     return deletedRecords;
   }
 
   
 
-  public void setDeletedRecords(DeletedRecord[] deletedRecords) {
+  public void setDeletedRecords(com.sforce.soap.partner.DeletedRecord[] deletedRecords) {
     this.deletedRecords = deletedRecords;
     deletedRecords__is_set = true;
   }
@@ -87,15 +87,15 @@ public class GetDeletedResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean sforceReserved__is_set = false;
 
-  private String sforceReserved;
+  private java.lang.String sforceReserved;
 
-  public String getSforceReserved() {
+  public java.lang.String getSforceReserved() {
     return sforceReserved;
   }
 
   
 
-  public void setSforceReserved(String sforceReserved) {
+  public void setSforceReserved(java.lang.String sforceReserved) {
     this.sforceReserved = sforceReserved;
     sforceReserved__is_set = true;
   }
@@ -134,7 +134,7 @@ public class GetDeletedResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, deletedRecords__typeInfo)) {
-      setDeletedRecords((DeletedRecord[])__typeMapper.readObject(__in, deletedRecords__typeInfo, DeletedRecord[].class));
+      setDeletedRecords((com.sforce.soap.partner.DeletedRecord[])__typeMapper.readObject(__in, deletedRecords__typeInfo, com.sforce.soap.partner.DeletedRecord[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, earliestDateAvailable__typeInfo)) {
@@ -146,12 +146,12 @@ public class GetDeletedResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sforceReserved__typeInfo)) {
-      setSforceReserved((String)__typeMapper.readString(__in, sforceReserved__typeInfo, String.class));
+      setSforceReserved((java.lang.String)__typeMapper.readString(__in, sforceReserved__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[GetDeletedResult ");
     
     sb.append(" deletedRecords=");

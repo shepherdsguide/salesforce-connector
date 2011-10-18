@@ -21,15 +21,15 @@ public class LocaleOptions_element extends com.sforce.ws.bind.SoapHeaderObject i
 
   private boolean language__is_set = false;
 
-  private String language;
+  private java.lang.String language;
 
-  public String getLanguage() {
+  public java.lang.String getLanguage() {
     return language;
   }
 
   
 
-  public void setLanguage(String language) {
+  public void setLanguage(java.lang.String language) {
     this.language = language;
     language__is_set = true;
   }
@@ -65,12 +65,12 @@ public class LocaleOptions_element extends com.sforce.ws.bind.SoapHeaderObject i
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.isElement(__in, language__typeInfo)) {
-      setLanguage((String)__typeMapper.readString(__in, language__typeInfo, String.class));
+      setLanguage((java.lang.String)__typeMapper.readString(__in, language__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LocaleOptions_element ");
     sb.append(super.toString());
     sb.append(" language=");

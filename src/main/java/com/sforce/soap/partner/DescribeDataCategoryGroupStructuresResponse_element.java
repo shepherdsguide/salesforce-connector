@@ -21,15 +21,15 @@ public class DescribeDataCategoryGroupStructuresResponse_element implements com.
 
   private boolean result__is_set = false;
 
-  private DescribeDataCategoryGroupStructureResult[] result = new DescribeDataCategoryGroupStructureResult[0];
+  private com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[] result = new com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[0];
 
-  public DescribeDataCategoryGroupStructureResult[] getResult() {
+  public com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[] getResult() {
     return result;
   }
 
   
 
-  public void setResult(DescribeDataCategoryGroupStructureResult[] result) {
+  public void setResult(com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[] result) {
     this.result = result;
     result__is_set = true;
   }
@@ -65,12 +65,12 @@ public class DescribeDataCategoryGroupStructuresResponse_element implements com.
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, result__typeInfo)) {
-      setResult((DescribeDataCategoryGroupStructureResult[])__typeMapper.readObject(__in, result__typeInfo, DescribeDataCategoryGroupStructureResult[].class));
+      setResult((com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[])__typeMapper.readObject(__in, result__typeInfo, com.sforce.soap.partner.DescribeDataCategoryGroupStructureResult[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeDataCategoryGroupStructuresResponse_element ");
     
     sb.append(" result=");

@@ -21,15 +21,15 @@ public class DescribeLayoutRow implements com.sforce.ws.bind.XMLizable {
 
   private boolean layoutItems__is_set = false;
 
-  private DescribeLayoutItem[] layoutItems = new DescribeLayoutItem[0];
+  private com.sforce.soap.partner.DescribeLayoutItem[] layoutItems = new com.sforce.soap.partner.DescribeLayoutItem[0];
 
-  public DescribeLayoutItem[] getLayoutItems() {
+  public com.sforce.soap.partner.DescribeLayoutItem[] getLayoutItems() {
     return layoutItems;
   }
 
   
 
-  public void setLayoutItems(DescribeLayoutItem[] layoutItems) {
+  public void setLayoutItems(com.sforce.soap.partner.DescribeLayoutItem[] layoutItems) {
     this.layoutItems = layoutItems;
     layoutItems__is_set = true;
   }
@@ -88,7 +88,7 @@ public class DescribeLayoutRow implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layoutItems__typeInfo)) {
-      setLayoutItems((DescribeLayoutItem[])__typeMapper.readObject(__in, layoutItems__typeInfo, DescribeLayoutItem[].class));
+      setLayoutItems((com.sforce.soap.partner.DescribeLayoutItem[])__typeMapper.readObject(__in, layoutItems__typeInfo, com.sforce.soap.partner.DescribeLayoutItem[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, numItems__typeInfo)) {
@@ -97,7 +97,7 @@ public class DescribeLayoutRow implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayoutRow ");
     
     sb.append(" layoutItems=");

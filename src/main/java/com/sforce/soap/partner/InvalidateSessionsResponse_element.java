@@ -70,7 +70,7 @@ public class InvalidateSessionsResponse_element implements com.sforce.ws.bind.XM
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[InvalidateSessionsResponse_element ");
     
     sb.append(" result=");

@@ -21,15 +21,15 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean errors__is_set = false;
 
-  private Error[] errors = new Error[0];
+  private com.sforce.soap.partner.Error[] errors = new com.sforce.soap.partner.Error[0];
 
-  public Error[] getErrors() {
+  public com.sforce.soap.partner.Error[] getErrors() {
     return errors;
   }
 
   
 
-  public void setErrors(Error[] errors) {
+  public void setErrors(com.sforce.soap.partner.Error[] errors) {
     this.errors = errors;
     errors__is_set = true;
   }
@@ -43,15 +43,15 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean id__is_set = false;
 
-  private String id;
+  private java.lang.String id;
 
-  public String getId() {
+  public java.lang.String getId() {
     return id;
   }
 
   
 
-  public void setId(String id) {
+  public void setId(java.lang.String id) {
     this.id = id;
     id__is_set = true;
   }
@@ -65,15 +65,15 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean mergedRecordIds__is_set = false;
 
-  private String[] mergedRecordIds = new String[0];
+  private java.lang.String[] mergedRecordIds = new java.lang.String[0];
 
-  public String[] getMergedRecordIds() {
+  public java.lang.String[] getMergedRecordIds() {
     return mergedRecordIds;
   }
 
   
 
-  public void setMergedRecordIds(String[] mergedRecordIds) {
+  public void setMergedRecordIds(java.lang.String[] mergedRecordIds) {
     this.mergedRecordIds = mergedRecordIds;
     mergedRecordIds__is_set = true;
   }
@@ -115,15 +115,15 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean updatedRelatedIds__is_set = false;
 
-  private String[] updatedRelatedIds = new String[0];
+  private java.lang.String[] updatedRelatedIds = new java.lang.String[0];
 
-  public String[] getUpdatedRelatedIds() {
+  public java.lang.String[] getUpdatedRelatedIds() {
     return updatedRelatedIds;
   }
 
   
 
-  public void setUpdatedRelatedIds(String[] updatedRelatedIds) {
+  public void setUpdatedRelatedIds(java.lang.String[] updatedRelatedIds) {
     this.updatedRelatedIds = updatedRelatedIds;
     updatedRelatedIds__is_set = true;
   }
@@ -163,15 +163,15 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, errors__typeInfo)) {
-      setErrors((Error[])__typeMapper.readObject(__in, errors__typeInfo, Error[].class));
+      setErrors((com.sforce.soap.partner.Error[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.Error[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, id__typeInfo)) {
-      setId((String)__typeMapper.readString(__in, id__typeInfo, String.class));
+      setId((java.lang.String)__typeMapper.readString(__in, id__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, mergedRecordIds__typeInfo)) {
-      setMergedRecordIds((String[])__typeMapper.readObject(__in, mergedRecordIds__typeInfo, String[].class));
+      setMergedRecordIds((java.lang.String[])__typeMapper.readObject(__in, mergedRecordIds__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, success__typeInfo)) {
@@ -179,12 +179,12 @@ public class MergeResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, updatedRelatedIds__typeInfo)) {
-      setUpdatedRelatedIds((String[])__typeMapper.readObject(__in, updatedRelatedIds__typeInfo, String[].class));
+      setUpdatedRelatedIds((java.lang.String[])__typeMapper.readObject(__in, updatedRelatedIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[MergeResult ");
     
     sb.append(" errors=");

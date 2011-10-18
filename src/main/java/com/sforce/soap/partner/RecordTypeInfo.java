@@ -77,15 +77,15 @@ public class RecordTypeInfo implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -99,15 +99,15 @@ public class RecordTypeInfo implements com.sforce.ws.bind.XMLizable {
 
   private boolean recordTypeId__is_set = false;
 
-  private String recordTypeId;
+  private java.lang.String recordTypeId;
 
-  public String getRecordTypeId() {
+  public java.lang.String getRecordTypeId() {
     return recordTypeId;
   }
 
   
 
-  public void setRecordTypeId(String recordTypeId) {
+  public void setRecordTypeId(java.lang.String recordTypeId) {
     this.recordTypeId = recordTypeId;
     recordTypeId__is_set = true;
   }
@@ -154,16 +154,16 @@ public class RecordTypeInfo implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, recordTypeId__typeInfo)) {
-      setRecordTypeId((String)__typeMapper.readString(__in, recordTypeId__typeInfo, String.class));
+      setRecordTypeId((java.lang.String)__typeMapper.readString(__in, recordTypeId__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[RecordTypeInfo ");
     
     sb.append(" available=");

@@ -49,15 +49,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean childRelationships__is_set = false;
 
-  private ChildRelationship[] childRelationships = new ChildRelationship[0];
+  private com.sforce.soap.partner.ChildRelationship[] childRelationships = new com.sforce.soap.partner.ChildRelationship[0];
 
-  public ChildRelationship[] getChildRelationships() {
+  public com.sforce.soap.partner.ChildRelationship[] getChildRelationships() {
     return childRelationships;
   }
 
   
 
-  public void setChildRelationships(ChildRelationship[] childRelationships) {
+  public void setChildRelationships(com.sforce.soap.partner.ChildRelationship[] childRelationships) {
     this.childRelationships = childRelationships;
     childRelationships__is_set = true;
   }
@@ -261,15 +261,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean keyPrefix__is_set = false;
 
-  private String keyPrefix;
+  private java.lang.String keyPrefix;
 
-  public String getKeyPrefix() {
+  public java.lang.String getKeyPrefix() {
     return keyPrefix;
   }
 
   
 
-  public void setKeyPrefix(String keyPrefix) {
+  public void setKeyPrefix(java.lang.String keyPrefix) {
     this.keyPrefix = keyPrefix;
     keyPrefix__is_set = true;
   }
@@ -283,15 +283,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -305,15 +305,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean labelPlural__is_set = false;
 
-  private String labelPlural;
+  private java.lang.String labelPlural;
 
-  public String getLabelPlural() {
+  public java.lang.String getLabelPlural() {
     return labelPlural;
   }
 
   
 
-  public void setLabelPlural(String labelPlural) {
+  public void setLabelPlural(java.lang.String labelPlural) {
     this.labelPlural = labelPlural;
     labelPlural__is_set = true;
   }
@@ -383,15 +383,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -623,15 +623,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean urlDetail__is_set = false;
 
-  private String urlDetail;
+  private java.lang.String urlDetail;
 
-  public String getUrlDetail() {
+  public java.lang.String getUrlDetail() {
     return urlDetail;
   }
 
   
 
-  public void setUrlDetail(String urlDetail) {
+  public void setUrlDetail(java.lang.String urlDetail) {
     this.urlDetail = urlDetail;
     urlDetail__is_set = true;
   }
@@ -645,15 +645,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean urlEdit__is_set = false;
 
-  private String urlEdit;
+  private java.lang.String urlEdit;
 
-  public String getUrlEdit() {
+  public java.lang.String getUrlEdit() {
     return urlEdit;
   }
 
   
 
-  public void setUrlEdit(String urlEdit) {
+  public void setUrlEdit(java.lang.String urlEdit) {
     this.urlEdit = urlEdit;
     urlEdit__is_set = true;
   }
@@ -667,15 +667,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean urlNew__is_set = false;
 
-  private String urlNew;
+  private java.lang.String urlNew;
 
-  public String getUrlNew() {
+  public java.lang.String getUrlNew() {
     return urlNew;
   }
 
   
 
-  public void setUrlNew(String urlNew) {
+  public void setUrlNew(java.lang.String urlNew) {
     this.urlNew = urlNew;
     urlNew__is_set = true;
   }
@@ -740,7 +740,7 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, childRelationships__typeInfo)) {
-      setChildRelationships((ChildRelationship[])__typeMapper.readObject(__in, childRelationships__typeInfo, ChildRelationship[].class));
+      setChildRelationships((com.sforce.soap.partner.ChildRelationship[])__typeMapper.readObject(__in, childRelationships__typeInfo, com.sforce.soap.partner.ChildRelationship[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, createable__typeInfo)) {
@@ -772,15 +772,15 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, keyPrefix__typeInfo)) {
-      setKeyPrefix((String)__typeMapper.readString(__in, keyPrefix__typeInfo, String.class));
+      setKeyPrefix((java.lang.String)__typeMapper.readString(__in, keyPrefix__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, labelPlural__typeInfo)) {
-      setLabelPlural((String)__typeMapper.readString(__in, labelPlural__typeInfo, String.class));
+      setLabelPlural((java.lang.String)__typeMapper.readString(__in, labelPlural__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, layoutable__typeInfo)) {
@@ -792,7 +792,7 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, queryable__typeInfo)) {
@@ -828,20 +828,20 @@ public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, urlDetail__typeInfo)) {
-      setUrlDetail((String)__typeMapper.readString(__in, urlDetail__typeInfo, String.class));
+      setUrlDetail((java.lang.String)__typeMapper.readString(__in, urlDetail__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, urlEdit__typeInfo)) {
-      setUrlEdit((String)__typeMapper.readString(__in, urlEdit__typeInfo, String.class));
+      setUrlEdit((java.lang.String)__typeMapper.readString(__in, urlEdit__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, urlNew__typeInfo)) {
-      setUrlNew((String)__typeMapper.readString(__in, urlNew__typeInfo, String.class));
+      setUrlNew((java.lang.String)__typeMapper.readString(__in, urlNew__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeSObjectResult ");
     
     sb.append(" activateable=");

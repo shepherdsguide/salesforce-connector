@@ -21,15 +21,15 @@ public class DescribeLayout_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean sObjectType__is_set = false;
 
-  private String sObjectType;
+  private java.lang.String sObjectType;
 
-  public String getSObjectType() {
+  public java.lang.String getSObjectType() {
     return sObjectType;
   }
 
   
 
-  public void setSObjectType(String sObjectType) {
+  public void setSObjectType(java.lang.String sObjectType) {
     this.sObjectType = sObjectType;
     sObjectType__is_set = true;
   }
@@ -43,15 +43,15 @@ public class DescribeLayout_element implements com.sforce.ws.bind.XMLizable {
 
   private boolean recordTypeIds__is_set = false;
 
-  private String[] recordTypeIds = new String[0];
+  private java.lang.String[] recordTypeIds = new java.lang.String[0];
 
-  public String[] getRecordTypeIds() {
+  public java.lang.String[] getRecordTypeIds() {
     return recordTypeIds;
   }
 
   
 
-  public void setRecordTypeIds(String[] recordTypeIds) {
+  public void setRecordTypeIds(java.lang.String[] recordTypeIds) {
     this.recordTypeIds = recordTypeIds;
     recordTypeIds__is_set = true;
   }
@@ -88,16 +88,16 @@ public class DescribeLayout_element implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sObjectType__typeInfo)) {
-      setSObjectType((String)__typeMapper.readString(__in, sObjectType__typeInfo, String.class));
+      setSObjectType((java.lang.String)__typeMapper.readString(__in, sObjectType__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, recordTypeIds__typeInfo)) {
-      setRecordTypeIds((String[])__typeMapper.readObject(__in, recordTypeIds__typeInfo, String[].class));
+      setRecordTypeIds((java.lang.String[])__typeMapper.readObject(__in, recordTypeIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeLayout_element ");
     
     sb.append(" sObjectType=");

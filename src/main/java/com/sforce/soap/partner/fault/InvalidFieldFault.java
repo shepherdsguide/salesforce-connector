@@ -3,7 +3,7 @@ package com.sforce.soap.partner.fault;
 /**
  * Generated class, please do not edit.
  */
-public class InvalidFieldFault extends ApiQueryFault {
+public class InvalidFieldFault extends com.sforce.soap.partner.fault.ApiQueryFault {
 
   /**
    * Constructor
@@ -43,7 +43,7 @@ public class InvalidFieldFault extends ApiQueryFault {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[InvalidFieldFault ");
     sb.append(super.toString());
     sb.append("]\n");

@@ -71,15 +71,15 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
 
   private boolean field__is_set = false;
 
-  private String field;
+  private java.lang.String field;
 
-  public String getField() {
+  public java.lang.String getField() {
     return field;
   }
 
   
 
-  public void setField(String field) {
+  public void setField(java.lang.String field) {
     this.field = field;
     field__is_set = true;
   }
@@ -93,15 +93,15 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
 
   private boolean label__is_set = false;
 
-  private String label;
+  private java.lang.String label;
 
-  public String getLabel() {
+  public java.lang.String getLabel() {
     return label;
   }
 
   
 
-  public void setLabel(String label) {
+  public void setLabel(java.lang.String label) {
     this.label = label;
     label__is_set = true;
   }
@@ -137,15 +137,15 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
 
   private boolean name__is_set = false;
 
-  private String name;
+  private java.lang.String name;
 
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   
 
-  public void setName(String name) {
+  public void setName(java.lang.String name) {
     this.name = name;
     name__is_set = true;
   }
@@ -159,15 +159,15 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
 
   private boolean sobject__is_set = false;
 
-  private String sobject;
+  private java.lang.String sobject;
 
-  public String getSobject() {
+  public java.lang.String getSobject() {
     return sobject;
   }
 
   
 
-  public void setSobject(String sobject) {
+  public void setSobject(java.lang.String sobject) {
     this.sobject = sobject;
     sobject__is_set = true;
   }
@@ -240,11 +240,11 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, field__typeInfo)) {
-      setField((String)__typeMapper.readString(__in, field__typeInfo, String.class));
+      setField((java.lang.String)__typeMapper.readString(__in, field__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, label__typeInfo)) {
-      setLabel((String)__typeMapper.readString(__in, label__typeInfo, String.class));
+      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, limitRows__typeInfo)) {
@@ -252,11 +252,11 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, name__typeInfo)) {
-      setName((String)__typeMapper.readString(__in, name__typeInfo, String.class));
+      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sobject__typeInfo)) {
-      setSobject((String)__typeMapper.readString(__in, sobject__typeInfo, String.class));
+      setSobject((java.lang.String)__typeMapper.readString(__in, sobject__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sort__typeInfo)) {
@@ -265,7 +265,7 @@ public class RelatedList implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[RelatedList ");
     
     sb.append(" columns=");

@@ -21,15 +21,15 @@ public class PackageVersionHeader_element extends com.sforce.ws.bind.SoapHeaderO
 
   private boolean packageVersions__is_set = false;
 
-  private PackageVersion[] packageVersions = new PackageVersion[0];
+  private com.sforce.soap.partner.PackageVersion[] packageVersions = new com.sforce.soap.partner.PackageVersion[0];
 
-  public PackageVersion[] getPackageVersions() {
+  public com.sforce.soap.partner.PackageVersion[] getPackageVersions() {
     return packageVersions;
   }
 
   
 
-  public void setPackageVersions(PackageVersion[] packageVersions) {
+  public void setPackageVersions(com.sforce.soap.partner.PackageVersion[] packageVersions) {
     this.packageVersions = packageVersions;
     packageVersions__is_set = true;
   }
@@ -65,12 +65,12 @@ public class PackageVersionHeader_element extends com.sforce.ws.bind.SoapHeaderO
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.isElement(__in, packageVersions__typeInfo)) {
-      setPackageVersions((PackageVersion[])__typeMapper.readObject(__in, packageVersions__typeInfo, PackageVersion[].class));
+      setPackageVersions((com.sforce.soap.partner.PackageVersion[])__typeMapper.readObject(__in, packageVersions__typeInfo, com.sforce.soap.partner.PackageVersion[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[PackageVersionHeader_element ");
     sb.append(super.toString());
     sb.append(" packageVersions=");

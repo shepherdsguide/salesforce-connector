@@ -21,15 +21,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean accountId__is_set = false;
 
-  private String accountId;
+  private java.lang.String accountId;
 
-  public String getAccountId() {
+  public java.lang.String getAccountId() {
     return accountId;
   }
 
   
 
-  public void setAccountId(String accountId) {
+  public void setAccountId(java.lang.String accountId) {
     this.accountId = accountId;
     accountId__is_set = true;
   }
@@ -43,15 +43,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean contactId__is_set = false;
 
-  private String contactId;
+  private java.lang.String contactId;
 
-  public String getContactId() {
+  public java.lang.String getContactId() {
     return contactId;
   }
 
   
 
-  public void setContactId(String contactId) {
+  public void setContactId(java.lang.String contactId) {
     this.contactId = contactId;
     contactId__is_set = true;
   }
@@ -65,15 +65,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean convertedStatus__is_set = false;
 
-  private String convertedStatus;
+  private java.lang.String convertedStatus;
 
-  public String getConvertedStatus() {
+  public java.lang.String getConvertedStatus() {
     return convertedStatus;
   }
 
   
 
-  public void setConvertedStatus(String convertedStatus) {
+  public void setConvertedStatus(java.lang.String convertedStatus) {
     this.convertedStatus = convertedStatus;
     convertedStatus__is_set = true;
   }
@@ -115,15 +115,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean leadId__is_set = false;
 
-  private String leadId;
+  private java.lang.String leadId;
 
-  public String getLeadId() {
+  public java.lang.String getLeadId() {
     return leadId;
   }
 
   
 
-  public void setLeadId(String leadId) {
+  public void setLeadId(java.lang.String leadId) {
     this.leadId = leadId;
     leadId__is_set = true;
   }
@@ -137,15 +137,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean opportunityName__is_set = false;
 
-  private String opportunityName;
+  private java.lang.String opportunityName;
 
-  public String getOpportunityName() {
+  public java.lang.String getOpportunityName() {
     return opportunityName;
   }
 
   
 
-  public void setOpportunityName(String opportunityName) {
+  public void setOpportunityName(java.lang.String opportunityName) {
     this.opportunityName = opportunityName;
     opportunityName__is_set = true;
   }
@@ -187,15 +187,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
 
   private boolean ownerId__is_set = false;
 
-  private String ownerId;
+  private java.lang.String ownerId;
 
-  public String getOwnerId() {
+  public java.lang.String getOwnerId() {
     return ownerId;
   }
 
   
 
-  public void setOwnerId(String ownerId) {
+  public void setOwnerId(java.lang.String ownerId) {
     this.ownerId = ownerId;
     ownerId__is_set = true;
   }
@@ -267,15 +267,15 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, accountId__typeInfo)) {
-      setAccountId((String)__typeMapper.readString(__in, accountId__typeInfo, String.class));
+      setAccountId((java.lang.String)__typeMapper.readString(__in, accountId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, contactId__typeInfo)) {
-      setContactId((String)__typeMapper.readString(__in, contactId__typeInfo, String.class));
+      setContactId((java.lang.String)__typeMapper.readString(__in, contactId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, convertedStatus__typeInfo)) {
-      setConvertedStatus((String)__typeMapper.readString(__in, convertedStatus__typeInfo, String.class));
+      setConvertedStatus((java.lang.String)__typeMapper.readString(__in, convertedStatus__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, doNotCreateOpportunity__typeInfo)) {
@@ -283,11 +283,11 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, leadId__typeInfo)) {
-      setLeadId((String)__typeMapper.readString(__in, leadId__typeInfo, String.class));
+      setLeadId((java.lang.String)__typeMapper.readString(__in, leadId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, opportunityName__typeInfo)) {
-      setOpportunityName((String)__typeMapper.readString(__in, opportunityName__typeInfo, String.class));
+      setOpportunityName((java.lang.String)__typeMapper.readString(__in, opportunityName__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, overwriteLeadSource__typeInfo)) {
@@ -295,7 +295,7 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, ownerId__typeInfo)) {
-      setOwnerId((String)__typeMapper.readString(__in, ownerId__typeInfo, String.class));
+      setOwnerId((java.lang.String)__typeMapper.readString(__in, ownerId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, sendNotificationEmail__typeInfo)) {
@@ -304,7 +304,7 @@ public class LeadConvert implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[LeadConvert ");
     
     sb.append(" accountId=");

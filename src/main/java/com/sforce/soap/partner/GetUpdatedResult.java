@@ -21,15 +21,15 @@ public class GetUpdatedResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean ids__is_set = false;
 
-  private String[] ids = new String[0];
+  private java.lang.String[] ids = new java.lang.String[0];
 
-  public String[] getIds() {
+  public java.lang.String[] getIds() {
     return ids;
   }
 
   
 
-  public void setIds(String[] ids) {
+  public void setIds(java.lang.String[] ids) {
     this.ids = ids;
     ids__is_set = true;
   }
@@ -65,15 +65,15 @@ public class GetUpdatedResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean sforceReserved__is_set = false;
 
-  private String sforceReserved;
+  private java.lang.String sforceReserved;
 
-  public String getSforceReserved() {
+  public java.lang.String getSforceReserved() {
     return sforceReserved;
   }
 
   
 
-  public void setSforceReserved(String sforceReserved) {
+  public void setSforceReserved(java.lang.String sforceReserved) {
     this.sforceReserved = sforceReserved;
     sforceReserved__is_set = true;
   }
@@ -111,7 +111,7 @@ public class GetUpdatedResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, ids__typeInfo)) {
-      setIds((String[])__typeMapper.readObject(__in, ids__typeInfo, String[].class));
+      setIds((java.lang.String[])__typeMapper.readObject(__in, ids__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, latestDateCovered__typeInfo)) {
@@ -119,12 +119,12 @@ public class GetUpdatedResult implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, sforceReserved__typeInfo)) {
-      setSforceReserved((String)__typeMapper.readString(__in, sforceReserved__typeInfo, String.class));
+      setSforceReserved((java.lang.String)__typeMapper.readString(__in, sforceReserved__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[GetUpdatedResult ");
     
     sb.append(" ids=");

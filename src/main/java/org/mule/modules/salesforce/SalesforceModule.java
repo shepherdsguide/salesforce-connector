@@ -1,5 +1,6 @@
 package org.mule.modules.salesforce;
 
+import com.sforce.soap.partner.Connector;
 import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
@@ -7,25 +8,29 @@ import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetDeletedResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
+import com.sforce.soap.partner.LoginResult;
+import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
+import com.sforce.ws.ConnectorConfig;
 import org.apache.log4j.Logger;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
+import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
+import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
-import org.mule.api.annotations.param.Session;
-import org.mule.api.annotations.param.SessionKey;
-import org.mule.api.annotations.session.SessionCreate;
-import org.mule.api.annotations.session.SessionDestroy;
 import org.mule.api.callback.SourceCallback;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,23 +88,37 @@ public class SalesforceModule {
      */
     @Configurable
     @Optional
-    @Default("https://login.salesforce.com/services/Soap/u/21.0")
+    @Default("https://login.salesforce.com/services/Soap/u/23.0")
     private URL url;
 
     /**
+     * Bayeux client
+     */
+    private SalesforceBayeuxClient bc;
+
+    /**
+     * Partner connection
+     */
+    private PartnerConnection connection;
+
+    /**
+     * Login result
+     */
+    private LoginResult loginResult;
+
+    /**
      * Adds one or more new records to your organization's data.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create}
      *
      * @param objects An array of one or more sObjects objects.
-     * @param type Type of object to create
-     * @param session Salesforce's session
+     * @param type    Type of object to create
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> create(@Session SalesforceSession session, String type, List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> create(String type, List<Map<String, String>> objects) throws SalesforceException {
 
         SObject[] sobjects = new SObject[objects.size()];
 
@@ -113,7 +132,7 @@ public class SalesforceModule {
 
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(session.getConnection().create(sobjects));
+            saveResults = Arrays.asList(this.connection.create(sobjects));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in create: " +
                     e.getMessage(), e);
@@ -125,27 +144,39 @@ public class SalesforceModule {
     /**
      * End the current session
      *
-     * @param session Salesforce's session
      * @throws SalesforceException
      */
-    @SessionDestroy
-    public synchronized void destroySession(@Session SalesforceSession session) throws SalesforceException {
-        session.destroy();
+    @Disconnect
+    public synchronized void destroySession() {
+        if (this.bc != null) {
+            if (this.bc.isConnected()) {
+                this.bc.disconnect();
+            }
+        }
+
+        if (this.connection != null) {
+            try {
+                this.connection.logout();
+                this.loginResult = null;
+                this.connection = null;
+            } catch (ConnectionException ce) {
+                LOGGER.error(ce);
+            }
+        }
     }
 
     /**
      * Updates one or more existing records in your organization's data.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:update}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
-     * @param session Salesforce's session
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> update(@Session SalesforceSession session, List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> update(List<Map<String, String>> objects) throws SalesforceException {
 
         SObject[] sobjects = new SObject[objects.size()];
 
@@ -158,7 +189,7 @@ public class SalesforceModule {
 
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(session.getConnection().update(sobjects));
+            saveResults = Arrays.asList(this.connection.update(sobjects));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in update: " +
                     e.getMessage(), e);
@@ -169,18 +200,17 @@ public class SalesforceModule {
 
     /**
      * Retrieves a list of available objects for your organization's data.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-global}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-global}
      *
-     * @param session Salesforce's session
      * @return A {@link DescribeGlobalResult}
      * @throws SalesforceException
      */
     @Processor
-    public DescribeGlobalResult describeGlobal(@Session SalesforceSession session) throws SalesforceException {
+    public DescribeGlobalResult describeGlobal() throws SalesforceException {
         try {
-            return session.getConnection().describeGlobal();
+            return this.connection.describeGlobal();
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in describeGlobal: " +
                     e.getMessage(), e);
@@ -189,21 +219,20 @@ public class SalesforceModule {
 
     /**
      * Executes a query against the specified object and returns data that matches the specified criteria.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
-     * @param session Salesforce's session
      * @return An array of {@link SObject}s
      * @throws SalesforceException
      */
     @Processor
-    public List<Map<String, Object>> query(@Session SalesforceSession session, String query) throws SalesforceException {
+    public List<Map<String, Object>> query(String query) throws SalesforceException {
         try {
-            SObject[] objects = session.getConnection().query(query).getRecords();
+            SObject[] objects = this.connection.query(query).getRecords();
             List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
             for (SObject object : objects) {
                 result.add(object.toMap());
@@ -218,21 +247,20 @@ public class SalesforceModule {
 
     /**
      * Executes a query against the specified object and returns the first record that matches the specified criteria.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query-single}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query-single}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
-     * @param session Salesforce's session
      * @return A single {@link SObject}
      * @throws SalesforceException
      */
     @Processor
-    public Map<String, Object> querySingle(@Session SalesforceSession session, String query) throws SalesforceException {
+    public Map<String, Object> querySingle(String query) throws SalesforceException {
         try {
-            SObject[] result = session.getConnection().query(query).getRecords();
+            SObject[] result = this.connection.query(query).getRecords();
             if (result.length > 0) {
                 return result[0].toMap();
             }
@@ -246,7 +274,7 @@ public class SalesforceModule {
 
     /**
      * Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:convert-lead}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:convert-lead}
      *
@@ -288,13 +316,11 @@ public class SalesforceModule {
      *                               Select Id, MasterLabel from LeadStatus where IsConverted=true
      * @param sendEmailToOwner       Specifies whether to send a notification email to the owner specified in the
      *                               ownerId (true) or not (false, the default).
-     * @param session Salesforce's session
      * @return A list of {@link LeadConvertResult}
      * @throws SalesforceException
      */
     @Processor
-    public LeadConvertResult convertLead(@Session SalesforceSession session,
-                                         String leadId, String contactId,
+    public LeadConvertResult convertLead(String leadId, String contactId,
                                          @Optional String accountId,
                                          @Optional @Default("false") Boolean overWriteLeadSource,
                                          @Optional @Default("false") Boolean doNotCreateOpportunity,
@@ -309,7 +335,7 @@ public class SalesforceModule {
         leadConvert.setAccountId(accountId);
         leadConvert.setOverwriteLeadSource(overWriteLeadSource);
         leadConvert.setDoNotCreateOpportunity(doNotCreateOpportunity);
-        if( opportunityName != null ) {
+        if (opportunityName != null) {
             leadConvert.setOpportunityName(opportunityName);
         }
         leadConvert.setConvertedStatus(convertedStatus);
@@ -320,7 +346,7 @@ public class SalesforceModule {
         LeadConvertResult[] lcr = null;
 
         try {
-            lcr = session.getConnection().convertLead(list);
+            lcr = this.connection.convertLead(list);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in convertLead: " +
                     e.getMessage(), e);
@@ -335,21 +361,20 @@ public class SalesforceModule {
      * one time. For example, if your organization has five user licenses, 25,000 records can be stored in the
      * Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
      * the oldest records, as long as they have been in the recycle bin for at least two hours.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:empty-recycle-bin}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:empty-recycle-bin}
      *
      * @param ids Array of one or more IDs associated with the records to delete from the recycle bin.
      *            Maximum number of records is 200.
-     * @param session Salesforce's session
      * @return A list of {@link EmptyRecycleBinResult}
      */
     @Processor
-    public List<EmptyRecycleBinResult> emptyRecycleBin(@Session SalesforceSession session, List<String> ids) throws SalesforceException {
+    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws SalesforceException {
         EmptyRecycleBinResult[] emptyRecycleBinResults = null;
 
         try {
-            emptyRecycleBinResults = session.getConnection().emptyRecycleBin(ids.toArray(new String[]{}));
+            emptyRecycleBinResults = this.connection.emptyRecycleBin(ids.toArray(new String[]{}));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in emptyRecycleBin: " +
                     e.getMessage(), e);
@@ -361,20 +386,19 @@ public class SalesforceModule {
 
     /**
      * Deletes one or more records from your organization's data.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:delete}
      *
      * @param ids Array of one or more IDs associated with the objects to delete.
-     * @param session Salesforce's session
      * @return An array of {@link DeleteResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<DeleteResult> delete(@Session SalesforceSession session, List<String> ids) throws SalesforceException {
+    public List<DeleteResult> delete(List<String> ids) throws SalesforceException {
         List<DeleteResult> deleteResults = null;
         try {
-            deleteResults = Arrays.asList(session.getConnection().delete((String[]) ids.toArray()));
+            deleteResults = Arrays.asList(this.connection.delete((String[]) ids.toArray()));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in delete: " +
                     e.getMessage(), e);
@@ -385,7 +409,7 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted-range}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted-range}
      *
@@ -396,17 +420,16 @@ public class SalesforceModule {
      * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
-     * @param session Salesforce's session
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
     @Processor
-    public GetDeletedResult getDeletedRange(@Session SalesforceSession session, String type, Calendar startTime, Calendar endTime) throws SalesforceException {
+    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws SalesforceException {
 
         GetDeletedResult gdr = null;
 
         try {
-            gdr = session.getConnection().getDeleted(type, startTime, endTime);
+            gdr = this.connection.getDeleted(type, startTime, endTime);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in getDeletedRange: " +
                     e.getMessage(), e);
@@ -417,23 +440,22 @@ public class SalesforceModule {
 
     /**
      * Describes metadata (field list and object properties) for the specified object.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-sobject}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-sobject}
      *
      * @param type Object. The specified value must be a valid object for your organization. For a complete list
      *             of objects, see Standard Objects
-     * @param session Salesforce's session
      * @return {@link DescribeSObjectResult}
      * @throws SalesforceException
      */
-    @Processor(name="describe-sobject")
-    public DescribeSObjectResult describeSObject(@Session SalesforceSession session, String type) throws SalesforceException {
+    @Processor(name = "describe-sobject")
+    public DescribeSObjectResult describeSObject(String type) throws SalesforceException {
 
         DescribeSObjectResult dsobj = null;
 
         try {
-            dsobj = session.getConnection().describeSObject(type);
+            dsobj = this.connection.describeSObject(type);
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in describeSObject: " +
                     e.getMessage(), e);
@@ -444,22 +466,21 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted}
      *
      * @param type     Object type. The specified value must be a valid object for your organization.
      * @param duration The amount of time in minutes before now for which to return records from.
-     * @param session Salesforce's session
      * @return {@link GetDeletedResult}
      * @throws SalesforceException
      */
-    public GetDeletedResult getDeleted(@Session SalesforceSession session, String type, int duration) throws SalesforceException {
+    public GetDeletedResult getDeleted(String type, int duration) throws SalesforceException {
         GetDeletedResult gdr = null;
         Calendar serverTime = null;
 
         try {
-            serverTime = session.getConnection().getServerTimestamp().getTimestamp();
+            serverTime = this.connection.getServerTimestamp().getTimestamp();
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in getTimestamp: " +
                     e.getMessage(), e);
@@ -468,7 +489,7 @@ public class SalesforceModule {
         Calendar endTime = (Calendar) serverTime.clone();
 
         endTime.add(Calendar.MINUTE, duration);
-        gdr = getDeletedRange(session, type, startTime, endTime);
+        gdr = getDeletedRange(type, startTime, endTime);
 
         return gdr;
     }
@@ -477,7 +498,7 @@ public class SalesforceModule {
     /**
      * Creates a topic which represents a query that is the basis for notifying
      * listeners of changes to records in an organization.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:publish-topic}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:publish-topic}
      *
@@ -486,13 +507,12 @@ public class SalesforceModule {
      * @param description Description of what kinds of records are returned by the query. Limit: 400 characters
      * @param query       The SOQL query statement that determines which records' changes trigger events to be sent to
      *                    the channel. Maximum length: 1200 characters
-     * @param session Salesforce's session
      * @throws SalesforceException
      */
     @Processor
-    public void publishTopic(@Session SalesforceSession session, String name, String query, @Optional String description) throws SalesforceException {
+    public void publishTopic(String name, String query, @Optional String description) throws SalesforceException {
         try {
-            QueryResult result = session.getConnection().query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
+            QueryResult result = this.connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
             if (result.getSize() == 0) {
                 SObject pushTopic = new SObject();
                 pushTopic.setType("PushTopic");
@@ -503,7 +523,7 @@ public class SalesforceModule {
                 pushTopic.setField("Name", name);
                 pushTopic.setField("Query", query);
 
-                SaveResult[] saveResults = session.getConnection().create(new SObject[]{pushTopic});
+                SaveResult[] saveResults = this.connection.create(new SObject[]{pushTopic});
                 if (!saveResults[0].isSuccess()) {
                     throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
                 }
@@ -514,7 +534,7 @@ public class SalesforceModule {
 
                 pushTopic.setField("Query", query);
 
-                SaveResult[] saveResults = session.getConnection().update(new SObject[]{pushTopic});
+                SaveResult[] saveResults = this.connection.update(new SObject[]{pushTopic});
                 if (!saveResults[0].isSuccess()) {
                     throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
                 }
@@ -527,17 +547,16 @@ public class SalesforceModule {
 
     /**
      * Subscribe to a topic.
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:subscribe-topic}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:subscribe-topic}
      *
      * @param topic    The name of the topic to subscribe to
      * @param callback The callback to be called when a message is received
-     * @param session Salesforce's session
      */
     @Source
-    public void subscribeTopic(@Session SalesforceSession session, String topic, final SourceCallback callback) {
-        session.getBayeuxClient().subscribe(topic, new ClientSessionChannel.MessageListener() {
+    public void subscribeTopic(String topic, final SourceCallback callback) {
+        this.getBayeuxClient().subscribe(topic, new ClientSessionChannel.MessageListener() {
             @Override
             public void onMessage(ClientSessionChannel channel, Message message) {
                 try {
@@ -552,21 +571,44 @@ public class SalesforceModule {
     /**
      * Creates a new Salesforce session
      *
-     * @param username Username used to initialize the session
-     * @param password Password used to authenticate the user
+     * @param username      Username used to initialize the session
+     * @param password      Password used to authenticate the user
      * @param securityToken User's security token
-     * @return A {@link SalesforceSession} object containing the session id
      * @throws ConnectionException if a problem occurred while trying to create the session
      */
-    @SessionCreate
-    public synchronized SalesforceSession createSession(@SessionKey String username, String password, String securityToken) throws ConnectionException {
-        SalesforceSession session = new SalesforceSession(this.url, username, password + securityToken,
-                this.proxyHost, this.proxyPort,
-                this.proxyUsername, this.proxyPassword);
+    @Connect
+    public synchronized void connect(@ConnectionKey String username, String password, String securityToken)
+            throws org.mule.api.ConnectionException {
+        try {
+            this.connection = Connector.newConnection(createConnectorConfig(this.url, username, password + securityToken, this.proxyHost, this.proxyPort, this.proxyUsername, this.proxyPassword));
+        } catch (ConnectionException e) {
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
+        }
 
-        session.initialize();
+        reconnect();
+    }
 
-        return session;
+    public void reconnect() throws org.mule.api.ConnectionException {
+        try {
+            LOGGER.debug("Creating a Salesforce session using " + this.connection.getConfig().getUsername());
+            this.loginResult = this.connection.login(this.connection.getConfig().getUsername(), this.connection.getConfig().getPassword());
+
+            if (this.loginResult.isPasswordExpired()) {
+                try {
+                    this.connection.logout();
+                } catch (ConnectionException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+                this.connection = null;
+                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.CREDENTIALS_EXPIRED, null, "The password for the user " + this.connection.getConfig().getUsername() + " has expired");
+            }
+
+            LOGGER.debug("Session established successfully with ID " + this.loginResult.getSessionId() + " at instance " + this.loginResult.getServerUrl());
+            this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
+            this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
+        } catch (ConnectionException e) {
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
+        }
     }
 
     /**
@@ -647,13 +689,69 @@ public class SalesforceModule {
 
     /**
      * Set Salesforce endpoint.
-     * <p/>
-     * Example:
-     * https://prerelna1.pre.salesforce.com/services/Soap/u/21.0
      *
      * @param url Web service endpoint
      */
     public void setUrl(URL url) {
         this.url = url;
+    }
+
+    /**
+     * Create connector config
+     *
+     * @param endpoint      Salesforce endpoint
+     * @param username      Username to use for authentication
+     * @param password      Password to use for authentication
+     * @param proxyHost
+     * @param proxyPort
+     * @param proxyUsername
+     * @param proxyPassword
+     * @return
+     */
+    private ConnectorConfig createConnectorConfig(URL endpoint, String username, String password, String proxyHost, int proxyPort, String proxyUsername, String proxyPassword) {
+        ConnectorConfig config = new ConnectorConfig();
+        config.setUsername(username);
+        config.setPassword(password);
+
+        config.setAuthEndpoint(endpoint.toString());
+        config.setServiceEndpoint(endpoint.toString());
+
+        config.setManualLogin(true);
+
+        if (proxyHost != null) {
+            config.setProxy(proxyHost, proxyPort);
+            if (proxyUsername != null) {
+                config.setProxyUsername(proxyUsername);
+            }
+            if (proxyPassword != null) {
+                config.setProxyPassword(proxyPassword);
+            }
+        }
+
+        return config;
+    }
+
+    public PartnerConnection getConnection() {
+        return connection;
+    }
+
+    public LoginResult getLoginResult() {
+        return loginResult;
+    }
+
+    public SalesforceBayeuxClient getBayeuxClient() {
+        try {
+            if (this.bc == null) {
+                this.bc = new SalesforceBayeuxClient(this);
+
+                if (!this.bc.isHandshook()) {
+                    this.bc.handshake();
+                }
+            }
+        } catch (MalformedURLException e) {
+            LOGGER.error(e.getMessage());
+        }
+
+        return bc;
     }
 }

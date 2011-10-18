@@ -21,15 +21,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean actorIds__is_set = false;
 
-  private String[] actorIds = new String[0];
+  private java.lang.String[] actorIds = new java.lang.String[0];
 
-  public String[] getActorIds() {
+  public java.lang.String[] getActorIds() {
     return actorIds;
   }
 
   
 
-  public void setActorIds(String[] actorIds) {
+  public void setActorIds(java.lang.String[] actorIds) {
     this.actorIds = actorIds;
     actorIds__is_set = true;
   }
@@ -43,15 +43,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean entityId__is_set = false;
 
-  private String entityId;
+  private java.lang.String entityId;
 
-  public String getEntityId() {
+  public java.lang.String getEntityId() {
     return entityId;
   }
 
   
 
-  public void setEntityId(String entityId) {
+  public void setEntityId(java.lang.String entityId) {
     this.entityId = entityId;
     entityId__is_set = true;
   }
@@ -65,15 +65,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean errors__is_set = false;
 
-  private Error[] errors = new Error[0];
+  private com.sforce.soap.partner.Error[] errors = new com.sforce.soap.partner.Error[0];
 
-  public Error[] getErrors() {
+  public com.sforce.soap.partner.Error[] getErrors() {
     return errors;
   }
 
   
 
-  public void setErrors(Error[] errors) {
+  public void setErrors(com.sforce.soap.partner.Error[] errors) {
     this.errors = errors;
     errors__is_set = true;
   }
@@ -87,15 +87,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean instanceId__is_set = false;
 
-  private String instanceId;
+  private java.lang.String instanceId;
 
-  public String getInstanceId() {
+  public java.lang.String getInstanceId() {
     return instanceId;
   }
 
   
 
-  public void setInstanceId(String instanceId) {
+  public void setInstanceId(java.lang.String instanceId) {
     this.instanceId = instanceId;
     instanceId__is_set = true;
   }
@@ -109,15 +109,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean instanceStatus__is_set = false;
 
-  private String instanceStatus;
+  private java.lang.String instanceStatus;
 
-  public String getInstanceStatus() {
+  public java.lang.String getInstanceStatus() {
     return instanceStatus;
   }
 
   
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(java.lang.String instanceStatus) {
     this.instanceStatus = instanceStatus;
     instanceStatus__is_set = true;
   }
@@ -131,15 +131,15 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean newWorkitemIds__is_set = false;
 
-  private String[] newWorkitemIds = new String[0];
+  private java.lang.String[] newWorkitemIds = new java.lang.String[0];
 
-  public String[] getNewWorkitemIds() {
+  public java.lang.String[] getNewWorkitemIds() {
     return newWorkitemIds;
   }
 
   
 
-  public void setNewWorkitemIds(String[] newWorkitemIds) {
+  public void setNewWorkitemIds(java.lang.String[] newWorkitemIds) {
     this.newWorkitemIds = newWorkitemIds;
     newWorkitemIds__is_set = true;
   }
@@ -209,27 +209,27 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, actorIds__typeInfo)) {
-      setActorIds((String[])__typeMapper.readObject(__in, actorIds__typeInfo, String[].class));
+      setActorIds((java.lang.String[])__typeMapper.readObject(__in, actorIds__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, entityId__typeInfo)) {
-      setEntityId((String)__typeMapper.readString(__in, entityId__typeInfo, String.class));
+      setEntityId((java.lang.String)__typeMapper.readString(__in, entityId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, errors__typeInfo)) {
-      setErrors((Error[])__typeMapper.readObject(__in, errors__typeInfo, Error[].class));
+      setErrors((com.sforce.soap.partner.Error[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.Error[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, instanceId__typeInfo)) {
-      setInstanceId((String)__typeMapper.readString(__in, instanceId__typeInfo, String.class));
+      setInstanceId((java.lang.String)__typeMapper.readString(__in, instanceId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, instanceStatus__typeInfo)) {
-      setInstanceStatus((String)__typeMapper.readString(__in, instanceStatus__typeInfo, String.class));
+      setInstanceStatus((java.lang.String)__typeMapper.readString(__in, instanceStatus__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, newWorkitemIds__typeInfo)) {
-      setNewWorkitemIds((String[])__typeMapper.readObject(__in, newWorkitemIds__typeInfo, String[].class));
+      setNewWorkitemIds((java.lang.String[])__typeMapper.readObject(__in, newWorkitemIds__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, success__typeInfo)) {
@@ -238,7 +238,7 @@ public class ProcessResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ProcessResult ");
     
     sb.append(" actorIds=");

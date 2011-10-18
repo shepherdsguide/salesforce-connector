@@ -21,15 +21,15 @@ public class DescribeDataCategoryGroupStructures_element implements com.sforce.w
 
   private boolean pairs__is_set = false;
 
-  private DataCategoryGroupSobjectTypePair[] pairs = new DataCategoryGroupSobjectTypePair[0];
+  private com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[] pairs = new com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[0];
 
-  public DataCategoryGroupSobjectTypePair[] getPairs() {
+  public com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[] getPairs() {
     return pairs;
   }
 
   
 
-  public void setPairs(DataCategoryGroupSobjectTypePair[] pairs) {
+  public void setPairs(com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[] pairs) {
     this.pairs = pairs;
     pairs__is_set = true;
   }
@@ -94,7 +94,7 @@ public class DescribeDataCategoryGroupStructures_element implements com.sforce.w
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, pairs__typeInfo)) {
-      setPairs((DataCategoryGroupSobjectTypePair[])__typeMapper.readObject(__in, pairs__typeInfo, DataCategoryGroupSobjectTypePair[].class));
+      setPairs((com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[])__typeMapper.readObject(__in, pairs__typeInfo, com.sforce.soap.partner.DataCategoryGroupSobjectTypePair[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, topCategoriesOnly__typeInfo)) {
@@ -103,7 +103,7 @@ public class DescribeDataCategoryGroupStructures_element implements com.sforce.w
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[DescribeDataCategoryGroupStructures_element ");
     
     sb.append(" pairs=");

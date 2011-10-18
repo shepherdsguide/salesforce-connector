@@ -76,7 +76,7 @@ public class StreamingEnabledHeader_element extends com.sforce.ws.bind.SoapHeade
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[StreamingEnabledHeader_element ");
     sb.append(super.toString());
     sb.append(" streamingEnabled=");

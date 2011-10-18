@@ -21,15 +21,15 @@ public class InvalidateSessionsResult implements com.sforce.ws.bind.XMLizable {
 
   private boolean errors__is_set = false;
 
-  private Error[] errors = new Error[0];
+  private com.sforce.soap.partner.Error[] errors = new com.sforce.soap.partner.Error[0];
 
-  public Error[] getErrors() {
+  public com.sforce.soap.partner.Error[] getErrors() {
     return errors;
   }
 
   
 
-  public void setErrors(Error[] errors) {
+  public void setErrors(com.sforce.soap.partner.Error[] errors) {
     this.errors = errors;
     errors__is_set = true;
   }
@@ -94,7 +94,7 @@ public class InvalidateSessionsResult implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, errors__typeInfo)) {
-      setErrors((Error[])__typeMapper.readObject(__in, errors__typeInfo, Error[].class));
+      setErrors((com.sforce.soap.partner.Error[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.Error[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, success__typeInfo)) {
@@ -103,7 +103,7 @@ public class InvalidateSessionsResult implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[InvalidateSessionsResult ");
     
     sb.append(" errors=");

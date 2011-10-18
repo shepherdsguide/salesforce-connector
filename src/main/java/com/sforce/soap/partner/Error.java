@@ -21,15 +21,15 @@ public class Error implements com.sforce.ws.bind.XMLizable {
 
   private boolean fields__is_set = false;
 
-  private String[] fields = new String[0];
+  private java.lang.String[] fields = new java.lang.String[0];
 
-  public String[] getFields() {
+  public java.lang.String[] getFields() {
     return fields;
   }
 
   
 
-  public void setFields(String[] fields) {
+  public void setFields(java.lang.String[] fields) {
     this.fields = fields;
     fields__is_set = true;
   }
@@ -43,15 +43,15 @@ public class Error implements com.sforce.ws.bind.XMLizable {
 
   private boolean message__is_set = false;
 
-  private String message;
+  private java.lang.String message;
 
-  public String getMessage() {
+  public java.lang.String getMessage() {
     return message;
   }
 
   
 
-  public void setMessage(String message) {
+  public void setMessage(java.lang.String message) {
     this.message = message;
     message__is_set = true;
   }
@@ -111,11 +111,11 @@ public class Error implements com.sforce.ws.bind.XMLizable {
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, fields__typeInfo)) {
-      setFields((String[])__typeMapper.readObject(__in, fields__typeInfo, String[].class));
+      setFields((java.lang.String[])__typeMapper.readObject(__in, fields__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, message__typeInfo)) {
-      setMessage((String)__typeMapper.readString(__in, message__typeInfo, String.class));
+      setMessage((java.lang.String)__typeMapper.readString(__in, message__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, statusCode__typeInfo)) {
@@ -124,7 +124,7 @@ public class Error implements com.sforce.ws.bind.XMLizable {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[Error ");
     
     sb.append(" fields=");

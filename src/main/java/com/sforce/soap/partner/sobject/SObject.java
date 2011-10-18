@@ -26,7 +26,10 @@
 package com.sforce.soap.partner.sobject;
 
 import com.sforce.ws.bind.XmlObject;
+import com.sforce.ws.wsdl.Constants;
+import com.sforce.ws.parser.XmlInputStream;
 
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.Iterator;
 

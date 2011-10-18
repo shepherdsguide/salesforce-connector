@@ -49,15 +49,15 @@ public class ChildRelationship implements com.sforce.ws.bind.XMLizable {
 
   private boolean childSObject__is_set = false;
 
-  private String childSObject;
+  private java.lang.String childSObject;
 
-  public String getChildSObject() {
+  public java.lang.String getChildSObject() {
     return childSObject;
   }
 
   
 
-  public void setChildSObject(String childSObject) {
+  public void setChildSObject(java.lang.String childSObject) {
     this.childSObject = childSObject;
     childSObject__is_set = true;
   }
@@ -99,15 +99,15 @@ public class ChildRelationship implements com.sforce.ws.bind.XMLizable {
 
   private boolean field__is_set = false;
 
-  private String field;
+  private java.lang.String field;
 
-  public String getField() {
+  public java.lang.String getField() {
     return field;
   }
 
   
 
-  public void setField(String field) {
+  public void setField(java.lang.String field) {
     this.field = field;
     field__is_set = true;
   }
@@ -121,15 +121,15 @@ public class ChildRelationship implements com.sforce.ws.bind.XMLizable {
 
   private boolean relationshipName__is_set = false;
 
-  private String relationshipName;
+  private java.lang.String relationshipName;
 
-  public String getRelationshipName() {
+  public java.lang.String getRelationshipName() {
     return relationshipName;
   }
 
   
 
-  public void setRelationshipName(String relationshipName) {
+  public void setRelationshipName(java.lang.String relationshipName) {
     this.relationshipName = relationshipName;
     relationshipName__is_set = true;
   }
@@ -173,7 +173,7 @@ public class ChildRelationship implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, childSObject__typeInfo)) {
-      setChildSObject((String)__typeMapper.readString(__in, childSObject__typeInfo, String.class));
+      setChildSObject((java.lang.String)__typeMapper.readString(__in, childSObject__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, deprecatedAndHidden__typeInfo)) {
@@ -181,16 +181,16 @@ public class ChildRelationship implements com.sforce.ws.bind.XMLizable {
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, field__typeInfo)) {
-      setField((String)__typeMapper.readString(__in, field__typeInfo, String.class));
+      setField((java.lang.String)__typeMapper.readString(__in, field__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, relationshipName__typeInfo)) {
-      setRelationshipName((String)__typeMapper.readString(__in, relationshipName__typeInfo, String.class));
+      setRelationshipName((java.lang.String)__typeMapper.readString(__in, relationshipName__typeInfo, java.lang.String.class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[ChildRelationship ");
     
     sb.append(" cascadeDelete=");

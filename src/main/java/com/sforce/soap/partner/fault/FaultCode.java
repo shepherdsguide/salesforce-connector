@@ -17,6 +17,16 @@ public enum FaultCode {
    API_DISABLED_FOR_ORG,
   
   /**
+   * Enumeration  : ARGUMENT_OBJECT_PARSE_ERROR
+   */
+   ARGUMENT_OBJECT_PARSE_ERROR,
+  
+  /**
+   * Enumeration  : CANNOT_DELETE_OWNER
+   */
+   CANNOT_DELETE_OWNER,
+  
+  /**
    * Enumeration  : CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY
    */
    CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY,
@@ -52,6 +62,11 @@ public enum FaultCode {
    DATACLOUD_API_CLIENT_EXCEPTION,
   
   /**
+   * Enumeration  : DATACLOUD_API_SERVER_BUSY_EXCEPTION
+   */
+   DATACLOUD_API_SERVER_BUSY_EXCEPTION,
+  
+  /**
    * Enumeration  : DATACLOUD_API_SERVER_EXCEPTION
    */
    DATACLOUD_API_SERVER_EXCEPTION,
@@ -60,6 +75,11 @@ public enum FaultCode {
    * Enumeration  : DATACLOUD_API_UNAVAILABLE
    */
    DATACLOUD_API_UNAVAILABLE,
+  
+  /**
+   * Enumeration  : DUPLICATE_ARGUMENT_VALUE
+   */
+   DUPLICATE_ARGUMENT_VALUE,
   
   /**
    * Enumeration  : DUPLICATE_VALUE
@@ -110,6 +130,11 @@ public enum FaultCode {
    * Enumeration  : EXCEEDED_QUOTA
    */
    EXCEEDED_QUOTA,
+  
+  /**
+   * Enumeration  : FEED_NOT_ENABLED_FOR_OBJECT
+   */
+   FEED_NOT_ENABLED_FOR_OBJECT,
   
   /**
    * Enumeration  : FUNCTIONALITY_NOT_ENABLED
@@ -192,6 +217,11 @@ public enum FaultCode {
    INVALID_LOGIN,
   
   /**
+   * Enumeration  : INVALID_MULTIPART_REQUEST
+   */
+   INVALID_MULTIPART_REQUEST,
+  
+  /**
    * Enumeration  : INVALID_NEW_PASSWORD
    */
    INVALID_NEW_PASSWORD,
@@ -205,6 +235,11 @@ public enum FaultCode {
    * Enumeration  : INVALID_OPERATION_WITH_EXPIRED_PASSWORD
    */
    INVALID_OPERATION_WITH_EXPIRED_PASSWORD,
+  
+  /**
+   * Enumeration  : INVALID_PAGING_OPTION
+   */
+   INVALID_PAGING_OPTION,
   
   /**
    * Enumeration  : INVALID_QUERY_FILTER_OPERATOR
@@ -247,6 +282,11 @@ public enum FaultCode {
    INVALID_SOAP_HEADER,
   
   /**
+   * Enumeration  : INVALID_SORT_OPTION
+   */
+   INVALID_SORT_OPTION,
+  
+  /**
    * Enumeration  : INVALID_SSO_GATEWAY_URL
    */
    INVALID_SSO_GATEWAY_URL,
@@ -275,6 +315,11 @@ public enum FaultCode {
    * Enumeration  : JSON_PARSER_ERROR
    */
    JSON_PARSER_ERROR,
+  
+  /**
+   * Enumeration  : LICENSING_UNKNOWN_ERROR
+   */
+   LICENSING_UNKNOWN_ERROR,
   
   /**
    * Enumeration  : LIMIT_EXCEEDED
@@ -377,6 +422,11 @@ public enum FaultCode {
    PORTAL_NO_ACCESS,
   
   /**
+   * Enumeration  : POST_BODY_PARSE_ERROR
+   */
+   POST_BODY_PARSE_ERROR,
+  
+  /**
    * Enumeration  : QUERY_TIMEOUT
    */
    QUERY_TIMEOUT,
@@ -427,9 +477,19 @@ public enum FaultCode {
    TOO_MANY_APEX_REQUESTS,
   
   /**
+   * Enumeration  : TOO_MANY_RECIPIENTS
+   */
+   TOO_MANY_RECIPIENTS,
+  
+  /**
    * Enumeration  : TRIAL_EXPIRED
    */
    TRIAL_EXPIRED,
+  
+  /**
+   * Enumeration  : UNKNOWN_ATTACHMENT_EXCEPTION
+   */
+   UNKNOWN_ATTACHMENT_EXCEPTION,
   
   /**
    * Enumeration  : UNKNOWN_EXCEPTION
@@ -440,6 +500,11 @@ public enum FaultCode {
    * Enumeration  : UNSUPPORTED_API_VERSION
    */
    UNSUPPORTED_API_VERSION,
+  
+  /**
+   * Enumeration  : UNSUPPORTED_ATTACHMENT_ENCODING
+   */
+   UNSUPPORTED_ATTACHMENT_ENCODING,
   
   /**
    * Enumeration  : UNSUPPORTED_CLIENT

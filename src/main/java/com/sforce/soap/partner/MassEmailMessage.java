@@ -3,7 +3,7 @@ package com.sforce.soap.partner;
 /**
  * Generated class, please do not edit.
  */
-public class MassEmailMessage extends Email {
+public class MassEmailMessage extends com.sforce.soap.partner.Email {
 
   /**
    * Constructor
@@ -21,15 +21,15 @@ public class MassEmailMessage extends Email {
 
   private boolean description__is_set = false;
 
-  private String description;
+  private java.lang.String description;
 
-  public String getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
   
 
-  public void setDescription(String description) {
+  public void setDescription(java.lang.String description) {
     this.description = description;
     description__is_set = true;
   }
@@ -43,15 +43,15 @@ public class MassEmailMessage extends Email {
 
   private boolean targetObjectIds__is_set = false;
 
-  private String[] targetObjectIds = new String[0];
+  private java.lang.String[] targetObjectIds = new java.lang.String[0];
 
-  public String[] getTargetObjectIds() {
+  public java.lang.String[] getTargetObjectIds() {
     return targetObjectIds;
   }
 
   
 
-  public void setTargetObjectIds(String[] targetObjectIds) {
+  public void setTargetObjectIds(java.lang.String[] targetObjectIds) {
     this.targetObjectIds = targetObjectIds;
     targetObjectIds__is_set = true;
   }
@@ -65,15 +65,15 @@ public class MassEmailMessage extends Email {
 
   private boolean templateId__is_set = false;
 
-  private String templateId;
+  private java.lang.String templateId;
 
-  public String getTemplateId() {
+  public java.lang.String getTemplateId() {
     return templateId;
   }
 
   
 
-  public void setTemplateId(String templateId) {
+  public void setTemplateId(java.lang.String templateId) {
     this.templateId = templateId;
     templateId__is_set = true;
   }
@@ -87,15 +87,15 @@ public class MassEmailMessage extends Email {
 
   private boolean whatIds__is_set = false;
 
-  private String[] whatIds = new String[0];
+  private java.lang.String[] whatIds = new java.lang.String[0];
 
-  public String[] getWhatIds() {
+  public java.lang.String[] getWhatIds() {
     return whatIds;
   }
 
   
 
-  public void setWhatIds(String[] whatIds) {
+  public void setWhatIds(java.lang.String[] whatIds) {
     this.whatIds = whatIds;
     whatIds__is_set = true;
   }
@@ -134,24 +134,24 @@ public class MassEmailMessage extends Email {
    super.loadFields(__in, __typeMapper);
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, description__typeInfo)) {
-      setDescription((String)__typeMapper.readString(__in, description__typeInfo, String.class));
+      setDescription((java.lang.String)__typeMapper.readString(__in, description__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, targetObjectIds__typeInfo)) {
-      setTargetObjectIds((String[])__typeMapper.readObject(__in, targetObjectIds__typeInfo, String[].class));
+      setTargetObjectIds((java.lang.String[])__typeMapper.readObject(__in, targetObjectIds__typeInfo, java.lang.String[].class));
     }
     __in.peekTag();
     if (__typeMapper.verifyElement(__in, templateId__typeInfo)) {
-      setTemplateId((String)__typeMapper.readString(__in, templateId__typeInfo, String.class));
+      setTemplateId((java.lang.String)__typeMapper.readString(__in, templateId__typeInfo, java.lang.String.class));
     }
     __in.peekTag();
     if (__typeMapper.isElement(__in, whatIds__typeInfo)) {
-      setWhatIds((String[])__typeMapper.readObject(__in, whatIds__typeInfo, String[].class));
+      setWhatIds((java.lang.String[])__typeMapper.readObject(__in, whatIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[MassEmailMessage ");
     sb.append(super.toString());
     sb.append(" description=");

@@ -21,15 +21,15 @@ public class InvalidateSessions_element implements com.sforce.ws.bind.XMLizable 
 
   private boolean sessionIds__is_set = false;
 
-  private String[] sessionIds = new String[0];
+  private java.lang.String[] sessionIds = new java.lang.String[0];
 
-  public String[] getSessionIds() {
+  public java.lang.String[] getSessionIds() {
     return sessionIds;
   }
 
   
 
-  public void setSessionIds(String[] sessionIds) {
+  public void setSessionIds(java.lang.String[] sessionIds) {
     this.sessionIds = sessionIds;
     sessionIds__is_set = true;
   }
@@ -65,12 +65,12 @@ public class InvalidateSessions_element implements com.sforce.ws.bind.XMLizable 
    
     __in.peekTag();
     if (__typeMapper.isElement(__in, sessionIds__typeInfo)) {
-      setSessionIds((String[])__typeMapper.readObject(__in, sessionIds__typeInfo, String[].class));
+      setSessionIds((java.lang.String[])__typeMapper.readObject(__in, sessionIds__typeInfo, java.lang.String[].class));
     }
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    java.lang.StringBuilder sb = new java.lang.StringBuilder();
     sb.append("[InvalidateSessions_element ");
     
     sb.append(" sessionIds=");
