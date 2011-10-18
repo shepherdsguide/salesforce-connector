@@ -43,7 +43,7 @@
 </sfdc:empty-recycle-bin>
 <!-- END_INCLUDE(sfdc:empty-recycle-bin) -->
 <!-- BEGIN_INCLUDE(sfdc:get-deleted-range) -->
-<sfdc:get-deleted-range type="Account" startTime="#[variable:startTime]" endTime="#[variable:endTime]"/>
+<sfdc:get-deleted-range type="Account" startTime-ref="#[variable:startTime]" endTime-ref="#[variable:endTime]"/>
 <!-- END_INCLUDE(sfdc:get-deleted-range) -->
 <!-- BEGIN_INCLUDE(sfdc:publish-topic) -->
 <sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/>
@@ -74,3 +74,6 @@
                              body="#[map-payload:Text__c]"/>
 </flow>
 <!-- END_INCLUDE(sfdc:subscribe-topic) -->
+<!-- BEGIN_INCLUDE(sfdc:get-deleted) -->
+<sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" />
+<!-- END_INCLUDE(sfdc:get-deleted) -->
