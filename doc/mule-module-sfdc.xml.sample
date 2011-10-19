@@ -22,7 +22,7 @@
     </sfdc:objects>
 </sfdc:create>
 <!-- END_INCLUDE(sfdc:upsert) -->
-<sfdc:upsert type="Account" external-id-field-name="InternalAccountCode">
+<sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode">
     <sfdc:objects>
         <sfdc:object>
             <InternalAccountCode>A01596</InternalAccountCode>
