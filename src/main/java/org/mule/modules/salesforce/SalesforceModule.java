@@ -163,15 +163,16 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
+     * @param type    Type of object to create
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
     @Processor
-    public List<SaveResult> update(List<Map<String, String>> objects) throws SalesforceException {
+    public List<SaveResult> update(String type, List<Map<String, String>> objects) throws SalesforceException {
 
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(this.connection.update(toSObjectList(null, objects)));
+            saveResults = Arrays.asList(this.connection.update(toSObjectList(type, objects)));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in update: " +
                     e.getMessage(), e);
@@ -188,7 +189,7 @@ public class SalesforceModule {
      * 
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert}
      * 
-     * @param externalIDFieldName
+     * @param externalIdFieldName
      * @param type the type of the given objects. The list of objects to upsert must be homogeneous
      * @param objects the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
