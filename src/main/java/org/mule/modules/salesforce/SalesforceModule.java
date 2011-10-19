@@ -12,6 +12,7 @@ import com.sforce.soap.partner.LoginResult;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
+import com.sforce.soap.partner.UpsertResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
@@ -120,19 +121,9 @@ public class SalesforceModule {
     @Processor
     public List<SaveResult> create(String type, List<Map<String, String>> objects) throws SalesforceException {
 
-        SObject[] sobjects = new SObject[objects.size()];
-
-        for (Map<String, String> map : objects) {
-            SObject sObject = new SObject();
-            for (String key : map.keySet()) {
-                sObject.setType(type);
-                sObject.setField(key, map.get(key));
-            }
-        }
-
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(this.connection.create(sobjects));
+            saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in create: " +
                     e.getMessage(), e);
@@ -178,24 +169,42 @@ public class SalesforceModule {
     @Processor
     public List<SaveResult> update(List<Map<String, String>> objects) throws SalesforceException {
 
-        SObject[] sobjects = new SObject[objects.size()];
-
-        for (Map<String, String> map : objects) {
-            SObject sObject = new SObject();
-            for (String key : map.keySet()) {
-                sObject.setField(key, map.get(key));
-            }
-        }
-
         List<SaveResult> saveResults = null;
         try {
-            saveResults = Arrays.asList(this.connection.update(sobjects));
+            saveResults = Arrays.asList(this.connection.update(toSObjectList(null, objects)));
         } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in update: " +
                     e.getMessage(), e);
         }
 
         return saveResults;
+    }
+
+    /**
+     * <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+     * an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+     * In most cases, prefer {@link #upsert(String, String, List)} over {@link #create(String, List)}, 
+     * to avoid creating unwanted duplicate records.
+     * 
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert}
+     * 
+     * @param externalIDFieldName
+     * @param type the type of the given objects. The list of objects to upsert must be homogeneous
+     * @param objects the objects to upsert
+     * @return a list of {@link UpsertResult}, one for each passed object
+     * @throws SalesforceException if a connection error occurs
+     */
+    @Processor
+    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String,String>> objects) throws SalesforceException {
+        try
+        {
+            return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
+        }
+        catch (Exception e)
+        {
+            throw new SalesforceException("Unexpected error encountered in upsert: " +
+                e.getMessage(), e);
+        }
     }
 
     /**
@@ -610,6 +619,20 @@ public class SalesforceModule {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
         }
     }
+    
+    protected SObject[] toSObjectList(String type, List<Map<String, String>> objects)
+    {
+        SObject[] sobjects = new SObject[objects.size()];
+        for (Map<String, String> map : objects) {
+            SObject sObject = new SObject();
+            for (String key : map.keySet()) {
+                sObject.setType(type);
+                sObject.setField(key, map.get(key));
+            }
+        }
+        return sobjects;
+    }
+
 
     /**
      * Retrieve host of proxy
