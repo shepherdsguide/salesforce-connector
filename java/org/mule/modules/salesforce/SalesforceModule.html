@@ -299,6 +299,9 @@ Summary:
   
 
 
+  &#124; <a href="#promethods">Protected Methods</a>
+  
+
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
 
@@ -1162,10 +1165,54 @@ Summary:
   </td></tr>
 
 
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert</a></span>(String externalIdFieldName, String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
+        
+        <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.</div>
+  
+  </td></tr>
+
+
 
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../java/com/sforce/soap/partner/sobject/SObject.html">SObject[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#toSObjectList(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">toSObjectList</a></span>(String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -3165,10 +3212,126 @@ From class
 </div>
 
 
+<A NAME="upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a>&gt;
+      </span>
+      <span class="sympad">upsert</span>
+      <span class="normal">(String externalIdFieldName, String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+ In most cases, prefer <code><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <code><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>, 
+ to avoid creating unwanted duplicate records.
+ 
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>externalIdFieldName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>type</td>
+          <td>the type of the given objects. The list of objects to upsert must be homogeneous</td>
+        </tr>
+        <tr>
+          <th>objects</td>
+          <td>the objects to upsert</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a list of <code><a href="../../../../../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></code>, one for each passed object</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../../../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td>if a connection error occurs
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 
 
 
 <!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="toSObjectList(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        <a href="../../../../../java/com/sforce/soap/partner/sobject/SObject.html">SObject[]</a>
+      </span>
+      <span class="sympad">toSObjectList</span>
+      <span class="normal">(String type, List&lt;Map&lt;String,&nbsp;String&gt;&gt; objects)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>objects</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 
 
 

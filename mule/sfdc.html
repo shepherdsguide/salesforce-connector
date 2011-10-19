@@ -393,6 +393,17 @@ Summary:
   </td></tr>
 
 
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#upsert">&lt;sfdc:upsert&gt;</a></nobr>
+        
+        <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.<br/></div>
+        
+  </td></tr>
+
+
 
 </table>
 
@@ -775,18 +786,7 @@ resolution.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds one or more new records to your organization's data.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
-    &lt;sfdc:objects&gt;
-        &lt;sfdc:object&gt;
-            &lt;Name&gt;MuleSoft&lt;/Name&gt;
-            &lt;BillingStreet&gt;30 Maiden Lane&lt;/BillingStreet&gt;
-            &lt;BillingCity&gt;San Francisco&lt;/BillingCity&gt;
-            &lt;BillingState&gt;CA&lt;/BillingState&gt;
-            &lt;BillingPostalCode&gt;94108&lt;/BillingPostalCode&gt;
-            &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
-        &lt;/sfdc:object&gt;
-    &lt;/sfdc:objects&gt;
-&lt;/sfdc:create&gt;</pre></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div>
  <br/></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -1604,6 +1604,103 @@ resolution.</p>
         <tr>
             <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
             <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="upsert"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:upsert&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+ In most cases, prefer <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>, 
+ to avoid creating unwanted duplicate records.
+ 
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>externalIdFieldName</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">the type of the given objects. The list of objects to upsert must be homogeneous<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">the objects to upsert<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>a list of <br/><code><a href="../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></code>, one for each passed object<br/></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td>if a connection error occurs
+<br/></td>
         </tr>
       </table>
   </div>
