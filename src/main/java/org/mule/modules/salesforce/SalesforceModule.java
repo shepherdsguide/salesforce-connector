@@ -184,27 +184,24 @@ public class SalesforceModule {
     /**
      * <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
      * an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
-     * In most cases, prefer {@link #upsert(String, String, List)} over {@link #create(String, List)}, 
+     * In most cases, prefer {@link #upsert(String, String, List)} over {@link #create(String, List)},
      * to avoid creating unwanted duplicate records.
-     * 
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert}
-     * 
+     *
      * @param externalIdFieldName
-     * @param type the type of the given objects. The list of objects to upsert must be homogeneous
-     * @param objects the objects to upsert
+     * @param type                the type of the given objects. The list of objects to upsert must be homogeneous
+     * @param objects             the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
      * @throws SalesforceException if a connection error occurs
      */
     @Processor
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String,String>> objects) throws SalesforceException {
-        try
-        {
+    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, String>> objects) throws SalesforceException {
+        try {
             return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new SalesforceException("Unexpected error encountered in upsert: " +
-                e.getMessage(), e);
+                    e.getMessage(), e);
         }
     }
 
@@ -620,16 +617,18 @@ public class SalesforceModule {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
         }
     }
-    
-    protected SObject[] toSObjectList(String type, List<Map<String, String>> objects)
-    {
+
+    protected SObject[] toSObjectList(String type, List<Map<String, String>> objects) {
         SObject[] sobjects = new SObject[objects.size()];
+        int s = 0;
         for (Map<String, String> map : objects) {
             SObject sObject = new SObject();
             for (String key : map.keySet()) {
                 sObject.setType(type);
                 sObject.setField(key, map.get(key));
             }
+            sobjects[s] = sObject;
+            s++;
         }
         return sobjects;
     }
