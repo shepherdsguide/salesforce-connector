@@ -21,7 +21,8 @@
         </sfdc:object>
     </sfdc:objects>
 </sfdc:create>
-<!-- END_INCLUDE(sfdc:upsert) -->
+<!-- END_INCLUDE(sfdc:create) -->
+<!-- BEGIN_INCLUDE(sfdc:upsert) -->
 <sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode">
     <sfdc:objects>
         <sfdc:object>

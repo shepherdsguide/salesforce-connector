@@ -189,7 +189,7 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert}
      *
-     * @param externalIdFieldName
+     * @param externalIdFieldName something?
      * @param type                the type of the given objects. The list of objects to upsert must be homogeneous
      * @param objects             the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
