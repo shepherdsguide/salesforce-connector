@@ -105,7 +105,6 @@
 								-hdf project.snapshotRepo.name "${project.distributionManagement.snapshotRepository.name}"
 								-hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
 								-hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
-								-markdown License LICENSE.md
                         -d ${project.build.directory}/apidocs
                         -htmldir ${basedir}/doc
                     </additionalparam>
