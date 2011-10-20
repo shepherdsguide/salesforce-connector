@@ -1,0 +1,1834 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Salesforce Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>
+
+  SalesforceModule
+
+
+| Mule Salesforce Connector
+
+</title>
+<link href="../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../", "../assets/");
+</script>
+<script src="../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Salesforce Connector</span>
+    
+    <ul id="header-tabs" class="mule">
+    	<li id="guide"><a href="../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../java/packages.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+<div class="g-unit" id="all-content">
+
+<div id="api-info-block">
+
+<div class="sum-details-links">
+
+Summary:
+<a href="#lconfig">Configuration</a>
+
+  &#124; <a href="#promethods">Message Processors</a>
+
+
+  &#124; <a href="#soumethods">Message Sources</a>
+
+
+</div><!-- end sum-details-links -->
+
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF MODULE DATA ======== -->
+
+<div id="jd-header">
+    org.mule.modules
+<h1>mule-module-sfdc</h1>
+    4.0-SNAPSHOT
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+<div class="jd-tagdata">
+      <table class="jd-tagtable">
+        <tbody><tr>
+          <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/sfdc</td>
+        </tr><tr>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/1.0/mule-sfdc.xsd</td>
+        </tr>
+<tr>
+          <th>Version</th><td>1.0</td>
+        </tr>
+<tr>
+          <th>Minimum Mule Version</th><td>3.2</td>
+        </tr>
+    </tbody></table>
+  </div>
+
+<div class="jd-descr">
+
+
+<h2>Module Overview</h2>
+<p>The Salesforce Connector will allow to connect to the Salesforce application. Almost every operation that can be
+ done via the Salesforce's API can be done thru this connector. This connector will also work if your Salesforce
+ objects are customized with additional fields or even you are working with custom objects.
+ <p/>
+ Integrating with Salesforce consists of web service calls utilizing XML request/response setup
+ over an HTTPS connection. The technical details of this connection such as request headers,
+ error handling, HTTPS connection, etc. are all abstracted from the user to make implementation
+ quick and easy.<br/></p>
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+<!-- Config -->
+
+
+<!-- =========== CONFIG SUMMARY =========== -->
+<table id="lconfig" class="jd-sumtable"><tr><th colspan="12">Configuration</th></tr>
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#config">&lt;sfdc:config&gt;</a></nobr>
+        <div class="jd-descrdiv">Configure an instance of this module</div>
+  </td></tr>
+</table>
+
+
+
+
+<!-- ========== MESSAGE PROCESSOR SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Message Processors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#convert-lead">&lt;sfdc:convert-lead&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Converts a Lead into an Account, Contact, or (optionally) an Opportunity.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#create">&lt;sfdc:create&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Adds one or more new records to your organization's data.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#delete">&lt;sfdc:delete&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Deletes one or more records from your organization's data.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#describe-global">&lt;sfdc:describe-global&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Retrieves a list of available objects for your organization's data.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#describe-sobject">&lt;sfdc:describe-sobject&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Describes metadata (field list and object properties) for the specified object.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#empty-recycle-bin">&lt;sfdc:empty-recycle-bin&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">The recycle bin lets you view and restore recently deleted records for 30 days before they are
+ permanently deleted.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#get-deleted">&lt;sfdc:get-deleted&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted between the range of now to the duration before now.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#get-deleted-range">&lt;sfdc:get-deleted-range&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted within the given timespan for the specified object.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#publish-topic">&lt;sfdc:publish-topic&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Creates a topic which represents a query that is the basis for notifying
+ listeners of changes to records in an organization.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#query">&lt;sfdc:query&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Executes a query against the specified object and returns data that matches the specified criteria.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#query-single">&lt;sfdc:query-single&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Executes a query against the specified object and returns the first record that matches the specified criteria.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#update">&lt;sfdc:update&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#upsert">&lt;sfdc:upsert&gt;</a></nobr>
+        
+        <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.<br/></div>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+<!-- ========== MESSAGE SOURCE SUMMARY =========== -->
+<table id="soumethods" class="jd-sumtable"><tr><th colspan="12">Message Sources</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#subscribe-topic">&lt;sfdc:subscribe-topic&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Subscribe to a topic.<br/></div>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+</div><!-- jd-descr (summary) -->
+
+
+
+<!-- ========= CONFIGURATION DETAIL ======== -->
+<A NAME="config"></A>
+<h2>Configuration</h2>
+<p>To use the this module within a flow the namespace to the module must be included. The resulting flow will look
+similar to the following:</p>
+<pre>
+&lt;mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+      xsi:schemaLocation="
+               http://www.mulesoft.org/schema/mule/core
+               http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+               http://www.mulesoft.org/schema/mule/sfdc
+               http://www.mulesoft.org/schema/mule/sfdc/1.0/mule-sfdc.xsd"&gt;
+
+      &lt;!-- here goes your flows and configuration elements --&gt;
+
+&lt;/mule&gt;
+</pre>
+<p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
+the root of your Mule application. You can create as many configurations as you deem necesary as long as each carries
+its own name.</p>
+<p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
+specify which configuration to use.</p>
+<table id="lconfig" class="jd-sumtable">
+<tr><th colspan="12">Attributes</th></tr>
+<tr><th>Type</th><th>Name</th><th>Default Value</th><th>Description</th></tr>
+<td class="jd-typecol"><nobr>xs:string</nobr></td>
+<td class="jd-linkcol"><nobr>name</nobr></td>
+<td class="jd-descrcol"></td>
+<td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Give a name to this configuration so it can be later referenced.</td>
+
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:string</nobr></td>
+          <td class="jd-linkcol"><nobr>proxyHost</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Proxy host
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:string</nobr></td>
+          <td class="jd-linkcol"><nobr>proxyPassword</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Proxy password
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:int</nobr></td>
+          <td class="jd-linkcol"><nobr>proxyPort</nobr></td>
+          <td class="jd-descrcol">80</td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Proxy port
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:string</nobr></td>
+          <td class="jd-linkcol"><nobr>proxyUsername</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Proxy username
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:anyUri</nobr></td>
+          <td class="jd-linkcol"><nobr>url</nobr></td>
+          <td class="jd-descrcol">https://login.salesforce.com/services/Soap/u/23.0</td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>SalesForce SOAP endpoint
+</td>
+      </tr>
+      
+    
+</table>
+
+
+
+
+<!-- ========= CONNECTION MANAGEMENT DETAIL ======== -->
+<h2>Connection Pool</h2>
+<p>This connector offers automatic connection management via the use of a connection pool. The pool will act a storage mechanism for all the connections that are in-use by the user of
+this connector.</p>
+<p>Prior to execution of a processor, the connector will attempt to lookup an already established connection and if one doesn't exists it will
+create one. That lookup mechanism is done in the connection pool via the use of connection variables declared as keys.</p>
+<p>The user of the connector can configure the pool by adding a <code>connection-pooling-profile</code> to the connector configuration like this:</p>
+<pre>
+    &lt;sfdc:connection-pooling-profile maxActive="10" maxIdle="10"
+                             exhaustedAction="WHEN_EXHAUSTED_GROW" maxWait="120"/&gt;
+</pre>
+<p>The following is a list of connection attributes, each connection attribute can be configured at the config element level or
+they can also be added to each processor. If they are used at the processor level they get the benefit of full expression
+resolution.</p>
+<table id="lconfig" class="jd-sumtable">
+<tr><th colspan="12">Connection Attributes</th></tr>
+<tr><th>Name</th><th>Description</th></tr>
+
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-linkcol"><nobr>username</nobr></td>
+          <td class="jd-descrcol" width="100%">Username used to initialize the session<br/></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-linkcol"><nobr>password</nobr></td>
+          <td class="jd-descrcol" width="100%">Password used to authenticate the user<br/></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+          <td class="jd-descrcol" width="100%">User's security token<br/></td>
+      </tr>
+      
+    
+</table>
+
+
+
+
+
+<!-- ========= MESSAGE PROCESSOR DETAIL ======== -->
+<!-- Message Processors -->
+
+<h2>Message Processors</h2>
+
+
+
+<A NAME="convert-lead"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:convert-lead&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;enricher target="#[variable:accountId]" source="#[map-payload:id]"&gt;
+    &lt;sfdc:query-single query="SELECT id FROM Account WHERE Name='CompanyNameOfLeadBeingMerged'"/&gt;
+&lt;/enricher&gt;
+&lt;enricher target="#[variable:contactId]" source="#[map-payload:id]"&gt;
+    &lt;sfdc:query-single query="SELECT id FROM contact WHERE FirstName='FirstName' and LastName='LastName' AND AccountId = '#[variable:accountId]"/&gt;
+&lt;/enricher&gt;
+&lt;sfdc:convert-lead leadId="001..." contactId="#[variable:contactId]" overWriteLeadSource="false" doNotCreateOpportunity="true"
+                   convertedStatus="Qualified" sendEmailToOwner="true"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>leadId</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">ID of the Lead to convert. Required. For information on IDs, see ID Field Type.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>contactId</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">ID of the Contact into which the lead will be merged (this contact must be
+                               associated with the specified accountId, and an accountId must be specified).
+                               Required only when updating an existing contact.IMPORTANT if you are converting
+                               a lead into a person account, do not specify the contactId or an error will result.
+                               Specify only the accountId of the person account. If no contactID is specified,
+                               then the API creates a new contact that is implicitly associated with the Account.
+                               To create a new contact, the client application must be logged in with sufficient
+                               access rights. To merge a lead into an existing contact, the client application
+                               must be logged in with read/write access to the specified contact. The contact
+                               name and other existing data are not overwritten (unless overwriteLeadSource is
+                               set to true, in which case only the LeadSource field is overwritten).
+                               For information on IDs, see ID Field Type.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>accountId</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>ID of the Account into which the lead will be merged. Required
+                               only when updating an existing account, including person accounts.
+                               If no accountID is specified, then the API creates a new account. To
+                               create a new account, the client application must be logged in with
+                               sufficient access rights. To merge a lead into an existing account,
+                               the client application must be logged in with read/write access to the
+                               specified account. The account name and other existing data are not overwritten.
+                               For information on IDs, see ID Field Type.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>overWriteLeadSource</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to overwrite the LeadSource field on the target Contact object
+                               with the contents of the LeadSource field in the source Lead object (true), or
+                               not (false, the default). To set this field to true, the client application
+                               must specify a contactId for the target contact.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>doNotCreateOpportunity</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to create an Opportunity during lead conversion (false, the
+                               default) or not (true). Set this flag to true only if you do not want to create
+                               an opportunity from the lead. An opportunity is created by default.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>opportunityName</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Name of the opportunity to create. If no name is specified, then this value
+                               defaults to the company name of the lead. The maximum length of this field is
+                               80 characters. If doNotCreateOpportunity argument is true, then no Opportunity
+                               is created and this field must be left blank; otherwise, an error is returned.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>convertedStatus</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Valid LeadStatus value for a converted lead. Required.
+                               To obtain the list of possible values, the client application queries the
+                               LeadStatus object, as in:
+                               Select Id, MasterLabel from LeadStatus where IsConverted=true<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>sendEmailToOwner</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to send a notification email to the owner specified in the
+                               ownerId (true) or not (false, the default).<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>A list of <br/><code><a href="../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="create"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:create&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds one or more new records to your organization's data.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Type of object to create<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="delete"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:delete&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes one or more records from your organization's data.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:delete&gt;
+    &lt;sfdc:ids&gt;
+        &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
+    &lt;sfdc:ids&gt;
+&lt;/sfdc:delete&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>ids</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the objects to delete.<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="describe-global"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:describe-global&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a list of available objects for your organization's data.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-global/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>A <br/><code><a href="../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="describe-sobject"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:describe-sobject&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Describes metadata (field list and object properties) for the specified object.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-sobject type="Account"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Object. The specified value must be a valid object for your organization. For a complete list
+             of objects, see Standard Objects<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="empty-recycle-bin"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:empty-recycle-bin&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The recycle bin lets you view and restore recently deleted records for 30 days before they are
+ permanently deleted. Your organization can have up to 5000 records per license in the Recycle Bin at any
+ one time. For example, if your organization has five user licenses, 25,000 records can be stored in the
+ Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
+ the oldest records, as long as they have been in the recycle bin for at least two hours.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:empty-recycle-bin&gt;
+    &lt;sfdc:ids&gt;
+        &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
+    &lt;sfdc:ids&gt;
+&lt;/sfdc:empty-recycle-bin&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>ids</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the records to delete from the recycle bin.
+            Maximum number of records is 200.<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>A list of <br/><code><a href="../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a></code>
+<br/></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="get-deleted"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:get-deleted&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" /&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>duration</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The amount of time in minutes before now for which to return records from.<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="get-deleted-range"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:get-deleted-range&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted-range type="Account" startTime-ref="#[variable:startTime]" endTime-ref="#[variable:endTime]"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>startTime</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
+                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>endTime</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
+                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="publish-topic"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:publish-topic&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a topic which represents a query that is the basis for notifying
+ listeners of changes to records in an organization.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>name</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
+                    maximum length is 25 characters. This value identifies the channel.<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>query</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The SOQL query statement that determines which records' changes trigger events to be sent to
+                    the channel. Maximum length: 1200 characters<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>description</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Description of what kinds of records are returned by the query. Limit: 400 characters<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="query"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:query&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns data that matches the specified criteria.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query query="SELECT Id FROM Account"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>query</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
+              including a specific object in the query. For more information, see Salesforce Object Query
+              Language (SOQL).<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code>s<br/></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="query-single"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:query-single&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns the first record that matches the specified criteria.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id FROM Account"/&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>query</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
+              including a specific object in the query. For more information, see Salesforce Object Query
+              Language (SOQL).<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>A single <br/><code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="update"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:update&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates one or more existing records in your organization's data.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/&gt;
+&lt;!-- Update Name of the Account --&gt;
+&lt;sfdc:update type="Account"&gt;
+    &lt;sfdc:objects&gt;
+        &lt;sfdc:object ref="#[payload]"/&gt;
+    &lt;/sfdc:objects&gt;
+&lt;/sfdc:update&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Type of object to create<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="upsert"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:upsert&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+ In most cases, prefer <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>, 
+ to avoid creating unwanted duplicate records.
+ 
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>externalIdFieldName</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">the type of the given objects. The list of objects to upsert must be homogeneous<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">the objects to upsert<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>a list of <br/><code><a href="../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></code>, one for each passed object<br/></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <td>if a connection error occurs
+<br/></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= MESSAGE SOURCES DETAIL ======== -->
+<!-- Message Processors -->
+
+<h2>Message Sources</h2>
+
+
+
+<A NAME="subscribe-topic"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:subscribe-topic&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Subscribe to a topic.
+ <p/>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;flow name="sendSmsNotifications"&gt;
+    &lt;sfdc:subscribe-topic config-ref="salesforce-default"
+                          topic="/NewsFeedStream"/&gt;
+    &lt;twilio:send-sms-message config-ref="twilio-default"
+                             accountSid="${twilio.accountSid}"
+                             from="${twilio.phoneNumber}"
+                             to="#[map-payload:To__c]"
+                             body="#[map-payload:Text__c]"/&gt;
+&lt;/flow&gt;</pre></div>
+ <br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>topic</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The name of the topic to subscribe to<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>callback</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The callback to be called when a message is received
+<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

@@ -1,7 +1,17 @@
-org.mule.module.s3
-org.mule.module.s3.config
-org.mule.module.s3.config.spring
-org.mule.module.s3.simpleapi
-org.mule.module.s3.simpleapi.content
-org.mule.module.s3.util
+com.sforce.async
+com.sforce.soap.partner
+com.sforce.soap.partner.fault
+com.sforce.soap.partner.sobject
+com.sforce.ws
+com.sforce.ws.bind
+com.sforce.ws.parser
+com.sforce.ws.template
+com.sforce.ws.tools
+com.sforce.ws.transport
+com.sforce.ws.types
+com.sforce.ws.util
+com.sforce.ws.wsdl
+org.mule.modules.salesforce
+org.mule.modules.salesforce.config
+org.mule.modules.salesforce.config.spring
 
