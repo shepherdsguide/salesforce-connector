@@ -208,10 +208,10 @@ Summary:
         <tbody><tr>
           <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/sfdc</td>
         </tr><tr>
-          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/1.0/mule-sfdc.xsd</td>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd</td>
         </tr>
 <tr>
-          <th>Version</th><td>1.0</td>
+          <th>Version</th><td>4.0</td>
         </tr>
 <tr>
           <th>Minimum Mule Version</th><td>3.2</td>
@@ -450,7 +450,7 @@ similar to the following:</p>
                http://www.mulesoft.org/schema/mule/core
                http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/sfdc
-               http://www.mulesoft.org/schema/mule/sfdc/1.0/mule-sfdc.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd"&gt;
 
       &lt;!-- here goes your flows and configuration elements --&gt;
 
@@ -1640,9 +1640,9 @@ resolution.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
  an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
- In most cases, prefer <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>, 
+ In most cases, prefer <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>,
  to avoid creating unwanted duplicate records.
- 
+ <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
