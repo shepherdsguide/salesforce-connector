@@ -68,7 +68,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Documentation for Mule Salesforce Connector." />
+  <meta name="description" content="Documentation for Mule S3 Connector." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
 <title>
@@ -76,7 +76,7 @@
   Class Index
 
 
-| Mule Salesforce Connector
+| Mule S3 Connector
 
 </title>
 <link href="../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -109,7 +109,7 @@
 <div id="header">
     <div id="headerLeft">
     
-      <span id="masthead-title">Mule Salesforce Connector</span>
+      <span id="masthead-title">Mule S3 Connector</span>
     
     <ul id="header-tabs" class="java">
     	<li id="guide"><a href="../guide/install.html">
@@ -175,37 +175,17 @@
               <ul>
                 
     <li class="api apilevel-">
-  <a href="../java/com/sforce/async/package-summary.html">com.sforce.async</a></li>
+  <a href="../java/org/mule/module/s3/package-summary.html">org.mule.module.s3</a></li>
     <li class="api apilevel-">
-  <a href="../java/com/sforce/soap/partner/package-summary.html">com.sforce.soap.partner</a></li>
+  <a href="../java/org/mule/module/s3/config/package-summary.html">org.mule.module.s3.config</a></li>
     <li class="api apilevel-">
-  <a href="../java/com/sforce/soap/partner/fault/package-summary.html">com.sforce.soap.partner.fault</a></li>
+  <a href="../java/org/mule/module/s3/config/spring/package-summary.html">org.mule.module.s3.config.spring</a></li>
     <li class="api apilevel-">
-  <a href="../java/com/sforce/soap/partner/sobject/package-summary.html">com.sforce.soap.partner.sobject</a></li>
+  <a href="../java/org/mule/module/s3/simpleapi/package-summary.html">org.mule.module.s3.simpleapi</a></li>
     <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/package-summary.html">com.sforce.ws</a></li>
+  <a href="../java/org/mule/module/s3/simpleapi/content/package-summary.html">org.mule.module.s3.simpleapi.content</a></li>
     <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/bind/package-summary.html">com.sforce.ws.bind</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/parser/package-summary.html">com.sforce.ws.parser</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/template/package-summary.html">com.sforce.ws.template</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/tools/package-summary.html">com.sforce.ws.tools</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/transport/package-summary.html">com.sforce.ws.transport</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/types/package-summary.html">com.sforce.ws.types</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/util/package-summary.html">com.sforce.ws.util</a></li>
-    <li class="api apilevel-">
-  <a href="../java/com/sforce/ws/wsdl/package-summary.html">com.sforce.ws.wsdl</a></li>
-    <li class="api apilevel-">
-  <a href="../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
-    <li class="api apilevel-">
-  <a href="../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
-    <li class="api apilevel-">
-  <a href="../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+  <a href="../java/org/mule/module/s3/util/package-summary.html">org.mule.module.s3.util</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -254,27 +234,15 @@
 
 <div class="jd-letterlist">
     <a href="#letter_A">A</a>
-    <a href="#letter_B">B</a>
     <a href="#letter_C">C</a>
     <a href="#letter_D">D</a>
-    <a href="#letter_E">E</a>
     <a href="#letter_F">F</a>
     <a href="#letter_G">G</a>
     <a href="#letter_I">I</a>
-    <a href="#letter_J">J</a>
     <a href="#letter_L">L</a>
-    <a href="#letter_M">M</a>
-    <a href="#letter_N">N</a>
-    <a href="#letter_O">O</a>
-    <a href="#letter_P">P</a>
-    <a href="#letter_Q">Q</a>
     <a href="#letter_R">R</a>
     <a href="#letter_S">S</a>
-    <a href="#letter_T">T</a>
-    <a href="#letter_U">U</a>
     <a href="#letter_V">V</a>
-    <a href="#letter_W">W</a>
-    <a href="#letter_X">X</a>
 </div>
 
 
@@ -284,128 +252,15 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/AllOrNoneHeader_element.html">AllOrNoneHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/AllowFieldTruncationHeader_element.html">AllowFieldTruncationHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Annotation.html">Annotation</a></td>
-            <td class="jd-descrcol" width="100%">Annotation&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/ApiFault.html">ApiFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/ApiQueryFault.html">ApiQueryFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/AssignmentRuleHeader_element.html">AssignmentRuleHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/AsyncApiException.html">AsyncApiException</a></td>
-            <td class="jd-descrcol" width="100%">AsyncApiException --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/AsyncExceptionCode.html">AsyncExceptionCode</a></td>
-            <td class="jd-descrcol" width="100%">AsyncExceptionCode --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/AsyncXmlOutputStream.html">AsyncXmlOutputStream</a></td>
-            <td class="jd-descrcol" width="100%">AsyncXmlOutputStream --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Attribute.html">Attribute</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->types->schema->complexType->attribute&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_B">B</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/util/Base64.html">Base64</a></td>
-            <td class="jd-descrcol" width="100%">Unceremoniously lifted from
- jakarta-commons/httpclient/src/java/org/apache/commons/httpclient/Base64.java
- Revision 1.8 2002/01/05 11:15:59
- <p/>
- Eliminates dependency on sun.misc.Base64Encoding,
- which isn't appreciated by the J2EE security manager.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></td>
-            <td class="jd-descrcol" width="100%">Async Api BatchInfo
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a></td>
+            <td class="jd-descrcol" width="100%">A wrapper over CannedAccessControlList, as a workaround over mule cloud
+ connector api issue regarding enums processing
 &nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchInfoList.html">BatchInfoList</a></td>
-            <td class="jd-descrcol" width="100%">BatchInfoList --&nbsp;</td>
-        </tr>
-    
-    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchRequest.html">BatchRequest</a></td>
-            <td class="jd-descrcol" width="100%">BatchRequest&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchResult.html">BatchResult</a></td>
-            <td class="jd-descrcol" width="100%">BatchResult --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchStateEnum.html">BatchStateEnum</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Binding.html">Binding</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->Definitions->Binding&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/BindingMessage.html">BindingMessage</a></td>
-            <td class="jd-descrcol" width="100%">BindingMessage&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/BindingOperation.html">BindingOperation</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/AccessControlListEnumTransformer.html">AccessControlListEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
@@ -418,140 +273,69 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/CalendarCodec.html">CalendarCodec</a></td>
-            <td class="jd-descrcol" width="100%">The CalendarSerializer deserializes a dateTime.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/ConditionalConstraints.html">ConditionalConstraints</a></td>
+            <td class="jd-descrcol" width="100%">Conditional Get Constraints
+&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/CallOptions_element.html">CallOptions_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ChildRelationship.html">ChildRelationship</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Collection.html">Collection</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->types->schema->complexType->sequence&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/ComplexType.html">ComplexType</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->Definitions->types->schema->complexType&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/ComplexTypeGenerator.html">ComplexTypeGenerator</a></td>
-            <td class="jd-descrcol" width="100%">This class contains util methods used by type.template.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/ConcurrencyMode.html">ConcurrencyMode</a></td>
-            <td class="jd-descrcol" width="100%">ConcurrencyMode --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/ConnectionException.html">ConnectionException</a></td>
-            <td class="jd-descrcol" width="100%">ConnectionException is the root of all web service client exceptions&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/ConnectionGenerator.html">ConnectionGenerator</a></td>
-            <td class="jd-descrcol" width="100%">ConnectionGenerator&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Connector.html">Connector</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/ConnectorConfig.html">ConnectorConfig</a></td>
-            <td class="jd-descrcol" width="100%">This class contains a set of configuration properties&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Constants.html">Constants</a></td>
-            <td class="jd-descrcol" width="100%">This class contains a list of string constants used while parsing WSDL.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/ContentType.html">ContentType</a></td>
-            <td class="jd-descrcol" width="100%">ContentType --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ConvertLead_element.html">ConvertLead_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/CopyObjectDefinitionParser.html">CopyObjectDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">ConvertLeadMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ConvertLeadResponse_element.html">ConvertLeadResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/CopyObjectMessageProcessor.html">CopyObjectMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CopyObjectMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#copyObject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>, java.util.Date, java.util.Date)">copyObject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map, java.util.Date, java.util.Date)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Create_element.html">Create_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateDefinitionParser.html">CreateDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/CreateBucketDefinitionParser.html">CreateBucketDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">CreateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/CreateResponse_element.html">CreateResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/CreateBucketMessageProcessor.html">CreateBucketMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateBucketMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#createBucket(java.lang.String, org.mule.module.s3.simpleapi.Region, org.mule.module.s3.AccessControlList)">createBucket(java.lang.String, org.mule.module.s3.simpleapi.Region, org.mule.module.s3.AccessControlList)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/CSVReader.html">CSVReader</a></td>
-            <td class="jd-descrcol" width="100%">Parse a CSV file into lines of fields.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/CSVReader.CSVParseException.html">CSVReader.CSVParseException</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/CreateObjectDefinitionParser.html">CreateObjectDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/CreateObjectMessageProcessor.html">CreateObjectMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateObjectMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#createObject(java.lang.String, java.lang.String, java.lang.Object, java.lang.Long, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>)">createObject(java.lang.String, java.lang.String, java.lang.Object, java.lang.Long, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/CreateObjectPresignedUriDefinitionParser.html">CreateObjectPresignedUriDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/CreateObjectPresignedUriMessageProcessor.html">CreateObjectPresignedUriMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateObjectPresignedUriMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#createObjectPresignedUri(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.lang.String)">createObjectPresignedUri(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/CreateObjectUriDefinitionParser.html">CreateObjectUriDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/CreateObjectUriMessageProcessor.html">CreateObjectUriMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateObjectUriMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#createObjectUri(java.lang.String, java.lang.String, boolean, boolean)">createObjectUri(java.lang.String, java.lang.String, boolean, boolean)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -563,433 +347,50 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DataCategory.html">DataCategory</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DataCategoryGroupSobjectTypePair.html">DataCategoryGroupSobjectTypePair</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/DateCodec.html">DateCodec</a></td>
-            <td class="jd-descrcol" width="100%">Taken from axis:
- <p/>
- The DateSerializer deserializes a Date.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DebuggingHeader_element.html">DebuggingHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DebuggingInfo_element.html">DebuggingInfo_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DebugLevel.html">DebugLevel</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Definitions.html">Definitions</a></td>
-            <td class="jd-descrcol" width="100%">This class represents a WSDL->definitions&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Delete_element.html">Delete_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DeleteDefinitionParser.html">DeleteDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/DeleteBucketDefinitionParser.html">DeleteBucketDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DeletedRecord.html">DeletedRecord</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/DeleteBucketMessageProcessor.html">DeleteBucketMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DeleteBucketMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#deleteBucket(java.lang.String, boolean)">deleteBucket(java.lang.String, boolean)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">DeleteMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#delete(java.util.List<java.lang.String>)">delete(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DeleteResponse_element.html">DeleteResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroupResult.html">DescribeDataCategoryGroupResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroups_element.html">DescribeDataCategoryGroups_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroupsResponse_element.html">DescribeDataCategoryGroupsResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroupStructureResult.html">DescribeDataCategoryGroupStructureResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroupStructures_element.html">DescribeDataCategoryGroupStructures_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeDataCategoryGroupStructuresResponse_element.html">DescribeDataCategoryGroupStructuresResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeGlobal_element.html">DescribeGlobal_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/DeleteBucketPolicyDefinitionParser.html">DeleteBucketPolicyDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">DescribeGlobalMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeGlobal()">describeGlobal()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/DeleteBucketPolicyMessageProcessor.html">DeleteBucketPolicyMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DeleteBucketPolicyMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#deleteBucketPolicy(java.lang.String)">deleteBucketPolicy(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeGlobalResponse_element.html">DescribeGlobalResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeGlobalSObjectResult.html">DescribeGlobalSObjectResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayout.html">DescribeLayout</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayout_element.html">DescribeLayout_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutButton.html">DescribeLayoutButton</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutButtonSection.html">DescribeLayoutButtonSection</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutComponent.html">DescribeLayoutComponent</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutItem.html">DescribeLayoutItem</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutResponse_element.html">DescribeLayoutResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutResult.html">DescribeLayoutResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutRow.html">DescribeLayoutRow</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeLayoutSection.html">DescribeLayoutSection</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSObject_element.html">DescribeSObject_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/DeleteBucketWebsiteConfigurationDefinitionParser.html">DeleteBucketWebsiteConfigurationDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">DescribeSObjectMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeSObject(java.lang.String)">describeSObject(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/DeleteBucketWebsiteConfigurationMessageProcessor.html">DeleteBucketWebsiteConfigurationMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DeleteBucketWebsiteConfigurationMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#deleteBucketWebsiteConfiguration(java.lang.String)">deleteBucketWebsiteConfiguration(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSObjectResponse_element.html">DescribeSObjectResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSObjects_element.html">DescribeSObjects_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSObjectsResponse_element.html">DescribeSObjectsResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayout_element.html">DescribeSoftphoneLayout_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutCallType.html">DescribeSoftphoneLayoutCallType</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutInfoField.html">DescribeSoftphoneLayoutInfoField</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutItem.html">DescribeSoftphoneLayoutItem</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutResponse_element.html">DescribeSoftphoneLayoutResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutResult.html">DescribeSoftphoneLayoutResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneLayoutSection.html">DescribeSoftphoneLayoutSection</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeSoftphoneScreenPopOption.html">DescribeSoftphoneScreenPopOption</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeTab.html">DescribeTab</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeTabs_element.html">DescribeTabs_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeTabSetResult.html">DescribeTabSetResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DescribeTabsResponse_element.html">DescribeTabsResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DisableFeedTrackingHeader_element.html">DisableFeedTrackingHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Documentation.html">Documentation</a></td>
-            <td class="jd-descrcol" width="100%">Documentation
- 
-&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_E">E</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Element.html">Element</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->Definitions->types->schema->element&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Email.html">Email</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmailFileAttachment.html">EmailFileAttachment</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmailHeader_element.html">EmailHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmailPriority.html">EmailPriority</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmptyRecycleBin_element.html">EmptyRecycleBin_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/DeleteObjectDefinitionParser.html">DeleteObjectDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">EmptyRecycleBinMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#emptyRecycleBin(java.util.List<java.lang.String>)">emptyRecycleBin(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmptyRecycleBinResponse_element.html">EmptyRecycleBinResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Enumeration.html">Enumeration</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->Definitions->types->schema->element&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/Error.html">Error</a></td>
-            <td class="jd-descrcol" width="100%">Error --&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Error.html">Error</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/ExceptionCode.html">ExceptionCode</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/DeleteObjectMessageProcessor.html">DeleteObjectMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DeleteObjectMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#deleteObject(java.lang.String, java.lang.String, java.lang.String)">deleteObject(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -1001,26 +402,8 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/FaultCode.html">FaultCode</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Field.html">Field</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/FieldType.html">FieldType</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/util/FileUtil.html">FileUtil</a></td>
-            <td class="jd-descrcol" width="100%">This class contains util method related to File handeling.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/content/FileS3ObjectContent.html">FileS3ObjectContent</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
@@ -1032,98 +415,62 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetDeleted_element.html">GetDeleted_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetDeletedDefinitionParser.html">GetDeletedDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/GetBucketPolicyDefinitionParser.html">GetBucketPolicyDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">GetDeletedMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeleted(java.lang.String, int)">getDeleted(java.lang.String, int)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/GetBucketPolicyMessageProcessor.html">GetBucketPolicyMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetBucketPolicyMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#getBucketPolicy(java.lang.String)">getBucketPolicy(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a></td>
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/GetBucketWebsiteConfigurationDefinitionParser.html">GetBucketWebsiteConfigurationDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">GetDeletedRangeMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetDeletedResponse_element.html">GetDeletedResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/GetBucketWebsiteConfigurationMessageProcessor.html">GetBucketWebsiteConfigurationMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetBucketWebsiteConfigurationMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#getBucketWebsiteConfiguration(java.lang.String)">getBucketWebsiteConfiguration(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/GetObjectContentDefinitionParser.html">GetObjectContentDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetServerTimestamp_element.html">GetServerTimestamp_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/GetObjectContentMessageProcessor.html">GetObjectContentMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetObjectContentMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#getObjectContent(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)">getObjectContent(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetServerTimestampResponse_element.html">GetServerTimestampResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/GetObjectDefinitionParser.html">GetObjectDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetServerTimestampResult.html">GetServerTimestampResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/GetObjectMessageProcessor.html">GetObjectMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetObjectMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#getObject(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)">getObject(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUpdated_element.html">GetUpdated_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/GetObjectMetadataDefinitionParser.html">GetObjectMetadataDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUpdatedResponse_element.html">GetUpdatedResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUpdatedResult.html">GetUpdatedResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUserInfo_element.html">GetUserInfo_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUserInfoResponse_element.html">GetUserInfoResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/GetUserInfoResult.html">GetUserInfoResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/GetObjectMetadataMessageProcessor.html">GetObjectMetadataMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetObjectMetadataMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#getObjectMetadata(java.lang.String, java.lang.String, java.lang.String)">getObjectMetadata(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -1135,119 +482,15 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/InvalidateSessions_element.html">InvalidateSessions_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/InvalidateSessionsResponse_element.html">InvalidateSessionsResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/InvalidateSessionsResult.html">InvalidateSessionsResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/InvalidFieldFault.html">InvalidFieldFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/InvalidIdFault.html">InvalidIdFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/InvalidNewPasswordFault.html">InvalidNewPasswordFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/InvalidQueryLocatorFault.html">InvalidQueryLocatorFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/InvalidSObjectFault.html">InvalidSObjectFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_J">J</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.html">JdkHttpTransport</a></td>
-            <td class="jd-descrcol" width="100%">This class is an implementation of Transport using the build in
- JDK URLConnection.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.LimitingInputStream.html">JdkHttpTransport.LimitingInputStream</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.LimitingOutputStream.html">JdkHttpTransport.LimitingOutputStream</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/content/InputStreamS3ObjectContent.html">InputStreamS3ObjectContent</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.MessageHandlerOutputStream.html">JdkHttpTransport.MessageHandlerOutputStream</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.TeeInputStream.html">JdkHttpTransport.TeeInputStream</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/JdkHttpTransport.TeeOutputStream.html">JdkHttpTransport.TeeOutputStream</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/JobInfo.html">JobInfo</a></td>
-            <td class="jd-descrcol" width="100%">Async Api JobInfo
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/util/InternalUtils.html">InternalUtils</a></td>
+            <td class="jd-descrcol" width="100%">Hub for some misc class methods
 &nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/JobInfo.Builder.html">JobInfo.Builder</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/JobStateEnum.html">JobStateEnum</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/template/JspNode.html">JspNode</a></td>
-            <td class="jd-descrcol" width="100%">Root node for the JSP elements&nbsp;</td>
         </tr>
     
     
@@ -1259,398 +502,38 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LayoutComponentType.html">LayoutComponentType</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LeadConvert.html">LeadConvert</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LocaleOptions_element.html">LocaleOptions_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Login_element.html">Login_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/LoginFault.html">LoginFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LoginResponse_element.html">LoginResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LoginScopeHeader_element.html">LoginScopeHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Logout_element.html">Logout_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/LogoutResponse_element.html">LogoutResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_M">M</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/template/Main.html">Main</a></td>
-            <td class="jd-descrcol" width="100%">Util class to test the template engine.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Main.html">Main</a></td>
-            <td class="jd-descrcol" width="100%">A util class that can be used to test WSDL parser.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/MalformedQueryFault.html">MalformedQueryFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/MalformedSearchFault.html">MalformedSearchFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/MassEmailMessage.html">MassEmailMessage</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Merge_element.html">Merge_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/MergeRequest.html">MergeRequest</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/MergeResponse_element.html">MergeResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/MergeResult.html">MergeResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Message.html">Message</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->message&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/MessageHandler.html">MessageHandler</a></td>
-            <td class="jd-descrcol" width="100%">MessageHandler&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/MessageHandlerWithHeaders.html">MessageHandlerWithHeaders</a></td>
-            <td class="jd-descrcol" width="100%">MessageHandlerWithHeaders&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/MruHeader_element.html">MruHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/MXParser.html">MXParser</a></td>
-            <td class="jd-descrcol" width="100%">Absolutely minimal implementation of XMLPULL V1 API&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/MXSerializer.html">MXSerializer</a></td>
-            <td class="jd-descrcol" width="100%">Implementation of XmlSerializer interface from XmlPull V1 API.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_N">N</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/NameMapper.html">NameMapper</a></td>
-            <td class="jd-descrcol" width="100%">This class maps between xml and java names.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_O">O</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Operation.html">Operation</a></td>
-            <td class="jd-descrcol" width="100%">Operation&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/OperationEnum.html">OperationEnum</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_P">P</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/PackageVersion.html">PackageVersion</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/PackageVersionHeader_element.html">PackageVersionHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/ParserUtil.html">ParserUtil</a></td>
-            <td class="jd-descrcol" width="100%">This is a util class used by wsdl parser.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Part.html">Part</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->message&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/PicklistEntry.html">PicklistEntry</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/PicklistForRecordType.html">PicklistForRecordType</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Port.html">Port</a></td>
-            <td class="jd-descrcol" width="100%">Port&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/PortType.html">PortType</a></td>
-            <td class="jd-descrcol" width="100%">This class represents a WSDL definitions->portType&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/PostMain.html">PostMain</a></td>
-            <td class="jd-descrcol" width="100%">This is a util class that can be used to post a message
- to the specified endpoint.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Process_element.html">Process_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ProcessRequest.html">ProcessRequest</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ProcessResponse_element.html">ProcessResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ProcessResult.html">ProcessResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ProcessSubmitRequest.html">ProcessSubmitRequest</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ProcessWorkitemRequest.html">ProcessWorkitemRequest</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/ListBucketsDefinitionParser.html">ListBucketsDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">PublishTopicMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#publishTopic(java.lang.String, java.lang.String, java.lang.String)">publishTopic(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/ListBucketsMessageProcessor.html">ListBucketsMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">ListBucketsMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#listBuckets()">listBuckets()</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/PullParserException.html">PullParserException</a></td>
-            <td class="jd-descrcol" width="100%">This exception is thrown if there is an error while parsing XML.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_Q">Q</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Query_element.html">Query_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryAll_element.html">QueryAll_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryAllResponse_element.html">QueryAllResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QueryDefinitionParser.html">QueryDefinitionParser</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">QueryMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#query(java.lang.String)">query(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryMore_element.html">QueryMore_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryMoreResponse_element.html">QueryMoreResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryOptions_element.html">QueryOptions_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryResponse_element.html">QueryResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/QueryResult.html">QueryResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/ListObjectsDefinitionParser.html">ListObjectsDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">QuerySingleMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#querySingle(java.lang.String)">querySingle(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/ListObjectsMessageProcessor.html">ListObjectsMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">ListObjectsMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#listObjects(java.lang.String, java.lang.String)">listObjects(java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/ListObjectVersionsDefinitionParser.html">ListObjectVersionsDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/ListObjectVersionsMessageProcessor.html">ListObjectVersionsMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">ListObjectVersionsMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#listObjectVersions(java.lang.String)">listObjectVersions(java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -1662,80 +545,14 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RecordTypeInfo.html">RecordTypeInfo</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RecordTypeMapping.html">RecordTypeMapping</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RelatedList.html">RelatedList</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RelatedListColumn.html">RelatedListColumn</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RelatedListSort.html">RelatedListSort</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ResetPassword_element.html">ResetPassword_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ResetPasswordResponse_element.html">ResetPasswordResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/ResetPasswordResult.html">ResetPasswordResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/RestConnection.html">RestConnection</a></td>
-            <td class="jd-descrcol" width="100%">RestConnection&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Restriction.html">Restriction</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->types->schema->complexType->sequence&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/Result.html">Result</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/Region.html">Region</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Retrieve_element.html">Retrieve_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/RetrieveResponse_element.html">RetrieveResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/RegionEnumTransformer.html">RegionEnumTransformer</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
@@ -1747,449 +564,146 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></td>
-            <td class="jd-descrcol" width="100%"><p><code><a href="../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></code> is an extension of a BayeuxClient that can deal with Salesforce session
- management.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></td>
+            <td class="jd-descrcol" width="100%">Amazon S3 (Simple Storage Service) is an online storage web service offered by Amazon Web Services.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
-            <td class="jd-descrcol" width="100%">A runtime exception that wraps a <code><a href="../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a></code>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/S3ConnectorCapabilitiesAdapter.html">S3ConnectorCapabilitiesAdapter</a></td>
+            <td class="jd-descrcol" width="100%">A <code>S3ConnectorCapabilitiesAdapter</code> is a wrapper around <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/S3ConnectorConfigDefinitionParser.html">S3ConnectorConfigDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/S3ConnectorConnectionManager.html">S3ConnectorConnectionManager</a></td>
+            <td class="jd-descrcol" width="100%">A <code>S3ConnectorConnectionManager</code> is a wrapper around <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code> that adds connection management capabilities to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/S3ConnectorConnectionManager.ConnectionKey.html">S3ConnectorConnectionManager.ConnectionKey</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/S3ConnectorLifecycleAdapter.html">S3ConnectorLifecycleAdapter</a></td>
+            <td class="jd-descrcol" width="100%">A <code>S3ConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/S3ConnectorNamespaceHandler.html">S3ConnectorNamespaceHandler</a></td>
+            <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/s3</code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/S3ContentUtils.html">S3ContentUtils</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/S3ObjectId.html">S3ObjectId</a></td>
+            <td class="jd-descrcol" width="100%">An <code><a href="../java/org/mule/module/s3/simpleapi/S3ObjectId.html">S3ObjectId</a></code> is a unique identifier of an S3Object, with optional
+ versioning support
 &nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/SalesforceLongPollingTransport.html">SalesforceLongPollingTransport</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></td>
-            <td class="jd-descrcol" width="100%">The Salesforce Connector will allow to connect to the Salesforce application.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></td>
-            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleCapabilitiesAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/SalesforceModuleConfigDefinitionParser.html">SalesforceModuleConfigDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/SetBucketPolicyDefinitionParser.html">SetBucketPolicyDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></td>
-            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleConnectionManager</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds connection management capabilities to the pojo.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/SetBucketPolicyMessageProcessor.html">SetBucketPolicyMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">SetBucketPolicyMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#setBucketPolicy(java.lang.String, java.lang.String)">setBucketPolicy(java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionKey.html">SalesforceModuleConnectionManager.ConnectionKey</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/SetBucketVersioningStatusDefinitionParser.html">SetBucketVersioningStatusDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></td>
-            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleLifecycleAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/SetBucketVersioningStatusMessageProcessor.html">SetBucketVersioningStatusMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">SetBucketVersioningStatusMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#setBucketVersioningStatus(java.lang.String, org.mule.module.s3.simpleapi.VersioningStatus)">setBucketVersioningStatus(java.lang.String, org.mule.module.s3.simpleapi.VersioningStatus)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/SalesforceModuleNamespaceHandler.html">SalesforceModuleNamespaceHandler</a></td>
-            <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/sfdc</code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></td>
-            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleSessionManagerAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds session management to the pojo.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html">SalesforceModuleSessionManagerAdapter.SessionKey</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/SetBucketWebsiteConfigurationDefinitionParser.html">SetBucketWebsiteConfigurationDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/SetBucketWebsiteConfigurationMessageProcessor.html">SetBucketWebsiteConfigurationMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">SetBucketWebsiteConfigurationMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#setBucketWebsiteConfiguration(java.lang.String, java.lang.String, java.lang.String)">setBucketWebsiteConfiguration(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Schema.html">Schema</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->definitions->types->schema&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Search_element.html">Search_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SearchRecord.html">SearchRecord</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SearchResponse_element.html">SearchResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SearchResult.html">SearchResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SendEmail_element.html">SendEmail_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SendEmailError.html">SendEmailError</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SendEmailResponse_element.html">SendEmailResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SendEmailResult.html">SendEmailResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Service.html">Service</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL definitions->service.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SessionHeader_element.html">SessionHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/SessionRenewer.html">SessionRenewer</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SetPassword_element.html">SetPassword_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SetPasswordResponse_element.html">SetPasswordResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SetPasswordResult.html">SetPasswordResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SfdcApiType.html">SfdcApiType</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SimpleType.html">SimpleType</a></td>
-            <td class="jd-descrcol" width="100%">This class represents WSDL->Definitions->types->schema->simpleType&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/SimpleTypeGenerator.html">SimpleTypeGenerator</a></td>
-            <td class="jd-descrcol" width="100%">SimpleTypeGenerator&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SingleEmailMessage.html">SingleEmailMessage</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SoapAddress.html">SoapAddress</a></td>
-            <td class="jd-descrcol" width="100%">SoapAddress&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SoapBody.html">SoapBody</a></td>
-            <td class="jd-descrcol" width="100%">SoapBody&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/SoapConnection.html">SoapConnection</a></td>
-            <td class="jd-descrcol" width="100%">SoapConnection can be used to send and receive SOAP messages over the
- specified Transport.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/SoapFaultException.html">SoapFaultException</a></td>
-            <td class="jd-descrcol" width="100%">Base class for all exceptions that are related to soap fault messages&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SoapHeader.html">SoapHeader</a></td>
-            <td class="jd-descrcol" width="100%">SoapHeader&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/SoapHeaderObject.html">SoapHeaderObject</a></td>
-            <td class="jd-descrcol" width="100%">SoapHeaderObject&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/SoapNode.html">SoapNode</a></td>
-            <td class="jd-descrcol" width="100%">SoapNode&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/SoapType.html">SoapType</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/SObject.html">SObject</a></td>
-            <td class="jd-descrcol" width="100%">SObject&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/spring/SetObjectStorageClassDefinitionParser.html">SetObjectStorageClassDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/async/StatusCode.html">StatusCode</a></td>
-            <td class="jd-descrcol" width="100%">StatusCode --&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/SetObjectStorageClassMessageProcessor.html">SetObjectStorageClassMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">SetObjectStorageClassMessageProcessor invokes the <code><a href="../java/org/mule/module/s3/S3Connector.html#setObjectStorageClass(java.lang.String, java.lang.String, org.mule.module.s3.StorageClass)">setObjectStorageClass(java.lang.String, java.lang.String, org.mule.module.s3.StorageClass)</a></code> method in <code><a href="../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/StatusCode.html">StatusCode</a></td>
-            <td class="jd-descrcol" width="100%">Generated enum, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.html">SimpleAmazonS3</a></td>
+            <td class="jd-descrcol" width="100%">A Amazon S3 facade roughly based on com.amazonaws.services.s3.AmazonS3
+ interface, but that simplifies it by adding consistent versioning support.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/StreamingEnabledHeader_element.html">StreamingEnabledHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.S3ObjectContent.html">SimpleAmazonS3.S3ObjectContent</a></td>
+            <td class="jd-descrcol" width="100%">The content to be uploaded to S3, capable of creating a
+ PutObjectRequest.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/SimpleAmazonS3AmazonDevKitImpl.html">SimpleAmazonS3AmazonDevKitImpl</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></td>
-            <td class="jd-descrcol" width="100%">SubscribeTopicMessageSource wraps <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> as a message source capable of generating Mule events.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_T">T</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/template/Template.html">Template</a></td>
-            <td class="jd-descrcol" width="100%">This class is used to execute a template.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/StorageClass.html">StorageClass</a></td>
+            <td class="jd-descrcol" width="100%">A wrapper over com.amazonaws.services.s3.model.StorageClass, as a
+ workaround over mule cloud connector api issue regarding enums processing
+&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/template/TemplateException.html">TemplateException</a></td>
-            <td class="jd-descrcol" width="100%">TemplateException, thrown when there is an error while running
- a template.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/types/Time.html">Time</a></td>
-            <td class="jd-descrcol" width="100%">Class that represents the xsd:time XML Schema type
-
- Taken from Apache Axis 1.4.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/ToolsException.html">ToolsException</a></td>
-            <td class="jd-descrcol" width="100%">ToolsException is thrown when the tools encounter an error.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/transport/Transport.html">Transport</a></td>
-            <td class="jd-descrcol" width="100%">This interface defines a Transport.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/TypeGenerator.html">TypeGenerator</a></td>
-            <td class="jd-descrcol" width="100%">TypeGenerator&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/TypeInfo.html">TypeInfo</a></td>
-            <td class="jd-descrcol" width="100%">This class contains the information regaing a type.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/TypeMapper.html">TypeMapper</a></td>
-            <td class="jd-descrcol" width="100%">This class is used at runtime to bind xml document to java object and java objects
- back to xml.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/TypeMapper.PartialArrayException.html">TypeMapper.PartialArrayException</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/Types.html">Types</a></td>
-            <td class="jd-descrcol" width="100%">This class represents Definitions->types.&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_U">U</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Undelete_element.html">Undelete_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UndeleteResponse_element.html">UndeleteResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UndeleteResult.html">UndeleteResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/fault/UnexpectedErrorFault.html">UnexpectedErrorFault</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Update_element.html">Update_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpdateDefinitionParser.html">UpdateDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/StorageClassEnumTransformer.html">StorageClassEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">UpdateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#update(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">update(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UpdateResponse_element.html">UpdateResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/Upsert_element.html">Upsert_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpsertDefinitionParser.html">UpsertDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/StringToDateTransformer.html">StringToDateTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></td>
-            <td class="jd-descrcol" width="100%">UpsertMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UpsertResponse_element.html">UpsertResponse_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/UserTerritoryDeleteHeader_element.html">UserTerritoryDeleteHeader_element</a></td>
-            <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
         </tr>
     
     
@@ -2201,109 +715,14 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/util/Verbose.html">Verbose</a></td>
-            <td class="jd-descrcol" width="100%">Util class to log debug messages.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/simpleapi/VersioningStatus.html">VersioningStatus</a></td>
+            <td class="jd-descrcol" width="100%">The posible versioning status.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/VersionInfo.html">VersionInfo</a></td>
-            <td class="jd-descrcol" width="100%">version&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_W">W</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/wsdlc.html">wsdlc</a></td>
-            <td class="jd-descrcol" width="100%">wsdlc is a tool that can generate java stubs from WSDL.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/tools/wsdlc.ToolsJarClassLoader.html">wsdlc.ToolsJarClassLoader</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/module/s3/config/VersioningStatusEnumTransformer.html">VersioningStatusEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/WsdlFactory.html">WsdlFactory</a></td>
-            <td class="jd-descrcol" width="100%">Use this factory to create WSDL data model.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/WsdlNode.html">WsdlNode</a></td>
-            <td class="jd-descrcol" width="100%">This class represents the root of the WSDL data model&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/WsdlParseException.html">WsdlParseException</a></td>
-            <td class="jd-descrcol" width="100%">This exception is thrown when there is an error in parsing WSDL.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/wsdl/WsdlParser.html">WsdlParser</a></td>
-            <td class="jd-descrcol" width="100%">WsdlParser&nbsp;</td>
-        </tr>
-    
-    
-</table>
-
-
-<h2 id="letter_X">X</h2>
-<table class="jd-sumtable">
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/XmlInputStream.html">XmlInputStream</a></td>
-            <td class="jd-descrcol" width="100%">This is a minimal pull parser.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a></td>
-            <td class="jd-descrcol" width="100%">This interface is used to mark a class as de/serializable to XML.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/XmlObject.html">XmlObject</a></td>
-            <td class="jd-descrcol" width="100%">This is a generic XML element -- same a DOM element.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/XmlOutputStream.html">XmlOutputStream</a></td>
-            <td class="jd-descrcol" width="100%">This is a minimal XML output stream, that can be used to write XML.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/XmlPullParser.html">XmlPullParser</a></td>
-            <td class="jd-descrcol" width="100%">XML Pull Parser is an interface that defines parsing functionlity provided
- in <a href="http://www.xmlpull.org/">XMLPULL V1 API</a> (visit this website to
- learn more about API and its implementations).&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/parser/XmlPullParserException.html">XmlPullParserException</a></td>
-            <td class="jd-descrcol" width="100%">This exception is thrown to signal XML Pull Parser related faults.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/com/sforce/ws/bind/XmlTypeInfoProvider.html">XmlTypeInfoProvider</a></td>
-            <td class="jd-descrcol" width="100%">This interface can be used to indicate that it knows what its type Info is, and to use this in preference to asking to the TypeMapper
- for the type info.&nbsp;</td>
         </tr>
     
     

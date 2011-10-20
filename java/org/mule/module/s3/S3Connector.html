@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule S3 Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>
+
+  S3Connector
+
+
+| Mule S3 Connector
+
+</title>
+<link href="../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule S3 Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../java/packages.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/package-summary.html">org.mule.module.s3</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/config/package-summary.html">org.mule.module.s3.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/config/spring/package-summary.html">org.mule.module.s3.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/simpleapi/package-summary.html">org.mule.module.s3.simpleapi</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/simpleapi/content/package-summary.html">org.mule.module.s3.simpleapi.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/s3/util/package-summary.html">org.mule.module.s3.util</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/module/s3/S3Connector.html">S3Connector</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/module/s3/S3ContentUtils.html">S3ContentUtils</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>S3Connector</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.s3.S3Connector</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../java/org/mule/module/s3/config/S3ConnectorCapabilitiesAdapter.html">S3ConnectorCapabilitiesAdapter</a>
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/s3/config/S3ConnectorCapabilitiesAdapter.html">S3ConnectorCapabilitiesAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>S3ConnectorCapabilitiesAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-indirect" class="jd-expando-trigger closed"
+          ><img id="subclasses-indirect-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Indirect Subclasses
+
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../java/org/mule/module/s3/config/S3ConnectorLifecycleAdapter.html">S3ConnectorLifecycleAdapter</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/s3/config/S3ConnectorLifecycleAdapter.html">S3ConnectorLifecycleAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>S3ConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/s3/S3Connector.html">S3Connector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>Amazon S3 (Simple Storage Service) is an online storage web service offered by Amazon Web Services. Amazon S3 
+ provides storage through web services interfaces (REST, SOAP, and BitTorrent).</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.html">SimpleAmazonS3</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/s3/S3Connector.html#client">client</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/s3/S3Connector.html#proxyHost">proxyHost</a></td>
+          <td class="jd-descrcol" width="100%">The optional  proxy port
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/s3/S3Connector.html#proxyPassword">proxyPassword</a></td>
+          <td class="jd-descrcol" width="100%">The optional  proxy password
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Integer</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/s3/S3Connector.html#proxyPort">proxyPort</a></td>
+          <td class="jd-descrcol" width="100%">The optional  proxy port
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/s3/S3Connector.html#proxyUsername">proxyUsername</a></td>
+          <td class="jd-descrcol" width="100%">The optional proxy username
+</td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#S3Connector()">S3Connector</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#connect(java.lang.String, java.lang.String)">connect</a></span>(String accessKey, String secretKey)</nobr>
+        
+        <div class="jd-descrdiv">Login to Amazon S3</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#copyObject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>, java.util.Date, java.util.Date)">copyObject</a></span>(String sourceBucketName, String sourceKey, String sourceVersionId, String destinationBucketName, String destinationKey, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> destinationAcl, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> destinationStorageClass, Map&lt;String,&nbsp;String&gt; destinationUserMetadata, Date modifiedSince, Date unmodifiedSince)</nobr>
+        
+        <div class="jd-descrdiv">Copies a source object to a new destination; to copy an object, the caller's
+ account must have read access to the source object and write access to the
+ destination bucket.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Bucket</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#createBucket(java.lang.String, org.mule.module.s3.simpleapi.Region, org.mule.module.s3.AccessControlList)">createBucket</a></span>(String bucketName, <a href="../../../../../java/org/mule/module/s3/simpleapi/Region.html">Region</a> region, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> acl)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new bucket; connector must not be configured as anonymous for this
+ operation to succeed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#createObject(java.lang.String, java.lang.String, java.lang.Object, java.lang.Long, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>)">createObject</a></span>(String bucketName, String key, Object content, Long contentLength, String contentMd5, String contentType, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> acl, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> storageClass, Map&lt;String,&nbsp;String&gt; userMetadata)</nobr>
+        
+        <div class="jd-descrdiv">Uploads an object to S3.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            URI</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#createObjectPresignedUri(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.lang.String)">createObjectPresignedUri</a></span>(String bucketName, String key, String versionId, Date expiration, String method)</nobr>
+        
+        <div class="jd-descrdiv">Returns a pre-signed URL for accessing an Amazon S3 object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            URI</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#createObjectUri(java.lang.String, java.lang.String, boolean, boolean)">createObjectUri</a></span>(String bucketName, String key, boolean useDefaultServer, boolean secure)</nobr>
+        
+        <div class="jd-descrdiv">Creates an http URI for the given object id.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#deleteBucket(java.lang.String, boolean)">deleteBucket</a></span>(String bucketName, boolean force)</nobr>
+        
+        <div class="jd-descrdiv">Deletes the specified bucket.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#deleteBucketPolicy(java.lang.String)">deleteBucketPolicy</a></span>(String bucketName)</nobr>
+        
+        <div class="jd-descrdiv">Deletes the bucket's policy.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#deleteBucketWebsiteConfiguration(java.lang.String)">deleteBucketWebsiteConfiguration</a></span>(String bucketName)</nobr>
+        
+        <div class="jd-descrdiv">Removes the website configuration for a bucket; this operation requires the
+ DeleteBucketWebsite permission.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#deleteObject(java.lang.String, java.lang.String, java.lang.String)">deleteObject</a></span>(String bucketName, String key, String versionId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a given object, only the owner of the bucket containing the version
+ can perform this operation.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#disconnect()">disconnect</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getBucketPolicy(java.lang.String)">getBucketPolicy</a></span>(String bucketName)</nobr>
+        
+        <div class="jd-descrdiv">Answers the policy for the given bucket.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            BucketWebsiteConfiguration</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getBucketWebsiteConfiguration(java.lang.String)">getBucketWebsiteConfiguration</a></span>(String bucketName)</nobr>
+        
+        <div class="jd-descrdiv">Answers the website of the given bucket.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            S3Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getObject(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)">getObject</a></span>(String bucketName, String key, String versionId, Date modifiedSince, Date unmodifiedSince)</nobr>
+        
+        <div class="jd-descrdiv">Gets the object stored in Amazon S3 under the specified bucket and key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            InputStream</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getObjectContent(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)">getObjectContent</a></span>(String bucketName, String key, String versionId, Date modifiedSince, Date unmodifiedSince)</nobr>
+        
+        <div class="jd-descrdiv">Gets the content of an object stored in Amazon S3 under the specified bucket
+ and key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ObjectMetadata</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getObjectMetadata(java.lang.String, java.lang.String, java.lang.String)">getObjectMetadata</a></span>(String bucketName, String key, String versionId)</nobr>
+        
+        <div class="jd-descrdiv">Gets the metadata for the specified Amazon S3 object without actually fetching
+ the object itself.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getProxyHost()">getProxyHost</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getProxyPassword()">getProxyPassword</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getProxyPort()">getProxyPort</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#getProxyUsername()">getProxyUsername</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Bucket&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#listBuckets()">listBuckets</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers a list of all Amazon S3 buckets that the authenticated sender of the
+ request owns.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Iterable&lt;S3VersionSummary&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#listObjectVersions(java.lang.String)">listObjectVersions</a></span>(String bucketName)</nobr>
+        
+        <div class="jd-descrdiv">Lazily lists all object versions for a given bucket that has versioning enabled.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Iterable&lt;S3ObjectSummary&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#listObjects(java.lang.String, java.lang.String)">listObjects</a></span>(String bucketName, String prefix)</nobr>
+        
+        <div class="jd-descrdiv">Lazily lists all objects for a given prefix.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setBucketPolicy(java.lang.String, java.lang.String)">setBucketPolicy</a></span>(String bucketName, String policyText)</nobr>
+        
+        <div class="jd-descrdiv">Sets the bucket's policy, overriding any previously set.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setBucketVersioningStatus(java.lang.String, org.mule.module.s3.simpleapi.VersioningStatus)">setBucketVersioningStatus</a></span>(String bucketName, <a href="../../../../../java/org/mule/module/s3/simpleapi/VersioningStatus.html">VersioningStatus</a> versioningStatus)</nobr>
+        
+        <div class="jd-descrdiv">Sets the versioning status for the given bucket.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setBucketWebsiteConfiguration(java.lang.String, java.lang.String, java.lang.String)">setBucketWebsiteConfiguration</a></span>(String bucketName, String suffix, String errorDocument)</nobr>
+        
+        <div class="jd-descrdiv">Sets the given bucket's website configuration.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setClient(org.mule.module.s3.simpleapi.SimpleAmazonS3)">setClient</a></span>(<a href="../../../../../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.html">SimpleAmazonS3</a> client)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setObjectStorageClass(java.lang.String, java.lang.String, org.mule.module.s3.StorageClass)">setObjectStorageClass</a></span>(String bucketName, String key, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> storageClass)</nobr>
+        
+        <div class="jd-descrdiv">Sets the Amazon S3 storage class for the given object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setProxyHost(java.lang.String)">setProxyHost</a></span>(String proxyHost)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setProxyPassword(java.lang.String)">setProxyPassword</a></span>(String proxyPassword)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setProxyPort(java.lang.Integer)">setProxyPort</a></span>(Integer proxyPort)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/s3/S3Connector.html#setProxyUsername(java.lang.String)">setProxyUsername</a></span>(String proxyUsername)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="client"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.html">SimpleAmazonS3</a>
+      </span>
+        client
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="proxyHost"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        proxyHost
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The optional  proxy port
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="proxyPassword"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        proxyPassword
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The optional  proxy password
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="proxyPort"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Integer
+      </span>
+        proxyPort
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The optional  proxy port
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="proxyUsername"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        proxyUsername
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The optional proxy username
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="S3Connector()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">S3Connector</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="connect(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">connect</span>
+      <span class="normal">(String accessKey, String secretKey)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Login to Amazon S3</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>accessKey</td>
+          <td>The access key provided by Amazon, needed for non annoynous operations</td>
+        </tr>
+        <tr>
+          <th>secretKey</td>
+          <td>The secrete key provided by Amazon, needed for non annoynous operations</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>ConnectionException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="copyObject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>, java.util.Date, java.util.Date)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">copyObject</span>
+      <span class="normal">(String sourceBucketName, String sourceKey, String sourceVersionId, String destinationBucketName, String destinationKey, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> destinationAcl, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> destinationStorageClass, Map&lt;String,&nbsp;String&gt; destinationUserMetadata, Date modifiedSince, Date unmodifiedSince)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copies a source object to a new destination; to copy an object, the caller's
+ account must have read access to the source object and write access to the
+ destination bucket. By default, all object metadata for the source object are
+ copied to the new destination object, unless new object metadata in the
+ specified is provided. The AccesControlList is not copied to the new object,
+ and, unless another ACL specified, PRIVATE is assumed. If no destination
+ bucket is specified, the same that the source bucket is used - local copy.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>sourceBucketName</td>
+          <td>the source object's bucket</td>
+        </tr>
+        <tr>
+          <th>sourceKey</td>
+          <td>the source object's key</td>
+        </tr>
+        <tr>
+          <th>sourceVersionId</td>
+          <td>the specific version of the source object to copy, if
+            versioning is enabled. Left unspecified if the latest version is
+            desired, or versioning is not enabled.</td>
+        </tr>
+        <tr>
+          <th>destinationBucketName</td>
+          <td>the destination object's bucket. If none
+            provided, a local copy is performed, that is, it is copied within
+            the same bucket.</td>
+        </tr>
+        <tr>
+          <th>destinationKey</td>
+          <td>the destination object's key</td>
+        </tr>
+        <tr>
+          <th>destinationAcl</td>
+          <td>the acl of the destination object.</td>
+        </tr>
+        <tr>
+          <th>destinationStorageClass</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>destinationUserMetadata</td>
+          <td>the new metadata of the destination object,
+            that if specified, overrides that copied from the source object</td>
+        </tr>
+        <tr>
+          <th>modifiedSince</td>
+          <td>The modified constraint that restricts this request to
+            executing only if the object has been modified after the specified
+            date. This constraint is specified but does not match, no copy is performed</td>
+        </tr>
+        <tr>
+          <th>unmodifiedSince</td>
+          <td>The unmodified constraint that restricts this request
+            to executing only if the object has not been modified after this
+            date. This constraint is specified but does not match, no copy is performed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the version id of the new object, or null, if versioning is not
+         enabled
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createBucket(java.lang.String, org.mule.module.s3.simpleapi.Region, org.mule.module.s3.AccessControlList)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Bucket
+      </span>
+      <span class="sympad">createBucket</span>
+      <span class="normal">(String bucketName, <a href="../../../../../java/org/mule/module/s3/simpleapi/Region.html">Region</a> region, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> acl)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new bucket; connector must not be configured as anonymous for this
+ operation to succeed. Bucket names must be unique across all of Amazon S3,
+ that is, among all their users. Bucket ownership is similar to the ownership
+ of Internet domain names. Within Amazon S3, only a single user owns each
+ bucket. Once a uniquely named bucket is created in Amazon S3, organize and
+ name the objects within the bucket in any way. Ownership of the bucket is
+ retained as long as the owner has an Amazon S3 account. To conform with DNS
+ requirements, buckets names must: not contain underscores, be between 3 and 63
+ characters long, not end with a dash, not contain adjacent periods, not
+ contain dashes next to periods and not contain uppercase characters. Do not
+ make bucket create or delete calls in the high availability code path of an
+ application. Create or delete buckets in a separate initialization or setup.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>The bucket to create. It must not exist yet.</td>
+        </tr>
+        <tr>
+          <th>region</td>
+          <td>the region where to create the new bucket</td>
+        </tr>
+        <tr>
+          <th>acl</td>
+          <td>the access control list of the new bucket</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the non null, new Bucket
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createObject(java.lang.String, java.lang.String, java.lang.Object, java.lang.Long, java.lang.String, java.lang.String, org.mule.module.s3.AccessControlList, org.mule.module.s3.StorageClass, java.util.Map<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">createObject</span>
+      <span class="normal">(String bucketName, String key, Object content, Long contentLength, String contentMd5, String contentType, <a href="../../../../../java/org/mule/module/s3/AccessControlList.html">AccessControlList</a> acl, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> storageClass, Map&lt;String,&nbsp;String&gt; userMetadata)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Uploads an object to S3. Supported contents are InputStreams, Strings, byte
+ arrays and Files.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>content</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>contentLength</td>
+          <td>the content length. If content is a InputStream,
+            this parameter should be specified, as not doing so will
+            introduce a performance loss as the contents will have to be persisted on disk before being uploaded. 
+            Otherwise, it is ignored. An exception to this 
+            rule are InputStreams returned by Mule Http Connector: if stream has Content-Length 
+            information, it will be used. 
+            In any case a content length of 0 is interpreted as an unspecified content length</td>
+        </tr>
+        <tr>
+          <th>contentMd5</td>
+          <td>the content md5, encoded in base 64. If content is a file,
+            it is ignored.</td>
+        </tr>
+        <tr>
+          <th>contentType</td>
+          <td>the content type of the new object.</td>
+        </tr>
+        <tr>
+          <th>acl</td>
+          <td>the access control list of the new object</td>
+        </tr>
+        <tr>
+          <th>storageClass</td>
+          <td>the storage class of the new object</td>
+        </tr>
+        <tr>
+          <th>userMetadata</td>
+          <td>a map of arbitrary object properties keys and values</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the id of the created object, or null, if versioning is not enabled
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createObjectPresignedUri(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        URI
+      </span>
+      <span class="sympad">createObjectPresignedUri</span>
+      <span class="normal">(String bucketName, String key, String versionId, Date expiration, String method)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a pre-signed URL for accessing an Amazon S3 object. The pre-signed URL
+ can be shared to other users, allowing access to the resource without
+ providing an account's AWS security credentials.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>versionId</td>
+          <td>the specific version of the object to create the URI, if
+            versioning is enabled. Left unspecified if the latest version is
+            desired, or versioning is not enabled.</td>
+        </tr>
+        <tr>
+          <th>expiration</td>
+          <td>The time at which the returned pre-signed URL will expire.</td>
+        </tr>
+        <tr>
+          <th>method</td>
+          <td>The HTTP method verb to use for this URL</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A non null pre-signed URI that can be used to access an Amazon S3
+         resource without requiring the user of the URL to know the account's
+         AWS security credentials.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createObjectUri(java.lang.String, java.lang.String, boolean, boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        URI
+      </span>
+      <span class="sympad">createObjectUri</span>
+      <span class="normal">(String bucketName, String key, boolean useDefaultServer, boolean secure)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates an http URI for the given object id. The useDefaultServer option
+ enables using default US Amazon server subdomain in the URI regardless of the
+ region. The main benefit of such feature is that this operation does not need
+ to hit the Amazon servers, but the drawback is that using the given URI as an
+ URL to the resource have unnecessary latency penalties for standard regions
+ other than US_STANDARD.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>useDefaultServer</td>
+          <td>if the default US Amazon server subdomain should be
+            used in the URI regardless of the region.</td>
+        </tr>
+        <tr>
+          <th>secure</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a non secure http URI to the object. Unlike the presigned URI, object
+         must have PUBLIC_READ or PUBLIC_READ_WRITE permission
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteBucket(java.lang.String, boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">deleteBucket</span>
+      <span class="normal">(String bucketName, boolean force)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes the specified bucket. All objects (and all object versions, if
+ versioning was ever enabled) in the bucket must be deleted before the bucket
+ itself can be deleted; this restriction can be relaxed by specifying the 
+ attribute  force="true".
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the bucket to delete</td>
+        </tr>
+        <tr>
+          <th>force</td>
+          <td>optional true if the bucket must be deleted even if it is not empty, false if operation should fail in such scenario.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteBucketPolicy(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">deleteBucketPolicy</span>
+      <span class="normal">(String bucketName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes the bucket's policy. Only the owner of the bucket can delete the
+ bucket policy. Bucket policies provide access control management at the bucket
+ level for both the bucket resource and contained object resources.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the bucket whose policy to delete
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteBucketWebsiteConfiguration(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">deleteBucketWebsiteConfiguration</span>
+      <span class="normal">(String bucketName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes the website configuration for a bucket; this operation requires the
+ DeleteBucketWebsite permission. By default, only the bucket owner can delete
+ the website configuration attached to a bucket. However, bucket owners can
+ grant other users permission to delete the website configuration by writing a
+ bucket policy granting them the <code>S3:DeleteBucketWebsite</code>
+ permission. Calling this operation on a bucket with no website configuration
+ does not fail, but calling this operation a bucket that does not exist does.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the bucket whose policy to delete
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteObject(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">deleteObject</span>
+      <span class="normal">(String bucketName, String key, String versionId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes a given object, only the owner of the bucket containing the version
+ can perform this operation. If version is specified, versioning must be
+ enabled, and once deleted, there is no method to restore such version.
+ Otherwise, once deleted, the object can only be restored if versioning was
+ enabled when the object was deleted. If attempting to delete an object that
+ does not exist, Amazon S3 will return a success message instead of an error
+ message.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>versionId</td>
+          <td>the specific version of the object to delete, if versioning
+            is enabled. Left unspecified if the latest version is desired, or
+            versioning is not enabled.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="disconnect()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">disconnect</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getBucketPolicy(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBucketPolicy</span>
+      <span class="normal">(String bucketName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the policy for the given bucket. Only the owner of the bucket can
+ retrieve it. If no policy has been set for the bucket, then a null policy text
+ field will be returned.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the bucket whose policy to retrieve</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the bucket policy, or null, if not set
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBucketWebsiteConfiguration(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        BucketWebsiteConfiguration
+      </span>
+      <span class="sympad">getBucketWebsiteConfiguration</span>
+      <span class="normal">(String bucketName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the website of the given bucket. This operation requires the
+ GetBucketWebsite permission. By default, only the bucket owner can read the
+ bucket website configuration. However, bucket owners can allow other users to
+ read the website configuration by writing a bucket policy granting them the
+ GetBucketWebsite permission.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a non null com.amazonaws.services.s3.model.BucketWebsiteConfiguration
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getObject(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        S3Object
+      </span>
+      <span class="sympad">getObject</span>
+      <span class="normal">(String bucketName, String key, String versionId, Date modifiedSince, Date unmodifiedSince)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the object stored in Amazon S3 under the specified bucket and key.
+ Returns null if the specified constraints weren't met. To get an object from
+ Amazon S3, the caller must have <code><a href="null#Read">Read</a></code> access to the object.
+ Callers should be very careful when using this method; the returned Amazon S3
+ object contains a direct stream of data from the HTTP connection. The
+ underlying HTTP connection cannot be closed until the user finishes reading
+ the data and closes the stream. Regarding conditional get constraints, Amazon
+ S3 will ignore any dates occurring in the future.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>versionId</td>
+          <td>the specific version of the object to get its contents, if
+            versioning is enabled. Left unspecified if the latest version is
+            desired, or versioning is not enabled.</td>
+        </tr>
+        <tr>
+          <th>modifiedSince</td>
+          <td>The modified constraint that restricts this request to
+            executing only if the object has been modified after the specified
+            date.</td>
+        </tr>
+        <tr>
+          <th>unmodifiedSince</td>
+          <td>The unmodified constraint that restricts this request
+            to executing only if the object has not been modified after this
+            date.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the S3Object, or null, if conditional get constraints did not match
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getObjectContent(java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.util.Date)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        InputStream
+      </span>
+      <span class="sympad">getObjectContent</span>
+      <span class="normal">(String bucketName, String key, String versionId, Date modifiedSince, Date unmodifiedSince)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the content of an object stored in Amazon S3 under the specified bucket
+ and key. Returns null if the specified constraints weren't met. To get an
+ object's content from Amazon S3, the caller must have <code><a href="null#Read">Read</a></code>
+ access to the object. Regarding conditional get constraints, Amazon S3 will
+ ignore any dates occurring in the future.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>versionId</td>
+          <td>the specific version of the object to get its contents, if
+            versioning is enabled, left unspecified if the latest version is
+            desired, or versioning is not enabled.</td>
+        </tr>
+        <tr>
+          <th>modifiedSince</td>
+          <td>The modified constraint that restricts this request to
+            executing only if the object has been modified after the specified
+            date.</td>
+        </tr>
+        <tr>
+          <th>unmodifiedSince</td>
+          <td>The unmodified constraint that restricts this request
+            to executing only if the object has not been modified after this
+            date.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>an input stream to the objects contents
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getObjectMetadata(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        ObjectMetadata
+      </span>
+      <span class="sympad">getObjectMetadata</span>
+      <span class="normal">(String bucketName, String key, String versionId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the metadata for the specified Amazon S3 object without actually fetching
+ the object itself. This is useful in obtaining only the object metadata, and
+ avoids wasting bandwidth on fetching the object data.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>versionId</td>
+          <td>the object metadata for the given bucketName and key</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the non null object metadata
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProxyHost()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getProxyHost</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getProxyPassword()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getProxyPassword</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getProxyPort()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getProxyPort</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getProxyUsername()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getProxyUsername</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="listBuckets()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;Bucket&gt;
+      </span>
+      <span class="sympad">listBuckets</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers a list of all Amazon S3 buckets that the authenticated sender of the
+ request owns. Users must authenticate with a valid AWS Access Key ID that is
+ registered with Amazon S3. Anonymous requests cannot list buckets, and users
+ cannot list buckets that they did not create.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a non null list of com.amazonaws.services.s3.model.Bucket
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listObjectVersions(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Iterable&lt;S3VersionSummary&gt;
+      </span>
+      <span class="sympad">listObjectVersions</span>
+      <span class="normal">(String bucketName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Lazily lists all object versions for a given bucket that has versioning enabled.
+ As S3 does not limit in any way
+ the number of objects, such listing can retrieve an arbitrary amount of
+ object versions, and may need to perform extra calls to the api while it is iterated.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the target bucket's name</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An iterable
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listObjects(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Iterable&lt;S3ObjectSummary&gt;
+      </span>
+      <span class="sympad">listObjects</span>
+      <span class="normal">(String bucketName, String prefix)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Lazily lists all objects for a given prefix. As S3 does not limit in any way
+ the number of objects, such listing can retrieve an arbitrary amount of
+ objects, and may need to perform extra calls to the api while it is iterated.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the target bucket's name</td>
+        </tr>
+        <tr>
+          <th>prefix</td>
+          <td>the prefix of the objects to be listed. If unspecified, all
+            objects are listed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An iterable
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBucketPolicy(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBucketPolicy</span>
+      <span class="normal">(String bucketName, String policyText)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the bucket's policy, overriding any previously set. Only the owner of the
+ bucket can set a bucket policy. Bucket policies provide access control
+ management at the bucket level for both the bucket resource and contained
+ object resources. Only one policy can be specified per-bucket.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the bucket name</td>
+        </tr>
+        <tr>
+          <th>policyText</td>
+          <td>the policy text
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBucketVersioningStatus(java.lang.String, org.mule.module.s3.simpleapi.VersioningStatus)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBucketVersioningStatus</span>
+      <span class="normal">(String bucketName, <a href="../../../../../java/org/mule/module/s3/simpleapi/VersioningStatus.html">VersioningStatus</a> versioningStatus)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the versioning status for the given bucket. A bucket's versioning
+ configuration can be in one of three possible states: Off, Enabled and
+ Suspended. By default, new buckets are in the Off state. Once versioning is
+ enabled for a bucket the status can never be reverted to Off.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the target bucket name</td>
+        </tr>
+        <tr>
+          <th>versioningStatus</td>
+          <td>the version status to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBucketWebsiteConfiguration(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBucketWebsiteConfiguration</span>
+      <span class="normal">(String bucketName, String suffix, String errorDocument)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the given bucket's website configuration. This operation requires the
+ PutBucketWebsite permission. By default, only the bucket owner can configure
+ the website attached to a bucket. However, bucket owners can allow other users
+ to set the website configuration by writing a bucket policy granting them the
+ S3:PutBucketWebsite permission.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the target bucket's name</td>
+        </tr>
+        <tr>
+          <th>suffix</td>
+          <td>The document to serve when a directory is specified, relative to
+            the requested resource</td>
+        </tr>
+        <tr>
+          <th>errorDocument</td>
+          <td>the full path to error document the bucket will use as
+            error page for 4XX errors
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setClient(org.mule.module.s3.simpleapi.SimpleAmazonS3)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setClient</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/s3/simpleapi/SimpleAmazonS3.html">SimpleAmazonS3</a> client)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>client</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setObjectStorageClass(java.lang.String, java.lang.String, org.mule.module.s3.StorageClass)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setObjectStorageClass</span>
+      <span class="normal">(String bucketName, String key, <a href="../../../../../java/org/mule/module/s3/StorageClass.html">StorageClass</a> storageClass)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the Amazon S3 storage class for the given object. Changing the storage
+ class of an object in a bucket that has enabled versioning creates a new
+ version of the object with the new storage class. The existing version of the
+ object preservers the previous storage class.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>bucketName</td>
+          <td>the object's bucket name</td>
+        </tr>
+        <tr>
+          <th>key</td>
+          <td>the object's key</td>
+        </tr>
+        <tr>
+          <th>storageClass</td>
+          <td>the storage class to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setProxyHost(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setProxyHost</span>
+      <span class="normal">(String proxyHost)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>proxyHost</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setProxyPassword(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setProxyPassword</span>
+      <span class="normal">(String proxyPassword)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>proxyPassword</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setProxyPort(java.lang.Integer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setProxyPort</span>
+      <span class="normal">(Integer proxyPort)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>proxyPort</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setProxyUsername(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setProxyUsername</span>
+      <span class="normal">(String proxyUsername)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>proxyUsername</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
