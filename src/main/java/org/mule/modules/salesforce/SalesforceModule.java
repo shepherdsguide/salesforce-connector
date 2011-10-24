@@ -163,7 +163,7 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
-     * @param type    Type of object to create
+     * @param type    Type of object to update
      * @return An array of {@link SaveResult}
      * @throws SalesforceException
      */
@@ -189,7 +189,8 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert}
      *
-     * @param externalIdFieldName something?
+     * @param externalIdFieldName Contains the name of the field on this object with the external ID field attribute
+     *                            for custom objects or the idLookup field property for standard objects.
      * @param type                the type of the given objects. The list of objects to upsert must be homogeneous
      * @param objects             the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
@@ -524,8 +525,9 @@ public class SalesforceModule {
                 SObject pushTopic = new SObject();
                 pushTopic.setType("PushTopic");
                 pushTopic.setField("ApiVersion", "22.0");
-                if (description != null)
+                if (description != null) {
                     pushTopic.setField("Description", description);
+                }
 
                 pushTopic.setField("Name", name);
                 pushTopic.setField("Query", query);
@@ -536,8 +538,9 @@ public class SalesforceModule {
                 }
             } else {
                 SObject pushTopic = result.getRecords()[0];
-                if (description != null)
+                if (description != null) {
                     pushTopic.setField("Description", description);
+                }
 
                 pushTopic.setField("Query", query);
 
