@@ -367,7 +367,7 @@ public class SoapConnection {
         headers.clear();
     }
     
-    private static class SessionTimedOutException extends ConnectionException {
+    public static class SessionTimedOutException extends ConnectionException {
         private SessionTimedOutException(String faultString, Exception e) {
             super(faultString, e);
         }

@@ -1,31 +1,16 @@
 package org.mule.modules.salesforce;
 
 import com.sforce.soap.partner.Connector;
-import com.sforce.soap.partner.DeleteResult;
-import com.sforce.soap.partner.DescribeGlobalResult;
-import com.sforce.soap.partner.DescribeSObjectResult;
-import com.sforce.soap.partner.EmptyRecycleBinResult;
-import com.sforce.soap.partner.GetDeletedResult;
-import com.sforce.soap.partner.LeadConvert;
-import com.sforce.soap.partner.LeadConvertResult;
-import com.sforce.soap.partner.LoginResult;
-import com.sforce.soap.partner.PartnerConnection;
-import com.sforce.soap.partner.QueryResult;
-import com.sforce.soap.partner.SaveResult;
-import com.sforce.soap.partner.UpsertResult;
+import com.sforce.soap.partner.*;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
+import com.sforce.ws.transport.SoapConnection;
 import org.apache.log4j.Logger;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.mule.api.ConnectionExceptionCode;
-import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.Connect;
-import org.mule.api.annotations.Disconnect;
-import org.mule.api.annotations.Module;
-import org.mule.api.annotations.Processor;
-import org.mule.api.annotations.Source;
+import org.mule.api.annotations.*;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
@@ -33,11 +18,7 @@ import org.mule.api.callback.SourceCallback;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * The Salesforce Connector will allow to connect to the Salesforce application. Almost every operation that can be
@@ -116,26 +97,47 @@ public class SalesforceModule {
      * @param objects An array of one or more sObjects objects.
      * @param type    Type of object to create
      * @return An array of {@link SaveResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public List<SaveResult> create(String type, List<Map<String, String>> objects) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<SaveResult> create(String type, List<Map<String, String>> objects) throws Exception {
 
         List<SaveResult> saveResults = null;
-        try {
-            saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in create: " +
-                    e.getMessage(), e);
-        }
+        saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
 
         return saveResults;
     }
 
+    @ValidateConnection
+    public boolean isConnected() {
+        if (this.connection != null) {
+            if (this.loginResult != null) {
+                if (this.loginResult.getSessionId() != null) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    @ConnectionIdentifier
+    public String getSessionId() {
+        if (this.connection != null) {
+            if (this.loginResult != null) {
+                return this.loginResult.getSessionId();
+            }
+        }
+
+        return null;
+    }
+
+
     /**
      * End the current session
      *
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Disconnect
     public synchronized void destroySession() {
@@ -165,18 +167,14 @@ public class SalesforceModule {
      * @param objects An array of one or more sObjects objects.
      * @param type    Type of object to update
      * @return An array of {@link SaveResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public List<SaveResult> update(String type, List<Map<String, String>> objects) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<SaveResult> update(String type, List<Map<String, String>> objects) throws Exception {
 
         List<SaveResult> saveResults = null;
-        try {
-            saveResults = Arrays.asList(this.connection.update(toSObjectList(type, objects)));
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in update: " +
-                    e.getMessage(), e);
-        }
+        saveResults = Arrays.asList(this.connection.update(toSObjectList(type, objects)));
 
         return saveResults;
     }
@@ -194,14 +192,15 @@ public class SalesforceModule {
      * @param type                the type of the given objects. The list of objects to upsert must be homogeneous
      * @param objects             the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
-     * @throws SalesforceException if a connection error occurs
+     * @throws Exception if a connection error occurs
      */
     @Processor
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, String>> objects) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, String>> objects) throws Exception {
         try {
             return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
         } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in upsert: " +
+            throw new Exception("Unexpected error encountered in upsert: " +
                     e.getMessage(), e);
         }
     }
@@ -213,16 +212,11 @@ public class SalesforceModule {
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-global}
      *
      * @return A {@link DescribeGlobalResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public DescribeGlobalResult describeGlobal() throws SalesforceException {
-        try {
-            return this.connection.describeGlobal();
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in describeGlobal: " +
-                    e.getMessage(), e);
-        }
+    public DescribeGlobalResult describeGlobal() throws Exception {
+        return this.connection.describeGlobal();
     }
 
     /**
@@ -235,10 +229,11 @@ public class SalesforceModule {
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
      * @return An array of {@link SObject}s
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public List<Map<String, Object>> query(String query) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<Map<String, Object>> query(String query) throws Exception {
         try {
             SObject[] objects = this.connection.query(query).getRecords();
             List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
@@ -248,7 +243,7 @@ public class SalesforceModule {
 
             return result;
         } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in query: " +
+            throw new Exception("Unexpected error encountered in query: " +
                     e.getMessage(), e);
         }
     }
@@ -263,18 +258,14 @@ public class SalesforceModule {
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
      * @return A single {@link SObject}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public Map<String, Object> querySingle(String query) throws SalesforceException {
-        try {
-            SObject[] result = this.connection.query(query).getRecords();
-            if (result.length > 0) {
-                return result[0].toMap();
-            }
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in querySingle: " +
-                    e.getMessage(), e);
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public Map<String, Object> querySingle(String query) throws Exception {
+        SObject[] result = this.connection.query(query).getRecords();
+        if (result.length > 0) {
+            return result[0].toMap();
         }
 
         return null;
@@ -325,9 +316,10 @@ public class SalesforceModule {
      * @param sendEmailToOwner       Specifies whether to send a notification email to the owner specified in the
      *                               ownerId (true) or not (false, the default).
      * @return A list of {@link LeadConvertResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public LeadConvertResult convertLead(String leadId, String contactId,
                                          @Optional String accountId,
                                          @Optional @Default("false") Boolean overWriteLeadSource,
@@ -335,7 +327,7 @@ public class SalesforceModule {
                                          @Optional String opportunityName,
                                          String convertedStatus,
                                          @Optional @Default("false") Boolean sendEmailToOwner)
-            throws SalesforceException {
+            throws Exception {
 
         LeadConvert leadConvert = new LeadConvert();
         leadConvert.setLeadId(leadId);
@@ -353,12 +345,7 @@ public class SalesforceModule {
 
         LeadConvertResult[] lcr = null;
 
-        try {
-            lcr = this.connection.convertLead(list);
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in convertLead: " +
-                    e.getMessage(), e);
-        }
+        lcr = this.connection.convertLead(list);
 
         return lcr[0];
     }
@@ -378,15 +365,11 @@ public class SalesforceModule {
      * @return A list of {@link EmptyRecycleBinResult}
      */
     @Processor
-    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws Exception {
         EmptyRecycleBinResult[] emptyRecycleBinResults = null;
 
-        try {
-            emptyRecycleBinResults = this.connection.emptyRecycleBin(ids.toArray(new String[]{}));
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in emptyRecycleBin: " +
-                    e.getMessage(), e);
-        }
+        emptyRecycleBinResults = this.connection.emptyRecycleBin(ids.toArray(new String[]{}));
 
         return Arrays.asList(emptyRecycleBinResults);
     }
@@ -400,15 +383,16 @@ public class SalesforceModule {
      *
      * @param ids Array of one or more IDs associated with the objects to delete.
      * @return An array of {@link DeleteResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public List<DeleteResult> delete(List<String> ids) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<DeleteResult> delete(List<String> ids) throws Exception {
         List<DeleteResult> deleteResults = null;
         try {
             deleteResults = Arrays.asList(this.connection.delete((String[]) ids.toArray()));
         } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in delete: " +
+            throw new Exception("Unexpected error encountered in delete: " +
                     e.getMessage(), e);
         }
 
@@ -429,19 +413,15 @@ public class SalesforceModule {
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
      * @return {@link GetDeletedResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws Exception {
 
         GetDeletedResult gdr = null;
 
-        try {
-            gdr = this.connection.getDeleted(type, startTime, endTime);
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in getDeletedRange: " +
-                    e.getMessage(), e);
-        }
+        gdr = this.connection.getDeleted(type, startTime, endTime);
 
         return gdr;
     }
@@ -455,17 +435,18 @@ public class SalesforceModule {
      * @param type Object. The specified value must be a valid object for your organization. For a complete list
      *             of objects, see Standard Objects
      * @return {@link DescribeSObjectResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor(name = "describe-sobject")
-    public DescribeSObjectResult describeSObject(String type) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public DescribeSObjectResult describeSObject(String type) throws Exception {
 
         DescribeSObjectResult dsobj = null;
 
         try {
             dsobj = this.connection.describeSObject(type);
         } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in describeSObject: " +
+            throw new Exception("Unexpected error encountered in describeSObject: " +
                     e.getMessage(), e);
         }
 
@@ -481,19 +462,15 @@ public class SalesforceModule {
      * @param type     Object type. The specified value must be a valid object for your organization.
      * @param duration The amount of time in minutes before now for which to return records from.
      * @return {@link GetDeletedResult}
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public GetDeletedResult getDeleted(String type, int duration) throws SalesforceException {
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetDeletedResult getDeleted(String type, int duration) throws Exception {
         GetDeletedResult gdr = null;
         Calendar serverTime = null;
 
-        try {
-            serverTime = this.connection.getServerTimestamp().getTimestamp();
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in getTimestamp: " +
-                    e.getMessage(), e);
-        }
+        serverTime = this.connection.getServerTimestamp().getTimestamp();
         Calendar startTime = (Calendar) serverTime.clone();
         Calendar endTime = (Calendar) serverTime.clone();
 
@@ -515,43 +492,39 @@ public class SalesforceModule {
      * @param description Description of what kinds of records are returned by the query. Limit: 400 characters
      * @param query       The SOQL query statement that determines which records' changes trigger events to be sent to
      *                    the channel. Maximum length: 1200 characters
-     * @throws SalesforceException
+     * @throws Exception
      */
     @Processor
-    public void publishTopic(String name, String query, @Optional String description) throws SalesforceException {
-        try {
-            QueryResult result = this.connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
-            if (result.getSize() == 0) {
-                SObject pushTopic = new SObject();
-                pushTopic.setType("PushTopic");
-                pushTopic.setField("ApiVersion", "22.0");
-                if (description != null) {
-                    pushTopic.setField("Description", description);
-                }
-
-                pushTopic.setField("Name", name);
-                pushTopic.setField("Query", query);
-
-                SaveResult[] saveResults = this.connection.create(new SObject[]{pushTopic});
-                if (!saveResults[0].isSuccess()) {
-                    throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
-                }
-            } else {
-                SObject pushTopic = result.getRecords()[0];
-                if (description != null) {
-                    pushTopic.setField("Description", description);
-                }
-
-                pushTopic.setField("Query", query);
-
-                SaveResult[] saveResults = this.connection.update(new SObject[]{pushTopic});
-                if (!saveResults[0].isSuccess()) {
-                    throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
-                }
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public void publishTopic(String name, String query, @Optional String description) throws Exception {
+        QueryResult result = this.connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
+        if (result.getSize() == 0) {
+            SObject pushTopic = new SObject();
+            pushTopic.setType("PushTopic");
+            pushTopic.setField("ApiVersion", "22.0");
+            if (description != null) {
+                pushTopic.setField("Description", description);
             }
-        } catch (Exception e) {
-            throw new SalesforceException("Unexpected error encountered in describeSObject: " +
-                    e.getMessage(), e);
+
+            pushTopic.setField("Name", name);
+            pushTopic.setField("Query", query);
+
+            SaveResult[] saveResults = this.connection.create(new SObject[]{pushTopic});
+            if (!saveResults[0].isSuccess()) {
+                throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
+            }
+        } else {
+            SObject pushTopic = result.getRecords()[0];
+            if (description != null) {
+                pushTopic.setField("Description", description);
+            }
+
+            pushTopic.setField("Query", query);
+
+            SaveResult[] saveResults = this.connection.update(new SObject[]{pushTopic});
+            if (!saveResults[0].isSuccess()) {
+                throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
+            }
         }
     }
 
