@@ -32,7 +32,7 @@ import java.util.*;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "sfdc", schemaVersion = "4.0")
+@org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0")
 public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
 
@@ -51,7 +51,7 @@ public class SalesforceModule {
     @Default("80")
     private int proxyPort = -1;
 
-    /**
+    /**                 V
      * Proxy username
      */
     @Configurable
