@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  SoapConnection
+  SoapConnection.SessionTimedOutException
 
 
 | Mule Salesforce Connector
@@ -226,7 +226,7 @@
           <li class="api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/JdkHttpTransport.MessageHandlerOutputStream.html">JdkHttpTransport.MessageHandlerOutputStream</a></li>
           <li class="api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/JdkHttpTransport.TeeInputStream.html">JdkHttpTransport.TeeInputStream</a></li>
           <li class="api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/JdkHttpTransport.TeeOutputStream.html">JdkHttpTransport.TeeOutputStream</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/SoapConnection.html">SoapConnection</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/SoapConnection.html">SoapConnection</a></li>
       </ul>
     </li>
               
@@ -234,7 +234,7 @@
               
     <li><h2>Exceptions</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/SoapConnection.SessionTimedOutException.html">SoapConnection.SessionTimedOutException</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../java/com/sforce/ws/transport/SoapConnection.SessionTimedOutException.html">SoapConnection.SessionTimedOutException</a></li>
       </ul>
     </li>
               
@@ -276,7 +276,37 @@
 
 
   
+  
    
+  
+  
+  
+
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
   
   
   
@@ -288,27 +318,21 @@
 
 Summary:
 
-  <a href="#nestedclasses">Nested Classes</a>
+
+
+
+
+
+  <a href="#inhconstants">Inherited Constants</a>
   
 
 
 
-
-
-
-
-  &#124; <a href="#lfields">Fields</a>
+  &#124; <a href="#inhfields">Inherited Fields</a>
   
 
 
 
-  &#124; <a href="#pubctors">Ctors</a>
-  
-
-
-
-  &#124; <a href="#pubmethods">Methods</a>
-  
 
 
 
@@ -332,16 +356,28 @@ Summary:
 
 <div id="jd-header">
     public
-     
+    static 
      
     
     class
-<h1>SoapConnection</h1>
+<h1>SoapConnection.SessionTimedOutException</h1>
 
 
 
   
-    extends Object<br/>
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../java/com/sforce/ws/ConnectionException.html">ConnectionException</a><br/>
   
   
   
@@ -361,7 +397,7 @@ Summary:
 
     <tr>
         
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="5" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -369,7 +405,43 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">com.sforce.ws.transport.SoapConnection</td>
+        <td colspan="4" class="jd-inheritance-class-cell">java.lang.Throwable</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Exception</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../java/com/sforce/ws/ConnectionException.html">com.sforce.ws.ConnectionException</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.sforce.ws.transport.SoapConnection.SessionTimedOutException</td>
     </tr>
     
 
@@ -383,12 +455,6 @@ Summary:
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>SoapConnection can be used to send and receive SOAP messages over the
- specified Transport. This class can be used to send any XML data and it
- returns the result as XML. This class is ideal to use with doc-literal
- web service.</p>
 
 
 
@@ -418,34 +484,122 @@ Summary:
 
 
 
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-com.sforce.ws.ConnectionException" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-com.sforce.ws.ConnectionException-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../com/sforce/ws/ConnectionException.html">com.sforce.ws.ConnectionException</a>
+<div id="inherited-constants-com.sforce.ws.ConnectionException">
+  <div id="inherited-constants-com.sforce.ws.ConnectionException-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-com.sforce.ws.ConnectionException-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
     <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol"><nobr>
-        
-        
-        
-        
-        class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../../../java/com/sforce/ws/transport/SoapConnection.SessionTimedOutException.html">SoapConnection.SessionTimedOutException</a></td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
+        <td class="jd-typecol">long</td>
+        <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/ConnectionException.html#serialVersionUID">serialVersionUID</a></td>
+        <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-java.lang.Exception" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-java.lang.Exception-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+java.lang.Exception
+<div id="inherited-constants-java.lang.Exception">
+  <div id="inherited-constants-java.lang.Exception-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-java.lang.Exception-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">long</td>
+        <td class="jd-linkcol">serialVersionUID</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-java.lang.Throwable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-java.lang.Throwable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+java.lang.Throwable
+<div id="inherited-constants-java.lang.Throwable">
+  <div id="inherited-constants-java.lang.Throwable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-java.lang.Throwable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">long</td>
+        <td class="jd-linkcol">serialVersionUID</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
 
 
 
 
 
 
-
-
-
-
-
+</table>
 
 
 
@@ -454,39 +608,39 @@ Summary:
 
 
 <!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
 
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-java.lang.Throwable" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-java.lang.Throwable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+java.lang.Throwable
+<div id="inherited-fields-java.lang.Throwable">
+  <div id="inherited-fields-java.lang.Throwable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-java.lang.Throwable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
 
     
       <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          <a href="../../../../../java/com/sforce/ws/ConnectorConfig.html">ConnectorConfig</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#config">config</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#connection">connection</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          HashMap&lt;QName,&nbsp;Object&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#headers">headers</a></td>
+          <td class="jd-linkcol">backtrace</td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -496,8 +650,8 @@ Summary:
           private
           
           
-          Map&lt;QName,&nbsp;Class&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#knownHeaders">knownHeaders</a></td>
+          Throwable</nobr></td>
+          <td class="jd-linkcol">cause</td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -508,7 +662,7 @@ Summary:
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#objectNamespace">objectNamespace</a></td>
+          <td class="jd-linkcol">detailMessage</td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -518,51 +672,19 @@ Summary:
           private
           
           
-          <a href="../../../../../java/com/sforce/ws/bind/TypeMapper.html">TypeMapper</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#typeMapper">typeMapper</a></td>
+          StackTraceElement[]</nobr></td>
+          <td class="jd-linkcol">stackTrace</td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#url">url</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-
 </table>
+  </div>
+</div>
+</td></tr>
 
 
 
-
-
-
-
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#SoapConnection(java.lang.String, java.lang.String, com.sforce.ws.bind.TypeMapper, com.sforce.ws.ConnectorConfig)">SoapConnection</a></span>(String url, String objectNamespace, <a href="../../../../../java/com/sforce/ws/bind/TypeMapper.html">TypeMapper</a> typeMapper, <a href="../../../../../java/com/sforce/ws/ConnectorConfig.html">ConnectorConfig</a> config)</nobr>
-        
-  </td></tr>
 
 
 
@@ -573,109 +695,6 @@ Summary:
 
 
 
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#addHeader(javax.xml.namespace.QName, java.lang.Object)">addHeader</a></span>(QName sessionHeader, Object header)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#clearHeaders()">clearHeaders</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#send(java.lang.String, javax.xml.namespace.QName, com.sforce.ws.bind.XMLizable, javax.xml.namespace.QName, java.lang.Class)">send</a></span>(String soapAction, QName requestElement, <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a> request, QName responseElement, Class responseType)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#send(javax.xml.namespace.QName, com.sforce.ws.bind.XMLizable, javax.xml.namespace.QName, java.lang.Class)">send</a></span>(QName requestElement, <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a> request, QName responseElement, Class responseType)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#setConnection(java.lang.Object)">setConnection</a></span>(Object connection)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/SoapConnection.html#setKnownHeaders(java.util.Map<javax.xml.namespace.QName, java.lang.Class>)">setKnownHeaders</a></span>(Map&lt;QName,&nbsp;Class&gt; knownHeaders)</nobr>
-        
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -687,6 +706,212 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Throwable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Throwable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Throwable
+
+<div id="inherited-methods-java.lang.Throwable">
+  <div id="inherited-methods-java.lang.Throwable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Throwable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            
+            
+            
+            Throwable</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">fillInStackTrace</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Throwable</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getCause</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getLocalizedMessage</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getMessage</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            StackTraceElement[]</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getStackTrace</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            
+            
+            
+            Throwable</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">initCause</span>(Throwable arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">printStackTrace</span>(PrintWriter arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">printStackTrace</span>(PrintStream arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">printStackTrace</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setStackTrace</span>(StackTraceElement[] arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -890,6 +1115,8 @@ From class
 </td></tr>
 
 
+
+
 </table>
 
 
@@ -916,283 +1143,7 @@ From class
 <!-- Fields -->
 
 
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
-
-
-
-
-<A NAME="config"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        <a href="../../../../../java/com/sforce/ws/ConnectorConfig.html">ConnectorConfig</a>
-      </span>
-        config
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="connection"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        connection
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="headers"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        HashMap&lt;QName,&nbsp;Object&gt;
-      </span>
-        headers
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="knownHeaders"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Map&lt;QName,&nbsp;Class&gt;
-      </span>
-        knownHeaders
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="objectNamespace"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        objectNamespace
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="typeMapper"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        <a href="../../../../../java/com/sforce/ws/bind/TypeMapper.html">TypeMapper</a>
-      </span>
-        typeMapper
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="url"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        url
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-
 <!-- Public ctors -->
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
-
-
-
-<A NAME="SoapConnection(java.lang.String, java.lang.String, com.sforce.ws.bind.TypeMapper, com.sforce.ws.ConnectorConfig)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">SoapConnection</span>
-      <span class="normal">(String url, String objectNamespace, <a href="../../../../../java/com/sforce/ws/bind/TypeMapper.html">TypeMapper</a> typeMapper, <a href="../../../../../java/com/sforce/ws/ConnectorConfig.html">ConnectorConfig</a> config)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>url</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>objectNamespace</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>typeMapper</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>config</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 
@@ -1203,292 +1154,6 @@ From class
 
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<A NAME="addHeader(javax.xml.namespace.QName, java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">addHeader</span>
-      <span class="normal">(QName sessionHeader, Object header)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>sessionHeader</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>header</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="clearHeaders()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">clearHeaders</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="send(java.lang.String, javax.xml.namespace.QName, com.sforce.ws.bind.XMLizable, javax.xml.namespace.QName, java.lang.Class)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a>
-      </span>
-      <span class="sympad">send</span>
-      <span class="normal">(String soapAction, QName requestElement, <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a> request, QName responseElement, Class responseType)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>soapAction</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>requestElement</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>request</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>responseElement</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>responseType</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th><a href="../../../../../java/com/sforce/ws/ConnectionException.html">ConnectionException</a></td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="send(javax.xml.namespace.QName, com.sforce.ws.bind.XMLizable, javax.xml.namespace.QName, java.lang.Class)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a>
-      </span>
-      <span class="sympad">send</span>
-      <span class="normal">(QName requestElement, <a href="../../../../../java/com/sforce/ws/bind/XMLizable.html">XMLizable</a> request, QName responseElement, Class responseType)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>requestElement</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>request</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>responseElement</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>responseType</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th><a href="../../../../../java/com/sforce/ws/ConnectionException.html">ConnectionException</a></td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setConnection(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setConnection</span>
-      <span class="normal">(Object connection)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>connection</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setKnownHeaders(java.util.Map<javax.xml.namespace.QName, java.lang.Class>)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setKnownHeaders</span>
-      <span class="normal">(Map&lt;QName,&nbsp;Class&gt; knownHeaders)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>knownHeaders</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 

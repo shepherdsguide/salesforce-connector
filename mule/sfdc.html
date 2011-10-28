@@ -563,6 +563,13 @@ resolution.</p>
       
     
 </table>
+<p>Also this connector offers automatic retry for certain operations. There are a couple of situations in which a retry may solve the problem at hand, like for example if the system is
+currently busy or if the session has expired. Those kind of situations are solvable by reacquiring a connection and retrying the operation.</p>
+<p>By default, the connector will automatically attempt to retry the operation only once. You can at your choosing specify a greater ammount of retries by using the <i>retryMax</i>
+attribute on each operation.</p>
+<pre>
+    ... retryMax="3"/&gt;
+</pre>
 
 
 
@@ -710,22 +717,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -767,7 +782,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -832,22 +847,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -877,7 +900,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -926,22 +949,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -969,7 +1000,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1005,22 +1036,30 @@ resolution.</p>
       <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1046,7 +1085,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1092,22 +1131,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1135,7 +1182,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1189,22 +1236,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1233,7 +1288,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1287,22 +1342,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1332,7 +1395,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1399,22 +1462,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1446,7 +1517,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1512,22 +1583,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1555,7 +1634,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1602,22 +1681,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1645,7 +1732,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1692,22 +1779,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1735,7 +1830,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1795,22 +1890,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1840,7 +1943,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1918,22 +2021,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class="alt-color api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
@@ -1965,7 +2076,7 @@ resolution.</p>
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
-            <th><a href="../java/org/mule/modules/salesforce/SalesforceException.html">SalesforceException</a></td>
+            <th>Exception</td>
             <td>if a connection error occurs
 <br/></td>
         </tr>
@@ -2039,22 +2150,30 @@ resolution.</p>
                 
                 
           
-        
+          
             <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>username</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
             </tr>
         
         
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>password</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
             </tr>
         
         
-            <tr class=" api apilevel-" >
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>securityToken</nobr></td>
                 <td class="jd-descrcol"></td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
