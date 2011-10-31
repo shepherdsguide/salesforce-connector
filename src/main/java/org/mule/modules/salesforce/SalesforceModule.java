@@ -565,7 +565,7 @@ public class SalesforceModule {
         try {
             this.connection = Connector.newConnection(createConnectorConfig(this.url, username, password + securityToken, this.proxyHost, this.proxyPort, this.proxyUsername, this.proxyPassword));
         } catch (ConnectionException e) {
-            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
         }
 
         reconnect();
@@ -590,7 +590,7 @@ public class SalesforceModule {
             this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
             this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
         } catch (ConnectionException e) {
-            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage());
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
         }
     }
 
