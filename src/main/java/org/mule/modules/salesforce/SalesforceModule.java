@@ -9,6 +9,7 @@ import com.sforce.ws.transport.SoapConnection;
 import org.apache.log4j.Logger;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
+import org.cometd.common.HashMapMessage;
 import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.*;
 import org.mule.api.annotations.param.ConnectionKey;
@@ -51,7 +52,8 @@ public class SalesforceModule {
     @Default("80")
     private int proxyPort = -1;
 
-    /**                 V
+    /**
+     * V
      * Proxy username
      */
     @Configurable
@@ -501,7 +503,7 @@ public class SalesforceModule {
         if (result.getSize() == 0) {
             SObject pushTopic = new SObject();
             pushTopic.setType("PushTopic");
-            pushTopic.setField("ApiVersion", "22.0");
+            pushTopic.setField("ApiVersion", "23.0");
             if (description != null) {
                 pushTopic.setField("Description", description);
             }
@@ -539,11 +541,41 @@ public class SalesforceModule {
      */
     @Source
     public void subscribeTopic(String topic, final SourceCallback callback) {
-        this.getBayeuxClient().subscribe(topic, new ClientSessionChannel.MessageListener() {
+        this.getBayeuxClient().subscribe("/topic" + topic, new ClientSessionChannel.MessageListener() {
             @Override
             public void onMessage(ClientSessionChannel channel, Message message) {
                 try {
-                    callback.process(message.getData());
+                    if (message instanceof HashMapMessage) {
+                        HashMapMessage hashMapMessage = (HashMapMessage) message;
+                        Map<String, Object> inboundProperties = new HashMap<String, Object>();
+                        if (!hashMapMessage.containsKey("channel")) {
+                            LOGGER.error("The event does not contain the channel");
+                        } else {
+                            inboundProperties.put("channel", hashMapMessage.get("channel"));
+                        }
+                        Map data;
+                        if (!hashMapMessage.containsKey("data")) {
+                            LOGGER.error("The event does not contain any data?");
+                        } else {
+                            data = (HashMap) hashMapMessage.get("data");
+                            Map sObject = (Map) data.get("sobject");
+                            Map event = (Map) data.get("event");
+                            if (sObject == null) {
+                                LOGGER.error("The data of the event does not contain an SObject");
+                            } else {
+                                if (event == null) {
+                                    LOGGER.error("The data of the event does not contain event information");
+                                } else {
+                                    for (Map.Entry entry : (Set<Map.Entry>) event.entrySet()) {
+                                        inboundProperties.put((String) entry.getKey(), entry.getValue());
+                                    }
+                                    callback.process(sObject, inboundProperties);
+                                }
+                            }
+                        }
+                    } else {
+                        callback.process(message.getData());
+                    }
                 } catch (Exception e) {
                     LOGGER.error(e);
                 }
