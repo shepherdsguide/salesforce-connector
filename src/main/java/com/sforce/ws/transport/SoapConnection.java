@@ -233,7 +233,7 @@ public class SoapConnection {
             e = (ConnectionException) typeMapper.readObject(xin, info, ConnectionException.class);
             if (e instanceof SoapFaultException) {
                 ((SoapFaultException)e).setFaultCode(faultCode);
-                if (faultstring != null && faultstring.contains("Session timed out") && "INVALID_SESSION_ID".equals(faultCode.getLocalPart())) {
+                if ("INVALID_SESSION_ID".equals(faultCode.getLocalPart())) {
                     e = new SessionTimedOutException(faultstring, e);
                 }
             }
