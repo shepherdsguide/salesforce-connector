@@ -392,7 +392,7 @@ public class SalesforceModule {
     public List<DeleteResult> delete(List<String> ids) throws Exception {
         List<DeleteResult> deleteResults = null;
         try {
-            deleteResults = Arrays.asList(this.connection.delete((String[]) ids.toArray()));
+            deleteResults = Arrays.asList(this.connection.delete(ids.toArray(new String[]{})));
         } catch (Exception e) {
             throw new Exception("Unexpected error encountered in delete: " +
                     e.getMessage(), e);
@@ -784,5 +784,13 @@ public class SalesforceModule {
         }
 
         return bc;
+    }
+
+    protected void setConnection(PartnerConnection connection) {
+        this.connection = connection;
+    }
+
+    protected void setLoginResult(LoginResult loginResult) {
+        this.loginResult = loginResult;
     }
 }
