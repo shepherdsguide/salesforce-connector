@@ -4,7 +4,7 @@
   xmlns:context="http://www.springframework.org/schema/context"
   xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
   xsi:schemaLocation="
-        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
         http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
@@ -12,11 +12,11 @@
   <sfdc:config name="salesforce-default" username="${salesforce.username}"
                  password="${salesforce.password}" securityToken="${salesforce.securityToken}"/>
 
-  <flow name="Upsert">
-    <sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode">
+  <flow name="Create">
+    <sfdc:create type="Account">
       <sfdc:objects>
         <sfdc:object>
-          <InternalAccountCode>A01596</InternalAccountCode>
+          <!-- <InternalAccountCode>A01596</InternalAccountCode> -->
           <Name>MuleSoft</Name>
           <BillingStreet>30 Maiden Lane</BillingStreet>
           <BillingCity>San Francisco</BillingCity>
@@ -25,6 +25,14 @@
           <BillingCountry>US</BillingCountry>
         </sfdc:object>
       </sfdc:objects>
-    </sfdc:upsert>
+    </sfdc:create>
   </flow>
+
+    <flow name="Query">
+      <message-properties-transformer>
+          <add-message-property key="SAVE_THIS" value="MULESOFT"/>
+      </message-properties-transformer>
+        <sfdc:query-single query="SELECT Name FROM Account WHERE  Name = '001'"/>
+      <logger level="INFO" message="#[header:OUTBOUND:SAVE_THIS]"/>
+    </flow>
 </mule>
