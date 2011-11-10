@@ -35,10 +35,8 @@ public class SalesforceNamespaceHandlerTest extends FunctionalTestCase
     @Test
     public void testFlow() throws Exception
     {
-        /*
-        Flow flow = lookupFlowConstruct("Create");
-        MuleEvent responseEvent = flow.process(getTestEvent("<anyPayload/>"));
-        */
+        //Flow flow = lookupFlowConstruct("Create");
+        //MuleEvent responseEvent = flow.process(getTestEvent("<anyPayload/>"));
     }
 
     /**

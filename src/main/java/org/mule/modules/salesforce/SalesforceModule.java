@@ -1,5 +1,12 @@
 package org.mule.modules.salesforce;
 
+import com.sforce.async.AsyncApiException;
+import com.sforce.async.AsyncExceptionCode;
+import com.sforce.async.BatchInfo;
+import com.sforce.async.BatchRequest;
+import com.sforce.async.JobInfo;
+import com.sforce.async.OperationEnum;
+import com.sforce.async.RestConnection;
 import com.sforce.soap.partner.Connector;
 import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.DescribeGlobalResult;
@@ -16,6 +23,7 @@ import com.sforce.soap.partner.UpsertResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
+import com.sforce.ws.MessageHandler;
 import com.sforce.ws.transport.SoapConnection;
 import org.apache.log4j.Logger;
 import org.cometd.bayeux.Message;
@@ -110,30 +118,35 @@ public class SalesforceModule {
     private PartnerConnection connection;
 
     /**
+     * REST connection to the bulk API
+     */
+    private RestConnection restConnection;
+
+    /**
      * Login result
      */
     private LoginResult loginResult;
 
     /**
      * Adds one or more new records to your organization's data.
-     *
+     * <p/>
      * <p class="caution">
      * IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
      * to match the expected type of the object at Salesforce.
-     *
+     * <p/>
      * Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13"
      * it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
      * of the expected type.
-     *
+     * <p/>
      * The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
      * evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>.
      * </p>
-     *
+     * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
      *
      * @param objects An array of one or more sObjects objects.
      * @param type    Type of object to create
-     * @return An array of {@link SaveResult}
+     * @return An array of {@link SaveResult} if async is false
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
      */
@@ -142,9 +155,55 @@ public class SalesforceModule {
     public List<SaveResult> create(String type, List<Map<String, Object>> objects) throws Exception {
 
         List<SaveResult> saveResults = null;
+
         saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
 
         return saveResults;
+    }
+
+    /**
+     * Adds one or more new records to your organization's data.
+     * <p/>
+     * This call uses the Bulk API. The creation will be done in asynchronous fashion.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-bulk}
+     *
+     * @param objects An array of one or more sObjects objects.
+     * @param type    Type of object to create
+     * @return A {@link BatchInfo} that identifies the batch job. {@link http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_reference_batchinfo.htm}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_create.htm">createBatch()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo createBulk(String type, List<Map<String, Object>> objects) throws Exception {
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.insert, type), objects);
+    }
+
+    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects) throws SoapConnection.SessionTimedOutException {
+        return createBatchAndCompleteRequest(jobInfo, objects, null);
+    }
+
+    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects, String externalIdFieldName) throws SoapConnection.SessionTimedOutException {
+        try {
+            BatchRequest batchRequest = this.restConnection.createBatch(jobInfo);
+            batchRequest.addSObjects(toAsyncSObjectList(objects, externalIdFieldName));
+            return batchRequest.completeRequest();
+        } catch (AsyncApiException e) {
+            if (e.getExceptionCode() == AsyncExceptionCode.InvalidSessionId) {
+                throw new SoapConnection.SessionTimedOutException(e.getMessage(), e);
+            }
+        }
+
+        return null;
+    }
+
+    private JobInfo createJobInfo(OperationEnum op, String type) throws AsyncApiException {
+        JobInfo jobInfo = new JobInfo();
+        jobInfo.setOperation(op);
+        jobInfo.setObject(type);
+        jobInfo = this.restConnection.createJob(jobInfo);
+        return jobInfo;
     }
 
     /**
@@ -174,10 +233,12 @@ public class SalesforceModule {
 
     @ValidateConnection
     public boolean isConnected() {
-        if (this.connection != null) {
-            if (this.loginResult != null) {
-                if (this.loginResult.getSessionId() != null) {
-                    return true;
+        if (this.restConnection != null) {
+            if (this.connection != null) {
+                if (this.loginResult != null) {
+                    if (this.loginResult.getSessionId() != null) {
+                        return true;
+                    }
                 }
             }
         }
@@ -243,6 +304,25 @@ public class SalesforceModule {
     }
 
     /**
+     * Updates one or more existing records in your organization's data.
+     * <p/>
+     * This call uses the Bulk API. The creation will be done in asynchronous fashion.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:update-bulk}
+     *
+     * @param objects An array of one or more sObjects objects.
+     * @param type    Type of object to update
+     * @return A {@link BatchInfo} that identifies the batch job. {@link http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_reference_batchinfo.htm}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_create.htm">createBatch()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo updateBulk(String type, List<Map<String, Object>> objects) throws Exception {
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.update, type), objects);
+    }
+
+    /**
      * <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
      * an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
      * In most cases, prefer {@link #upsert(String, String, List)} over {@link #create(String, List)},
@@ -268,6 +348,31 @@ public class SalesforceModule {
                     e.getMessage(), e);
         }
     }
+
+    /**
+     * <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+     * an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+     * In most cases, prefer {@link #upsert(String, String, List)} over {@link #create(String, List)},
+     * to avoid creating unwanted duplicate records.
+     * <p/>
+     * This call uses the Bulk API. The creation will be done in asynchronous fashion.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:upsert-bulk}
+     *
+     * @param externalIdFieldName Contains the name of the field on this object with the external ID field attribute
+     *                            for custom objects or the idLookup field property for standard objects.
+     * @param type                the type of the given objects. The list of objects to upsert must be homogeneous
+     * @param objects             the objects to upsert
+     * @return A {@link BatchInfo} that identifies the batch job. {@link http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_reference_batchinfo.htm}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_create.htm">createBatch()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo upsertBulk(String type, String externalIdFieldName, List<Map<String, Object>> objects) throws Exception {
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type), objects, externalIdFieldName);
+    }
+
 
     /**
      * Retrieves a list of available objects for your organization's data.
@@ -657,13 +762,43 @@ public class SalesforceModule {
     @Connect
     public synchronized void connect(@ConnectionKey String username, String password, String securityToken)
             throws org.mule.api.ConnectionException {
+
+        ConnectorConfig connectorConfig = createConnectorConfig(this.url, username, password + securityToken, this.proxyHost, this.proxyPort, this.proxyUsername, this.proxyPassword);
+        connectorConfig.addMessageHandler(new MessageHandler() {
+            @Override
+            public void handleRequest(URL endpoint, byte[] request) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Sending request to " + endpoint.toString());
+                    LOGGER.debug(new String(request));
+                }
+            }
+
+            @Override
+            public void handleResponse(URL endpoint, byte[] response) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Receiving response from " + endpoint.toString());
+                    LOGGER.debug(new String(response));
+                }
+            }
+        });
+
         try {
-            this.connection = Connector.newConnection(createConnectorConfig(this.url, username, password + securityToken, this.proxyHost, this.proxyPort, this.proxyUsername, this.proxyPassword));
+            this.connection = Connector.newConnection(connectorConfig);
         } catch (ConnectionException e) {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
         }
 
         reconnect();
+
+        try {
+            String restEndpoint = "https://" + (new URL(connectorConfig.getServiceEndpoint())).getHost() + "/services/async/23.0";
+            connectorConfig.setRestEndpoint(restEndpoint);
+            this.restConnection = new RestConnection(connectorConfig);
+        } catch (AsyncApiException e) {
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, e.getExceptionCode().toString(), e.getMessage(), e);
+        } catch (MalformedURLException e) {
+            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN_HOST, null, e.getMessage(), e);
+        }
     }
 
     public void reconnect() throws org.mule.api.ConnectionException {
@@ -684,6 +819,7 @@ public class SalesforceModule {
             LOGGER.debug("Session established successfully with ID " + this.loginResult.getSessionId() + " at instance " + this.loginResult.getServerUrl());
             this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
             this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
+            this.connection.getConfig().setSessionId(this.loginResult.getSessionId());
         } catch (ConnectionException e) {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
         }
@@ -704,6 +840,27 @@ public class SalesforceModule {
         for (String key : map.keySet()) {
             sObject.setType(type);
             sObject.setField(key, map.get(key));
+        }
+        return sObject;
+    }
+
+    protected com.sforce.async.SObject[] toAsyncSObjectList(List<Map<String, Object>> objects, String externalIdFieldName) {
+        com.sforce.async.SObject[] sobjects = new com.sforce.async.SObject[objects.size()];
+        int s = 0;
+        for (Map<String, Object> map : objects) {
+            sobjects[s] = toAsyncSObject(map, externalIdFieldName);
+            s++;
+        }
+        return sobjects;
+    }
+
+    private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map, String externalIdFieldName) {
+        com.sforce.async.SObject sObject = new com.sforce.async.SObject();
+        for (String key : map.keySet()) {
+            sObject.setField(key, map.get(key).toString());
+        }
+        if (externalIdFieldName != null) {
+            sObject.setField("externalIdFieldName", externalIdFieldName);
         }
         return sObject;
     }

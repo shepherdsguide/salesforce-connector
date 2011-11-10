@@ -8,6 +8,20 @@
 <sfdc:convert-lead leadId="001..." contactId="#[variable:contactId]" overWriteLeadSource="false" doNotCreateOpportunity="true"
                    convertedStatus="Qualified" sendEmailToOwner="true"/>
 <!-- END_INCLUDE(sfdc:convert-lead) -->
+<!-- BEGIN_INCLUDE(sfdc:create-bulk) -->
+<sfdc:create-bulk type="Account">
+    <sfdc:objects>
+        <sfdc:object>
+            <Name>MuleSoft</Name>
+            <BillingStreet>30 Maiden Lane</BillingStreet>
+            <BillingCity>San Francisco</BillingCity>
+            <BillingState>CA</BillingState>
+            <BillingPostalCode>94108</BillingPostalCode>
+            <BillingCountry>US</BillingCountry>
+        </sfdc:object>
+    </sfdc:objects>
+</sfdc:create-bulk>
+<!-- END_INCLUDE(sfdc:create-bulk) -->
 <!-- BEGIN_INCLUDE(sfdc:create) -->
 <sfdc:create type="Account">
     <sfdc:objects>
@@ -49,6 +63,21 @@
     </sfdc:objects>
 </sfdc:upsert>
 <!-- END_INCLUDE(sfdc:upsert) -->
+<!-- BEGIN_INCLUDE(sfdc:upsert-bulk) -->
+<sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode">
+    <sfdc:objects>
+        <sfdc:object>
+            <InternalAccountCode>A01596</InternalAccountCode>
+            <Name>MuleSoft</Name>
+            <BillingStreet>30 Maiden Lane</BillingStreet>
+            <BillingCity>San Francisco</BillingCity>
+            <BillingState>CA</BillingState>
+            <BillingPostalCode>94108</BillingPostalCode>
+            <BillingCountry>US</BillingCountry>
+        </sfdc:object>
+    </sfdc:objects>
+</sfdc:upsert>
+<!-- END_INCLUDE(sfdc:upsert-bulk) -->
 <!-- BEGIN_INCLUDE(sfdc:delete) -->
 <sfdc:delete>
     <sfdc:ids>
@@ -90,6 +119,15 @@
     </sfdc:objects>
 </sfdc:update>
 <!-- END_INCLUDE(sfdc:update) -->
+<!-- BEGIN_INCLUDE(sfdc:update-bulk) -->
+<sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/>
+<!-- Update Name of the Account -->
+<sfdc:update-bulk type="Account">
+    <sfdc:objects>
+        <sfdc:object ref="#[payload]"/>
+    </sfdc:objects>
+</sfdc:update-bulk>
+<!-- END_INCLUDE(sfdc:update-bulk) -->
 <!-- BEGIN_INCLUDE(sfdc:subscribe-topic) -->
 <flow name="sendSmsNotifications">
     <sfdc:subscribe-topic config-ref="salesforce-default"
