@@ -217,6 +217,7 @@
       <ul>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></li>
@@ -462,7 +463,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>UpsertMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>UpsertMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsert(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -670,7 +671,7 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          List&lt;Map&lt;String,&nbsp;String&gt;&gt;</nobr></td>
+          List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertMessageProcessor.html#_objectsType">_objectsType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -1773,7 +1774,7 @@ From interface
         private 
          
          
-        List&lt;Map&lt;String,&nbsp;String&gt;&gt;
+        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
       </span>
         _objectsType
     </h4>

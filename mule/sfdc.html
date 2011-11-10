@@ -230,7 +230,7 @@ Summary:
  Integrating with Salesforce consists of web service calls utilizing XML request/response setup
  over an HTTPS connection. The technical details of this connection such as request headers,
  error handling, HTTPS connection, etc. are all abstracted from the user to make implementation
- quick and easy.<br/></p>
+ quick and easy.</p>
 
 
 </div><!-- jd-descr -->
@@ -294,6 +294,16 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#create-single">&lt;sfdc:create-single&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Adds one new records to your organization's data.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#delete">&lt;sfdc:delete&gt;</a></nobr>
         
         <div class="jd-descrdiv">Deletes one or more records from your organization's data.<br/></div>
@@ -302,7 +312,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#describe-global">&lt;sfdc:describe-global&gt;</a></nobr>
         
@@ -312,7 +322,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#describe-sobject">&lt;sfdc:describe-sobject&gt;</a></nobr>
         
@@ -322,7 +332,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#empty-recycle-bin">&lt;sfdc:empty-recycle-bin&gt;</a></nobr>
         
@@ -333,7 +343,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-deleted">&lt;sfdc:get-deleted&gt;</a></nobr>
         
@@ -343,7 +353,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-deleted-range">&lt;sfdc:get-deleted-range&gt;</a></nobr>
         
@@ -353,7 +363,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#publish-topic">&lt;sfdc:publish-topic&gt;</a></nobr>
         
@@ -364,7 +374,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#query">&lt;sfdc:query&gt;</a></nobr>
         
@@ -374,7 +384,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#query-single">&lt;sfdc:query-single&gt;</a></nobr>
         
@@ -384,7 +394,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#update">&lt;sfdc:update&gt;</a></nobr>
         
@@ -394,7 +404,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#upsert">&lt;sfdc:upsert&gt;</a></nobr>
         
@@ -547,19 +557,19 @@ resolution.</p>
     
       <tr class=" api apilevel-" >
           <td class="jd-linkcol"><nobr>username</nobr></td>
-          <td class="jd-descrcol" width="100%">Username used to initialize the session<br/></td>
+          <td class="jd-descrcol" width="100%">Username used to initialize the session</td>
       </tr>
       
     
       <tr class="alt-color api apilevel-" >
           <td class="jd-linkcol"><nobr>password</nobr></td>
-          <td class="jd-descrcol" width="100%">Password used to authenticate the user<br/></td>
+          <td class="jd-descrcol" width="100%">Password used to authenticate the user</td>
       </tr>
       
     
       <tr class=" api apilevel-" >
           <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-          <td class="jd-descrcol" width="100%">User's security token<br/></td>
+          <td class="jd-descrcol" width="100%">User's security token</td>
       </tr>
       
     
@@ -598,29 +608,30 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;enricher target="#[variable:accountId]" source="#[map-payload:id]"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;enricher target="#[variable:accountId]" source="#[map-payload:id]"&gt;
     &lt;sfdc:query-single query="SELECT id FROM Account WHERE Name='CompanyNameOfLeadBeingMerged'"/&gt;
 &lt;/enricher&gt;
 &lt;enricher target="#[variable:contactId]" source="#[map-payload:id]"&gt;
     &lt;sfdc:query-single query="SELECT id FROM contact WHERE FirstName='FirstName' and LastName='LastName' AND AccountId = '#[variable:accountId]"/&gt;
 &lt;/enricher&gt;
 &lt;sfdc:convert-lead leadId="001..." contactId="#[variable:contactId]" overWriteLeadSource="false" doNotCreateOpportunity="true"
-                   convertedStatus="Qualified" sendEmailToOwner="true"/&gt;</pre></div>
- <br/></p></div>
+                   convertedStatus="Qualified" sendEmailToOwner="true"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>leadId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">ID of the Lead to convert. Required. For information on IDs, see ID Field Type.<br/></td>
+                    <td class="jd-descrcol" width="100%">ID of the Lead to convert. Required. For information on IDs, see ID Field Type.</td>
                 </tr>
                 
                 
@@ -640,7 +651,7 @@ attribute on each operation.</p>
                                must be logged in with read/write access to the specified contact. The contact
                                name and other existing data are not overwritten (unless overwriteLeadSource is
                                set to true, in which case only the LeadSource field is overwritten).
-                               For information on IDs, see ID Field Type.<br/></td>
+                               For information on IDs, see ID Field Type.</td>
                 </tr>
                 
                 
@@ -656,7 +667,7 @@ attribute on each operation.</p>
                                sufficient access rights. To merge a lead into an existing account,
                                the client application must be logged in with read/write access to the
                                specified account. The account name and other existing data are not overwritten.
-                               For information on IDs, see ID Field Type.<br/></td>
+                               For information on IDs, see ID Field Type.</td>
                 </tr>
                 
                 
@@ -668,7 +679,7 @@ attribute on each operation.</p>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to overwrite the LeadSource field on the target Contact object
                                with the contents of the LeadSource field in the source Lead object (true), or
                                not (false, the default). To set this field to true, the client application
-                               must specify a contactId for the target contact.<br/></td>
+                               must specify a contactId for the target contact.</td>
                 </tr>
                 
                 
@@ -679,7 +690,7 @@ attribute on each operation.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to create an Opportunity during lead conversion (false, the
                                default) or not (true). Set this flag to true only if you do not want to create
-                               an opportunity from the lead. An opportunity is created by default.<br/></td>
+                               an opportunity from the lead. An opportunity is created by default.</td>
                 </tr>
                 
                 
@@ -691,7 +702,7 @@ attribute on each operation.</p>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Name of the opportunity to create. If no name is specified, then this value
                                defaults to the company name of the lead. The maximum length of this field is
                                80 characters. If doNotCreateOpportunity argument is true, then no Opportunity
-                               is created and this field must be left blank; otherwise, an error is returned.<br/></td>
+                               is created and this field must be left blank; otherwise, an error is returned.</td>
                 </tr>
                 
                 
@@ -703,7 +714,7 @@ attribute on each operation.</p>
                     <td class="jd-descrcol" width="100%">Valid LeadStatus value for a converted lead. Required.
                                To obtain the list of possible values, the client application queries the
                                LeadStatus object, as in:
-                               Select Id, MasterLabel from LeadStatus where IsConverted=true<br/></td>
+                               Select Id, MasterLabel from LeadStatus where IsConverted=true</td>
                 </tr>
                 
                 
@@ -713,47 +724,50 @@ attribute on each operation.</p>
                     <td class="jd-linkcol"><nobr>sendEmailToOwner</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to send a notification email to the owner specified in the
-                               ownerId (true) or not (false, the default).<br/></td>
+                               ownerId (true) or not (false, the default).</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -777,11 +791,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>A list of <br/><code><a href="../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></code></li></ul>
+      <ul class="nolist"><li>A list of <code><a href="../java/com/sforce/soap/partner/LeadConvertResult.html">LeadConvertResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_convertlead.htm">convertLead()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -807,8 +831,20 @@ attribute on each operation.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds one or more new records to your organization's data.
- <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
+
+ <p class="caution">
+ IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
+ to match the expected type of the object at Salesforce.
+
+ Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13"
+ it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
+ of the expected type.
+
+ The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
+ evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>.
+ </p>
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
     &lt;sfdc:objects&gt;
         &lt;sfdc:object&gt;
             &lt;Name&gt;MuleSoft&lt;/Name&gt;
@@ -819,36 +855,56 @@ attribute on each operation.</p>
             &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
         &lt;/sfdc:object&gt;
     &lt;/sfdc:objects&gt;
-&lt;/sfdc:create&gt;</pre></div>
- <br/></p></div>
+&lt;/sfdc:create&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Type of object to create<br/></td>
+                    <td class="jd-descrcol" width="100%">Type of object to create</td>
                 </tr>
                 
                 
           
                 
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
                 <tr class="alt-color api apilevel-" >
-                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
                 </tr>
                 
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
                 
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
           
           
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
             <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
@@ -856,38 +912,18 @@ attribute on each operation.</p>
             </tr>
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:objects&gt;</nobr></br><span style="font-weight: normal;">An array of one or more sObjects objects.</span></th></tr>
+            
             
           
       </table>
@@ -895,11 +931,148 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="create-single"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:create-single&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds one new records to your organization's data.
+ <p/>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
+    &lt;sfdc:object&gt;
+        &lt;Name&gt;MuleSoft&lt;/Name&gt;
+        &lt;BillingStreet&gt;30 Maiden Lane&lt;/BillingStreet&gt;
+        &lt;BillingCity&gt;San Francisco&lt;/BillingCity&gt;
+        &lt;BillingState&gt;CA&lt;/BillingState&gt;
+        &lt;BillingPostalCode&gt;94108&lt;/BillingPostalCode&gt;
+        &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
+    &lt;/sfdc:object&gt;
+&lt;/sfdc:create&gt;</pre></div>
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Type of object to create</td>
+                </tr>
+                
+                
+          
+                
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+        </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+        <table id="lconfig" class="jd-sumtable">
+          
+          
+            
+          
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:object&gt;</nobr></br><span style="font-weight: normal;">SObject to create</span></th></tr>
+            
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
+  </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a></li></ul>
+    </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -926,31 +1099,51 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Deletes one or more records from your organization's data.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:delete&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:delete&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
     &lt;sfdc:ids&gt;
-&lt;/sfdc:delete&gt;</pre></div>
- <br/></p></div>
+&lt;/sfdc:delete&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
                 <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>ids</nobr></td>
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the objects to delete.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
                 </tr>
                 
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
                 
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
           
           
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
             <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
@@ -958,36 +1151,16 @@ attribute on each operation.</p>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:ids&gt;</nobr></br><span style="font-weight: normal;">Array of one or more IDs associated with the objects to delete.</span></th></tr>
+            
             
           
       </table>
@@ -995,11 +1168,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a></code></li></ul>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/DeleteResult.html">DeleteResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_delete.htm">delete()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1026,53 +1209,57 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves a list of available objects for your organization's data.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-global/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-global/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
           
-            <tr class=" api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
       </table>
@@ -1080,11 +1267,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>A <br/><code><a href="../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></code></li></ul>
+      <ul class="nolist"><li>A <code><a href="../java/com/sforce/soap/partner/DescribeGlobalResult.html">DescribeGlobalResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_describeglobal.htm">describeGlobal()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1111,15 +1308,16 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Describes metadata (field list and object properties) for the specified object.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-sobject type="Account"/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:describe-sobject type="Account"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1127,47 +1325,50 @@ attribute on each operation.</p>
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Object. The specified value must be a valid object for your organization. For a complete list
-             of objects, see Standard Objects<br/></td>
+             of objects, see Standard Objects</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1177,11 +1378,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a></code></li></ul>
+      <ul class="nolist"><li><code><a href="../java/com/sforce/soap/partner/DescribeSObjectResult.html">DescribeSObjectResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_describesobject.htm">describeSObject()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1212,32 +1423,51 @@ attribute on each operation.</p>
  Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
  the oldest records, as long as they have been in the recycle bin for at least two hours.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:empty-recycle-bin&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:empty-recycle-bin&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
     &lt;sfdc:ids&gt;
-&lt;/sfdc:empty-recycle-bin&gt;</pre></div>
- <br/></p></div>
+&lt;/sfdc:empty-recycle-bin&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
                 <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>ids</nobr></td>
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Array of one or more IDs associated with the records to delete from the recycle bin.
-            Maximum number of records is 200.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
                 </tr>
                 
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
                 
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
           
           
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
             <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
@@ -1245,36 +1475,17 @@ attribute on each operation.</p>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:ids&gt;</nobr></br><span style="font-weight: normal;">Array of one or more IDs associated with the records to delete from the recycle bin.
+            Maximum number of records is 200.</span></th></tr>
+            
             
           
       </table>
@@ -1282,9 +1493,14 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>A list of <br/><code><a href="../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a></code>
-<br/></li></ul>
+      <ul class="nolist"><li>A list of <code><a href="../java/com/sforce/soap/partner/EmptyRecycleBinResult.html">EmptyRecycleBinResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_emptyrecyclebin.htm">emptyRecycleBin()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -1314,22 +1530,23 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" /&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
+                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.</td>
                 </tr>
                 
                 
@@ -1338,47 +1555,50 @@ attribute on each operation.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>duration</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The amount of time in minutes before now for which to return records from.<br/></td>
+                    <td class="jd-descrcol" width="100%">The amount of time in minutes before now for which to return records from.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1390,11 +1610,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
+      <ul class="nolist"><li><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeleted.htm">getDeleted()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1421,22 +1651,24 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted-range type="Account" startTime-ref="#[variable:startTime]" endTime-ref="#[variable:endTime]"/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:get-deleted-range type="Account" startTime-ref="#[variable:startTime]" endTime-ref="#[variable:endTime]"/&gt;</pre></div>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.<br/></td>
+                    <td class="jd-descrcol" width="100%">Object type. The specified value must be a valid object for your organization.</td>
                 </tr>
                 
                 
@@ -1447,7 +1679,7 @@ attribute on each operation.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
                   which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
-                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).<br/></td>
+                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).</td>
                 </tr>
                 
                 
@@ -1458,47 +1690,50 @@ attribute on each operation.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
                   which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
-                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).<br/></td>
+                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1512,11 +1747,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li><br/><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
+      <ul class="nolist"><li><code><a href="../java/com/sforce/soap/partner/GetDeletedResult.html">GetDeletedResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeletedrange.htm">getDeletedRange()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1544,15 +1789,16 @@ attribute on each operation.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Creates a topic which represents a query that is the basis for notifying
  listeners of changes to records in an organization.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:publish-topic name="AccountTopic" query="SELECT Id FROM Account"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1560,7 +1806,7 @@ attribute on each operation.</p>
                     <td class="jd-linkcol"><nobr>name</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
-                    maximum length is 25 characters. This value identifies the channel.<br/></td>
+                    maximum length is 25 characters. This value identifies the channel.</td>
                 </tr>
                 
                 
@@ -1570,7 +1816,7 @@ attribute on each operation.</p>
                     <td class="jd-linkcol"><nobr>query</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">The SOQL query statement that determines which records' changes trigger events to be sent to
-                    the channel. Maximum length: 1200 characters<br/></td>
+                    the channel. Maximum length: 1200 characters</td>
                 </tr>
                 
                 
@@ -1579,47 +1825,50 @@ attribute on each operation.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>description</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Description of what kinds of records are returned by the query. Limit: 400 characters<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Description of what kinds of records are returned by the query. Limit: 400 characters</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1631,9 +1880,19 @@ attribute on each operation.</p>
       </table>
   </div>
   
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/pushtopic.htm">Push Topic</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1660,15 +1919,16 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns data that matches the specified criteria.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query query="SELECT Id FROM Account"/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query query="SELECT Id FROM Account"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1677,47 +1937,50 @@ attribute on each operation.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
               including a specific object in the query. For more information, see Salesforce Object Query
-              Language (SOQL).<br/></td>
+              Language (SOQL).</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1727,11 +1990,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code>s<br/></li></ul>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code>s</li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_query.htm">query()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1758,15 +2031,16 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a query against the specified object and returns the first record that matches the specified criteria.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id FROM Account"/&gt;</pre></div>
- <br/></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id FROM Account"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1775,47 +2049,50 @@ attribute on each operation.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Query string that specifies the object to query, the fields to return, and any conditions for
               including a specific object in the query. For more information, see Salesforce Object Query
-              Language (SOQL).<br/></td>
+              Language (SOQL).</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1825,11 +2102,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>A single <br/><code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code></li></ul>
+      <ul class="nolist"><li>A single <code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_query.htm">query()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1856,42 +2143,62 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates one or more existing records in your organization's data.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:query-single query="SELECT Id, Name FROM Account WHERE Name='CompanyName'"/&gt;
 &lt;!-- Update Name of the Account --&gt;
 &lt;sfdc:update type="Account"&gt;
     &lt;sfdc:objects&gt;
         &lt;sfdc:object ref="#[payload]"/&gt;
     &lt;/sfdc:objects&gt;
-&lt;/sfdc:update&gt;</pre></div>
- <br/></p></div>
+&lt;/sfdc:update&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Type of object to update<br/></td>
+                    <td class="jd-descrcol" width="100%">Type of object to update</td>
                 </tr>
                 
                 
           
                 
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
                 <tr class="alt-color api apilevel-" >
-                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">An array of one or more sObjects objects.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
                 </tr>
                 
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
                 
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
           
           
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
             <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
@@ -1899,38 +2206,18 @@ attribute on each operation.</p>
             </tr>
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:objects&gt;</nobr></br><span style="font-weight: normal;">An array of one or more sObjects objects.</span></th></tr>
+            
             
           
       </table>
@@ -1938,11 +2225,21 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>An array of <br/><code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></code></li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_update.htm">update()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>
         <tr>
             <th>Exception</td>
             <td></td>
@@ -1969,10 +2266,10 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
  an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
- In most cases, prefer <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">upsert(String, String, List)</a></code> over <br/><code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.String>>)">create(String, List)</a></code>,
+ In most cases, prefer <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsert(String, String, List)</a></code> over <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">create(String, List)</a></code>,
  to avoid creating unwanted duplicate records.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode"&gt;
     &lt;sfdc:objects&gt;
         &lt;sfdc:object&gt;
             &lt;InternalAccountCode&gt;A01596&lt;/InternalAccountCode&gt;
@@ -1988,10 +2285,12 @@ attribute on each operation.</p>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1999,7 +2298,7 @@ attribute on each operation.</p>
                     <td class="jd-linkcol"><nobr>externalIdFieldName</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Contains the name of the field on this object with the external ID field attribute
-                            for custom objects or the idLookup field property for standard objects.<br/></td>
+                            for custom objects or the idLookup field property for standard objects.</td>
                 </tr>
                 
                 
@@ -2008,21 +2307,40 @@ attribute on each operation.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>type</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The type of the given objects. The list of objects to upsert must be homogeneous<br/></td>
+                    <td class="jd-descrcol" width="100%">The type of the given objects. The list of objects to upsert must be homogeneous</td>
                 </tr>
                 
                 
           
                 
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
                 <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>objects</nobr></td>
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The objects to upsert<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
                 </tr>
                 
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
                 
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
           
           
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
             <tr class="alt-color api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
@@ -2030,40 +2348,20 @@ attribute on each operation.</p>
             </tr>
             
           
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
             
           
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:objects&gt;</nobr></br><span style="font-weight: normal;">The objects to upsert</span></th></tr>
+            
             
           
       </table>
@@ -2071,15 +2369,20 @@ attribute on each operation.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a list of <br/><code><a href="../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></code>, one for each passed object<br/></li></ul>
+      <ul class="nolist"><li>a list of <code><a href="../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a></code>, one for each passed object</li></ul>
   </div>
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">upsert()</a></li></ul>
+    </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>Exception</td>
-            <td>if a connection error occurs
-<br/></td>
+            <td>if a connection error occurs</td>
         </tr>
       </table>
   </div>
@@ -2113,7 +2416,7 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Subscribe to a topic.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;flow name="sendSmsNotifications"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;flow name="sendSmsNotifications"&gt;
     &lt;sfdc:subscribe-topic config-ref="salesforce-default"
                           topic="/NewsFeedStream"/&gt;
     &lt;twilio:send-sms-message config-ref="twilio-default"
@@ -2121,22 +2424,23 @@ attribute on each operation.</p>
                              from="${twilio.phoneNumber}"
                              to="#[map-payload:To__c]"
                              body="#[map-payload:Text__c]"/&gt;
-&lt;/flow&gt;</pre></div>
- <br/></p></div>
+&lt;/flow&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>topic</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The name of the topic to subscribe to<br/></td>
+                    <td class="jd-descrcol" width="100%">The name of the topic to subscribe to</td>
                 </tr>
                 
                 
@@ -2145,48 +2449,42 @@ attribute on each operation.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The callback to be called when a message is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The callback to be called when a message is received</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
             
           
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>username</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session<br/></td>
-            </tr>
-        
-        
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>password</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user<br/></td>
-            </tr>
-        
-        
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>securityToken</nobr></td>
-                <td class="jd-descrcol"></td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token<br/></td>
-            </tr>
-        
-        
-      </table>
+          
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2195,6 +2493,12 @@ attribute on each operation.</p>
           
       </table>
   </div>
+  
+    
+    <div class="jd-tagdata">
+        <h5 class="jd-tagtitle">API Information</h5>
+        <ul class="nolist"><li><a href="http://www.salesforce.com/us/developer/docs/api_streaming/index_Left.htm">Streaming API</a></li></ul>
+    </div>
   
 
     </div>
