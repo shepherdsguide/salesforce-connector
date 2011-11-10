@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  SubscribeTopicMessageSource
+  UpdateBulkMessageProcessor
 
 
 | Mule Salesforce Connector
@@ -234,8 +234,8 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html">SalesforceModuleSessionManagerAdapter.SessionKey</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></li>
@@ -307,12 +307,7 @@
    
   
   
-  
-  
-
-  
    
-  
   
   
   
@@ -405,7 +400,7 @@ Summary:
      
     
     class
-<h1>SubscribeTopicMessageSource</h1>
+<h1>UpdateBulkMessageProcessor</h1>
 
 
 
@@ -419,13 +414,11 @@ Summary:
   
       implements 
       
-        Runnable 
-      
-        SourceCallback 
-      
         FlowConstructAware 
       
         MuleContextAware 
+      
+        Disposable 
       
         Initialisable 
       
@@ -433,7 +426,7 @@ Summary:
       
         Stoppable 
       
-        MessageSource 
+        MessageProcessor 
       
   
   
@@ -457,7 +450,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.SubscribeTopicMessageSource</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.UpdateBulkMessageProcessor</td>
     </tr>
     
 
@@ -473,7 +466,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>SubscribeTopicMessageSource wraps <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> as a message source capable of generating Mule events.  The POJO's method is invoked in its own thread.
+<p>UpdateBulkMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#updateBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">updateBulk(java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -530,7 +523,34 @@ Summary:
 
 
 
+<tr class="api apilevel-" >
+<td colspan="12">
 
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.lifecycle.Disposable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.lifecycle.Disposable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+org.mule.api.lifecycle.Disposable
+<div id="inherited-constants-org.mule.api.lifecycle.Disposable">
+  <div id="inherited-constants-org.mule.api.lifecycle.Disposable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.api.lifecycle.Disposable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol">PHASE_NAME</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
 
 
 
@@ -643,8 +663,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#_passwordType">_passwordType</a></td>
+          List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#_objectsType">_objectsType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -655,7 +675,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#_securityTokenType">_securityTokenType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#_passwordType">_passwordType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -666,7 +686,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#_topicType">_topicType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -677,8 +697,32 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#_usernameType">_usernameType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#_typeType">_typeType</a></td>
           <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#_usernameType">_usernameType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          ExpressionManager</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#expressionManager">expressionManager</a></td>
+          <td class="jd-descrcol" width="100%">Mule Expression Manager
+ 
+</td>
       </tr>
       
     
@@ -688,7 +732,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           FlowConstruct</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#flowConstruct">flowConstruct</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#flowConstruct">flowConstruct</a></td>
           <td class="jd-descrcol" width="100%">Flow construct
  
 </td>
@@ -701,7 +745,7 @@ org.mule.api.lifecycle.Stoppable
           static
           
           Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#logger">logger</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#logger">logger</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -711,47 +755,45 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          MessageProcessor</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#messageProcessor">messageProcessor</a></td>
-          <td class="jd-descrcol" width="100%">Message processor that will get called for processing incoming events
- 
-</td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#moduleObject">moduleObject</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#moduleObject">moduleObject</a></td>
           <td class="jd-descrcol" width="100%">Module object
  
 </td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#muleContext">muleContext</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#muleContext">muleContext</a></td>
           <td class="jd-descrcol" width="100%">Mule Context
  
 </td>
       </tr>
       
     
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#objects">objects</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#password">password</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#password">password</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -761,9 +803,11 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#securityToken">securityToken</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          TemplateParser.PatternInfo</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#patternInfo">patternInfo</a></td>
+          <td class="jd-descrcol" width="100%">Mule Pattern Info
+ 
+</td>
       </tr>
       
     
@@ -772,9 +816,9 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          Thread</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#thread">thread</a></td>
-          <td class="jd-descrcol" width="100%">Thread under which this message source will execute
+          AtomicInteger</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#retryCount">retryCount</a></td>
+          <td class="jd-descrcol" width="100%">Variable used to track how many retries we have attempted on this message processor
  
 </td>
       </tr>
@@ -785,8 +829,30 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#retryMax">retryMax</a></td>
+          <td class="jd-descrcol" width="100%">Maximum number of retries that can be attempted.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#topic">topic</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#securityToken">securityToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#type">type</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -797,7 +863,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#username">username</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -827,7 +893,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#SubscribeTopicMessageSource()">SubscribeTopicMessageSource</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#UpdateBulkMessageProcessor()">UpdateBulkMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -856,7 +922,23 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -864,24 +946,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Object</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#process(java.lang.Object, java.util.Map<java.lang.String, java.lang.Object>)">process</a></span>(Object message, Map&lt;String,&nbsp;Object&gt; properties)</nobr>
-        
-        <div class="jd-descrdiv">Implements SourceCallback#process(org.mule.api.MuleEvent).</div>
-  
-  </td></tr>
-
-
-	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -889,12 +953,12 @@ org.mule.api.lifecycle.Stoppable
             
             
             
-            Object</nobr>
+            MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#process(java.lang.Object)">process</a></span>(Object message)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
-        <div class="jd-descrdiv">Implements SourceCallback#process(org.mule.api.MuleEvent).</div>
+        <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
   </td></tr>
 
@@ -910,25 +974,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#run()">run</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -936,24 +982,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setListener(org.mule.api.processor.MessageProcessor)">setListener</a></span>(MessageProcessor listener)</nobr>
-        
-        <div class="jd-descrdiv">Sets the message processor that will "listen" the events generated by this message source</div>
-  
-  </td></tr>
-
-
-	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -964,7 +992,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
         
         <div class="jd-descrdiv">Sets the instance of the object under which the processor will execute</div>
   
@@ -982,7 +1010,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1000,9 +1028,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setObjects(java.lang.Object)">setObjects</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets password</div>
+        <div class="jd-descrdiv">Sets objects</div>
   
   </td></tr>
 
@@ -1018,7 +1046,43 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets password</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setRetryMax(int)">setRetryMax</a></span>(int value)</nobr>
+        
+        <div class="jd-descrdiv">Sets retryMax</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets securityToken</div>
   
@@ -1036,9 +1100,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setTopic(java.lang.Object)">setTopic</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setType(java.lang.Object)">setType</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets topic</div>
+        <div class="jd-descrdiv">Sets type</div>
   
   </td></tr>
 
@@ -1054,7 +1118,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets username</div>
   
@@ -1072,10 +1136,8 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#start()">start</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Method to be called when Mule instance gets started.</div>
-  
   </td></tr>
 
 
@@ -1090,10 +1152,8 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Method to be called when Mule instance gets stopped.</div>
-  
   </td></tr>
 
 
@@ -1316,106 +1376,6 @@ From class
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Runnable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Runnable-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  java.lang.Runnable
-
-<div id="inherited-methods-java.lang.Runnable">
-  <div id="inherited-methods-java.lang.Runnable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Runnable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">run</span>()</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.callback.SourceCallback" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.callback.SourceCallback-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.callback.SourceCallback
-
-<div id="inherited-methods-org.mule.api.callback.SourceCallback">
-  <div id="inherited-methods-org.mule.api.callback.SourceCallback-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.callback.SourceCallback-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            Object</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">process</span>(Object arg0, Map&lt;String,&nbsp;Object&gt; arg1)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            Object</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">process</span>(Object arg0)</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.construct.FlowConstructAware" class="jd-expando-trigger closed"
           ><img id="inherited-methods-org.mule.api.construct.FlowConstructAware-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
@@ -1487,6 +1447,48 @@ From interface
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad">setMuleContext</span>(MuleContext arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Disposable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.lifecycle.Disposable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.lifecycle.Disposable
+
+<div id="inherited-methods-org.mule.api.lifecycle.Disposable">
+  <div id="inherited-methods-org.mule.api.lifecycle.Disposable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.lifecycle.Disposable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">dispose</span>()</nobr>
         
   </td></tr>
 
@@ -1626,19 +1628,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.source.MessageSource" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.source.MessageSource-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.processor.MessageProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.processor.MessageProcessor-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.source.MessageSource
+  org.mule.api.processor.MessageProcessor
 
-<div id="inherited-methods-org.mule.api.source.MessageSource">
-  <div id="inherited-methods-org.mule.api.source.MessageSource-list"
+<div id="inherited-methods-org.mule.api.processor.MessageProcessor">
+  <div id="inherited-methods-org.mule.api.processor.MessageProcessor-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.source.MessageSource-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.processor.MessageProcessor-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -1651,10 +1653,10 @@ From interface
             
             
             
-            void</nobr>
+            MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">setListener</span>(MessageProcessor arg0)</nobr>
+        <span class="sympad">process</span>(MuleEvent arg0)</nobr>
         
   </td></tr>
 
@@ -1694,6 +1696,36 @@ From interface
 <!-- ========= FIELD DETAIL ======== -->
 <h2>Fields</h2>
 
+
+
+
+<A NAME="_objectsType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+      </span>
+        _objectsType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
 
 
 
@@ -1757,7 +1789,7 @@ From interface
 
 
 
-<A NAME="_topicType"></A>
+<A NAME="_typeType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1767,7 +1799,7 @@ From interface
          
         String
       </span>
-        _topicType
+        _typeType
     </h4>
       <div class="api-level">
         
@@ -1810,6 +1842,38 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="expressionManager"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        ExpressionManager
+      </span>
+        expressionManager
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Mule Expression Manager
+ 
+</p></div>
 
     
     </div>
@@ -1872,38 +1936,6 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="messageProcessor"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        MessageProcessor
-      </span>
-        messageProcessor
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Message processor that will get called for processing incoming events
- 
-</p></div>
 
     
     </div>
@@ -1975,6 +2007,36 @@ From interface
 
 
 
+<A NAME="objects"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        objects
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="password"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1998,6 +2060,102 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="patternInfo"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        TemplateParser.PatternInfo
+      </span>
+        patternInfo
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Mule Pattern Info
+ 
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="retryCount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        AtomicInteger
+      </span>
+        retryCount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Variable used to track how many retries we have attempted on this message processor
+ 
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="retryMax"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        int
+      </span>
+        retryMax
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Maximum number of retries that can be attempted.
+ 
+</p></div>
 
     
     </div>
@@ -2035,39 +2193,7 @@ From interface
 
 
 
-<A NAME="thread"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Thread
-      </span>
-        thread
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Thread under which this message source will execute
- 
-</p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="topic"></A>
+<A NAME="type"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2077,7 +2203,7 @@ From interface
          
         Object
       </span>
-        topic
+        type
     </h4>
       <div class="api-level">
         
@@ -2136,7 +2262,7 @@ From interface
 
 
 
-<A NAME="SubscribeTopicMessageSource()"></A>
+<A NAME="UpdateBulkMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2148,7 +2274,7 @@ From interface
          
         
       </span>
-      <span class="sympad">SubscribeTopicMessageSource</span>
+      <span class="sympad">UpdateBulkMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2180,6 +2306,37 @@ From interface
 
 <h2>Public Methods</h2>
 
+
+
+<A NAME="dispose()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">dispose</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
 
 
 <A NAME="initialise()"></A>
@@ -2222,7 +2379,7 @@ From interface
 </div>
 
 
-<A NAME="process(java.lang.Object, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="process(org.mule.api.MuleEvent)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2232,10 +2389,10 @@ From interface
          
          
          
-        Object
+        MuleEvent
       </span>
       <span class="sympad">process</span>
-      <span class="normal">(Object message, Map&lt;String,&nbsp;Object&gt; properties)</span>
+      <span class="normal">(MuleEvent event)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2247,97 +2404,25 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Implements SourceCallback#process(org.mule.api.MuleEvent). This message source will be passed on to the actual pojo's method as a callback mechanism.
- 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Invokes the MessageProcessor.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>message</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>properties</td>
-          <td></td>
+          <th>event</td>
+          <td>MuleEvent to be processed</td>
         </tr>
       </table>
   </div>
-
-    </div>
-</div>
-
-
-<A NAME="process(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        Object
-      </span>
-      <span class="sympad">process</span>
-      <span class="normal">(Object message)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Implements SourceCallback#process(org.mule.api.MuleEvent). This message source will be passed on to the actual pojo's method as a callback mechanism.
- 
-</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
         <tr>
-          <th>message</td>
-          <td></td>
+            <th>MuleException</td>
+            <td></td>
         </tr>
       </table>
   </div>
-
-    </div>
-</div>
-
-
-<A NAME="run()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">run</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.
- 
-</p></div>
 
     </div>
 </div>
@@ -2375,47 +2460,6 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setListener(org.mule.api.processor.MessageProcessor)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setListener</span>
-      <span class="normal">(MessageProcessor listener)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the message processor that will "listen" the events generated by this message source</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>listener</td>
-          <td>Message processor
 </td>
         </tr>
       </table>
@@ -2507,6 +2551,47 @@ From interface
 </div>
 
 
+<A NAME="setObjects(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setObjects</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets objects</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setPassword(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2533,6 +2618,47 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setRetryMax(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRetryMax</span>
+      <span class="normal">(int value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets retryMax</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2589,7 +2715,7 @@ From interface
 </div>
 
 
-<A NAME="setTopic(java.lang.Object)"></A>
+<A NAME="setType(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2601,7 +2727,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setTopic</span>
+      <span class="sympad">setType</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2614,7 +2740,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets topic</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets type</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2696,9 +2822,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Method to be called when Mule instance gets started.
- 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
@@ -2738,9 +2862,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Method to be called when Mule instance gets stopped.
- 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  

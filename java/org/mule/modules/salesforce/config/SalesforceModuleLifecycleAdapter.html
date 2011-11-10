@@ -216,6 +216,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></li>
@@ -234,7 +235,9 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html">SalesforceModuleSessionManagerAdapter.SessionKey</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></li>
       </ul>
     </li>
@@ -836,6 +839,18 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
+          <a href="../../../../../../java/com/sforce/async/RestConnection.html">RestConnection</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#restConnection">restConnection</a></td>
+          <td class="jd-descrcol" width="100%">REST connection to the bulk API
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           URL</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#url">url</a></td>
           <td class="jd-descrcol" width="100%">SalesForce SOAP endpoint
@@ -1106,6 +1121,24 @@ From class
             
             
             
+            <a href="../../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#createBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">createBulk</a></span>(String type, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; objects)</nobr>
+        
+        <div class="jd-descrdiv">Adds one or more new records to your organization's data.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             <a href="../../../../../../java/com/sforce/soap/partner/SaveResult.html">SaveResult</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1117,7 +1150,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1135,7 +1168,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1153,7 +1186,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1171,7 +1204,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             synchronized
@@ -1189,7 +1222,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1208,7 +1241,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1224,7 +1257,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1240,7 +1273,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1258,7 +1291,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1276,7 +1309,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1292,7 +1325,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1310,7 +1343,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1328,7 +1361,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1346,7 +1379,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1364,7 +1397,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1380,7 +1413,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1396,7 +1429,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1412,7 +1445,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1431,7 +1464,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1449,7 +1482,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1467,7 +1500,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1483,7 +1516,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1499,7 +1532,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1515,7 +1548,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1533,7 +1566,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1551,7 +1584,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1569,7 +1602,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1587,7 +1620,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1605,7 +1638,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1619,6 +1652,22 @@ From class
         
         <div class="jd-descrdiv">Subscribe to a topic.</div>
   
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/com/sforce/async/SObject.html">SObject[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#toAsyncSObjectList(java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">toAsyncSObjectList</a></span>(List&lt;Map&lt;String,&nbsp;Object&gt;&gt; objects, String externalIdFieldName)</nobr>
+        
   </td></tr>
 
 
@@ -1664,10 +1713,47 @@ From class
             
             
             
+            <a href="../../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#updateBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">updateBulk</a></span>(String type, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; objects)</nobr>
+        
+        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             List&lt;<a href="../../../../../../java/com/sforce/soap/partner/UpsertResult.html">UpsertResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsert</a></span>(String externalIdFieldName, String type, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; objects)</nobr>
+        
+        <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#upsertBulk(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsertBulk</a></span>(String type, String externalIdFieldName, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; objects)</nobr>
         
         <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
  an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.</div>
