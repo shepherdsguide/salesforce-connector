@@ -13,16 +13,12 @@
                  password="${salesforce.password}" securityToken="${salesforce.securityToken}"/>
 
   <flow name="Create">
-    <sfdc:create type="Account">
+    <sfdc:create type="Opportunity">
       <sfdc:objects>
         <sfdc:object>
           <!-- <InternalAccountCode>A01596</InternalAccountCode> -->
           <Name>MuleSoft</Name>
-          <BillingStreet>30 Maiden Lane</BillingStreet>
-          <BillingCity>San Francisco</BillingCity>
-          <BillingState>CA</BillingState>
-          <BillingPostalCode>94108</BillingPostalCode>
-          <BillingCountry>US</BillingCountry>
+          <CloseDate>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</CloseDate>
         </sfdc:object>
       </sfdc:objects>
     </sfdc:create>

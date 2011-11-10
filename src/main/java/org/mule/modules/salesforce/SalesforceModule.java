@@ -1,7 +1,18 @@
 package org.mule.modules.salesforce;
 
 import com.sforce.soap.partner.Connector;
-import com.sforce.soap.partner.*;
+import com.sforce.soap.partner.DeleteResult;
+import com.sforce.soap.partner.DescribeGlobalResult;
+import com.sforce.soap.partner.DescribeSObjectResult;
+import com.sforce.soap.partner.EmptyRecycleBinResult;
+import com.sforce.soap.partner.GetDeletedResult;
+import com.sforce.soap.partner.LeadConvert;
+import com.sforce.soap.partner.LeadConvertResult;
+import com.sforce.soap.partner.LoginResult;
+import com.sforce.soap.partner.PartnerConnection;
+import com.sforce.soap.partner.QueryResult;
+import com.sforce.soap.partner.SaveResult;
+import com.sforce.soap.partner.UpsertResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
@@ -11,7 +22,14 @@ import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.common.HashMapMessage;
 import org.mule.api.ConnectionExceptionCode;
-import org.mule.api.annotations.*;
+import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.ConnectionIdentifier;
+import org.mule.api.annotations.Disconnect;
+import org.mule.api.annotations.InvalidateConnectionOn;
+import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.Source;
+import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
@@ -19,7 +37,13 @@ import org.mule.api.callback.SourceCallback;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * The Salesforce Connector will allow to connect to the Salesforce application. Almost every operation that can be
@@ -92,23 +116,60 @@ public class SalesforceModule {
 
     /**
      * Adds one or more new records to your organization's data.
-     * <p/>
+     *
+     * <p class="caution">
+     * IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
+     * to match the expected type of the object at Salesforce.
+     *
+     * Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13"
+     * it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
+     * of the expected type.
+     *
+     * The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
+     * evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>.
+     * </p>
+     *
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create}
      *
      * @param objects An array of one or more sObjects objects.
      * @param type    Type of object to create
      * @return An array of {@link SaveResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> create(String type, List<Map<String, String>> objects) throws Exception {
+    public List<SaveResult> create(String type, List<Map<String, Object>> objects) throws Exception {
 
         List<SaveResult> saveResults = null;
         saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
 
         return saveResults;
+    }
+
+    /**
+     * Adds one new records to your organization's data.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-single}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create-single}
+     *
+     * @param object SObject to create
+     * @param type   Type of object to create
+     * @return An array of {@link SaveResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public SaveResult createSingle(String type, Map<String, Object> object) throws Exception {
+
+        SaveResult[] saveResults = null;
+        saveResults = this.connection.create(new SObject[]{toSObject(type, object)});
+        if (saveResults.length > 0) {
+            return saveResults[0];
+        }
+
+        return null;
     }
 
     @ValidateConnection
@@ -164,16 +225,16 @@ public class SalesforceModule {
      * Updates one or more existing records in your organization's data.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:update}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:update}
      *
      * @param objects An array of one or more sObjects objects.
      * @param type    Type of object to update
      * @return An array of {@link SaveResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_update.htm">update()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> update(String type, List<Map<String, String>> objects) throws Exception {
+    public List<SaveResult> update(String type, List<Map<String, Object>> objects) throws Exception {
 
         List<SaveResult> saveResults = null;
         saveResults = Arrays.asList(this.connection.update(toSObjectList(type, objects)));
@@ -195,10 +256,11 @@ public class SalesforceModule {
      * @param objects             the objects to upsert
      * @return a list of {@link UpsertResult}, one for each passed object
      * @throws Exception if a connection error occurs
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">upsert()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, String>> objects) throws Exception {
+    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, Object>> objects) throws Exception {
         try {
             return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
         } catch (Exception e) {
@@ -211,10 +273,10 @@ public class SalesforceModule {
      * Retrieves a list of available objects for your organization's data.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-global}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-global}
      *
      * @return A {@link DescribeGlobalResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_describeglobal.htm">describeGlobal()</a>
      */
     @Processor
     public DescribeGlobalResult describeGlobal() throws Exception {
@@ -225,13 +287,13 @@ public class SalesforceModule {
      * Executes a query against the specified object and returns data that matches the specified criteria.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
      * @return An array of {@link SObject}s
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_query.htm">query()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -254,13 +316,13 @@ public class SalesforceModule {
      * Executes a query against the specified object and returns the first record that matches the specified criteria.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:query-single}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:query-single}
      *
      * @param query Query string that specifies the object to query, the fields to return, and any conditions for
      *              including a specific object in the query. For more information, see Salesforce Object Query
      *              Language (SOQL).
      * @return A single {@link SObject}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_query.htm">query()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -277,7 +339,6 @@ public class SalesforceModule {
      * Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:convert-lead}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:convert-lead}
      *
      * @param leadId                 ID of the Lead to convert. Required. For information on IDs, see ID Field Type.
      * @param contactId              ID of the Contact into which the lead will be merged (this contact must be
@@ -319,6 +380,7 @@ public class SalesforceModule {
      *                               ownerId (true) or not (false, the default).
      * @return A list of {@link LeadConvertResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_convertlead.htm">convertLead()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -360,11 +422,11 @@ public class SalesforceModule {
      * the oldest records, as long as they have been in the recycle bin for at least two hours.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:empty-recycle-bin}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:empty-recycle-bin}
      *
      * @param ids Array of one or more IDs associated with the records to delete from the recycle bin.
      *            Maximum number of records is 200.
      * @return A list of {@link EmptyRecycleBinResult}
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_emptyrecyclebin.htm">emptyRecycleBin()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -381,11 +443,11 @@ public class SalesforceModule {
      * Deletes one or more records from your organization's data.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:delete}
      *
      * @param ids Array of one or more IDs associated with the objects to delete.
      * @return An array of {@link DeleteResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_delete.htm">delete()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -416,6 +478,7 @@ public class SalesforceModule {
      *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
      * @return {@link GetDeletedResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeletedrange.htm">getDeletedRange()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -432,12 +495,12 @@ public class SalesforceModule {
      * Describes metadata (field list and object properties) for the specified object.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:describe-sobject}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:describe-sobject}
      *
      * @param type Object. The specified value must be a valid object for your organization. For a complete list
      *             of objects, see Standard Objects
      * @return {@link DescribeSObjectResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_describesobject.htm">describeSObject()</a>
      */
     @Processor(name = "describe-sobject")
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -459,12 +522,12 @@ public class SalesforceModule {
      * Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted}
      *
      * @param type     Object type. The specified value must be a valid object for your organization.
      * @param duration The amount of time in minutes before now for which to return records from.
      * @return {@link GetDeletedResult}
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeleted.htm">getDeleted()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -487,7 +550,6 @@ public class SalesforceModule {
      * listeners of changes to records in an organization.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:publish-topic}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:publish-topic}
      *
      * @param name        Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The
      *                    maximum length is 25 characters. This value identifies the channel.
@@ -495,6 +557,7 @@ public class SalesforceModule {
      * @param query       The SOQL query statement that determines which records' changes trigger events to be sent to
      *                    the channel. Maximum length: 1200 characters
      * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/pushtopic.htm">Push Topic</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
@@ -534,10 +597,10 @@ public class SalesforceModule {
      * Subscribe to a topic.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:subscribe-topic}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:subscribe-topic}
      *
      * @param topic    The name of the topic to subscribe to
      * @param callback The callback to be called when a message is received
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_streaming/index_Left.htm">Streaming API</a>
      */
     @Source
     public void subscribeTopic(String topic, final SourceCallback callback) {
@@ -626,19 +689,23 @@ public class SalesforceModule {
         }
     }
 
-    protected SObject[] toSObjectList(String type, List<Map<String, String>> objects) {
+    protected SObject[] toSObjectList(String type, List<Map<String, Object>> objects) {
         SObject[] sobjects = new SObject[objects.size()];
         int s = 0;
-        for (Map<String, String> map : objects) {
-            SObject sObject = new SObject();
-            for (String key : map.keySet()) {
-                sObject.setType(type);
-                sObject.setField(key, map.get(key));
-            }
-            sobjects[s] = sObject;
+        for (Map<String, Object> map : objects) {
+            sobjects[s] = toSObject(type, map);
             s++;
         }
         return sobjects;
+    }
+
+    private SObject toSObject(String type, Map<String, Object> map) {
+        SObject sObject = new SObject();
+        for (String key : map.keySet()) {
+            sObject.setType(type);
+            sObject.setField(key, map.get(key));
+        }
+        return sObject;
     }
 
 
@@ -748,6 +815,8 @@ public class SalesforceModule {
         config.setServiceEndpoint(endpoint.toString());
 
         config.setManualLogin(true);
+
+        config.setCompression(false);
 
         if (proxyHost != null) {
             config.setProxy(proxyHost, proxyPort);

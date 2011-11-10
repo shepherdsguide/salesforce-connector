@@ -30,10 +30,10 @@ public class SalesforceModuleTest {
         when(partnerConnection.create(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
         module.setConnection(partnerConnection);
 
-        Map<String, String> sObject = new HashMap<String, String>();
+        Map<String, Object> sObject = new HashMap<String, Object>();
         sObject.put("FirstName", "John");
         sObject.put("LastName", "Doe");
-        List<Map<String, String>> sObjectList = new ArrayList<Map<String, String>>();
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
         List<SaveResult> saveResults = module.create(MOCK_OBJET_TYPE, sObjectList);
@@ -94,10 +94,10 @@ public class SalesforceModuleTest {
         when(partnerConnection.update(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
         module.setConnection(partnerConnection);
 
-        Map<String, String> sObject = new HashMap<String, String>();
+        Map<String, Object> sObject = new HashMap<String, Object>();
         sObject.put("FirstName", "John");
         sObject.put("LastName", "Doe");
-        List<Map<String, String>> sObjectList = new ArrayList<Map<String, String>>();
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
         List<SaveResult> saveResults = module.update(MOCK_OBJET_TYPE, sObjectList);
