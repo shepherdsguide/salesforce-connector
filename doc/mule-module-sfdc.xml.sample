@@ -8,6 +8,14 @@
 <sfdc:convert-lead leadId="001..." contactId="#[variable:contactId]" overWriteLeadSource="false" doNotCreateOpportunity="true"
                    convertedStatus="Qualified" sendEmailToOwner="true"/>
 <!-- END_INCLUDE(sfdc:convert-lead) -->
+<!-- BEGIN_INCLUDE(sfdc:batch-splitter) -->
+<sfdc:batch-splitter batchSize="200">
+    <sfdc:objects ref="#[payload]"/>
+</sfdc:batch-splitter>
+<sfdc:create-bulk type="Account">
+    <sfdc:objects ref="#[payload]"/>
+</sfdc:create-bulk>
+<!-- END_INCLUDE(sfdc:batch-splitter) -->
 <!-- BEGIN_INCLUDE(sfdc:create-bulk) -->
 <sfdc:create-bulk type="Account">
     <sfdc:objects>

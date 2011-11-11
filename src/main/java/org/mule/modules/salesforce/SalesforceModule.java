@@ -162,6 +162,25 @@ public class SalesforceModule {
     }
 
     /**
+     * Splits a collection into several smaller collections
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-splitter}
+     *
+     * @param objects   List to split
+     * @param batchSize The size of the each batch. The large collection will be splitted into smaller collections of
+     *                  this size.
+     * @param callback  Source callback
+     * @throws Exception
+     */
+    @Processor(intercepting = true)
+    public void batchSplitter(@Optional @Default("200") int batchSize, List<Map<String, Object>> objects, SourceCallback callback) throws Exception {
+        List<List<Map<String, Object>>> batches = ListUtils.split(objects, batchSize);
+        for (List<Map<String, Object>> batch : batches) {
+            callback.process(batch);
+        }
+    }
+
+    /**
      * Adds one or more new records to your organization's data.
      * <p/>
      * This call uses the Bulk API. The creation will be done in asynchronous fashion.
@@ -1018,5 +1037,9 @@ public class SalesforceModule {
 
     protected void setLoginResult(LoginResult loginResult) {
         this.loginResult = loginResult;
+    }
+
+    public void setRestConnection(RestConnection restConnection) {
+        this.restConnection = restConnection;
     }
 }

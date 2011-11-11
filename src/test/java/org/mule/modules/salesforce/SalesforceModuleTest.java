@@ -1,5 +1,6 @@
 package org.mule.modules.salesforce;
 
+import com.sforce.async.RestConnection;
 import com.sforce.soap.partner.*;
 import com.sforce.soap.partner.sobject.SObject;
 import org.junit.Test;
@@ -29,6 +30,8 @@ public class SalesforceModuleTest {
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         when(partnerConnection.create(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
         module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
         sObject.put("FirstName", "John");
@@ -53,6 +56,8 @@ public class SalesforceModuleTest {
         SalesforceModule module = new SalesforceModule();
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
 
         assertFalse(module.isConnected());
     }
@@ -64,6 +69,8 @@ public class SalesforceModuleTest {
         LoginResult loginResult = Mockito.mock(LoginResult.class);
         module.setConnection(partnerConnection);
         module.setLoginResult(loginResult);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         when(loginResult.getSessionId()).thenReturn(MOCKED_ID);
 
         assertTrue(module.isConnected());
@@ -76,6 +83,8 @@ public class SalesforceModuleTest {
         LoginResult loginResult = Mockito.mock(LoginResult.class);
         module.setConnection(partnerConnection);
         module.setLoginResult(loginResult);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         when(loginResult.getSessionId()).thenReturn(MOCKED_ID);
 
         assertEquals(module.getSessionId(), MOCKED_ID);
@@ -92,6 +101,8 @@ public class SalesforceModuleTest {
         SaveResult saveResult = Mockito.mock(SaveResult.class);
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         when(partnerConnection.update(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
@@ -110,6 +121,8 @@ public class SalesforceModuleTest {
         SalesforceModule module = new SalesforceModule();
         DescribeGlobalResult describeGlobalResult = Mockito.mock(DescribeGlobalResult.class);
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
         
         when(partnerConnection.describeGlobal()).thenReturn(describeGlobalResult);
@@ -125,6 +138,8 @@ public class SalesforceModuleTest {
         QueryResult queryResult = Mockito.mock(QueryResult.class);
         when(queryResult.getRecords()).thenReturn(new SObject[] { });
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
         
         when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult);
@@ -138,6 +153,8 @@ public class SalesforceModuleTest {
         QueryResult queryResult = Mockito.mock(QueryResult.class);
         when(queryResult.getRecords()).thenReturn(new SObject[] { });
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
 
         when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult);
@@ -156,6 +173,9 @@ public class SalesforceModuleTest {
         EmptyRecycleBinResult emptyRecycleBinResult = Mockito.mock(EmptyRecycleBinResult.class);
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+
 
         when(partnerConnection.emptyRecycleBin(argThat(new StringArrayMatcher()))).thenReturn(new EmptyRecycleBinResult[]{emptyRecycleBinResult});
 
@@ -171,6 +191,9 @@ public class SalesforceModuleTest {
         DeleteResult deleteResult = Mockito.mock(DeleteResult.class);
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+
 
         when(partnerConnection.delete(argThat(new StringArrayMatcher()))).thenReturn(new DeleteResult[]{deleteResult});
 
@@ -186,6 +209,9 @@ public class SalesforceModuleTest {
         DescribeSObjectResult describeSObjectResult = Mockito.mock(DescribeSObjectResult.class);
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+
 
         when(partnerConnection.describeSObject(eq(MOCK_OBJET_TYPE))).thenReturn(describeSObjectResult);
 
