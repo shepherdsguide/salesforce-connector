@@ -14,6 +14,7 @@
         <mule.devkit.version>3.0.3-SNAPSHOT</mule.devkit.version>
         <junit.version>4.8.2</junit.version>
         <mockito.version>1.8.2</mockito.version>
+        <sonar.exclusions>com/sforce/**</sonar.exclusions>
     </properties>
 
     <build>
