@@ -422,18 +422,13 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<Map<String, Object>> query(String query) throws Exception {
-        try {
-            SObject[] objects = this.connection.query(query).getRecords();
-            List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-            for (SObject object : objects) {
-                result.add(object.toMap());
-            }
-
-            return result;
-        } catch (Exception e) {
-            throw new Exception("Unexpected error encountered in query: " +
-                    e.getMessage(), e);
+        SObject[] objects = this.connection.query(query).getRecords();
+        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        for (SObject object : objects) {
+            result.add(object.toMap());
         }
+
+        return result;
     }
 
     /**
@@ -577,12 +572,7 @@ public class SalesforceModule {
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<DeleteResult> delete(List<String> ids) throws Exception {
         List<DeleteResult> deleteResults = null;
-        try {
-            deleteResults = Arrays.asList(this.connection.delete(ids.toArray(new String[]{})));
-        } catch (Exception e) {
-            throw new Exception("Unexpected error encountered in delete: " +
-                    e.getMessage(), e);
-        }
+        deleteResults = Arrays.asList(this.connection.delete(ids.toArray(new String[]{})));
 
         return deleteResults;
     }
@@ -629,17 +619,7 @@ public class SalesforceModule {
     @Processor(name = "describe-sobject")
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public DescribeSObjectResult describeSObject(String type) throws Exception {
-
-        DescribeSObjectResult dsobj = null;
-
-        try {
-            dsobj = this.connection.describeSObject(type);
-        } catch (Exception e) {
-            throw new Exception("Unexpected error encountered in describeSObject: " +
-                    e.getMessage(), e);
-        }
-
-        return dsobj;
+        return this.connection.describeSObject(type);
     }
 
     /**
@@ -1039,7 +1019,11 @@ public class SalesforceModule {
         this.loginResult = loginResult;
     }
 
-    public void setRestConnection(RestConnection restConnection) {
+    protected void setRestConnection(RestConnection restConnection) {
         this.restConnection = restConnection;
+    }
+
+    protected void setBayeuxClient(SalesforceBayeuxClient bc) {
+        this.bc = bc;
     }
 }
