@@ -1,10 +1,17 @@
 package org.mule.modules.salesforce;
 
+import com.sforce.async.AsyncApiException;
+import com.sforce.async.AsyncExceptionCode;
+import com.sforce.async.BatchInfo;
+import com.sforce.async.BatchRequest;
+import com.sforce.async.JobInfo;
 import com.sforce.async.RestConnection;
 import com.sforce.soap.partner.*;
 import com.sforce.soap.partner.sobject.SObject;
+import com.sforce.ws.transport.SoapConnection;
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.mule.api.callback.SourceCallback;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +19,12 @@ import java.util.List;
 import java.util.Map;
 
 import static junit.framework.Assert.*;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -216,5 +227,78 @@ public class SalesforceModuleTest {
         when(partnerConnection.describeSObject(eq(MOCK_OBJET_TYPE))).thenReturn(describeSObjectResult);
 
         module.describeSObject(MOCK_OBJET_TYPE);
+    }
+    
+    @Test
+    public void testBatchSplitter() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        SourceCallback sourceCallback = Mockito.mock(SourceCallback.class);
+
+        List<Map<String, Object>> objects = new ArrayList<Map<String, Object>>();
+        for( int i =0 ; i < 1000; i++ ) {
+            Map<String, Object> object = new HashMap<String, Object>();
+            objects.add(object);
+        }
+
+        module.batchSplitter(200, objects, sourceCallback);
+        
+        verify(sourceCallback, times(5)).process(any());
+    }
+  
+    @Test
+    public void testCreateBulk() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        SaveResult saveResult = Mockito.mock(SaveResult.class);
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        when(partnerConnection.create(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        JobInfo jobInfo = Mockito.mock(JobInfo.class);
+        BatchRequest batchRequest = Mockito.mock(BatchRequest.class);
+        BatchInfo batchInfo = Mockito.mock(BatchInfo.class);
+        doReturn(jobInfo).when(restConnection).createJob(any(JobInfo.class));
+        doReturn(batchRequest).when(restConnection).createBatch(any(JobInfo.class));
+        doReturn(batchInfo).when(batchRequest).completeRequest();
+
+        Map<String, Object> sObject = new HashMap<String, Object>();
+        sObject.put("FirstName", "John");
+        sObject.put("LastName", "Doe");
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
+        sObjectList.add(sObject);
+
+        BatchInfo returnedBatchInfo = module.createBulk(MOCK_OBJET_TYPE, sObjectList);
+
+        assertEquals(batchInfo, returnedBatchInfo);
+    }
+    
+    @Test(expected = SoapConnection.SessionTimedOutException.class)
+    public void testCreateBulkWithTimeOutException() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        SaveResult saveResult = Mockito.mock(SaveResult.class);
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        when(partnerConnection.create(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        JobInfo jobInfo = Mockito.mock(JobInfo.class);
+        BatchRequest batchRequest = Mockito.mock(BatchRequest.class);
+        AsyncApiException exception = Mockito.mock(AsyncApiException.class);
+        doReturn(AsyncExceptionCode.InvalidSessionId).when(exception).getExceptionCode();
+        doReturn(jobInfo).when(restConnection).createJob(any(JobInfo.class));
+        doReturn(batchRequest).when(restConnection).createBatch(any(JobInfo.class));
+        doThrow(exception).when(batchRequest).completeRequest();
+
+        Map<String, Object> sObject = new HashMap<String, Object>();
+        sObject.put("FirstName", "John");
+        sObject.put("LastName", "Doe");
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
+        sObjectList.add(sObject);
+
+        BatchInfo returnedBatchInfo = module.createBulk(MOCK_OBJET_TYPE, sObjectList);
     }
 }
