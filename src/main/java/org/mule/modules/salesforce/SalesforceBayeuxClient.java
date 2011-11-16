@@ -20,16 +20,16 @@ import java.util.Map;
  * management.
  */
 public class SalesforceBayeuxClient extends BayeuxClient {
-    private static final int HANDSHAKE_TIMEOUT = 30 * 1000;
-    private static final int LONG_POLLING_TIMEOUT = 120000;
-    private static final Map<String, Object> LONG_POLLING_OPTIONS = createLongPollingOptions();
-    private static final Logger LOGGER = Logger.getLogger(SalesforceBayeuxClient.class);
-    private static final String LOGIN_COOKIE = "login";
-    private static final String LOCALEINFO_COOKIE = "com.salesforce.LocaleInfo";
-    private static final String SESSIONID_COOKIE = "sid";
-    private static final String LANGUAGE_COOKIE = "language";
-    private Map<String, org.cometd.bayeux.client.ClientSessionChannel.MessageListener> subscriptions;
-    private SalesforceModule salesforceModule;
+    protected static final int HANDSHAKE_TIMEOUT = 30 * 1000;
+    protected static final int LONG_POLLING_TIMEOUT = 120000;
+    protected static final Map<String, Object> LONG_POLLING_OPTIONS = createLongPollingOptions();
+    protected static final Logger LOGGER = Logger.getLogger(SalesforceBayeuxClient.class);
+    protected static final String LOGIN_COOKIE = "login";
+    protected static final String LOCALEINFO_COOKIE = "com.salesforce.LocaleInfo";
+    protected static final String SESSIONID_COOKIE = "sid";
+    protected static final String LANGUAGE_COOKIE = "language";
+    protected Map<String, org.cometd.bayeux.client.ClientSessionChannel.MessageListener> subscriptions;
+    protected SalesforceModule salesforceModule;
 
     private static Map<String, Object> createLongPollingOptions() {
         Map<String, Object> result = new HashMap<String, Object>();
@@ -77,12 +77,13 @@ public class SalesforceBayeuxClient extends BayeuxClient {
      * @param x        the exception that caused the failure
      * @param messages the messages being sent
      */
+    @Override
     public void onFailure(Throwable x, Message[] messages) {
         if (x instanceof ProtocolException) {
             try {
                 salesforceModule.reconnect();
                 setCookies();
-                handshake(HANDSHAKE_TIMEOUT);
+                handshake();
             } catch (org.mule.api.ConnectionException e) {
                 LOGGER.error(e.getMessage());
             }
