@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  ListUtils
+  SalesforceBayeuxMessageListener
 
 
 | Mule Salesforce Connector
@@ -215,9 +215,9 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/ListUtils.html">ListUtils</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/ListUtils.html">ListUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html">SalesforceBayeuxMessageListener</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html">SalesforceBayeuxMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceLongPollingTransport.html">SalesforceLongPollingTransport</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></li>
       </ul>
@@ -275,6 +275,28 @@
   
   
 
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -287,9 +309,12 @@ Summary:
 
 
 
+  <a href="#lfields">Fields</a>
+  
 
 
-  <a href="#pubctors">Ctors</a>
+
+  &#124; <a href="#pubctors">Ctors</a>
   
 
 
@@ -323,7 +348,7 @@ Summary:
      
     
     class
-<h1>ListUtils</h1>
+<h1>SalesforceBayeuxMessageListener</h1>
 
 
 
@@ -334,6 +359,11 @@ Summary:
   
 
   
+  
+      implements 
+      
+        ClientSessionChannel.MessageListener 
+      
   
   
 
@@ -356,7 +386,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.ListUtils</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.SalesforceBayeuxMessageListener</td>
     </tr>
     
 
@@ -414,6 +444,37 @@ Summary:
 
 
 
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          static
+          final
+          Logger</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html#LOGGER">LOGGER</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          SourceCallback</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html#callback">callback</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
 
 
 
@@ -435,7 +496,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/ListUtils.html#ListUtils()">ListUtils</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html#SalesforceBayeuxMessageListener(org.mule.api.callback.SourceCallback)">SalesforceBayeuxMessageListener</a></span>(SourceCallback callback)</nobr>
         
   </td></tr>
 
@@ -458,34 +519,14 @@ Summary:
         <td class="jd-typecol"><nobr>
             
             
-            final
-            static
-            &lt;T&gt;
-            List&lt;List&lt;T&gt;&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/ListUtils.html#split(java.util.List<T>, int, java.lang.Class<? extends java.util.List>)">split</a></span>(List&lt;T&gt; original, int maxListSize, Class&lt;?&nbsp;extends&nbsp;List&gt; listImplementation)</nobr>
-        
-        <div class="jd-descrdiv">Splits a list into smaller sublists.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
             
             
-            final
-            static
-            &lt;T&gt;
-            List&lt;List&lt;T&gt;&gt;</nobr>
+            
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/ListUtils.html#split(java.util.List<T>, int)">split</a></span>(List&lt;T&gt; original, int maxListSize)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceBayeuxMessageListener.html#onMessage(org.cometd.bayeux.client.ClientSessionChannel, org.cometd.bayeux.Message)">onMessage</a></span>(ClientSessionChannel channel, Message message)</nobr>
         
-        <div class="jd-descrdiv">Splits a list into smaller sublists.</div>
-  
   </td></tr>
 
 
@@ -705,6 +746,54 @@ From class
 </td></tr>
 
 
+
+
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.cometd.bayeux.client.ClientSessionChannel.MessageListener" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.cometd.bayeux.client.ClientSessionChannel.MessageListener-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.cometd.bayeux.client.ClientSessionChannel.MessageListener
+
+<div id="inherited-methods-org.cometd.bayeux.client.ClientSessionChannel.MessageListener">
+  <div id="inherited-methods-org.cometd.bayeux.client.ClientSessionChannel.MessageListener-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.cometd.bayeux.client.ClientSessionChannel.MessageListener-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">onMessage</span>(ClientSessionChannel arg0, Message arg1)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -731,6 +820,73 @@ From class
 <!-- Fields -->
 
 
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="LOGGER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        Logger
+      </span>
+        LOGGER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="callback"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+        final 
+        SourceCallback
+      </span>
+        callback
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
 <!-- Public ctors -->
 
 
@@ -739,7 +895,7 @@ From class
 
 
 
-<A NAME="ListUtils()"></A>
+<A NAME="SalesforceBayeuxMessageListener(org.mule.api.callback.SourceCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -751,8 +907,8 @@ From class
          
         
       </span>
-      <span class="sympad">ListUtils</span>
-      <span class="normal">()</span>
+      <span class="sympad">SalesforceBayeuxMessageListener</span>
+      <span class="normal">(SourceCallback callback)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -765,6 +921,15 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>callback</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -785,20 +950,20 @@ From class
 
 
 
-<A NAME="split(java.util.List<T>, int, java.lang.Class<? extends java.util.List>)"></A>
+<A NAME="onMessage(org.cometd.bayeux.client.ClientSessionChannel, org.cometd.bayeux.Message)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
-        final 
          
          
-        List&lt;List&lt;T&gt;&gt;
+         
+         
+        void
       </span>
-      <span class="sympad">split</span>
-      <span class="normal">(List&lt;T&gt; original, int maxListSize, Class&lt;?&nbsp;extends&nbsp;List&gt; listImplementation)</span>
+      <span class="sympad">onMessage</span>
+      <span class="normal">(ClientSessionChannel channel, Message message)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -810,92 +975,19 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Splits a list into smaller sublists.
- The original list remains unmodified and changes on the sublists are not propagated to the original list.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>original</td>
-          <td>The list to split</td>
+          <th>channel</td>
+          <td></td>
         </tr>
         <tr>
-          <th>maxListSize</td>
-          <td>The max amount of element a sublist can hold.</td>
-        </tr>
-        <tr>
-          <th>listImplementation</td>
-          <td>The implementation of List to be used to create the returned sublists</td>
+          <th>message</td>
+          <td></td>
         </tr>
       </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>A list of sublists</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>IllegalArgumentException</td>
-            <td>if the argument maxListSize is zero or a negative number</td>
-        </tr>  
-        <tr>
-            <th>NullPointerException</td>
-            <td>if arguments original or listImplementation are null
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="split(java.util.List<T>, int)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-         
-         
-        List&lt;List&lt;T&gt;&gt;
-      </span>
-      <span class="sympad">split</span>
-      <span class="normal">(List&lt;T&gt; original, int maxListSize)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Splits a list into smaller sublists. The sublists are of type ArrayList.
- The original list remains unmodified and changes on the sublists are not propagated to the original list.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>original</td>
-          <td>The list to split</td>
-        </tr>
-        <tr>
-          <th>maxListSize</td>
-          <td>The max amount of element a sublist can hold.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>A list of sublists
-</li></ul>
   </div>
 
     </div>
