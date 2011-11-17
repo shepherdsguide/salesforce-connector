@@ -10,6 +10,7 @@ import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
+import com.sforce.soap.partner.GetServerTimestampResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
 import com.sforce.soap.partner.LoginResult;
@@ -28,6 +29,7 @@ import org.mule.api.callback.SourceCallback;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +44,7 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -351,6 +354,127 @@ public class SalesforceModuleTest {
         BatchInfo returnedBatchInfo = module.createBulk(MOCK_OBJET_TYPE, sObjectList);
 
         assertEquals(batchInfo, returnedBatchInfo);
+    }
+
+    @Test
+    public void testUpdateBulk() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        JobInfo jobInfo = Mockito.mock(JobInfo.class);
+        BatchRequest batchRequest = Mockito.mock(BatchRequest.class);
+        BatchInfo batchInfo = Mockito.mock(BatchInfo.class);
+        doReturn(jobInfo).when(restConnection).createJob(any(JobInfo.class));
+        doReturn(batchRequest).when(restConnection).createBatch(any(JobInfo.class));
+        doReturn(batchInfo).when(batchRequest).completeRequest();
+
+        Map<String, Object> sObject = new HashMap<String, Object>();
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
+        sObjectList.add(sObject);
+
+        BatchInfo returnedBatchInfo = module.updateBulk(MOCK_OBJET_TYPE, sObjectList);
+
+        assertEquals(batchInfo, returnedBatchInfo);
+    }
+
+    @Test
+    public void testUpsertBulk() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        JobInfo jobInfo = Mockito.mock(JobInfo.class);
+        BatchRequest batchRequest = Mockito.mock(BatchRequest.class);
+        BatchInfo batchInfo = Mockito.mock(BatchInfo.class);
+        doReturn(jobInfo).when(restConnection).createJob(any(JobInfo.class));
+        doReturn(batchRequest).when(restConnection).createBatch(any(JobInfo.class));
+        doReturn(batchInfo).when(batchRequest).completeRequest();
+
+        Map<String, Object> sObject = new HashMap<String, Object>();
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
+        List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
+        sObjectList.add(sObject);
+
+        BatchInfo returnedBatchInfo = module.upsertBulk(MOCK_OBJET_TYPE, "X_c", sObjectList);
+
+        assertEquals(batchInfo, returnedBatchInfo);
+    }
+
+    @Test
+    public void testPublishTopic() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        SaveResult saveResult = Mockito.mock(SaveResult.class);
+        when(saveResult.isSuccess()).thenReturn(true);
+        when(partnerConnection.create(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
+        QueryResult queryResult = Mockito.mock(QueryResult.class);
+        when(partnerConnection.query(eq("SELECT Id FROM PushTopic WHERE Name = 'TopicName'"))).thenReturn(queryResult);
+        when(queryResult.getSize()).thenReturn(0);
+
+        module.publishTopic("TopicName", "SELECT * FROM Account", "Description");
+        
+        verify(partnerConnection, atLeastOnce()).create(Mockito.argThat(new SObjectArrayMatcher()));
+    }
+
+    @Test
+    public void testPublishTopicAlreadyExists() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        SaveResult saveResult = Mockito.mock(SaveResult.class);
+        when(saveResult.isSuccess()).thenReturn(true);
+        when(partnerConnection.update(Mockito.argThat(new SObjectArrayMatcher()))).thenReturn(new SaveResult[]{saveResult});
+        QueryResult queryResult = Mockito.mock(QueryResult.class);
+        when(partnerConnection.query(eq("SELECT Id FROM PushTopic WHERE Name = 'TopicName'"))).thenReturn(queryResult);
+        when(queryResult.getSize()).thenReturn(1);
+        SObject sObject = Mockito.mock(SObject.class);
+        when(queryResult.getRecords()).thenReturn(new SObject[]{ sObject });
+
+        module.publishTopic("TopicName", "SELECT * FROM Account", "Description");
+
+        verify(partnerConnection, atLeastOnce()).update(Mockito.argThat(new SObjectArrayMatcher()));
+    }
+
+    @Test
+    public void testGetDeleted() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+        when(getServerTimestampResult.getTimestamp()).thenReturn(Calendar.getInstance());
+
+        module.getDeleted("Account", 30);
+        
+        verify(partnerConnection, atLeastOnce()).getDeleted(eq("Account"), any(Calendar.class), any(Calendar.class));
+    }
+
+    @Test
+    public void testGetDeletedRange() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+
+        module.getDeletedRange("Account", Calendar.getInstance(), Calendar.getInstance());
+
+        verify(partnerConnection, atLeastOnce()).getDeleted(eq("Account"), any(Calendar.class), any(Calendar.class));
     }
 
     @Test(expected = SoapConnection.SessionTimedOutException.class)
