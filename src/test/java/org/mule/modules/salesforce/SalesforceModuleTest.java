@@ -17,6 +17,7 @@ import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.sobject.SObject;
+import com.sforce.ws.ConnectorConfig;
 import com.sforce.ws.transport.SoapConnection;
 import org.cometd.client.BayeuxClient;
 import org.hamcrest.Description;
@@ -25,6 +26,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.mule.api.callback.SourceCallback;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -234,6 +236,24 @@ public class SalesforceModuleTest {
 
         module.querySingle(MOCK_QUERY);
     }
+    
+    @Test
+    public void testQuerySingleNoResults() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        QueryResult queryResult = Mockito.mock(QueryResult.class);
+        SObject sObject = Mockito.mock(SObject.class);
+        when(queryResult.getRecords()).thenReturn(new SObject[]{ sObject });
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        module.setConnection(partnerConnection);
+
+        when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult);
+
+        module.querySingle(MOCK_QUERY);
+
+        verify(sObject, atLeastOnce()).toMap();
+    }    
 
     @Test
     public void testEmptyRecycleBin() throws Exception {
@@ -464,6 +484,37 @@ public class SalesforceModuleTest {
         }))).thenReturn(new LeadConvertResult[]{result});
 
         module.convertLead(LEAD_ID, CONTACT_ID, ACCOUNT_ID, true, true, OPPORTUNITY_NAME, CONVERTED_STATUS, true);
+    }
+
+    @Test
+    public void testCreateConnectorConfig() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+
+        ConnectorConfig config = module.createConnectorConfig( new URL("http://www.salesforce.com"), "username", "password", "", 0, "", "");
+
+        assertEquals(config.getUsername(), "username");
+        assertEquals(config.getPassword(), "password");
+        assertEquals(config.getAuthEndpoint(), "http://www.salesforce.com");
+        assertEquals(config.getServiceEndpoint(), "http://www.salesforce.com");
+        assertTrue(config.isManualLogin());
+        assertFalse(config.isCompression());
+    }
+    
+    @Test
+    public void testCreateConnectorConfigWithProxy() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        
+        ConnectorConfig config = module.createConnectorConfig( new URL("http://www.salesforce.com"), "username", "password", "proxyhost", 80, "aa", "bb");
+        
+        assertEquals(config.getUsername(), "username");
+        assertEquals(config.getPassword(), "password");
+        assertEquals(config.getAuthEndpoint(), "http://www.salesforce.com");
+        assertEquals(config.getServiceEndpoint(), "http://www.salesforce.com");
+        assertTrue(config.isManualLogin());
+        assertFalse(config.isCompression());
+
+        assertEquals(config.getProxyUsername(), "aa");
+        assertEquals(config.getProxyPassword(), "bb");
     }
 
 }
