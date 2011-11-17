@@ -360,12 +360,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, Object>> objects) throws Exception {
-        try {
-            return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
-        } catch (Exception e) {
-            throw new Exception("Unexpected error encountered in upsert: " +
-                    e.getMessage(), e);
-        }
+        return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
     }
 
     /**
@@ -708,46 +703,7 @@ public class SalesforceModule {
      */
     @Source
     public void subscribeTopic(String topic, final SourceCallback callback) {
-        this.getBayeuxClient().subscribe("/topic" + topic, new ClientSessionChannel.MessageListener() {
-            @Override
-            public void onMessage(ClientSessionChannel channel, Message message) {
-                try {
-                    if (message instanceof HashMapMessage) {
-                        HashMapMessage hashMapMessage = (HashMapMessage) message;
-                        Map<String, Object> inboundProperties = new HashMap<String, Object>();
-                        if (!hashMapMessage.containsKey("channel")) {
-                            LOGGER.error("The event does not contain the channel");
-                        } else {
-                            inboundProperties.put("channel", hashMapMessage.get("channel"));
-                        }
-                        Map data;
-                        if (!hashMapMessage.containsKey("data")) {
-                            LOGGER.error("The event does not contain any data?");
-                        } else {
-                            data = (HashMap) hashMapMessage.get("data");
-                            Map sObject = (Map) data.get("sobject");
-                            Map event = (Map) data.get("event");
-                            if (sObject == null) {
-                                LOGGER.error("The data of the event does not contain an SObject");
-                            } else {
-                                if (event == null) {
-                                    LOGGER.error("The data of the event does not contain event information");
-                                } else {
-                                    for (Map.Entry entry : (Set<Map.Entry>) event.entrySet()) {
-                                        inboundProperties.put((String) entry.getKey(), entry.getValue());
-                                    }
-                                    callback.process(sObject, inboundProperties);
-                                }
-                            }
-                        }
-                    } else {
-                        callback.process(message.getData());
-                    }
-                } catch (Exception e) {
-                    LOGGER.error(e);
-                }
-            }
-        });
+        this.getBayeuxClient().subscribe("/topic" + topic, new SalesforceBayeuxMessageListener(callback));
     }
 
     /**

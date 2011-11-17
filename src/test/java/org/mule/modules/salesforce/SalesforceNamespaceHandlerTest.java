@@ -13,28 +13,24 @@
  */
 package org.mule.modules.salesforce;
 
-import org.mule.api.MuleEvent;
-import org.mule.api.construct.FlowConstruct;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.mule.construct.Flow;
 import org.mule.tck.AbstractMuleTestCase;
 import org.mule.tck.FunctionalTestCase;
 
-import org.junit.Test;
-
 /**
- * Verifies that the connector produces a valid xsd.  
+ * Verifies that the connector produces a valid xsd.
  */
-public class SalesforceNamespaceHandlerTest extends FunctionalTestCase
-{
+@Ignore
+public class SalesforceNamespaceHandlerTest extends FunctionalTestCase {
     @Override
-    protected String getConfigResources()
-    {
+    protected String getConfigResources() {
         return "mule-config.xml";
     }
 
     @Test
-    public void testFlow() throws Exception
-    {
+    public void testFlow() throws Exception {
         //Flow flow = lookupFlowConstruct("Create");
         //MuleEvent responseEvent = flow.process(getTestEvent("<anyPayload/>"));
     }
@@ -44,8 +40,7 @@ public class SalesforceNamespaceHandlerTest extends FunctionalTestCase
      *
      * @param name Name of the flow to retrieve
      */
-    protected Flow lookupFlowConstruct(String name)
-    {
+    protected Flow lookupFlowConstruct(String name) {
         return AbstractMuleTestCase.muleContext.getRegistry().lookupObject(name);
     }
 }

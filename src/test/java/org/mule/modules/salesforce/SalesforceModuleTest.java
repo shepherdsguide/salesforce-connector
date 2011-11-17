@@ -10,6 +10,8 @@ import com.sforce.soap.partner.DeleteResult;
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
+import com.sforce.soap.partner.LeadConvert;
+import com.sforce.soap.partner.LeadConvertResult;
 import com.sforce.soap.partner.LoginResult;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
@@ -17,6 +19,8 @@ import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.transport.SoapConnection;
 import org.cometd.client.BayeuxClient;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.mule.api.callback.SourceCallback;
@@ -42,9 +46,18 @@ import static org.mockito.Mockito.when;
 
 public class SalesforceModuleTest {
 
-    public static final String MOCKED_ID = "001";
+    public static final String LEAD_ID = "001";
+    public static final String MOCKED_ID = LEAD_ID;
     public static final String MOCK_OBJET_TYPE = "Account";
     public static final String MOCK_QUERY = "SELECT Id FROM Account";
+    public static final String ACCOUNT_ID = "003";
+    public static final String CONTACT_ID = "002";
+    public static final String OPPORTUNITY_NAME = "NAME";
+    public static final String CONVERTED_STATUS = "STATUS";
+    public static final String FIRST_NAME_FIELD = "FirstName";
+    public static final String LAST_NAME_FIELD = "LastName";
+    public static final String FIRST_NAME = "John";
+    public static final String LAST_NAME = "Doe";
 
     @Test
     public void testCreate() throws Exception {
@@ -57,8 +70,8 @@ public class SalesforceModuleTest {
         module.setRestConnection(restConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
         List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
@@ -78,8 +91,8 @@ public class SalesforceModuleTest {
         module.setRestConnection(restConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
 
         SaveResult returnedSaveResult = module.createSingle(MOCK_OBJET_TYPE, sObject);
 
@@ -96,8 +109,8 @@ public class SalesforceModuleTest {
         module.setRestConnection(restConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
 
         SaveResult returnedSaveResult = module.createSingle(MOCK_OBJET_TYPE, sObject);
 
@@ -166,8 +179,8 @@ public class SalesforceModuleTest {
         module.setConnection(partnerConnection);
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
         List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
@@ -220,11 +233,6 @@ public class SalesforceModuleTest {
         when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult);
 
         module.querySingle(MOCK_QUERY);
-    }
-
-    @Test
-    public void testConvertLead() throws Exception {
-
     }
 
     @Test
@@ -315,8 +323,8 @@ public class SalesforceModuleTest {
         doReturn(batchInfo).when(batchRequest).completeRequest();
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
         List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
@@ -343,8 +351,8 @@ public class SalesforceModuleTest {
         doThrow(exception).when(batchRequest).completeRequest();
 
         Map<String, Object> sObject = new HashMap<String, Object>();
-        sObject.put("FirstName", "John");
-        sObject.put("LastName", "Doe");
+        sObject.put(FIRST_NAME_FIELD, FIRST_NAME);
+        sObject.put(LAST_NAME_FIELD, LAST_NAME);
         List<Map<String, Object>> sObjectList = new ArrayList<Map<String, Object>>();
         sObjectList.add(sObject);
 
@@ -386,6 +394,76 @@ public class SalesforceModuleTest {
 
         assertNull(module.getConnection());
         assertNull(module.getLoginResult());
+    }
+    
+    @Test
+    public void testConvertLead() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        module.setConnection(partnerConnection);
+        LeadConvertResult result = Mockito.mock(LeadConvertResult.class);
+        
+        when(partnerConnection.convertLead(argThat(new Matcher<LeadConvert[]>() {
+            @Override
+            public boolean matches(Object o) {
+                if( !o.getClass().isArray() ) {
+                    return false;
+                }
+                
+                Object[] oArray = (Object[])o;
+                if( oArray.length != 1 ) {
+                    return false;
+                }
+                
+                if( !(oArray[0] instanceof LeadConvert) ) { 
+                    return false;
+                }
+                
+                LeadConvert leadConvert = (LeadConvert)oArray[0];
+                
+                if( !leadConvert.getAccountId().equals(ACCOUNT_ID) ) {
+                    return false;
+                }
+
+                if( !leadConvert.getContactId().equals(CONTACT_ID) ) {
+                    return false;
+                }
+
+                if( !leadConvert.getLeadId().equals(LEAD_ID) ) {
+                    return false;
+                }
+
+                if( !leadConvert.getOpportunityName().equals(OPPORTUNITY_NAME) ) {
+                    return false;
+                }
+
+                if( !leadConvert.getOverwriteLeadSource() ) {
+                    return false;
+                }
+
+                if( !leadConvert.getDoNotCreateOpportunity() ) {
+                    return false;
+                }
+
+                if( !leadConvert.getSendNotificationEmail() ) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            @Override
+            public void _dont_implement_Matcher___instead_extend_BaseMatcher_() {
+            }
+
+            @Override
+            public void describeTo(Description description) {
+            }
+        }))).thenReturn(new LeadConvertResult[]{result});
+
+        module.convertLead(LEAD_ID, CONTACT_ID, ACCOUNT_ID, true, true, OPPORTUNITY_NAME, CONVERTED_STATUS, true);
     }
 
 }
