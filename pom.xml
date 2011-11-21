@@ -97,14 +97,15 @@
                         -hdf project.groupId "${project.groupId}"
                         -hdf project.version "${project.version}"
                         -hdf project.name "${project.name}"
-								-hdf project.repo.name "${project.distributionManagement.repository.name}"
-								-hdf project.repo.id "${project.distributionManagement.repository.id}"
-								-hdf project.repo.url "${project.distributionManagement.repository.url}"
-								-hdf project.snapshotRepo.name "${project.distributionManagement.snapshotRepository.name}"
-								-hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
-								-hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
+						-hdf project.repo.name "${project.distributionManagement.repository.name}"
+						-hdf project.repo.id "${project.distributionManagement.repository.id}"
+						-hdf project.repo.url "${project.distributionManagement.repository.url}"
+						-hdf project.snapshotRepo.name "${project.distributionManagement.snapshotRepository.name}"
+						-hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
+						-hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
                         -d ${project.build.directory}/apidocs
-                        -htmldir ${basedir}/doc
+						-markdown streaming ${basedir}/STREAMING.md "Streaming Guide"
+						-markdown bulk ${basedir}/BULK.md "Bulk Guide"
                     </additionalparam>
                     <useStandardDocletOptions>false</useStandardDocletOptions>
                     <additionalJOption>-J-Xmx1024m</additionalJOption>
