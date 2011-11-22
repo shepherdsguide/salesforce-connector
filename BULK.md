@@ -2,7 +2,7 @@ The Salesforce Bulk API is based is optimized for loading or deleting large sets
 
 Our connector simplifies the model heavily making it very transparent and really easy. While the connectors works with concepts like Jobs and Batches, you will rarely see them except maybe in responses.
 
-Creating/Updated/Upserting Objects in Bulk
+Creating/Updating/Upserting Objects in Bulk
 ------------------------------------------
 
 Creating objects in bulk is as easy as creating objects without the bulk portion of it. Let's do a quick recap as to how the regular create works:
