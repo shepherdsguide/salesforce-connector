@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mule.modules</groupId>
     <artifactId>mule-module-sfdc</artifactId>
-    <version>4.0</version>
+    <version>4.1-SNAPSHOT</version>
     <packaging>mule-module</packaging>
     <name>Mule Salesforce Connector</name>
 
