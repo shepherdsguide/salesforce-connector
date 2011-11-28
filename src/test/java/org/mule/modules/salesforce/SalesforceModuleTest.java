@@ -320,6 +320,7 @@ public class SalesforceModuleTest {
         module.describeSObject(MOCK_OBJET_TYPE);
     }
 
+    /*
     @Test
     public void testBatchSplitter() throws Exception {
         SalesforceModule module = new SalesforceModule();
@@ -339,6 +340,7 @@ public class SalesforceModuleTest {
 
         verify(sourceCallback, times(5)).process(any());
     }
+    */
 
     @Test
     public void testCreateBulk() throws Exception {
