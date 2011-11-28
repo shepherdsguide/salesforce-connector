@@ -417,10 +417,17 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<Map<String, Object>> query(String query) throws Exception {
-        SObject[] objects = this.connection.query(query).getRecords();
+        QueryResult queryResult = this.connection.query(query);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-        for (SObject object : objects) {
-            result.add(object.toMap());
+        while( queryResult != null ) {
+            for (SObject object : queryResult.getRecords()) {
+                result.add(object.toMap());
+            }
+            if( queryResult.isDone() )
+            {
+                break;
+            }
+            queryResult = this.connection.queryMore(queryResult.getQueryLocator());
         }
 
         return result;

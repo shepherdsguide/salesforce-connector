@@ -213,16 +213,27 @@ public class SalesforceModuleTest {
     @Test
     public void testQuery() throws Exception {
         SalesforceModule module = new SalesforceModule();
-        QueryResult queryResult = Mockito.mock(QueryResult.class);
-        when(queryResult.getRecords()).thenReturn(new SObject[]{});
+        SObject sObject1 = Mockito.mock(SObject.class);
+        SObject sObject2 = Mockito.mock(SObject.class);
+        QueryResult queryResult1 = Mockito.mock(QueryResult.class);
+        when(queryResult1.getRecords()).thenReturn(new SObject[]{sObject1});
+        when(queryResult1.isDone()).thenReturn(false);
+        when(queryResult1.getQueryLocator()).thenReturn("001");
+        QueryResult queryResult2 = Mockito.mock(QueryResult.class);
+        when(queryResult2.getRecords()).thenReturn(new SObject[]{sObject2});
+        when(queryResult2.isDone()).thenReturn(true);
+        when(queryResult2.getQueryLocator()).thenReturn("001");
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         RestConnection restConnection = Mockito.mock(RestConnection.class);
         module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
 
-        when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult);
+        when(partnerConnection.query(eq(MOCK_QUERY))).thenReturn(queryResult1);
+        when(partnerConnection.queryMore(eq("001"))).thenReturn(queryResult2);
 
-        module.query(MOCK_QUERY);
+        List<Map<String, Object>> result = module.query(MOCK_QUERY);
+        
+        assertEquals(2, result.size());
     }
 
     @Test
