@@ -1,5 +1,5 @@
 /**
- * Mule Workday Cloud Connector
+ * Mule Salesforce Connector
  *
  * Copyright (c) MuleSoft, Inc.  All rights reserved.  http://www.mulesoft.com
  *
