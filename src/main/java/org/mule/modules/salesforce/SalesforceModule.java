@@ -765,8 +765,9 @@ public class SalesforceModule {
                 } catch (ConnectionException e) {
                     LOGGER.error(e.getMessage(), e);
                 }
+                String username = this.connection.getConfig().getUsername();
                 this.connection = null;
-                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.CREDENTIALS_EXPIRED, null, "The password for the user " + this.connection.getConfig().getUsername() + " has expired");
+                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.CREDENTIALS_EXPIRED, null, "The password for the user " + username + " has expired");
             }
 
             LOGGER.debug("Session established successfully with ID " + this.loginResult.getSessionId() + " at instance " + this.loginResult.getServerUrl());
