@@ -15,6 +15,7 @@ package org.mule.modules.salesforce;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mule.api.MuleEvent;
 import org.mule.construct.Flow;
 import org.mule.tck.AbstractMuleTestCase;
 import org.mule.tck.FunctionalTestCase;
@@ -31,8 +32,8 @@ public class SalesforceNamespaceHandlerTest extends FunctionalTestCase {
 
     @Test
     public void testFlow() throws Exception {
-        //Flow flow = lookupFlowConstruct("Create");
-        //MuleEvent responseEvent = flow.process(getTestEvent("<anyPayload/>"));
+       //Flow flow = lookupFlowConstruct("Create");
+       //MuleEvent responseEvent = flow.process(getTestEvent("<anyPayload/>"));
     }
 
     /**

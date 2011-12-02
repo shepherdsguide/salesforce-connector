@@ -537,6 +537,8 @@ public class SalesforceModuleTest {
         SalesforceModule module = new SalesforceModule();
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setConnection(partnerConnection);
+        LoginResult loginResult = Mockito.mock(LoginResult.class);
+        module.setLoginResult(loginResult);
 
         module.destroySession();
         
@@ -553,6 +555,8 @@ public class SalesforceModuleTest {
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         module.setBayeuxClient(salesforceBayeuxClient);
         module.setConnection(partnerConnection);
+        LoginResult loginResult = Mockito.mock(LoginResult.class);
+        module.setLoginResult(loginResult);
         when(salesforceBayeuxClient.isConnected()).thenReturn(true);
 
         module.destroySession();

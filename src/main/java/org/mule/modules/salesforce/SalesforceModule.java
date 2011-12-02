@@ -30,6 +30,7 @@ import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
 import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.UpsertResult;
+import com.sforce.soap.partner.fault.ApiFault;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
@@ -281,7 +282,7 @@ public class SalesforceModule {
             }
         }
 
-        if (this.connection != null) {
+        if (this.connection != null && this.loginResult != null) {
             try {
                 this.connection.logout();
                 this.loginResult = null;
@@ -774,7 +775,11 @@ public class SalesforceModule {
             this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
             this.connection.getConfig().setSessionId(this.loginResult.getSessionId());
         } catch (ConnectionException e) {
-            throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
+            if( e instanceof ApiFault ) {
+                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, ((ApiFault)e).getExceptionCode().name(), ((ApiFault)e).getExceptionMessage(), e);
+            } else {
+                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
+            }
         }
     }
 
