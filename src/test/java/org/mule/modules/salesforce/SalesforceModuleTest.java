@@ -21,6 +21,7 @@ import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetServerTimestampResult;
+import com.sforce.soap.partner.GetUserInfoResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
 import com.sforce.soap.partner.LoginResult;
@@ -30,12 +31,10 @@ import com.sforce.soap.partner.SaveResult;
 import com.sforce.soap.partner.sobject.SObject;
 import com.sforce.ws.ConnectorConfig;
 import com.sforce.ws.transport.SoapConnection;
-import org.cometd.client.BayeuxClient;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.mule.api.callback.SourceCallback;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -55,7 +54,6 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -242,7 +240,7 @@ public class SalesforceModuleTest {
         when(partnerConnection.queryMore(eq("001"))).thenReturn(queryResult2);
 
         List<Map<String, Object>> result = module.query(MOCK_QUERY);
-        
+
         assertEquals(2, result.size());
     }
 
@@ -260,13 +258,13 @@ public class SalesforceModuleTest {
 
         module.querySingle(MOCK_QUERY);
     }
-    
+
     @Test
     public void testQuerySingleNoResults() throws Exception {
         SalesforceModule module = new SalesforceModule();
         QueryResult queryResult = Mockito.mock(QueryResult.class);
         SObject sObject = Mockito.mock(SObject.class);
-        when(queryResult.getRecords()).thenReturn(new SObject[]{ sObject });
+        when(queryResult.getRecords()).thenReturn(new SObject[]{sObject});
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
         RestConnection restConnection = Mockito.mock(RestConnection.class);
         module.setRestConnection(restConnection);
@@ -277,7 +275,7 @@ public class SalesforceModuleTest {
         module.querySingle(MOCK_QUERY);
 
         verify(sObject, atLeastOnce()).toMap();
-    }    
+    }
 
     @Test
     public void testEmptyRecycleBin() throws Exception {
@@ -444,7 +442,7 @@ public class SalesforceModuleTest {
         when(queryResult.getSize()).thenReturn(0);
 
         module.publishTopic("TopicName", "SELECT * FROM Account", "Description");
-        
+
         verify(partnerConnection, atLeastOnce()).create(Mockito.argThat(new SObjectArrayMatcher()));
     }
 
@@ -462,11 +460,39 @@ public class SalesforceModuleTest {
         when(partnerConnection.query(eq("SELECT Id FROM PushTopic WHERE Name = 'TopicName'"))).thenReturn(queryResult);
         when(queryResult.getSize()).thenReturn(1);
         SObject sObject = Mockito.mock(SObject.class);
-        when(queryResult.getRecords()).thenReturn(new SObject[]{ sObject });
+        when(queryResult.getRecords()).thenReturn(new SObject[]{sObject});
 
         module.publishTopic("TopicName", "SELECT * FROM Account", "Description");
 
         verify(partnerConnection, atLeastOnce()).update(Mockito.argThat(new SObjectArrayMatcher()));
+    }
+
+    @Test
+    public void testGetUserInfo() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetUserInfoResult getUserInfoResult = Mockito.mock(GetUserInfoResult.class);
+        when(partnerConnection.getUserInfo()).thenReturn(getUserInfoResult);
+
+        assertEquals(getUserInfoResult, module.getUserInfo());
+    }
+
+    @Test
+    public void testGetDeletedRange() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+
+        module.getDeletedRange("Account", Calendar.getInstance(), Calendar.getInstance());
+
+        verify(partnerConnection, atLeastOnce()).getDeleted(eq("Account"), any(Calendar.class), any(Calendar.class));
     }
 
     @Test
@@ -481,21 +507,6 @@ public class SalesforceModuleTest {
         when(getServerTimestampResult.getTimestamp()).thenReturn(Calendar.getInstance());
 
         module.getDeleted("Account", 30);
-        
-        verify(partnerConnection, atLeastOnce()).getDeleted(eq("Account"), any(Calendar.class), any(Calendar.class));
-    }
-
-    @Test
-    public void testGetDeletedRange() throws Exception {
-        SalesforceModule module = spy(new SalesforceModule());
-        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
-        module.setConnection(partnerConnection);
-        RestConnection restConnection = Mockito.mock(RestConnection.class);
-        module.setRestConnection(restConnection);
-        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
-        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
-
-        module.getDeletedRange("Account", Calendar.getInstance(), Calendar.getInstance());
 
         verify(partnerConnection, atLeastOnce()).getDeleted(eq("Account"), any(Calendar.class), any(Calendar.class));
     }
@@ -541,7 +552,7 @@ public class SalesforceModuleTest {
         module.setLoginResult(loginResult);
 
         module.destroySession();
-        
+
         verify(partnerConnection, atLeastOnce()).logout();
 
         assertNull(module.getConnection());
@@ -566,7 +577,7 @@ public class SalesforceModuleTest {
         assertNull(module.getConnection());
         assertNull(module.getLoginResult());
     }
-    
+
     @Test
     public void testConvertLead() throws Exception {
         SalesforceModule module = new SalesforceModule();
@@ -575,50 +586,50 @@ public class SalesforceModuleTest {
         module.setRestConnection(restConnection);
         module.setConnection(partnerConnection);
         LeadConvertResult result = Mockito.mock(LeadConvertResult.class);
-        
+
         when(partnerConnection.convertLead(argThat(new Matcher<LeadConvert[]>() {
             @Override
             public boolean matches(Object o) {
-                if( !o.getClass().isArray() ) {
-                    return false;
-                }
-                
-                Object[] oArray = (Object[])o;
-                if( oArray.length != 1 ) {
-                    return false;
-                }
-                
-                if( !(oArray[0] instanceof LeadConvert) ) { 
-                    return false;
-                }
-                
-                LeadConvert leadConvert = (LeadConvert)oArray[0];
-                
-                if( !leadConvert.getAccountId().equals(ACCOUNT_ID) ) {
+                if (!o.getClass().isArray()) {
                     return false;
                 }
 
-                if( !leadConvert.getContactId().equals(CONTACT_ID) ) {
+                Object[] oArray = (Object[]) o;
+                if (oArray.length != 1) {
                     return false;
                 }
 
-                if( !leadConvert.getLeadId().equals(LEAD_ID) ) {
+                if (!(oArray[0] instanceof LeadConvert)) {
                     return false;
                 }
 
-                if( !leadConvert.getOpportunityName().equals(OPPORTUNITY_NAME) ) {
+                LeadConvert leadConvert = (LeadConvert) oArray[0];
+
+                if (!leadConvert.getAccountId().equals(ACCOUNT_ID)) {
                     return false;
                 }
 
-                if( !leadConvert.getOverwriteLeadSource() ) {
+                if (!leadConvert.getContactId().equals(CONTACT_ID)) {
                     return false;
                 }
 
-                if( !leadConvert.getDoNotCreateOpportunity() ) {
+                if (!leadConvert.getLeadId().equals(LEAD_ID)) {
                     return false;
                 }
 
-                if( !leadConvert.getSendNotificationEmail() ) {
+                if (!leadConvert.getOpportunityName().equals(OPPORTUNITY_NAME)) {
+                    return false;
+                }
+
+                if (!leadConvert.getOverwriteLeadSource()) {
+                    return false;
+                }
+
+                if (!leadConvert.getDoNotCreateOpportunity()) {
+                    return false;
+                }
+
+                if (!leadConvert.getSendNotificationEmail()) {
                     return false;
                 }
 
@@ -641,7 +652,7 @@ public class SalesforceModuleTest {
     public void testCreateConnectorConfig() throws Exception {
         SalesforceModule module = new SalesforceModule();
 
-        ConnectorConfig config = module.createConnectorConfig( new URL("http://www.salesforce.com"), "username", "password", "", 0, "", "");
+        ConnectorConfig config = module.createConnectorConfig(new URL("http://www.salesforce.com"), "username", "password", "", 0, "", "");
 
         assertEquals(config.getUsername(), "username");
         assertEquals(config.getPassword(), "password");
@@ -650,13 +661,13 @@ public class SalesforceModuleTest {
         assertTrue(config.isManualLogin());
         assertFalse(config.isCompression());
     }
-    
+
     @Test
     public void testCreateConnectorConfigWithProxy() throws Exception {
         SalesforceModule module = new SalesforceModule();
-        
-        ConnectorConfig config = module.createConnectorConfig( new URL("http://www.salesforce.com"), "username", "password", "proxyhost", 80, "aa", "bb");
-        
+
+        ConnectorConfig config = module.createConnectorConfig(new URL("http://www.salesforce.com"), "username", "password", "proxyhost", 80, "aa", "bb");
+
         assertEquals(config.getUsername(), "username");
         assertEquals(config.getPassword(), "password");
         assertEquals(config.getAuthEndpoint(), "http://www.salesforce.com");

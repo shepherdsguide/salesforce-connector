@@ -150,3 +150,6 @@
 <!-- BEGIN_INCLUDE(sfdc:get-deleted) -->
 <sfdc:get-deleted type="#[map-payload:type]" duration="#[map-payload:duration]" />
 <!-- END_INCLUDE(sfdc:get-deleted) -->
+<!-- BEGIN_INCLUDE(sfdc:get-user-info) -->
+<sfdc:get-user-info />
+<!-- END_INCLUDE(sfdc:get-user-info) -->

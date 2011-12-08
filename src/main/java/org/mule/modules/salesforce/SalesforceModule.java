@@ -23,6 +23,7 @@ import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetDeletedResult;
+import com.sforce.soap.partner.GetUserInfoResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
 import com.sforce.soap.partner.LoginResult;
@@ -37,9 +38,6 @@ import com.sforce.ws.ConnectorConfig;
 import com.sforce.ws.MessageHandler;
 import com.sforce.ws.transport.SoapConnection;
 import org.apache.log4j.Logger;
-import org.cometd.bayeux.Message;
-import org.cometd.bayeux.client.ClientSessionChannel;
-import org.cometd.common.HashMapMessage;
 import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connect;
@@ -59,10 +57,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * The Salesforce Connector will allow to connect to the Salesforce application. Almost every operation that can be
@@ -689,6 +685,21 @@ public class SalesforceModule {
                 throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
             }
         }
+    }
+
+    /**
+     * Retrieves personal information for the user associated with the current session.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-user-info}
+     *
+     * @throws Exception
+     * @return {@link GetUserInfoResult}
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getuserinfo.htm">getUserInfo()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetUserInfoResult getUserInfo() throws Exception {
+        return connection.getUserInfo();
     }
 
     /**
