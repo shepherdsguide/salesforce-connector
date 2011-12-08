@@ -160,12 +160,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<SaveResult> create(String type, List<Map<String, Object>> objects) throws Exception {
-
-        List<SaveResult> saveResults = null;
-
-        saveResults = Arrays.asList(this.connection.create(toSObjectList(type, objects)));
-
-        return saveResults;
+        return Arrays.asList(connection.create(toSObjectList(type, objects)));
     }
 
     /**
@@ -193,7 +188,7 @@ public class SalesforceModule {
 
     private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects, String externalIdFieldName) throws SoapConnection.SessionTimedOutException {
         try {
-            BatchRequest batchRequest = this.restConnection.createBatch(jobInfo);
+            BatchRequest batchRequest = restConnection.createBatch(jobInfo);
             batchRequest.addSObjects(toAsyncSObjectList(objects, externalIdFieldName));
             return batchRequest.completeRequest();
         } catch (AsyncApiException e) {
@@ -209,8 +204,7 @@ public class SalesforceModule {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setOperation(op);
         jobInfo.setObject(type);
-        jobInfo = this.restConnection.createJob(jobInfo);
-        return jobInfo;
+        return restConnection.createJob(jobInfo);
     }
 
     /**
@@ -228,9 +222,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public SaveResult createSingle(String type, Map<String, Object> object) throws Exception {
-
-        SaveResult[] saveResults = null;
-        saveResults = this.connection.create(new SObject[]{toSObject(type, object)});
+        SaveResult[] saveResults = connection.create(new SObject[]{toSObject(type, object)});
         if (saveResults.length > 0) {
             return saveResults[0];
         }
@@ -240,10 +232,10 @@ public class SalesforceModule {
 
     @ValidateConnection
     public boolean isConnected() {
-        if (this.restConnection != null) {
-            if (this.connection != null) {
-                if (this.loginResult != null) {
-                    if (this.loginResult.getSessionId() != null) {
+        if (restConnection != null) {
+            if (connection != null) {
+                if (loginResult != null) {
+                    if (loginResult.getSessionId() != null) {
                         return true;
                     }
                 }
@@ -255,9 +247,9 @@ public class SalesforceModule {
 
     @ConnectionIdentifier
     public String getSessionId() {
-        if (this.connection != null) {
-            if (this.loginResult != null) {
-                return this.loginResult.getSessionId();
+        if (connection != null) {
+            if (loginResult != null) {
+                return loginResult.getSessionId();
             }
         }
 
@@ -272,17 +264,17 @@ public class SalesforceModule {
      */
     @Disconnect
     public synchronized void destroySession() {
-        if (this.bc != null) {
-            if (this.bc.isConnected()) {
-                this.bc.disconnect();
+        if (bc != null) {
+            if (bc.isConnected()) {
+                bc.disconnect();
             }
         }
 
-        if (this.connection != null && this.loginResult != null) {
+        if (connection != null && loginResult != null) {
             try {
-                this.connection.logout();
-                this.loginResult = null;
-                this.connection = null;
+                connection.logout();
+                loginResult = null;
+                connection = null;
             } catch (ConnectionException ce) {
                 LOGGER.error(ce);
             }
@@ -303,11 +295,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<SaveResult> update(String type, List<Map<String, Object>> objects) throws Exception {
-
-        List<SaveResult> saveResults = null;
-        saveResults = Arrays.asList(this.connection.update(toSObjectList(type, objects)));
-
-        return saveResults;
+        return Arrays.asList(connection.update(toSObjectList(type, objects)));
     }
 
     /**
@@ -348,7 +336,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, Object>> objects) throws Exception {
-        return Arrays.asList(this.connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
+        return Arrays.asList(connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
     }
 
     /**
@@ -387,7 +375,7 @@ public class SalesforceModule {
      */
     @Processor
     public DescribeGlobalResult describeGlobal() throws Exception {
-        return this.connection.describeGlobal();
+        return connection.describeGlobal();
     }
 
     /**
@@ -405,7 +393,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<Map<String, Object>> query(String query) throws Exception {
-        QueryResult queryResult = this.connection.query(query);
+        QueryResult queryResult = connection.query(query);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
         while( queryResult != null ) {
             for (SObject object : queryResult.getRecords()) {
@@ -415,7 +403,7 @@ public class SalesforceModule {
             {
                 break;
             }
-            queryResult = this.connection.queryMore(queryResult.getQueryLocator());
+            queryResult = connection.queryMore(queryResult.getQueryLocator());
         }
 
         return result;
@@ -436,7 +424,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public Map<String, Object> querySingle(String query) throws Exception {
-        SObject[] result = this.connection.query(query).getRecords();
+        SObject[] result = connection.query(query).getRecords();
         if (result.length > 0) {
             return result[0].toMap();
         }
@@ -516,11 +504,7 @@ public class SalesforceModule {
         LeadConvert[] list = new LeadConvert[1];
         list[0] = leadConvert;
 
-        LeadConvertResult[] lcr = null;
-
-        lcr = this.connection.convertLead(list);
-
-        return lcr[0];
+        return connection.convertLead(list)[0];
     }
 
     /**
@@ -540,11 +524,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws Exception {
-        EmptyRecycleBinResult[] emptyRecycleBinResults = null;
-
-        emptyRecycleBinResults = this.connection.emptyRecycleBin(ids.toArray(new String[]{}));
-
-        return Arrays.asList(emptyRecycleBinResults);
+        return Arrays.asList(connection.emptyRecycleBin(ids.toArray(new String[]{})));
     }
 
 
@@ -561,10 +541,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public List<DeleteResult> delete(List<String> ids) throws Exception {
-        List<DeleteResult> deleteResults = null;
-        deleteResults = Arrays.asList(this.connection.delete(ids.toArray(new String[]{})));
-
-        return deleteResults;
+        return Arrays.asList(connection.delete(ids.toArray(new String[]{})));
     }
 
     /**
@@ -587,12 +564,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws Exception {
-
-        GetDeletedResult gdr = null;
-
-        gdr = this.connection.getDeleted(type, startTime, endTime);
-
-        return gdr;
+        return connection.getDeleted(type, startTime, endTime);
     }
 
     /**
@@ -609,7 +581,7 @@ public class SalesforceModule {
     @Processor(name = "describe-sobject")
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public DescribeSObjectResult describeSObject(String type) throws Exception {
-        return this.connection.describeSObject(type);
+        return connection.describeSObject(type);
     }
 
     /**
@@ -626,17 +598,12 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public GetDeletedResult getDeleted(String type, int duration) throws Exception {
-        GetDeletedResult gdr = null;
-        Calendar serverTime = null;
-
-        serverTime = this.connection.getServerTimestamp().getTimestamp();
+        Calendar serverTime = connection.getServerTimestamp().getTimestamp();
         Calendar startTime = (Calendar) serverTime.clone();
         Calendar endTime = (Calendar) serverTime.clone();
 
         endTime.add(Calendar.MINUTE, duration);
-        gdr = getDeletedRange(type, startTime, endTime);
-
-        return gdr;
+        return getDeletedRange(type, startTime, endTime);
     }
 
     /**
@@ -656,7 +623,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public void publishTopic(String name, String query, @Optional String description) throws Exception {
-        QueryResult result = this.connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
+        QueryResult result = connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
         if (result.getSize() == 0) {
             SObject pushTopic = new SObject();
             pushTopic.setType("PushTopic");
@@ -668,7 +635,7 @@ public class SalesforceModule {
             pushTopic.setField("Name", name);
             pushTopic.setField("Query", query);
 
-            SaveResult[] saveResults = this.connection.create(new SObject[]{pushTopic});
+            SaveResult[] saveResults = connection.create(new SObject[]{pushTopic});
             if (!saveResults[0].isSuccess()) {
                 throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
             }
@@ -680,7 +647,7 @@ public class SalesforceModule {
 
             pushTopic.setField("Query", query);
 
-            SaveResult[] saveResults = this.connection.update(new SObject[]{pushTopic});
+            SaveResult[] saveResults = connection.update(new SObject[]{pushTopic});
             if (!saveResults[0].isSuccess()) {
                 throw new SalesforceException(saveResults[0].getErrors()[0].getStatusCode(), saveResults[0].getErrors()[0].getMessage());
             }
@@ -713,7 +680,7 @@ public class SalesforceModule {
      */
     @Source
     public void subscribeTopic(String topic, final SourceCallback callback) {
-        this.getBayeuxClient().subscribe("/topic" + topic, new SalesforceBayeuxMessageListener(callback));
+        getBayeuxClient().subscribe("/topic" + topic, new SalesforceBayeuxMessageListener(callback));
     }
 
     /**
@@ -728,7 +695,7 @@ public class SalesforceModule {
     public synchronized void connect(@ConnectionKey String username, String password, String securityToken)
             throws org.mule.api.ConnectionException {
 
-        ConnectorConfig connectorConfig = createConnectorConfig(this.url, username, password + securityToken, this.proxyHost, this.proxyPort, this.proxyUsername, this.proxyPassword);
+        ConnectorConfig connectorConfig = createConnectorConfig(url, username, password + securityToken, proxyHost, proxyPort, proxyUsername, proxyPassword);
         connectorConfig.addMessageHandler(new MessageHandler() {
             @Override
             public void handleRequest(URL endpoint, byte[] request) {
@@ -748,7 +715,7 @@ public class SalesforceModule {
         });
 
         try {
-            this.connection = Connector.newConnection(connectorConfig);
+            connection = Connector.newConnection(connectorConfig);
         } catch (ConnectionException e) {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
         }
@@ -758,7 +725,7 @@ public class SalesforceModule {
         try {
             String restEndpoint = "https://" + (new URL(connectorConfig.getServiceEndpoint())).getHost() + "/services/async/23.0";
             connectorConfig.setRestEndpoint(restEndpoint);
-            this.restConnection = new RestConnection(connectorConfig);
+            restConnection = new RestConnection(connectorConfig);
         } catch (AsyncApiException e) {
             throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, e.getExceptionCode().toString(), e.getMessage(), e);
         } catch (MalformedURLException e) {
@@ -768,24 +735,24 @@ public class SalesforceModule {
 
     public void reconnect() throws org.mule.api.ConnectionException {
         try {
-            LOGGER.debug("Creating a Salesforce session using " + this.connection.getConfig().getUsername());
-            this.loginResult = this.connection.login(this.connection.getConfig().getUsername(), this.connection.getConfig().getPassword());
+            LOGGER.debug("Creating a Salesforce session using " + connection.getConfig().getUsername());
+            loginResult = connection.login(connection.getConfig().getUsername(), connection.getConfig().getPassword());
 
-            if (this.loginResult.isPasswordExpired()) {
+            if (loginResult.isPasswordExpired()) {
                 try {
-                    this.connection.logout();
+                    connection.logout();
                 } catch (ConnectionException e) {
                     LOGGER.error(e.getMessage(), e);
                 }
-                String username = this.connection.getConfig().getUsername();
-                this.connection = null;
+                String username = connection.getConfig().getUsername();
+                connection = null;
                 throw new org.mule.api.ConnectionException(ConnectionExceptionCode.CREDENTIALS_EXPIRED, null, "The password for the user " + username + " has expired");
             }
 
-            LOGGER.debug("Session established successfully with ID " + this.loginResult.getSessionId() + " at instance " + this.loginResult.getServerUrl());
-            this.connection.getSessionHeader().setSessionId(this.loginResult.getSessionId());
-            this.connection.getConfig().setServiceEndpoint(this.loginResult.getServerUrl());
-            this.connection.getConfig().setSessionId(this.loginResult.getSessionId());
+            LOGGER.debug("Session established successfully with ID " + loginResult.getSessionId() + " at instance " + loginResult.getServerUrl());
+            connection.getSessionHeader().setSessionId(loginResult.getSessionId());
+            connection.getConfig().setServiceEndpoint(loginResult.getServerUrl());
+            connection.getConfig().setSessionId(loginResult.getSessionId());
         } catch (ConnectionException e) {
             if( e instanceof ApiFault ) {
                 throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, ((ApiFault)e).getExceptionCode().name(), ((ApiFault)e).getExceptionMessage(), e);
@@ -968,11 +935,11 @@ public class SalesforceModule {
 
     public SalesforceBayeuxClient getBayeuxClient() {
         try {
-            if (this.bc == null) {
-                this.bc = new SalesforceBayeuxClient(this);
+            if (bc == null) {
+                bc = new SalesforceBayeuxClient(this);
 
-                if (!this.bc.isHandshook()) {
-                    this.bc.handshake();
+                if (!bc.isHandshook()) {
+                    bc.handshake();
                 }
             }
         } catch (MalformedURLException e) {
