@@ -50,6 +50,7 @@ import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.api.annotations.studio.Display;
 import org.mule.api.callback.SourceCallback;
 
 import java.net.MalformedURLException;
@@ -73,6 +74,7 @@ import java.util.Map;
  * @author MuleSoft, Inc.
  */
 @org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0")
+@Display(caption = "Salesforce", description = "Salesforce Integration")
 public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
 
@@ -92,7 +94,7 @@ public class SalesforceModule {
     private int proxyPort = -1;
 
     /**
-     * V
+     *
      * Proxy username
      */
     @Configurable
@@ -134,102 +136,6 @@ public class SalesforceModule {
      */
     private LoginResult loginResult;
 
-    /**
-     * Adds one or more new records to your organization's data.
-     * <p/>
-     * <p class="caution">
-     * IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
-     * to match the expected type of the object at Salesforce.
-     * <p/>
-     * Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13"
-     * it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
-     * of the expected type.
-     * <p/>
-     * The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
-     * evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>.
-     * </p>
-     * <p/>
-     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
-     *
-     * @param objects An array of one or more sObjects objects.
-     * @param type    Type of object to create
-     * @return An array of {@link SaveResult} if async is false
-     * @throws Exception
-     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
-     */
-    @Processor
-    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> create(String type, List<Map<String, Object>> objects) throws Exception {
-        return Arrays.asList(connection.create(toSObjectList(type, objects)));
-    }
-
-    /**
-     * Adds one or more new records to your organization's data.
-     * <p/>
-     * This call uses the Bulk API. The creation will be done in asynchronous fashion.
-     * <p/>
-     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-bulk}
-     *
-     * @param objects An array of one or more sObjects objects.
-     * @param type    Type of object to create
-     * @return A {@link BatchInfo} that identifies the batch job. {@link http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_reference_batchinfo.htm}
-     * @throws Exception
-     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_create.htm">createBatch()</a>
-     */
-    @Processor
-    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo createBulk(String type, List<Map<String, Object>> objects) throws Exception {
-        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.insert, type), objects);
-    }
-
-    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects) throws SoapConnection.SessionTimedOutException {
-        return createBatchAndCompleteRequest(jobInfo, objects, null);
-    }
-
-    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects, String externalIdFieldName) throws SoapConnection.SessionTimedOutException {
-        try {
-            BatchRequest batchRequest = restConnection.createBatch(jobInfo);
-            batchRequest.addSObjects(toAsyncSObjectList(objects, externalIdFieldName));
-            return batchRequest.completeRequest();
-        } catch (AsyncApiException e) {
-            if (e.getExceptionCode() == AsyncExceptionCode.InvalidSessionId) {
-                throw new SoapConnection.SessionTimedOutException(e.getMessage(), e);
-            }
-        }
-
-        return null;
-    }
-
-    private JobInfo createJobInfo(OperationEnum op, String type) throws AsyncApiException {
-        JobInfo jobInfo = new JobInfo();
-        jobInfo.setOperation(op);
-        jobInfo.setObject(type);
-        return restConnection.createJob(jobInfo);
-    }
-
-    /**
-     * Adds one new records to your organization's data.
-     * <p/>
-     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-single}
-     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create-single}
-     *
-     * @param object SObject to create
-     * @param type   Type of object to create
-     * @return An array of {@link SaveResult}
-     * @throws Exception
-     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
-     */
-    @Processor
-    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public SaveResult createSingle(String type, Map<String, Object> object) throws Exception {
-        SaveResult[] saveResults = connection.create(new SObject[]{toSObject(type, object)});
-        if (saveResults.length > 0) {
-            return saveResults[0];
-        }
-
-        return null;
-    }
-
     @ValidateConnection
     public boolean isConnected() {
         if (restConnection != null) {
@@ -256,7 +162,6 @@ public class SalesforceModule {
         return null;
     }
 
-
     /**
      * End the current session
      *
@@ -282,6 +187,97 @@ public class SalesforceModule {
     }
 
     /**
+     * Adds one or more new records to your organization's data.
+     * <p/>
+     * <p class="caution">
+     * IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
+     * to match the expected type of the object at Salesforce.
+     * <p/>
+     * Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13"
+     * it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
+     * of the expected type.
+     * <p/>
+     * The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
+     * evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>.
+     * </p>
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create}
+     *
+     * @param objects An array of one or more sObjects objects.
+     * @param type    Type of object to create
+     * @return An array of {@link SaveResult} if async is false
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<SaveResult> create(@Display(caption = "sObject Type") String type,
+                                   @Display(inputGroup = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
+        return Arrays.asList(connection.create(toSObjectList(type, objects)));
+    }
+
+    /**
+     * Adds one new records to your organization's data.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-single}
+     * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:create-single}
+     *
+     * @param object SObject to create
+     * @param type   Type of object to create
+     * @return An array of {@link SaveResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_create.htm">create()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public SaveResult createSingle(@Display(caption = "sObject Type") String type,
+                                   @Display(inputGroup = "sObject Field Mappings") Map<String, Object> object) throws Exception {
+        SaveResult[] saveResults = connection.create(new SObject[]{toSObject(type, object)});
+        if (saveResults.length > 0) {
+            return saveResults[0];
+        }
+
+        return null;
+    }
+
+    /**
+     * Adds one or more new records to your organization's data.
+     * <p/>
+     * This call uses the Bulk API. The creation will be done in asynchronous fashion.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:create-bulk}
+     *
+     * @param objects An array of one or more sObjects objects.
+     * @param type    Type of object to create
+     * @return A {@link BatchInfo} that identifies the batch job. {@link http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_reference_batchinfo.htm}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_create.htm">createBatch()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo createBulk(@Display(caption = "sObject Type") String type,
+                                @Display(inputGroup = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.insert, type), objects);
+    }
+
+
+    /**
+     * Deletes one or more records from your organization's data.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
+     *
+     * @param ids Array of one or more IDs associated with the objects to delete.
+     * @return An array of {@link DeleteResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_delete.htm">delete()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<DeleteResult> delete(@Display(inputGroup = "Ids to Delete") List<String> ids) throws Exception {
+        return Arrays.asList(connection.delete(ids.toArray(new String[]{})));
+    }
+
+    /**
      * Updates one or more existing records in your organization's data.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:update}
@@ -294,7 +290,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> update(String type, List<Map<String, Object>> objects) throws Exception {
+    public List<SaveResult> update(@Display(inputGroup = "Type", caption = "sObject Type") String type,
+                                   @Display(inputGroup = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.update(toSObjectList(type, objects)));
     }
 
@@ -313,7 +310,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo updateBulk(String type, List<Map<String, Object>> objects) throws Exception {
+    public BatchInfo updateBulk(@Display(inputGroup = "Type", caption = "sObject Type") String type,
+                                @Display(inputGroup = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.update, type), objects);
     }
 
@@ -335,7 +333,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, Object>> objects) throws Exception {
+    public List<UpsertResult> upsert(@Display(inputGroup = "Information") String externalIdFieldName,
+                                     @Display(inputGroup = "Information", caption = "sObject Type") String type,
+                                     @Display(inputGroup = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
     }
 
@@ -359,7 +359,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo upsertBulk(String type, String externalIdFieldName, List<Map<String, Object>> objects) throws Exception {
+    public BatchInfo upsertBulk(@Display(inputGroup = "Information", caption = "sObject Type") String type,
+                                @Display(inputGroup = "Information") String externalIdFieldName,
+                                @Display(inputGroup = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type), objects, externalIdFieldName);
     }
 
@@ -392,7 +394,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<Map<String, Object>> query(String query) throws Exception {
+    public List<Map<String, Object>> query(@Display(inputGroup = "Query") String query) throws Exception {
         QueryResult queryResult = connection.query(query);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
         while( queryResult != null ) {
@@ -423,7 +425,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public Map<String, Object> querySingle(String query) throws Exception {
+    public Map<String, Object> querySingle(@Display(inputGroup = "Query") String query) throws Exception {
         SObject[] result = connection.query(query).getRecords();
         if (result.length > 0) {
             return result[0].toMap();
@@ -523,25 +525,32 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws Exception {
+    public List<EmptyRecycleBinResult> emptyRecycleBin(@Display(inputGroup = "Ids to Delete") List<String> ids) throws Exception {
         return Arrays.asList(connection.emptyRecycleBin(ids.toArray(new String[]{})));
     }
 
 
     /**
-     * Deletes one or more records from your organization's data.
+     * Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
      * <p/>
-     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:delete}
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted}
      *
-     * @param ids Array of one or more IDs associated with the objects to delete.
-     * @return An array of {@link DeleteResult}
+     * @param type     Object type. The specified value must be a valid object for your organization.
+     * @param duration The amount of time in minutes before now for which to return records from.
+     * @return {@link GetDeletedResult}
      * @throws Exception
-     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_delete.htm">delete()</a>
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeleted.htm">getDeleted()</a>
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<DeleteResult> delete(List<String> ids) throws Exception {
-        return Arrays.asList(connection.delete(ids.toArray(new String[]{})));
+    public GetDeletedResult getDeleted(@Display(inputGroup = "Information", caption = "sObject Type") String type,
+                                       @Display(inputGroup = "Information") int duration) throws Exception {
+        Calendar serverTime = connection.getServerTimestamp().getTimestamp();
+        Calendar startTime = (Calendar) serverTime.clone();
+        Calendar endTime = (Calendar) serverTime.clone();
+
+        endTime.add(Calendar.MINUTE, duration);
+        return getDeletedRange(type, startTime, endTime);
     }
 
     /**
@@ -563,7 +572,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws Exception {
+    public GetDeletedResult getDeletedRange(@Display(inputGroup = "Information", caption = "sObject Type") String type,
+                                            @Display(inputGroup = "Information", caption = "Start Time Reference") Calendar startTime,
+                                            @Display(inputGroup = "Information", caption = "End Time Reference") Calendar endTime) throws Exception {
         return connection.getDeleted(type, startTime, endTime);
     }
 
@@ -580,30 +591,9 @@ public class SalesforceModule {
      */
     @Processor(name = "describe-sobject")
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public DescribeSObjectResult describeSObject(String type) throws Exception {
+    @Display(caption = "Describe sObject")
+    public DescribeSObjectResult describeSObject(@Display(inputGroup = "Type", caption = "sObject Type") String type) throws Exception {
         return connection.describeSObject(type);
-    }
-
-    /**
-     * Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
-     * <p/>
-     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted}
-     *
-     * @param type     Object type. The specified value must be a valid object for your organization.
-     * @param duration The amount of time in minutes before now for which to return records from.
-     * @return {@link GetDeletedResult}
-     * @throws Exception
-     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeleted.htm">getDeleted()</a>
-     */
-    @Processor
-    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public GetDeletedResult getDeleted(String type, int duration) throws Exception {
-        Calendar serverTime = connection.getServerTimestamp().getTimestamp();
-        Calendar startTime = (Calendar) serverTime.clone();
-        Calendar endTime = (Calendar) serverTime.clone();
-
-        endTime.add(Calendar.MINUTE, duration);
-        return getDeletedRange(type, startTime, endTime);
     }
 
     /**
@@ -622,7 +612,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public void publishTopic(String name, String query, @Optional String description) throws Exception {
+    public void publishTopic(@Display(inputGroup = "Information") String name,
+                             @Display(inputGroup = "Information") String query,
+                             @Display(inputGroup = "Information") @Optional String description) throws Exception {
         QueryResult result = connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
         if (result.getSize() == 0) {
             SObject pushTopic = new SObject();
@@ -802,7 +794,6 @@ public class SalesforceModule {
         return sObject;
     }
 
-
     /**
      * Retrieve host of proxy
      *
@@ -811,6 +802,7 @@ public class SalesforceModule {
     public String getProxyHost() {
         return proxyHost;
     }
+
 
     /**
      * Set proxy host
@@ -963,5 +955,30 @@ public class SalesforceModule {
 
     protected void setBayeuxClient(SalesforceBayeuxClient bc) {
         this.bc = bc;
+    }
+
+    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects) throws SoapConnection.SessionTimedOutException {
+        return createBatchAndCompleteRequest(jobInfo, objects, null);
+    }
+
+    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects, String externalIdFieldName) throws SoapConnection.SessionTimedOutException {
+        try {
+            BatchRequest batchRequest = restConnection.createBatch(jobInfo);
+            batchRequest.addSObjects(toAsyncSObjectList(objects, externalIdFieldName));
+            return batchRequest.completeRequest();
+        } catch (AsyncApiException e) {
+            if (e.getExceptionCode() == AsyncExceptionCode.InvalidSessionId) {
+                throw new SoapConnection.SessionTimedOutException(e.getMessage(), e);
+            }
+        }
+
+        return null;
+    }
+
+    private JobInfo createJobInfo(OperationEnum op, String type) throws AsyncApiException {
+        JobInfo jobInfo = new JobInfo();
+        jobInfo.setOperation(op);
+        jobInfo.setObject(type);
+        return restConnection.createJob(jobInfo);
     }
 }
