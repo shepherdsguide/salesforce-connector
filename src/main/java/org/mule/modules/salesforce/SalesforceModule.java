@@ -245,6 +245,14 @@ public class SalesforceModule {
         return false;
     }
 
+    /**
+     * Returns the session id for the current connection
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-session-id}
+     *
+     * @return the session id for the current connection
+     */
+    @Processor
     @ConnectionIdentifier
     public String getSessionId() {
         if (connection != null) {
@@ -395,12 +403,11 @@ public class SalesforceModule {
     public List<Map<String, Object>> query(String query) throws Exception {
         QueryResult queryResult = connection.query(query);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-        while( queryResult != null ) {
+        while (queryResult != null) {
             for (SObject object : queryResult.getRecords()) {
                 result.add(object.toMap());
             }
-            if( queryResult.isDone() )
-            {
+            if (queryResult.isDone()) {
                 break;
             }
             queryResult = connection.queryMore(queryResult.getQueryLocator());
@@ -659,8 +666,8 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-user-info}
      *
-     * @throws Exception
      * @return {@link GetUserInfoResult}
+     * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getuserinfo.htm">getUserInfo()</a>
      */
     @Processor
@@ -754,8 +761,8 @@ public class SalesforceModule {
             connection.getConfig().setServiceEndpoint(loginResult.getServerUrl());
             connection.getConfig().setSessionId(loginResult.getSessionId());
         } catch (ConnectionException e) {
-            if( e instanceof ApiFault ) {
-                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, ((ApiFault)e).getExceptionCode().name(), ((ApiFault)e).getExceptionMessage(), e);
+            if (e instanceof ApiFault) {
+                throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, ((ApiFault) e).getExceptionCode().name(), ((ApiFault) e).getExceptionMessage(), e);
             } else {
                 throw new org.mule.api.ConnectionException(ConnectionExceptionCode.UNKNOWN, null, e.getMessage(), e);
             }

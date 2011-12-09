@@ -153,3 +153,6 @@
 <!-- BEGIN_INCLUDE(sfdc:get-user-info) -->
 <sfdc:get-user-info />
 <!-- END_INCLUDE(sfdc:get-user-info) -->
+<!-- BEGIN_INCLUDE(sfdc:get-session-id) -->
+<sfdc:get-session-id />
+<!-- END_INCLUDE(sfdc:get-session-id) -->
