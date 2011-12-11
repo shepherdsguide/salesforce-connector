@@ -211,7 +211,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> create(@Display(caption = "sObject Type") String type,
+    public List<SaveResult> create(@Display(inputGroup = "Type", caption = "sObject Type") String type,
                                    @Display(inputGroup = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.create(toSObjectList(type, objects)));
     }
@@ -230,7 +230,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public SaveResult createSingle(@Display(caption = "sObject Type") String type,
+    public SaveResult createSingle(@Display(inputGroup = "Type", caption = "sObject Type") String type,
                                    @Display(inputGroup = "sObject Field Mappings") Map<String, Object> object) throws Exception {
         SaveResult[] saveResults = connection.create(new SObject[]{toSObject(type, object)});
         if (saveResults.length > 0) {
@@ -255,7 +255,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo createBulk(@Display(caption = "sObject Type") String type,
+    public BatchInfo createBulk(@Display(inputGroup = "Type", caption = "sObject Type") String type,
                                 @Display(inputGroup = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.insert, type), objects);
     }
@@ -684,7 +684,9 @@ public class SalesforceModule {
      * @throws ConnectionException if a problem occurred while trying to create the session
      */
     @Connect
-    public synchronized void connect(@ConnectionKey String username, String password, String securityToken)
+    public synchronized void connect(@ConnectionKey String username,
+                                     @Display(type = Display.Type.PASSWORD) String password,
+                                     String securityToken)
             throws org.mule.api.ConnectionException {
 
         ConnectorConfig connectorConfig = createConnectorConfig(url, username, password + securityToken, proxyHost, proxyPort, proxyUsername, proxyPassword);
