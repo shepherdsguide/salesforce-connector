@@ -198,7 +198,7 @@ Summary:
 <div id="jd-header">
     org.mule.modules
 <h1>mule-module-sfdc</h1>
-    4.1-SNAPSHOT
+    4.1
 
 </div><!-- end header -->
 
@@ -1165,7 +1165,7 @@ attribute on each operation.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds one new records to your organization's data.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create type="Account"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:create-single type="Account"&gt;
     &lt;sfdc:object&gt;
         &lt;Name&gt;MuleSoft&lt;/Name&gt;
         &lt;BillingStreet&gt;30 Maiden Lane&lt;/BillingStreet&gt;
@@ -1174,7 +1174,7 @@ attribute on each operation.</p>
         &lt;BillingPostalCode&gt;94108&lt;/BillingPostalCode&gt;
         &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
     &lt;/sfdc:object&gt;
-&lt;/sfdc:create&gt;</pre></div>
+&lt;/sfdc:create-single&gt;</pre></div>
  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -1297,7 +1297,7 @@ attribute on each operation.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:delete&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
-    &lt;sfdc:ids&gt;
+    &lt;/sfdc:ids&gt;
 &lt;/sfdc:delete&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -1627,7 +1627,7 @@ attribute on each operation.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:empty-recycle-bin&gt;
     &lt;sfdc:ids&gt;
         &lt;sfdc:id&gt;001...&lt;/sfdc:id&gt;
-    &lt;sfdc:ids&gt;
+    &lt;/sfdc:ids&gt;
 &lt;/sfdc:empty-recycle-bin&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -2941,7 +2941,7 @@ attribute on each operation.</p>
  <p/>
  This call uses the Bulk API. The creation will be done in asynchronous fashion.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:upsert type="Account" externalIdFieldName="InternalAccountCode"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:upsert-bulk type="Account" externalIdFieldName="InternalAccountCode"&gt;
     &lt;sfdc:objects&gt;
         &lt;sfdc:object&gt;
             &lt;InternalAccountCode&gt;A01596&lt;/InternalAccountCode&gt;
@@ -2953,7 +2953,7 @@ attribute on each operation.</p>
             &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
         &lt;/sfdc:object&gt;
     &lt;/sfdc:objects&gt;
-&lt;/sfdc:upsert&gt;</pre></div></p></div>
+&lt;/sfdc:upsert-bulk&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
