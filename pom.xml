@@ -15,6 +15,52 @@
     <packaging>mule-module</packaging>
     <name>Mule Salesforce Connector</name>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <docletArtifact>
+                        <groupId>org.mule.tools.devkit</groupId>
+                        <artifactId>mule-devkit-doclet</artifactId>
+                        <version>${mule.devkit.version}</version>
+                    </docletArtifact>
+                    <doclet>org.mule.devkit.doclet.Doclava</doclet>
+                    <bootclasspath>${sun.boot.class.path}</bootclasspath>
+                    <additionalparam><!--
+                        -federate JDK http://download.oracle.com/javase/6/docs/api/index.html?
+                        -federationxml JDK http://doclava.googlecode.com/svn/static/api/openjdk-6.xml -->
+                        -hdf project.artifactId "${project.artifactId}"
+                        -hdf project.groupId "${project.groupId}"
+                        -hdf project.version "${project.version}"
+                        -hdf project.name "${project.name}"
+                        -hdf project.repo.name "${project.distributionManagement.repository.name}"
+                        -hdf project.repo.id "${project.distributionManagement.repository.id}"
+                        -hdf project.repo.url "${project.distributionManagement.repository.url}"
+                        -hdf project.snapshotRepo.name "${project.distributionManagement.snapshotRepository.name}"
+                        -hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
+                        -hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
+                        -d ${project.build.directory}/apidocs
+                        -markdown streaming ${basedir}/STREAMING.md "Streaming Guide"
+                        -markdown bulk ${basedir}/BULK.md "Bulk Guide"
+                    </additionalparam>
+                    <useStandardDocletOptions>false</useStandardDocletOptions>
+                    <additionalJOption>-J-Xmx1024m</additionalJOption>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.cometd.java</groupId>
