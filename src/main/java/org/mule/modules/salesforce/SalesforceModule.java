@@ -14,6 +14,7 @@ import com.sforce.async.AsyncApiException;
 import com.sforce.async.AsyncExceptionCode;
 import com.sforce.async.BatchInfo;
 import com.sforce.async.BatchRequest;
+import com.sforce.async.BatchResult;
 import com.sforce.async.JobInfo;
 import com.sforce.async.OperationEnum;
 import com.sforce.async.RestConnection;
@@ -371,6 +372,38 @@ public class SalesforceModule {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type), objects, externalIdFieldName);
     }
 
+    /**
+     * Access latest {@link BatchInfo} of a submitted {@link BatchInfo}. Allows to track execution status.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-info}
+     *
+     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @return Latest {@link BatchInfo} representing status of the batch job result.
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_info.htm">getBatchInfo()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo batchInfo(BatchInfo batchInfo) throws Exception {
+        return restConnection.getBatchInfo(batchInfo.getJobId(), batchInfo.getId());
+    }
+
+    /**
+     * Access {@link BatchResult} of a submitted {@link BatchInfo}.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-result}
+     *
+     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @return {@link BatchResult} representing result of the batch job result.
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_results.htm">getBatchResult()</a>
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_interpret_status.htm">BatchInfo status</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchResult batchResult(BatchInfo batchInfo) throws Exception {
+        return restConnection.getBatchResult(batchInfo.getJobId(), batchInfo.getId());
+    }
 
     /**
      * Retrieves a list of available objects for your organization's data.
