@@ -682,6 +682,42 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
+            
+            
+            
+            
+            <a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#batchInfo(com.sforce.async.BatchInfo)">batchInfo</a></span>(<a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a> batchInfo)</nobr>
+        
+        <div class="jd-descrdiv">Access latest <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> of a submitted <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../java/com/sforce/async/BatchResult.html">BatchResult</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/modules/salesforce/SalesforceModule.html#batchResult(com.sforce.async.BatchInfo)">batchResult</a></span>(<a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a> batchInfo)</nobr>
+        
+        <div class="jd-descrdiv">Access <code><a href="../../../../../java/com/sforce/async/BatchResult.html">BatchResult</a></code> of a submitted <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
             synchronized
             
             
@@ -2072,6 +2108,124 @@ From class
 
 <h2>Public Methods</h2>
 
+
+
+<A NAME="batchInfo(com.sforce.async.BatchInfo)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a>
+      </span>
+      <span class="sympad">batchInfo</span>
+      <span class="normal">(<a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a> batchInfo)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Access latest <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> of a submitted <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>. Allows to track execution status.
+ <p/>
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>batchInfo</td>
+          <td>The <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> being monitored</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Latest <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> representing status of the batch job result.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>  
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="batchResult(com.sforce.async.BatchInfo)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../java/com/sforce/async/BatchResult.html">BatchResult</a>
+      </span>
+      <span class="sympad">batchResult</span>
+      <span class="normal">(<a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a> batchInfo)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Access <code><a href="../../../../../java/com/sforce/async/BatchResult.html">BatchResult</a></code> of a submitted <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.
+ <p/>
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>batchInfo</td>
+          <td>The <code><a href="../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> being monitored</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code><a href="../../../../../java/com/sforce/async/BatchResult.html">BatchResult</a></code> representing result of the batch job result.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>Exception</td>
+        </tr>  
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
 
 
 <A NAME="connect(java.lang.String, java.lang.String, java.lang.String)"></A>

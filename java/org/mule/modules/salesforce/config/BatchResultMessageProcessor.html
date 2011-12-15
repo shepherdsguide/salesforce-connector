@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  GetDeletedRangeMessageProcessor
+  BatchResultMessageProcessor
 
 
 | Mule Salesforce Connector
@@ -228,7 +228,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchSplitterMessageProcessor.html">BatchSplitterMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a></li>
@@ -239,7 +239,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
@@ -417,7 +417,7 @@ Summary:
      
     
     class
-<h1>GetDeletedRangeMessageProcessor</h1>
+<h1>BatchResultMessageProcessor</h1>
 
 
 
@@ -467,7 +467,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.GetDeletedRangeMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.BatchResultMessageProcessor</td>
     </tr>
     
 
@@ -483,7 +483,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>GetDeletedRangeMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>BatchResultMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#batchResult(com.sforce.async.BatchInfo)">batchResult(com.sforce.async.BatchInfo)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -680,8 +680,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          Calendar</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_endTimeType">_endTimeType</a></td>
+          <a href="../../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#_batchInfoType">_batchInfoType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -692,7 +692,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_passwordType">_passwordType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#_passwordType">_passwordType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -703,29 +703,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Calendar</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_startTimeType">_startTimeType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_typeType">_typeType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -736,7 +714,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#_usernameType">_usernameType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#_usernameType">_usernameType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -747,7 +725,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#endTime">endTime</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#batchInfo">batchInfo</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -758,7 +736,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           ExpressionManager</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#expressionManager">expressionManager</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#expressionManager">expressionManager</a></td>
           <td class="jd-descrcol" width="100%">Mule Expression Manager
  
 </td>
@@ -771,7 +749,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           FlowConstruct</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#flowConstruct">flowConstruct</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#flowConstruct">flowConstruct</a></td>
           <td class="jd-descrcol" width="100%">Flow construct
  
 </td>
@@ -784,7 +762,7 @@ org.mule.api.lifecycle.Stoppable
           static
           
           Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#logger">logger</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#logger">logger</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -795,7 +773,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#moduleObject">moduleObject</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#moduleObject">moduleObject</a></td>
           <td class="jd-descrcol" width="100%">Module object
  
 </td>
@@ -808,7 +786,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#muleContext">muleContext</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#muleContext">muleContext</a></td>
           <td class="jd-descrcol" width="100%">Mule Context
  
 </td>
@@ -821,7 +799,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#password">password</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#password">password</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -832,7 +810,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           TemplateParser.PatternInfo</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#patternInfo">patternInfo</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#patternInfo">patternInfo</a></td>
           <td class="jd-descrcol" width="100%">Mule Pattern Info
  
 </td>
@@ -845,7 +823,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           AtomicInteger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#retryCount">retryCount</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#retryCount">retryCount</a></td>
           <td class="jd-descrcol" width="100%">Variable used to track how many retries we have attempted on this message processor
  
 </td>
@@ -858,7 +836,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#retryMax">retryMax</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#retryMax">retryMax</a></td>
           <td class="jd-descrcol" width="100%">Maximum number of retries that can be attempted.</td>
       </tr>
       
@@ -869,7 +847,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#securityToken">securityToken</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#securityToken">securityToken</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -880,29 +858,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#startTime">startTime</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#type">type</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#username">username</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -932,7 +888,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#GetDeletedRangeMessageProcessor()">GetDeletedRangeMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#BatchResultMessageProcessor()">BatchResultMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -961,7 +917,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -977,7 +933,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -995,7 +951,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1013,9 +969,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setEndTime(java.lang.Object)">setEndTime</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setBatchInfo(java.lang.Object)">setBatchInfo</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets endTime</div>
+        <div class="jd-descrdiv">Sets batchInfo</div>
   
   </td></tr>
 
@@ -1031,7 +987,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1049,7 +1005,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
         
         <div class="jd-descrdiv">Sets the instance of the object under which the processor will execute</div>
   
@@ -1067,7 +1023,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1085,7 +1041,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets password</div>
   
@@ -1103,7 +1059,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setRetryMax(int)">setRetryMax</a></span>(int value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setRetryMax(int)">setRetryMax</a></span>(int value)</nobr>
         
         <div class="jd-descrdiv">Sets retryMax</div>
   
@@ -1121,7 +1077,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets securityToken</div>
   
@@ -1139,43 +1095,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setStartTime(java.lang.Object)">setStartTime</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets startTime</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setType(java.lang.Object)">setType</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets type</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets username</div>
   
@@ -1193,7 +1113,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1209,7 +1129,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/BatchResultMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -1756,7 +1676,7 @@ From interface
 
 
 
-<A NAME="_endTimeType"></A>
+<A NAME="_batchInfoType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1764,9 +1684,9 @@ From interface
         private 
          
          
-        Calendar
+        <a href="../../../../../../java/com/sforce/async/BatchInfo.html">BatchInfo</a>
       </span>
-        _endTimeType
+        _batchInfoType
     </h4>
       <div class="api-level">
         
@@ -1846,66 +1766,6 @@ From interface
 
 
 
-<A NAME="_startTimeType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Calendar
-      </span>
-        _startTimeType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_typeType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        _typeType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="_usernameType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1936,7 +1796,7 @@ From interface
 
 
 
-<A NAME="endTime"></A>
+<A NAME="batchInfo"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1946,7 +1806,7 @@ From interface
          
         Object
       </span>
-        endTime
+        batchInfo
     </h4>
       <div class="api-level">
         
@@ -2280,66 +2140,6 @@ From interface
 
 
 
-<A NAME="startTime"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        startTime
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="type"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        type
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="username"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2379,7 +2179,7 @@ From interface
 
 
 
-<A NAME="GetDeletedRangeMessageProcessor()"></A>
+<A NAME="BatchResultMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2391,7 +2191,7 @@ From interface
          
         
       </span>
-      <span class="sympad">GetDeletedRangeMessageProcessor</span>
+      <span class="sympad">BatchResultMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2545,7 +2345,7 @@ From interface
 </div>
 
 
-<A NAME="setEndTime(java.lang.Object)"></A>
+<A NAME="setBatchInfo(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2557,7 +2357,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setEndTime</span>
+      <span class="sympad">setBatchInfo</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2570,7 +2370,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets endTime</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets batchInfo</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2817,88 +2617,6 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets securityToken</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setStartTime(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setStartTime</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets startTime</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setType(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setType</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets type</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
