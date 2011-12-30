@@ -86,6 +86,12 @@
     </sfdc:objects>
 </sfdc:upsert-bulk>
 <!-- END_INCLUDE(sfdc:upsert-bulk) -->
+<!-- BEGIN_INCLUDE(sfdc:batch-info) -->
+<sfdc:batch-info batchId="ID" />
+<!-- END_INCLUDE(sfdc:batch-info) -->
+<!-- BEGIN_INCLUDE(sfdc:batch-result) -->
+<sfdc:batch-result batchId="ID" />
+<!-- END_INCLUDE(sfdc:batch-result) -->
 <!-- BEGIN_INCLUDE(sfdc:delete) -->
 <sfdc:delete>
     <sfdc:ids>
