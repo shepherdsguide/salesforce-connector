@@ -75,7 +75,7 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0")
+@org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0", friendlyName = "Salesforce")
 public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
 
@@ -106,7 +106,7 @@ public class SalesforceModule {
     private int proxyPort = -1;
 
     /**
-     * V
+     *
      * Proxy username
      */
     @Configurable
