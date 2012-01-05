@@ -14,6 +14,7 @@ import com.sforce.async.AsyncApiException;
 import com.sforce.async.AsyncExceptionCode;
 import com.sforce.async.BatchInfo;
 import com.sforce.async.BatchRequest;
+import com.sforce.async.BatchResult;
 import com.sforce.async.JobInfo;
 import com.sforce.async.OperationEnum;
 import com.sforce.async.RestConnection;
@@ -47,6 +48,8 @@ import org.mule.api.annotations.InvalidateConnectionOn;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
 import org.mule.api.annotations.ValidateConnection;
+import org.mule.api.annotations.display.FriendlyName;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
@@ -72,15 +75,25 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0")
+@org.mule.api.annotations.Connector(name = "sfdc", schemaVersion = "4.0", friendlyName = "Salesforce")
 public class SalesforceModule {
     private static final Logger LOGGER = Logger.getLogger(SalesforceModule.class);
+
+    /**
+     * SalesForce SOAP endpoint
+     */
+    @Configurable
+    @Optional
+    @Default("https://login.salesforce.com/services/Soap/u/23.0")
+    @Placement(group = "Salesforce endpoint")
+    private URL url;
 
     /**
      * Proxy host
      */
     @Configurable
     @Optional
+    @Placement(group = "Proxy settings")
     private String proxyHost;
 
     /**
@@ -89,14 +102,16 @@ public class SalesforceModule {
     @Configurable
     @Optional
     @Default("80")
+    @Placement(group = "Proxy settings")
     private int proxyPort = -1;
 
     /**
-     * V
+     *
      * Proxy username
      */
     @Configurable
     @Optional
+    @Placement(group = "Proxy settings")
     private String proxyUsername;
 
     /**
@@ -104,15 +119,8 @@ public class SalesforceModule {
      */
     @Configurable
     @Optional
+    @Placement(group = "Proxy settings")
     private String proxyPassword;
-
-    /**
-     * SalesForce SOAP endpoint
-     */
-    @Configurable
-    @Optional
-    @Default("https://login.salesforce.com/services/Soap/u/23.0")
-    private URL url;
 
     /**
      * Bayeux client
@@ -159,7 +167,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> create(String type, List<Map<String, Object>> objects) throws Exception {
+    public List<SaveResult> create(@Placement(group = "Type") @FriendlyName("sObject Type") String type,
+                                   @Placement(group = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.create(toSObjectList(type, objects)));
     }
 
@@ -178,7 +187,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo createBulk(String type, List<Map<String, Object>> objects) throws Exception {
+    public BatchInfo createBulk(@Placement(group = "Type") @FriendlyName("sObject Type") String type,
+                                @Placement(group = "sObject Field Mappings") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.insert, type), objects);
     }
 
@@ -228,7 +238,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public SaveResult createSingle(String type, Map<String, Object> object) throws Exception {
+    public SaveResult createSingle(@Placement(group = "Type") @FriendlyName("sObject Type") String type,
+                                   @Placement(group = "sObject Field Mappings") Map<String, Object> object) throws Exception {
         SaveResult[] saveResults = connection.create(new SObject[]{toSObject(type, object)});
         if (saveResults.length > 0) {
             return saveResults[0];
@@ -309,7 +320,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<SaveResult> update(String type, List<Map<String, Object>> objects) throws Exception {
+    public List<SaveResult> update(@Placement(group = "Type") @FriendlyName("sObject Type") String type,
+                                   @Placement(group = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.update(toSObjectList(type, objects)));
     }
 
@@ -328,7 +340,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo updateBulk(String type, List<Map<String, Object>> objects) throws Exception {
+    public BatchInfo updateBulk(@Placement(group = "Type") @FriendlyName("sObject Type") String type,
+                                @Placement(group = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.update, type), objects);
     }
 
@@ -350,7 +363,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<UpsertResult> upsert(String externalIdFieldName, String type, List<Map<String, Object>> objects) throws Exception {
+    public List<UpsertResult> upsert(@Placement(group = "Information") String externalIdFieldName,
+                                     @Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                     @Placement(group = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return Arrays.asList(connection.upsert(externalIdFieldName, toSObjectList(type, objects)));
     }
 
@@ -374,10 +389,44 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public BatchInfo upsertBulk(String type, String externalIdFieldName, List<Map<String, Object>> objects) throws Exception {
+    public BatchInfo upsertBulk(@Placement(group = "Information", order = 1) @FriendlyName("sObject Type") String type,
+                                @Placement(group = "Information", order = 2) String externalIdFieldName,
+                                @Placement(group = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
         return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type, externalIdFieldName), objects, externalIdFieldName);
     }
 
+    /**
+     * Access latest {@link BatchInfo} of a submitted {@link BatchInfo}. Allows to track execution status.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-info}
+     *
+     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @return Latest {@link BatchInfo} representing status of the batch job result.
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_info.htm">getBatchInfo()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchInfo batchInfo(BatchInfo batchInfo) throws Exception {
+        return restConnection.getBatchInfo(batchInfo.getJobId(), batchInfo.getId());
+    }
+
+    /**
+     * Access {@link BatchResult} of a submitted {@link BatchInfo}.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-result}
+     *
+     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @return {@link BatchResult} representing result of the batch job result.
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_results.htm">getBatchResult()</a>
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_interpret_status.htm">BatchInfo status</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public BatchResult batchResult(BatchInfo batchInfo) throws Exception {
+        return restConnection.getBatchResult(batchInfo.getJobId(), batchInfo.getId());
+    }
 
     /**
      * Retrieves a list of available objects for your organization's data.
@@ -407,7 +456,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<Map<String, Object>> query(String query) throws Exception {
+    public List<Map<String, Object>> query(@Placement(group = "Query") String query) throws Exception {
         QueryResult queryResult = connection.query(query);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
         while (queryResult != null) {
@@ -437,7 +486,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public Map<String, Object> querySingle(String query) throws Exception {
+    public Map<String, Object> querySingle(@Placement(group = "Query") String query) throws Exception {
         SObject[] result = connection.query(query).getRecords();
         if (result.length > 0) {
             return result[0].toMap();
@@ -537,7 +586,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<EmptyRecycleBinResult> emptyRecycleBin(List<String> ids) throws Exception {
+    public List<EmptyRecycleBinResult> emptyRecycleBin(@Placement(group = "Ids to Delete") List<String> ids) throws Exception {
         return Arrays.asList(connection.emptyRecycleBin(ids.toArray(new String[]{})));
     }
 
@@ -554,7 +603,7 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public List<DeleteResult> delete(List<String> ids) throws Exception {
+    public List<DeleteResult> delete(@Placement(group = "Ids to Delete") List<String> ids) throws Exception {
         return Arrays.asList(connection.delete(ids.toArray(new String[]{})));
     }
 
@@ -577,7 +626,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public GetDeletedResult getDeletedRange(String type, Calendar startTime, Calendar endTime) throws Exception {
+    public GetDeletedResult getDeletedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") Calendar endTime) throws Exception {
         return connection.getDeleted(type, startTime, endTime);
     }
 
@@ -594,7 +645,7 @@ public class SalesforceModule {
      */
     @Processor(name = "describe-sobject")
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public DescribeSObjectResult describeSObject(String type) throws Exception {
+    public DescribeSObjectResult describeSObject(@Placement(group = "Type") @FriendlyName("sObject Type") String type) throws Exception {
         return connection.describeSObject(type);
     }
 
@@ -611,7 +662,8 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public GetDeletedResult getDeleted(String type, int duration) throws Exception {
+    public GetDeletedResult getDeleted(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                       @Placement(group = "Information") int duration) throws Exception {
         Calendar serverTime = connection.getServerTimestamp().getTimestamp();
         Calendar startTime = (Calendar) serverTime.clone();
         Calendar endTime = (Calendar) serverTime.clone();
@@ -636,7 +688,9 @@ public class SalesforceModule {
      */
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
-    public void publishTopic(String name, String query, @Optional String description) throws Exception {
+    public void publishTopic(@Placement(group = "Information") String name,
+                             @Placement(group = "Information") String query,
+                             @Placement(group = "Information") @Optional String description) throws Exception {
         QueryResult result = connection.query("SELECT Id FROM PushTopic WHERE Name = '" + name + "'");
         if (result.getSize() == 0) {
             SObject pushTopic = new SObject();
