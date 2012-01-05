@@ -193,13 +193,9 @@ public class SalesforceModule {
     }
 
     private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects) throws SoapConnection.SessionTimedOutException {
-        return createBatchAndCompleteRequest(jobInfo, objects, null);
-    }
-
-    private BatchInfo createBatchAndCompleteRequest(JobInfo jobInfo, List<Map<String, Object>> objects, String externalIdFieldName) throws SoapConnection.SessionTimedOutException {
         try {
             BatchRequest batchRequest = restConnection.createBatch(jobInfo);
-            batchRequest.addSObjects(toAsyncSObjectList(objects, externalIdFieldName));
+            batchRequest.addSObjects(toAsyncSObjectList(objects));
             return batchRequest.completeRequest();
         } catch (AsyncApiException e) {
             if (e.getExceptionCode() == AsyncExceptionCode.InvalidSessionId) {
@@ -392,7 +388,7 @@ public class SalesforceModule {
     public BatchInfo upsertBulk(@Placement(group = "Information", order = 1) @FriendlyName("sObject Type") String type,
                                 @Placement(group = "Information", order = 2) String externalIdFieldName,
                                 @Placement(group = "Salesforce sObjects list") List<Map<String, Object>> objects) throws Exception {
-        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type, externalIdFieldName), objects, externalIdFieldName);
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type, externalIdFieldName), objects);
     }
 
     /**
@@ -849,23 +845,20 @@ public class SalesforceModule {
         return sObject;
     }
 
-    protected com.sforce.async.SObject[] toAsyncSObjectList(List<Map<String, Object>> objects, String externalIdFieldName) {
+    protected com.sforce.async.SObject[] toAsyncSObjectList(List<Map<String, Object>> objects) {
         com.sforce.async.SObject[] sobjects = new com.sforce.async.SObject[objects.size()];
         int s = 0;
         for (Map<String, Object> map : objects) {
-            sobjects[s] = toAsyncSObject(map, externalIdFieldName);
+            sobjects[s] = toAsyncSObject(map);
             s++;
         }
         return sobjects;
     }
 
-    private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map, String externalIdFieldName) {
+    private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map) {
         com.sforce.async.SObject sObject = new com.sforce.async.SObject();
         for (String key : map.keySet()) {
             sObject.setField(key, map.get(key).toString());
-        }
-        if (externalIdFieldName != null) {
-            sObject.setField("externalIdFieldName", externalIdFieldName);
         }
         return sObject;
     }
