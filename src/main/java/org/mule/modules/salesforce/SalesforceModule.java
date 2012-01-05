@@ -201,9 +201,16 @@ public class SalesforceModule {
     }
 
     private JobInfo createJobInfo(OperationEnum op, String type) throws AsyncApiException {
+        return createJobInfo(op, type, null);
+    }
+
+    private JobInfo createJobInfo(OperationEnum op, String type, String externalIdFieldName) throws AsyncApiException {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setOperation(op);
         jobInfo.setObject(type);
+        if( externalIdFieldName != null ) {
+            jobInfo.setExternalIdFieldName(externalIdFieldName);
+        }
         return restConnection.createJob(jobInfo);
     }
 
@@ -368,7 +375,7 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public BatchInfo upsertBulk(String type, String externalIdFieldName, List<Map<String, Object>> objects) throws Exception {
-        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type), objects, externalIdFieldName);
+        return createBatchAndCompleteRequest(createJobInfo(OperationEnum.upsert, type, externalIdFieldName), objects, externalIdFieldName);
     }
 
 
