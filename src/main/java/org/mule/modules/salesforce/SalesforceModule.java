@@ -858,7 +858,11 @@ public class SalesforceModule {
     private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map) {
         com.sforce.async.SObject sObject = new com.sforce.async.SObject();
         for (String key : map.keySet()) {
-            sObject.setField(key, map.get(key).toString());
+            if( map.get(key) != null ) {
+                sObject.setField(key, map.get(key).toString());
+            } else {
+                sObject.setField(key, null);
+            }
         }
         return sObject;
     }

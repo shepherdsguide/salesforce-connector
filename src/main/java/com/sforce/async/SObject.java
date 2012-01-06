@@ -79,7 +79,14 @@ public final class SObject {
         for (Map.Entry<String, String> entry : fields.entrySet()) {
             String name = entry.getKey();
             String value = entry.getValue();
-            out.writeStringElement(RestConnection.NAMESPACE, name, value);
+
+            if( value != null ) {
+                out.writeStringElement(RestConnection.NAMESPACE, name, value);
+            } else {
+                out.writeStartTag(RestConnection.NAMESPACE, name);
+                out.writeAttribute("http://www.w3.org/2001/XMLSchema-instance", "nil", "true");
+                out.writeEndTag(RestConnection.NAMESPACE, name);
+            }
         }
         for (Map.Entry<String, SObject> entry : fkRefs.entrySet()) {
             String relationshipName = entry.getKey();
