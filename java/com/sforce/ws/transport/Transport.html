@@ -467,9 +467,83 @@ Summary:
             OutputStream</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/Transport.html#connect(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>)">connect</a></span>(String url, HashMap&lt;String,&nbsp;String&gt; headers)</nobr>
+        
+        <div class="jd-descrdiv">Connect to the specified endpoint.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            OutputStream</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/Transport.html#connect(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, boolean)">connect</a></span>(String url, HashMap&lt;String,&nbsp;String&gt; headers, boolean compress)</nobr>
+        
+        <div class="jd-descrdiv">Connect to the specified endpoint.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            OutputStream</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../com/sforce/ws/transport/Transport.html#connect(java.lang.String, java.lang.String)">connect</a></span>(String url, String soapAction)</nobr>
         
         <div class="jd-descrdiv">Connect to the specified endpoint.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            HttpURLConnection</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/Transport.html#createConnection(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>)">createConnection</a></span>(String url, HashMap&lt;String,&nbsp;String&gt; httpHeaders)</nobr>
+        
+        <div class="jd-descrdiv">Create a connection
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            URL</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../com/sforce/ws/transport/Transport.html#createURL(java.lang.String)">createURL</a></span>(String url)</nobr>
+        
+        <div class="jd-descrdiv">Create a URL
+</div>
   
   </td></tr>
 
@@ -574,6 +648,126 @@ Summary:
 
 
 
+<A NAME="connect(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        OutputStream
+      </span>
+      <span class="sympad">connect</span>
+      <span class="normal">(String url, HashMap&lt;String,&nbsp;String&gt; headers)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Connect to the specified endpoint.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</td>
+          <td>Endpoint address</td>
+        </tr>
+        <tr>
+          <th>headers</td>
+          <td>Header map</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>output stream that can be used to send response</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td>failed to connect to the endpoint
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="connect(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>, boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        OutputStream
+      </span>
+      <span class="sympad">connect</span>
+      <span class="normal">(String url, HashMap&lt;String,&nbsp;String&gt; headers, boolean compress)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Connect to the specified endpoint.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</td>
+          <td>Endpoint address</td>
+        </tr>
+        <tr>
+          <th>headers</td>
+          <td>Header map</td>
+        </tr>
+        <tr>
+          <th>compress</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>output stream that can be used to send response</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td>failed to connect to the endpoint
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="connect(java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -624,6 +818,110 @@ Summary:
             <th>IOException</td>
             <td>failed to connect to the endpoint
 </td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createConnection(java.lang.String, java.util.HashMap<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        HttpURLConnection
+      </span>
+      <span class="sympad">createConnection</span>
+      <span class="normal">(String url, HashMap&lt;String,&nbsp;String&gt; httpHeaders)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a connection
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>httpHeaders</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createURL(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        URL
+      </span>
+      <span class="sympad">createURL</span>
+      <span class="normal">(String url)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a URL
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>MalformedURLException</td>
+            <td></td>
         </tr>
       </table>
   </div>
