@@ -27,9 +27,15 @@ package com.sforce.ws.transport;
 
 import com.sforce.ws.ConnectorConfig;
 
+import com.sun.jmx.snmp.SnmpString;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This interface defines a Transport.
@@ -53,6 +59,26 @@ public interface Transport {
     OutputStream connect(String url, String soapAction) throws IOException;
 
     /**
+     * Connect to the specified endpoint.
+     *
+     * @param url endpoint address
+     * @param headers header map
+     * @return output stream that can be used to send response
+     * @throws java.io.IOException failed to connect to the endpoint
+     */
+    OutputStream connect(String url, HashMap<String, String> headers) throws IOException;
+
+    /**
+     * Connect to the specified endpoint.
+     *
+     * @param url endpoint address
+     * @param headers header map
+     * @return output stream that can be used to send response
+     * @throws java.io.IOException failed to connect to the endpoint
+     */
+    OutputStream connect(String url, HashMap<String, String> headers, boolean compress) throws IOException;
+    
+    /**
      * returns the response from the endpoint. This method must be called after
      * a connect call.
      *
@@ -66,4 +92,14 @@ public interface Transport {
      * @return true if the call was successful
      */
     boolean isSuccessful();
+
+    /**
+     * Create a connection
+     */
+    HttpURLConnection createConnection(String url,HashMap<String, String> httpHeaders) throws IOException;
+
+    /**
+     * Create a URL
+     */
+    URL createURL(String url) throws MalformedURLException;
 }
