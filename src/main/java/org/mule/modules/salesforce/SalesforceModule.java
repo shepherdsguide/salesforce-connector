@@ -24,6 +24,7 @@ import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetDeletedResult;
+import com.sforce.soap.partner.GetUpdatedResult;
 import com.sforce.soap.partner.GetUserInfoResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
@@ -604,6 +605,31 @@ public class SalesforceModule {
     }
 
     /**
+     * Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated-range}
+     *
+     *
+     * @param type      Object type. The specified value must be a valid object for your organization.
+     * @param startTime Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+     *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
+     *                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).
+     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+     *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
+     *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
+     * @return {@link GetUpdatedResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getupdatedrange.htm">getUpdatedRange()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetUpdatedResult getUpdatedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") Calendar endTime) throws Exception {
+        return connection.getUpdated(type, startTime, endTime);
+    }
+
+    /**
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted-range}
@@ -666,6 +692,29 @@ public class SalesforceModule {
 
         endTime.add(Calendar.MINUTE, duration);
         return getDeletedRange(type, startTime, endTime);
+    }
+
+    /**
+     * Retrieves the list of individual records that have been updated between the range of now to the duration before now.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated}
+     *
+     * @param type     Object type. The specified value must be a valid object for your organization.
+     * @param duration The amount of time in minutes before now for which to return records from.
+     * @return {@link GetDeletedResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getupdated.htm">getUpdated()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetUpdatedResult getUpdated(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                       @Placement(group = "Information") int duration) throws Exception {
+        Calendar serverTime = connection.getServerTimestamp().getTimestamp();
+        Calendar startTime = (Calendar) serverTime.clone();
+        Calendar endTime = (Calendar) serverTime.clone();
+
+        endTime.add(Calendar.MINUTE, duration);
+        return getUpdatedRange(type, startTime, endTime);
     }
 
     /**

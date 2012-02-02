@@ -481,6 +481,37 @@ public class SalesforceModuleTest {
     }
 
     @Test
+    public void testGetUpdatedRange() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+
+        module.getUpdatedRange("Account", Calendar.getInstance(), Calendar.getInstance());
+
+        verify(partnerConnection, atLeastOnce()).getUpdated(eq("Account"), any(Calendar.class), any(Calendar.class));
+    }
+
+    @Test
+    public void testGetUpdated() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+        when(getServerTimestampResult.getTimestamp()).thenReturn(Calendar.getInstance());
+
+        module.getUpdated("Account", 30);
+
+        verify(partnerConnection, atLeastOnce()).getUpdated(eq("Account"), any(Calendar.class), any(Calendar.class));
+    }
+
+    @Test
     public void testGetDeletedRange() throws Exception {
         SalesforceModule module = spy(new SalesforceModule());
         PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
