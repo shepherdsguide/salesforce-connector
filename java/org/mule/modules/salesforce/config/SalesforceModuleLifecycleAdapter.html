@@ -241,6 +241,8 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedMessageProcessor.html">GetUpdatedMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
@@ -1482,6 +1484,42 @@ From class
         <div class="jd-descrdiv">Returns the session id for the current connection
  <p/>
  </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/com/sforce/soap/partner/GetUpdatedResult.html">GetUpdatedResult</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#getUpdated(java.lang.String, int)">getUpdated</a></span>(String type, int duration)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been updated between the range of now to the duration before now.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/com/sforce/soap/partner/GetUpdatedResult.html">GetUpdatedResult</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#getUpdatedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getUpdatedRange</a></span>(String type, Calendar startTime, Calendar endTime)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.</div>
   
   </td></tr>
 
