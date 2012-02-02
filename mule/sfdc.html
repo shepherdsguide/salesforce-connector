@@ -480,6 +480,16 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/sfdc.html#retrieve">&lt;sfdc:retrieve&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Retrieves one or more records based on the specified IDs.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#update">&lt;sfdc:update&gt;</a></nobr>
         
         <div class="jd-descrdiv">Updates one or more existing records in your organization's data.<br/></div>
@@ -488,7 +498,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#update-bulk">&lt;sfdc:update-bulk&gt;</a></nobr>
         
@@ -498,7 +508,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#upsert">&lt;sfdc:upsert&gt;</a></nobr>
         
@@ -509,7 +519,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#upsert-bulk">&lt;sfdc:upsert-bulk&gt;</a></nobr>
         
@@ -3050,6 +3060,133 @@ attribute on each operation.</p>
             <th></td>
             <td>Exception</td>
         </tr>
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="retrieve"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;sfdc:retrieve&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves one or more records based on the specified IDs.
+ <p/>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;sfdc:retrieve type="Account"&gt;
+     &lt;sfdc:ids&gt;
+         &lt;sfdc:id&gt;4323&lt;/sfdc:id&gt;
+         &lt;sfdc:id&gt;4676&lt;/sfdc:id&gt;
+     &lt;/sfdc:ids&gt;
+     &lt;sfdc:fields&gt;
+         &lt;sfdc:field&gt;Id&lt;/sfdc:field&gt;
+         &lt;sfdc:field&gt;Name&lt;/sfdc:field&gt;
+     &lt;/sfdc:fields&gt;
+&lt;/sfdc:retrieve&gt;</pre></div></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>type</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">Object type. The sp ecified value must be a valid object for your organization.</td>
+                </tr>
+                
+                
+          
+                
+          
+                
+          
+          
+          <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>username</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Username used to initialize the session</td>
+                </tr>
+                
+            
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>password</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Password used to authenticate the user</td>
+                </tr>
+                
+            
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>User's security token</td>
+                </tr>
+                
+            
+          
+          
+          
+            <tr><th colspan="12">Retry and Reconnect<br/><span style="font-weight: 200;">This message processor supports automatic retry and reconnect. If the API call fail for a known error then the API will be automatically retried. This does not happen on every type of error, only a few that has been selected and are known to be recoverable from.</span></th></tr>
+            <tr class=" api apilevel-" >
+                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
+                <td class="jd-descrcol">1</td>
+                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
+            </tr>
+            
+          
+          
+        </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+        <table id="lconfig" class="jd-sumtable">
+          
+          
+            
+          
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:ids&gt;</nobr></br><span style="font-weight: normal;">The ids of the objects to retrieve</span></th></tr>
+            
+            
+          
+            
+            <tr><th colspan="12"><nobr>&lt;sfdc:fields&gt;</nobr></br><span style="font-weight: normal;">The fields to return for the matching objects</span></th></tr>
+            
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Return Payload</h5>
+      <ul class="nolist"><li>An array of <code><a href="../java/com/sforce/soap/partner/sobject/SObject.html">SObject</a></code>s</li></ul>
+  </div>
+    
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
         <tr>
             <th>Exception</td>
             <td></td>

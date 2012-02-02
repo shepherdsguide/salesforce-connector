@@ -247,6 +247,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionParameters.html">SalesforceModuleConnectionManager.ConnectionParameters</a></li>
@@ -1376,11 +1377,13 @@ From class
             
             
             
-            void</nobr>
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setBayeuxClient(org.mule.modules.salesforce.SalesforceBayeuxClient)">setBayeuxClient</a></span>(<a href="../../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a> bc)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#retrieve(java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">retrieve</a></span>(String type, List&lt;String&gt; ids, List&lt;String&gt; fields)</nobr>
         
+        <div class="jd-descrdiv">Retrieves one or more records based on the specified IDs.</div>
+  
   </td></tr>
 
 
@@ -1395,7 +1398,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setConnection(com.sforce.soap.partner.PartnerConnection)">setConnection</a></span>(<a href="../../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a> connection)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setBayeuxClient(org.mule.modules.salesforce.SalesforceBayeuxClient)">setBayeuxClient</a></span>(<a href="../../../../../../java/org/mule/modules/salesforce/SalesforceBayeuxClient.html">SalesforceBayeuxClient</a> bc)</nobr>
         
   </td></tr>
 
@@ -1411,13 +1414,29 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setLoginResult(com.sforce.soap.partner.LoginResult)">setLoginResult</a></span>(<a href="../../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a> loginResult)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setConnection(com.sforce.soap.partner.PartnerConnection)">setConnection</a></span>(<a href="../../../../../../java/com/sforce/soap/partner/PartnerConnection.html">PartnerConnection</a> connection)</nobr>
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/SalesforceModule.html#setLoginResult(com.sforce.soap.partner.LoginResult)">setLoginResult</a></span>(<a href="../../../../../../java/com/sforce/soap/partner/LoginResult.html">LoginResult</a> loginResult)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1435,7 +1454,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1453,7 +1472,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1471,7 +1490,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1489,7 +1508,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1505,7 +1524,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1523,7 +1542,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1541,7 +1560,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1557,7 +1576,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1573,7 +1592,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1591,7 +1610,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1609,7 +1628,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1628,7 +1647,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             

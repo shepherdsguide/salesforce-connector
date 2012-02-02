@@ -72,7 +72,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  UpsertBulkMessageProcessor
+  RetrieveMessageProcessor
 
 
 | Mule Salesforce Connector
@@ -247,7 +247,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionParameters.html">SalesforceModuleConnectionManager.ConnectionParameters</a></li>
@@ -257,7 +257,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></li>
       </ul>
     </li>
@@ -420,7 +420,7 @@ Summary:
      
     
     class
-<h1>UpsertBulkMessageProcessor</h1>
+<h1>RetrieveMessageProcessor</h1>
 
 
 
@@ -470,7 +470,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.UpsertBulkMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.salesforce.config.RetrieveMessageProcessor</td>
     </tr>
     
 
@@ -486,7 +486,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>UpsertBulkMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#upsertBulk(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsertBulk(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>RetrieveMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html#retrieve(java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">retrieve(java.lang.String, java.util.List, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -683,8 +683,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_externalIdFieldNameType">_externalIdFieldNameType</a></td>
+          List&lt;String&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_fieldsType">_fieldsType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -694,8 +694,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_objectsType">_objectsType</a></td>
+          List&lt;String&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_idsType">_idsType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -706,7 +706,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_passwordType">_passwordType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_passwordType">_passwordType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -717,7 +717,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_securityTokenType">_securityTokenType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -728,7 +728,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_typeType">_typeType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_typeType">_typeType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -739,7 +739,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#_usernameType">_usernameType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#_usernameType">_usernameType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -750,7 +750,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           ExpressionManager</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#expressionManager">expressionManager</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#expressionManager">expressionManager</a></td>
           <td class="jd-descrcol" width="100%">Mule Expression Manager
  
 </td>
@@ -763,7 +763,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#externalIdFieldName">externalIdFieldName</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#fields">fields</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -774,7 +774,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           FlowConstruct</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#flowConstruct">flowConstruct</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#flowConstruct">flowConstruct</a></td>
           <td class="jd-descrcol" width="100%">Flow construct
  
 </td>
@@ -784,10 +784,10 @@ org.mule.api.lifecycle.Stoppable
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
-          static
           
-          Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#logger">logger</a></td>
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#ids">ids</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -795,47 +795,47 @@ org.mule.api.lifecycle.Stoppable
       <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
+          static
+          
+          Logger</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#logger">logger</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#moduleObject">moduleObject</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#moduleObject">moduleObject</a></td>
           <td class="jd-descrcol" width="100%">Module object
  
 </td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           MuleContext</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#muleContext">muleContext</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#muleContext">muleContext</a></td>
           <td class="jd-descrcol" width="100%">Mule Context
  
 </td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#objects">objects</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#password">password</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#password">password</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -846,7 +846,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           TemplateParser.PatternInfo</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#patternInfo">patternInfo</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#patternInfo">patternInfo</a></td>
           <td class="jd-descrcol" width="100%">Mule Pattern Info
  
 </td>
@@ -859,7 +859,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           AtomicInteger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#retryCount">retryCount</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#retryCount">retryCount</a></td>
           <td class="jd-descrcol" width="100%">Variable used to track how many retries we have attempted on this message processor
  
 </td>
@@ -872,7 +872,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#retryMax">retryMax</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#retryMax">retryMax</a></td>
           <td class="jd-descrcol" width="100%">Maximum number of retries that can be attempted.</td>
       </tr>
       
@@ -883,7 +883,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#securityToken">securityToken</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#securityToken">securityToken</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -894,7 +894,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#type">type</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#type">type</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -905,7 +905,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#username">username</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -935,7 +935,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#UpsertBulkMessageProcessor()">UpsertBulkMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#RetrieveMessageProcessor()">RetrieveMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -964,7 +964,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -980,7 +980,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -998,7 +998,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1016,9 +1016,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setExternalIdFieldName(java.lang.Object)">setExternalIdFieldName</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setFields(java.lang.Object)">setFields</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets externalIdFieldName</div>
+        <div class="jd-descrdiv">Sets fields</div>
   
   </td></tr>
 
@@ -1034,7 +1034,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1052,9 +1052,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setIds(java.lang.Object)">setIds</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets the instance of the object under which the processor will execute</div>
+        <div class="jd-descrdiv">Sets ids</div>
   
   </td></tr>
 
@@ -1070,9 +1070,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setModuleObject(java.lang.Object)">setModuleObject</a></span>(Object moduleObject)</nobr>
         
-        <div class="jd-descrdiv">Set the Mule context</div>
+        <div class="jd-descrdiv">Sets the instance of the object under which the processor will execute</div>
   
   </td></tr>
 
@@ -1088,9 +1088,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setObjects(java.lang.Object)">setObjects</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
-        <div class="jd-descrdiv">Sets objects</div>
+        <div class="jd-descrdiv">Set the Mule context</div>
   
   </td></tr>
 
@@ -1106,7 +1106,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets password</div>
   
@@ -1124,7 +1124,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setRetryMax(int)">setRetryMax</a></span>(int value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setRetryMax(int)">setRetryMax</a></span>(int value)</nobr>
         
         <div class="jd-descrdiv">Sets retryMax</div>
   
@@ -1142,7 +1142,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setSecurityToken(java.lang.Object)">setSecurityToken</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets securityToken</div>
   
@@ -1160,7 +1160,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setType(java.lang.Object)">setType</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setType(java.lang.Object)">setType</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets type</div>
   
@@ -1178,7 +1178,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets username</div>
   
@@ -1196,7 +1196,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1212,7 +1212,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/salesforce/config/RetrieveMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -1759,7 +1759,7 @@ From interface
 
 
 
-<A NAME="_externalIdFieldNameType"></A>
+<A NAME="_fieldsType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1767,9 +1767,9 @@ From interface
         private 
          
          
-        String
+        List&lt;String&gt;
       </span>
-        _externalIdFieldNameType
+        _fieldsType
     </h4>
       <div class="api-level">
         
@@ -1789,7 +1789,7 @@ From interface
 
 
 
-<A NAME="_objectsType"></A>
+<A NAME="_idsType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1797,9 +1797,9 @@ From interface
         private 
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;String&gt;
       </span>
-        _objectsType
+        _idsType
     </h4>
       <div class="api-level">
         
@@ -1971,7 +1971,7 @@ From interface
 
 
 
-<A NAME="externalIdFieldName"></A>
+<A NAME="fields"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1981,7 +1981,7 @@ From interface
          
         Object
       </span>
-        externalIdFieldName
+        fields
     </h4>
       <div class="api-level">
         
@@ -2026,6 +2026,36 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Flow construct
  
 </p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="ids"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        ids
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2120,36 +2150,6 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Mule Context
  
 </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="objects"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        objects
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2382,7 +2382,7 @@ From interface
 
 
 
-<A NAME="UpsertBulkMessageProcessor()"></A>
+<A NAME="RetrieveMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2394,7 +2394,7 @@ From interface
          
         
       </span>
-      <span class="sympad">UpsertBulkMessageProcessor</span>
+      <span class="sympad">RetrieveMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2548,7 +2548,7 @@ From interface
 </div>
 
 
-<A NAME="setExternalIdFieldName(java.lang.Object)"></A>
+<A NAME="setFields(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2560,7 +2560,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setExternalIdFieldName</span>
+      <span class="sympad">setFields</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2573,7 +2573,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets externalIdFieldName</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets fields</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2621,6 +2621,47 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setIds(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setIds</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets ids</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
 </td>
         </tr>
       </table>
@@ -2703,47 +2744,6 @@ From interface
         <tr>
           <th>context</td>
           <td>Mule context to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setObjects(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setObjects</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets objects</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
 </td>
         </tr>
       </table>
