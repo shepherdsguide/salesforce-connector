@@ -55,6 +55,7 @@ import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
+import org.springframework.util.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -107,7 +108,6 @@ public class SalesforceModule {
     private int proxyPort = -1;
 
     /**
-     *
      * Proxy username
      */
     @Configurable
@@ -215,7 +215,7 @@ public class SalesforceModule {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setOperation(op);
         jobInfo.setObject(type);
-        if( externalIdFieldName != null ) {
+        if (externalIdFieldName != null) {
             jobInfo.setExternalIdFieldName(externalIdFieldName);
         }
         return restConnection.createJob(jobInfo);
@@ -397,7 +397,7 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-info}
      *
-     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @param batchInfo the {@link BatchInfo} being monitored
      * @return Latest {@link BatchInfo} representing status of the batch job result.
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_info.htm">getBatchInfo()</a>
@@ -413,7 +413,7 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-result}
      *
-     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @param batchInfo the {@link BatchInfo} being monitored
      * @return {@link BatchResult} representing result of the batch job result.
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_results.htm">getBatchResult()</a>
@@ -437,6 +437,33 @@ public class SalesforceModule {
     @Processor
     public DescribeGlobalResult describeGlobal() throws Exception {
         return connection.describeGlobal();
+    }
+
+    /**
+     * Retrieves one or more records based on the specified IDs.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:retrieve}
+     *
+     * @param type   Object type. The sp ecified value must be a valid object for your organization.
+     * @param ids    The ids of the objects to retrieve
+     * @param fields The fields to return for the matching objects
+     * @return An array of {@link SObject}s
+     * @throws Exception
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<Map<String, Object>> retrieve(@Placement(group = "Information", order = 1) @FriendlyName("sObject Type") String type,
+                                              @Placement(group = "Ids to Retrieve") List<String> ids,
+                                              @Placement(group = "Fields to Retrieve") List<String> fields) throws Exception {
+        String fiedsCommaDelimited = StringUtils.collectionToCommaDelimitedString(fields);
+        SObject[] sObjects = connection.retrieve(fiedsCommaDelimited, type, ids.toArray(new String[ids.size()]));
+        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        if (sObjects != null) {
+            for (SObject sObject : sObjects) {
+                result.add(sObject.toMap());
+            }
+        }
+        return result;
     }
 
     /**
@@ -608,7 +635,6 @@ public class SalesforceModule {
      * Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated-range}
-     *
      *
      * @param type      Object type. The specified value must be a valid object for your organization.
      * @param startTime Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
@@ -907,7 +933,7 @@ public class SalesforceModule {
     private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map) {
         com.sforce.async.SObject sObject = new com.sforce.async.SObject();
         for (String key : map.keySet()) {
-            if( map.get(key) != null ) {
+            if (map.get(key) != null) {
                 sObject.setField(key, map.get(key).toString());
             } else {
                 sObject.setField(key, null);

@@ -168,3 +168,15 @@
 <!-- BEGIN_INCLUDE(sfdc:get-session-id) -->
 <sfdc:get-session-id />
 <!-- END_INCLUDE(sfdc:get-session-id) -->
+<!-- BEGIN_INCLUDE(sfdc:retrieve) -->
+<sfdc:retrieve type="Account">
+     <sfdc:ids>
+         <sfdc:id>4323</sfdc:id>
+         <sfdc:id>4676</sfdc:id>
+     </sfdc:ids>
+     <sfdc:fields>
+         <sfdc:field>Id</sfdc:field>
+         <sfdc:field>Name</sfdc:field>
+     </sfdc:fields>
+</sfdc:retrieve>
+<!-- END_INCLUDE(sfdc:retrieve) -->
