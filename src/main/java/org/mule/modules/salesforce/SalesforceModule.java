@@ -633,6 +633,7 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.
+     * If startTime and endTime are not provided the range considered is current server time to prior 1 minute.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated-range}
      *
@@ -650,13 +651,21 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public GetUpdatedResult getUpdatedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
-                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
-                                            @Placement(group = "Information") @FriendlyName("End Time Reference") Calendar endTime) throws Exception {
+                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") @Optional Calendar startTime,
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") @Optional Calendar endTime) throws Exception {
+        if(startTime == null) {
+            startTime = connection.getServerTimestamp().getTimestamp();
+        }
+        if(endTime == null) {
+            endTime = (Calendar) startTime.clone();
+            endTime.add(Calendar.MINUTE, 1);
+        }
         return connection.getUpdated(type, startTime, endTime);
     }
 
     /**
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
+     * If startTime and endTime are not provided the range considered is current server time to prior 1 minute.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted-range}
      * {@sample.java ../../../doc/mule-module-sfdc.java.sample sfdc:get-deleted-range}
@@ -675,8 +684,15 @@ public class SalesforceModule {
     @Processor
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public GetDeletedResult getDeletedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
-                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
-                                            @Placement(group = "Information") @FriendlyName("End Time Reference") Calendar endTime) throws Exception {
+                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") @Optional Calendar startTime,
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") @Optional Calendar endTime) throws Exception {
+        if(startTime == null) {
+            startTime = connection.getServerTimestamp().getTimestamp();
+        }
+        if(endTime == null) {
+            endTime = (Calendar) startTime.clone();
+            endTime.add(Calendar.MINUTE, 1);
+        }
         return connection.getDeleted(type, startTime, endTime);
     }
 
@@ -722,6 +738,7 @@ public class SalesforceModule {
 
     /**
      * Retrieves the list of individual records that have been updated between the range of now to the duration before now.
+     *
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated}
      *
