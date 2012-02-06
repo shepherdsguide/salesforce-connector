@@ -656,6 +656,9 @@ public class SalesforceModule {
         if (endTime == null) {
             Calendar serverTime = connection.getServerTimestamp().getTimestamp();
             endTime = (Calendar) serverTime.clone();
+            if (endTime.getTimeInMillis() - startTime.getTimeInMillis() < 60000) {
+                endTime.add(Calendar.MINUTE, 1);
+            }
         }
         return connection.getUpdated(type, startTime, endTime);
     }
@@ -686,6 +689,9 @@ public class SalesforceModule {
         if (endTime == null) {
             Calendar serverTime = connection.getServerTimestamp().getTimestamp();
             endTime = (Calendar) serverTime.clone();
+            if (endTime.getTimeInMillis() - startTime.getTimeInMillis() < 60000) {
+                endTime.add(Calendar.MINUTE, 1);
+            }
         }
         return connection.getDeleted(type, startTime, endTime);
     }
