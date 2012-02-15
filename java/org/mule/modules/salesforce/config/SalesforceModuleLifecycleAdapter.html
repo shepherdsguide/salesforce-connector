@@ -84,6 +84,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -102,6 +103,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -117,12 +139,8 @@
 	    	<span class="en">Install Guide</span>
     	</a></li>
     
-    	<li id="streaming"><a href="../../../../../../streaming.html">
-	    	<span class="en">Streaming Guide</span>
-    	</a></li>
-    
-    	<li id="bulk"><a href="../../../../../../bulk.html">
-	    	<span class="en">Bulk Guide</span>
+    	<li id="userguide"><a href="../../../../../../usage.html">
+	    	<span class="en">User Guide</span>
     	</a></li>
     
     	<li id="java"><a href="../../../../../../java/packages.html">
@@ -214,10 +232,16 @@
   <a href="../../../../../../java/com/sforce/ws/wsdl/package-summary.html">com.sforce.ws.wsdl</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/salesforce/adapters/package-summary.html">org.mule.modules.salesforce.adapters</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/salesforce/processors/package-summary.html">org.mule.modules.salesforce.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/salesforce/sources/package-summary.html">org.mule.modules.salesforce.sources</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -227,37 +251,64 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchInfoDefinitionParser.html">BatchInfoDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchResultDefinitionParser.html">BatchResultDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/BatchSplitterMessageProcessor.html">BatchSplitterMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateBulkDefinitionParser.html">CreateBulkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateDefinitionParser.html">CreateDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateSingleDefinitionParser.html">CreateSingleDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteDefinitionParser.html">DeleteDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedDefinitionParser.html">GetDeletedDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetSessionIdDefinitionParser.html">GetSessionIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedDefinitionParser.html">GetUpdatedDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedMessageProcessor.html">GetUpdatedMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedRangeDefinitionParser.html">GetUpdatedRangeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryDefinitionParser.html">QueryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/RetrieveDefinitionParser.html">RetrieveDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConfigDefinitionParser.html">SalesforceModuleConfigDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.ConnectionParameters.html">SalesforceModuleConnectionManager.ConnectionParameters</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleNamespaceHandler.html">SalesforceModuleNamespaceHandler</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.html">SalesforceModuleSessionManagerAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SalesforceModuleSessionManagerAdapter.SessionKey.html">SalesforceModuleSessionManagerAdapter.SessionKey</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkDefinitionParser.html">UpdateBulkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateDefinitionParser.html">UpdateDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkDefinitionParser.html">UpsertBulkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertDefinitionParser.html">UpsertDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></li>
       </ul>
     </li>

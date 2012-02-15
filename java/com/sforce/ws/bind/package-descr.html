@@ -85,6 +85,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -103,6 +104,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -118,12 +140,8 @@
 	    	<span class="en">Install Guide</span>
     	</a></li>
     
-    	<li id="streaming"><a href="../../../../../streaming.html">
-	    	<span class="en">Streaming Guide</span>
-    	</a></li>
-    
-    	<li id="bulk"><a href="../../../../../bulk.html">
-	    	<span class="en">Bulk Guide</span>
+    	<li id="userguide"><a href="../../../../../usage.html">
+	    	<span class="en">User Guide</span>
     	</a></li>
     
     	<li id="java"><a href="../../../../../java/packages.html">
@@ -216,9 +234,15 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/modules/salesforce/adapters/package-summary.html">org.mule.modules.salesforce.adapters</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/modules/salesforce/processors/package-summary.html">org.mule.modules.salesforce.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/modules/salesforce/sources/package-summary.html">org.mule.modules.salesforce.sources</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->

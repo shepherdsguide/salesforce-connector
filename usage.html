@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Salesforce Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+<title>
+
+
+| Mule Salesforce Connector
+
+</title>
+<link href="./assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="./assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="./assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="./assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="./assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="./assets/jquery-toc.js" type="text/javascript"></script>
+<script src="./assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="./assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("./", "./assets/");
+</script>
+<script src="./assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="gc-documentation">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Salesforce Connector</span>
+    
+    <ul id="header-tabs" class="userguide">
+    
+    	<li id="guide"><a href="./guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="userguide"><a href="./usage.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="./java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="./mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="./assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, './')"
+                      onkeyup="return search_changed(event, false, './')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+<div class="g-section g-tpl-240" id="body-content">
+
+	<div class="g-unit g-first side-nav-resizable" id="side-nav">
+	      <div id="swapper">
+	        <div id="side-nav">
+                <script type="text/javascript" charset="utf-8">
+                    $(document).ready(function(){
+                        $("ul#toc").tableOfContents();
+                        buildToggleLists();
+                    })
+                </script>
+                <ul id="toc">
+                </ul>
+	        </div><!-- end nav-panels -->
+	      </div><!-- end swapper -->
+	    </div> <!-- end side-nav -->
+
+<div class="g-unit" id="doc-content">
+
+<div id="jd-content">
+
+<h1>Streaming</h1>
+
+<p>Using the Streaming API allows you to receive events for changes to Salesforce data that match a SOQL query you define,
+in a secure and scalable way.</p>
+
+<p>This events will be converted to Mule events and dispatched to your flows.</p>
+
+<h2>Publishing a topic</h2>
+
+<p>Before you can start receiving events for changes in Salesforce, you must first create a PushTopic. A PushTopic is a
+special object in Salesforce that binds a name (the topic's name) and SOQL together. Once a PushTopic is created you
+can then subscribe to it by using only its name.</p>
+
+<p>There are several ways in which you can create a PushTopic, we will cover using Salesforce itself and using this
+connector. You could potentially also use Workbench.</p>
+
+<h3>Using Salesforce</h3>
+
+<p>First, select <em>Your Name</em> | <em>System Log</em>.</p>
+
+<p>Then, on the <em>Logs</em> tab, click <em>Execute</em>.</p>
+
+<p>Finally, in the <em>Enter Apex Code</em> window, paste in the following Apex code, and click <em>Execute</em>.</p>
+
+<pre><code>PushTopic pushTopic = new PushTopic();
+pushTopic.Name = 'AccountUpdates';
+pushtopic.Query = 'SELECT Id FROM Account';
+pushTopic.ApiVersion = 23.0;
+insert pushTopic;
+</code></pre>
+
+<h3>Using our connector</h3>
+
+<p>You can either use the <em>create</em> operation but also you can use our exclusive <em>publish-topic</em> operation as follows:</p>
+
+<pre><code>&lt;sfdc:publish-topic name="AccountUpdates" query="SELECT Id FROM Account"/&gt;
+</code></pre>
+
+<h2>Subscribing to a topic</h2>
+
+<p>Once your topic has been created, you can start receiving events by subscribing to it. Our <em>subscribe-topic</em> acts
+like an inbound endpoint and it can be used as such.</p>
+
+<pre><code>&lt;flow name="accountUpdatesSubscription"&gt;
+    &lt;!-- INBOUND ENDPOINT --&gt;
+    &lt;sfdc:subscribe-topic topic="AccountUpdates"/&gt;
+    &lt;!-- REST OF YOUR FLOW --&gt;
+    &lt;logger level="INFO" message="Received an event for Salesforce Object ID #[map-payload:Id]"/&gt;
+&lt;/flow&gt;
+</code></pre>
+
+<p>A Mule flow is divided in two. The first portion of it is usually an inbound endpoint or a message source. It is an
+entity that will receive/generate events that will later be processed by the rest of the flow. The other portion is
+a collection of message processors which will processes the messages (aka events) received/generated by the inbound
+endpoint.</p>
+
+<p>Every time our subscription to AccountUpdates receives an event it will execute the rest of the flow. In the case of
+this example it will print a message to the log at INFO level.</p>
+
+<h2>Examining the Events</h2>
+
+<p>The event that gets pushed down the flows contains information about the Salesforce data that has changed, how it
+changes, and when. Usually the raw JSON that the subscription receives
+looks something like this:</p>
+
+<pre><code>{
+  "channel": "/topic/AccountUpdates",
+  "data": {
+    "event": {
+      "type": "created",
+      "createdDate": "2011-11-35T19:14:31.000+0000"
+    },
+    "sobject": {
+      "Id": "a05D0000002jKF1IAM"
+    }
+  }
+}
+</code></pre>
+
+<p>Our connector will parse this information and send you something that a flow can actually work with.</p>
+
+<h3>Inbound Properties</h3>
+
+<p>Some information will get passed along as inbound properties:</p>
+
+<table>
+    <tr>
+        <th>Property Name</th>
+        <th>Scope</th>
+        <th>Maps to</th>
+    </tr>
+    <tr>
+        <td>channel</td>
+        <td>INBOUND</td>
+        <td>channel JSON property</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>INBOUND</td>
+        <td>type JSON property in data</td>
+    </tr>
+    <tr>
+        <td>createdDate</td>
+        <td>INBOUND</td>
+        <td>createdDate JSON property in data</td>
+    </tr>
+</table>
+
+<p class="caution">Actually besides channel, every property inside _event_ will be available as an INBOUND property.</p>
+
+<h3>Payload</h3>
+
+<p>The payload of the event is actually a Map. That map contains everything inside the <em>sobject</em> object in the received
+JSON data. It offered as a map for the convenience of being able to use map-payload expression evaluator to extract
+the information of the SObject.</p>
+
+<p>See how in the <em>Subscribing to a topic</em> example we used #[map-payload:Id] to print the Id of the SObject.</p>
+
+<h1>Bulk</h1>
+
+<p>The Salesforce Bulk API is based is optimized for loading or deleting large sets of data. It allows you to query,
+insert, update, upsert, or delete a large number of records asynchronously by submitting a number of batches which
+are processed in the background by Salesforce.</p>
+
+<p>Our connector simplifies the model heavily making it very transparent and really easy. While the connectors works
+with concepts like Jobs and Batches, you will rarely see them except maybe in responses.</p>
+
+<h2>Creating/Updating/Upserting Objects in Bulk</h2>
+
+<p>Creating objects in bulk is as easy as creating objects without the bulk portion of it. Let's do a quick recap as to
+how the regular create works:</p>
+
+<pre><code>&lt;sfdc:create type="Account"&gt;
+    &lt;sfdc:objects&gt;
+        &lt;sfdc:object&gt;
+            &lt;Name&gt;MuleSoft&lt;/Name&gt;
+            &lt;BillingStreet&gt;30 Maiden Lane&lt;/BillingStreet&gt;
+            &lt;BillingCity&gt;San Francisco&lt;/BillingCity&gt;
+            &lt;BillingState&gt;CA&lt;/BillingState&gt;
+            &lt;BillingPostalCode&gt;94108&lt;/BillingPostalCode&gt;
+            &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
+        &lt;/sfdc:object&gt;
+    &lt;/sfdc:objects&gt;
+&lt;/sfdc:create&gt;
+</code></pre>
+
+<p>That Mule config extract will create an SObject of type Account with the properties that you see. You can have as
+many objects as you want inside the objects collection. The output of this message processor will be a list of SaveResult. A SaveResult is compound object between a status and an Id. Meaning that it will tell you whenever or not the object got created successfully and what the Id of that object is.</p>
+
+<p>The Bulk version of the create operation is named <em>create-bulk</em> and shares the exact same signature.</p>
+
+<pre><code>&lt;sfdc:create-bulk type="Account"&gt;
+    &lt;sfdc:objects&gt;
+        &lt;sfdc:object&gt;
+            &lt;Name&gt;MuleSoft&lt;/Name&gt;
+            &lt;BillingStreet&gt;30 Maiden Lane&lt;/BillingStreet&gt;
+            &lt;BillingCity&gt;San Francisco&lt;/BillingCity&gt;
+            &lt;BillingState&gt;CA&lt;/BillingState&gt;
+            &lt;BillingPostalCode&gt;94108&lt;/BillingPostalCode&gt;
+            &lt;BillingCountry&gt;US&lt;/BillingCountry&gt;
+        &lt;/sfdc:object&gt;
+    &lt;/sfdc:objects&gt;
+&lt;/sfdc:create-bulk&gt;
+</code></pre>
+
+<p>There are no practical differences. Of course, since it is a Bulk operation (meaning that the actual creation process
+will be handled by Salesforce in the background) we don't reply with a collection of SaveResults, because we do not
+have them yet. Instead we reply with a BatchInfo object with contains the id of the batch and the id of the job we
+just created to upload those objects.</p>
+
+<p>This change in behavior remains true for all operations that support bulk.</p>
+
+<h2>Monitoring a Batch</h2>
+
+<p>You can monitor a Bulk API batch in Salesforce.</p>
+
+<p>To track the status of bulk data load jobs and their associated batches,
+click <em>_Your Name_ | Setup | Monitoring | Bulk Data Load Jobs</em>. Click on the Job ID to view the job detail page.</p>
+
+<p>The job detail page includes a related list of all the batches for the job. The related list provides <em>View Request</em>
+and <em>View Response</em> links for each batch. If the batch is a CSV file, the links return the request or response in
+CSV format. If the batch is an XML file, the links return the request or response in XML format. These links are
+ available for batches created in API version 19.0 and later.</p>
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

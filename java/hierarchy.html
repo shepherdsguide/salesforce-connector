@@ -93,6 +93,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -111,6 +112,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 
@@ -125,12 +147,8 @@
 	    	<span class="en">Install Guide</span>
     	</a></li>
     
-    	<li id="streaming"><a href="../streaming.html">
-	    	<span class="en">Streaming Guide</span>
-    	</a></li>
-    
-    	<li id="bulk"><a href="../bulk.html">
-	    	<span class="en">Bulk Guide</span>
+    	<li id="userguide"><a href="../usage.html">
+	    	<span class="en">User Guide</span>
     	</a></li>
     
     	<li id="java"><a href="../java/packages.html">
@@ -223,9 +241,15 @@
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/adapters/package-summary.html">org.mule.modules.salesforce.adapters</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/processors/package-summary.html">org.mule.modules.salesforce.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/sources/package-summary.html">org.mule.modules.salesforce.sources</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -4482,6 +4506,58 @@
     <td class="jd-hierarchy-spacer"></td><td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="3">
     
+        <a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            Capabilities
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td><td class="jd-hierarchy-spacer"></td><td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="2">
+    
+        <a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td><td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="3">
+    
         <a href="../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a>
     
     </td>
@@ -4556,6 +4632,74 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            Capabilities
+         &nbsp;&nbsp;
+    
+        
+            ConnectionManager
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleConnectionManager.ConnectionKey.html">SalesforceModuleConnectionManager.ConnectionKey</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/BatchInfoDefinitionParser.html">BatchInfoDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a>
     
     </td>
@@ -4587,6 +4731,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/BatchResultDefinitionParser.html">BatchResultDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -4692,6 +4856,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a>
     
     </td>
@@ -4723,6 +4907,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/CreateBulkDefinitionParser.html">CreateBulkDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -4780,6 +4984,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/CreateDefinitionParser.html">CreateDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a>
     
     </td>
@@ -4811,6 +5035,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/CreateSingleDefinitionParser.html">CreateSingleDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -4868,6 +5112,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/DeleteDefinitionParser.html">DeleteDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a>
     
     </td>
@@ -4899,6 +5163,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -4956,6 +5240,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a>
     
     </td>
@@ -4987,6 +5291,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5044,6 +5368,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/GetDeletedDefinitionParser.html">GetDeletedDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a>
     
     </td>
@@ -5075,6 +5419,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5132,6 +5496,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/GetSessionIdDefinitionParser.html">GetSessionIdDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a>
     
     </td>
@@ -5163,6 +5547,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/GetUpdatedDefinitionParser.html">GetUpdatedDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5220,6 +5624,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/GetUpdatedRangeDefinitionParser.html">GetUpdatedRangeDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a>
     
     </td>
@@ -5251,6 +5675,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5308,6 +5752,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a>
     
     </td>
@@ -5339,6 +5803,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/QueryDefinitionParser.html">QueryDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5396,6 +5880,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a>
     
     </td>
@@ -5440,6 +5944,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/RetrieveDefinitionParser.html">RetrieveDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a>
     
     </td>
@@ -5471,6 +5995,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/SalesforceModuleConfigDefinitionParser.html">SalesforceModuleConfigDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5544,6 +6088,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a>
     
     </td>
@@ -5579,6 +6143,26 @@
     
         
             MessageSource
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/UpdateBulkDefinitionParser.html">UpdateBulkDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -5636,6 +6220,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/UpdateDefinitionParser.html">UpdateDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a>
     
     </td>
@@ -5680,6 +6284,26 @@
     <td class="jd-hierarchy-spacer"></td>
     <td class="jd-hierarchy-data" colspan="4">
     
+        <a href="../java/org/mule/modules/salesforce/config/UpsertBulkDefinitionParser.html">UpsertBulkDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
         <a href="../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a>
     
     </td>
@@ -5711,6 +6335,26 @@
     
         
             MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/config/UpsertDefinitionParser.html">UpsertDefinitionParser</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            BeanDefinitionParser
          &nbsp;&nbsp;
     
     &nbsp;
@@ -6295,6 +6939,1110 @@
     
         
             BeanDefinitionParser
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/CreateMessageProcessor.html">CreateMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/DeleteMessageProcessor.html">DeleteMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetUpdatedMessageProcessor.html">GetUpdatedMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/QueryMessageProcessor.html">QueryMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/UpdateMessageProcessor.html">UpdateMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/processors/UpsertMessageProcessor.html">UpsertMessageProcessor</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Disposable
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageProcessor
+         &nbsp;&nbsp;
+    
+    &nbsp;
+    </td>
+</tr>
+
+
+
+
+<tr>
+    <td class="jd-hierarchy-spacer"></td>
+    <td class="jd-hierarchy-data" colspan="4">
+    
+        <a href="../java/org/mule/modules/salesforce/sources/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a>
+    
+    </td>
+    <td class="jd-hierarchy-data">
+    
+        
+            Runnable
+         &nbsp;&nbsp;
+    
+        
+            SourceCallback
+         &nbsp;&nbsp;
+    
+        
+            FlowConstructAware
+         &nbsp;&nbsp;
+    
+        
+            MuleContextAware
+         &nbsp;&nbsp;
+    
+        
+            Initialisable
+         &nbsp;&nbsp;
+    
+        
+            Startable
+         &nbsp;&nbsp;
+    
+        
+            Stoppable
+         &nbsp;&nbsp;
+    
+        
+            MessageSource
          &nbsp;&nbsp;
     
     &nbsp;

@@ -85,6 +85,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -101,6 +102,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -116,12 +138,8 @@
 	    	<span class="en">Install Guide</span>
     	</a></li>
     
-    	<li id="streaming"><a href="../streaming.html">
-	    	<span class="en">Streaming Guide</span>
-    	</a></li>
-    
-    	<li id="bulk"><a href="../bulk.html">
-	    	<span class="en">Bulk Guide</span>
+    	<li id="userguide"><a href="../usage.html">
+	    	<span class="en">User Guide</span>
     	</a></li>
     
     	<li id="java"><a href="../java/packages.html">
@@ -206,7 +224,6 @@ Summary:
 <div id="jd-header">
     org.mule.modules
 <h1>mule-module-sfdc</h1>
-    4.2-SNAPSHOT
 
 </div><!-- end header -->
 
@@ -215,15 +232,17 @@ Summary:
 <div id="jd-content" class="api apilevel-">
 
 
+<br/>
+
 <div class="jd-tagdata">
       <table class="jd-tagtable">
         <tbody><tr>
           <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/sfdc</td>
         </tr><tr>
-          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd</td>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd&nbsp;&nbsp;(<a href="sfdc-schema.html">View Schema</a>)</td>
         </tr>
 <tr>
-          <th>Version</th><td>4.0</td>
+          <th>Schema Version</th><td>4.0</td>
         </tr>
 <tr>
           <th>Minimum Mule Version</th><td>3.2</td>
@@ -288,7 +307,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#batch-info">&lt;sfdc:batch-info&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Access latest <br/><code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> of a submitted <br/><code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.<br/></div>
+        <div class="jd-descrdiv">Access latest <code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code> of a submitted <code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.</div>
         
   </td></tr>
 
@@ -298,7 +317,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#batch-result">&lt;sfdc:batch-result&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Access <br/><code><a href="../java/com/sforce/async/BatchResult.html">BatchResult</a></code> of a submitted <br/><code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.<br/></div>
+        <div class="jd-descrdiv">Access <code><a href="../java/com/sforce/async/BatchResult.html">BatchResult</a></code> of a submitted <code><a href="../java/com/sforce/async/BatchInfo.html">BatchInfo</a></code>.</div>
         
   </td></tr>
 
@@ -308,7 +327,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#convert-lead">&lt;sfdc:convert-lead&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Converts a Lead into an Account, Contact, or (optionally) an Opportunity.<br/></div>
+        <div class="jd-descrdiv">Converts a Lead into an Account, Contact, or (optionally) an Opportunity.</div>
         
   </td></tr>
 
@@ -318,7 +337,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#create">&lt;sfdc:create&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Adds one or more new records to your organization's data.<br/></div>
+        <div class="jd-descrdiv">Adds one or more new records to your organization's data.</div>
         
   </td></tr>
 
@@ -328,7 +347,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#create-bulk">&lt;sfdc:create-bulk&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Adds one or more new records to your organization's data.<br/></div>
+        <div class="jd-descrdiv">Adds one or more new records to your organization's data.</div>
         
   </td></tr>
 
@@ -338,7 +357,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#create-single">&lt;sfdc:create-single&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Adds one new records to your organization's data.<br/></div>
+        <div class="jd-descrdiv">Adds one new records to your organization's data.</div>
         
   </td></tr>
 
@@ -348,7 +367,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#delete">&lt;sfdc:delete&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Deletes one or more records from your organization's data.<br/></div>
+        <div class="jd-descrdiv">Deletes one or more records from your organization's data.</div>
         
   </td></tr>
 
@@ -358,7 +377,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#describe-global">&lt;sfdc:describe-global&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves a list of available objects for your organization's data.<br/></div>
+        <div class="jd-descrdiv">Retrieves a list of available objects for your organization's data.</div>
         
   </td></tr>
 
@@ -368,7 +387,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#describe-sobject">&lt;sfdc:describe-sobject&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Describes metadata (field list and object properties) for the specified object.<br/></div>
+        <div class="jd-descrdiv">Describes metadata (field list and object properties) for the specified object.</div>
         
   </td></tr>
 
@@ -379,7 +398,7 @@ Summary:
         <span class="sympad"><a href="../mule/sfdc.html#empty-recycle-bin">&lt;sfdc:empty-recycle-bin&gt;</a></nobr>
         
         <div class="jd-descrdiv">The recycle bin lets you view and restore recently deleted records for 30 days before they are
- permanently deleted.<br/></div>
+ permanently deleted.</div>
         
   </td></tr>
 
@@ -389,7 +408,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-deleted">&lt;sfdc:get-deleted&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted between the range of now to the duration before now.<br/></div>
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted between the range of now to the duration before now.</div>
         
   </td></tr>
 
@@ -399,7 +418,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-deleted-range">&lt;sfdc:get-deleted-range&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted within the given timespan for the specified object.<br/></div>
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been deleted within the given timespan for the specified object.</div>
         
   </td></tr>
 
@@ -411,7 +430,7 @@ Summary:
         
         <div class="jd-descrdiv">Returns the session id for the current connection
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -421,7 +440,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-updated">&lt;sfdc:get-updated&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves the list of individual records that have been updated between the range of now to the duration before now.<br/></div>
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been updated between the range of now to the duration before now.</div>
         
   </td></tr>
 
@@ -431,7 +450,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-updated-range">&lt;sfdc:get-updated-range&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.<br/></div>
+        <div class="jd-descrdiv">Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.</div>
         
   </td></tr>
 
@@ -441,7 +460,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#get-user-info">&lt;sfdc:get-user-info&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves personal information for the user associated with the current session.<br/></div>
+        <div class="jd-descrdiv">Retrieves personal information for the user associated with the current session.</div>
         
   </td></tr>
 
@@ -452,7 +471,7 @@ Summary:
         <span class="sympad"><a href="../mule/sfdc.html#publish-topic">&lt;sfdc:publish-topic&gt;</a></nobr>
         
         <div class="jd-descrdiv">Creates a topic which represents a query that is the basis for notifying
- listeners of changes to records in an organization.<br/></div>
+ listeners of changes to records in an organization.</div>
         
   </td></tr>
 
@@ -462,7 +481,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#query">&lt;sfdc:query&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Executes a query against the specified object and returns data that matches the specified criteria.<br/></div>
+        <div class="jd-descrdiv">Executes a query against the specified object and returns data that matches the specified criteria.</div>
         
   </td></tr>
 
@@ -472,7 +491,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#query-single">&lt;sfdc:query-single&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Executes a query against the specified object and returns the first record that matches the specified criteria.<br/></div>
+        <div class="jd-descrdiv">Executes a query against the specified object and returns the first record that matches the specified criteria.</div>
         
   </td></tr>
 
@@ -482,7 +501,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#retrieve">&lt;sfdc:retrieve&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves one or more records based on the specified IDs.<br/></div>
+        <div class="jd-descrdiv">Retrieves one or more records based on the specified IDs.</div>
         
   </td></tr>
 
@@ -492,7 +511,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#update">&lt;sfdc:update&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.<br/></div>
+        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.</div>
         
   </td></tr>
 
@@ -502,7 +521,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#update-bulk">&lt;sfdc:update-bulk&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.<br/></div>
+        <div class="jd-descrdiv">Updates one or more existing records in your organization's data.</div>
         
   </td></tr>
 
@@ -513,7 +532,7 @@ Summary:
         <span class="sympad"><a href="../mule/sfdc.html#upsert">&lt;sfdc:upsert&gt;</a></nobr>
         
         <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
- an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.<br/></div>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.</div>
         
   </td></tr>
 
@@ -524,7 +543,7 @@ Summary:
         <span class="sympad"><a href="../mule/sfdc.html#upsert-bulk">&lt;sfdc:upsert-bulk&gt;</a></nobr>
         
         <div class="jd-descrdiv"><a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a>
- an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.<br/></div>
+ an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.</div>
         
   </td></tr>
 
@@ -545,7 +564,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/sfdc.html#subscribe-topic">&lt;sfdc:subscribe-topic&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Subscribe to a topic.<br/></div>
+        <div class="jd-descrdiv">Subscribe to a topic.</div>
         
   </td></tr>
 
@@ -575,7 +594,7 @@ similar to the following:</p>
                http://www.mulesoft.org/schema/mule/core
                http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/sfdc
-               http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd"&gt;
 
       &lt;!-- here goes your flows and configuration elements --&gt;
 

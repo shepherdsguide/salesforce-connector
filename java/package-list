@@ -12,6 +12,9 @@ com.sforce.ws.types
 com.sforce.ws.util
 com.sforce.ws.wsdl
 org.mule.modules.salesforce
+org.mule.modules.salesforce.adapters
 org.mule.modules.salesforce.config
 org.mule.modules.salesforce.config.spring
+org.mule.modules.salesforce.processors
+org.mule.modules.salesforce.sources
 

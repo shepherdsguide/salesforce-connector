@@ -59,7 +59,7 @@
 #side-nav ul {
     list-style: none;
     margin: 0;
-    padding: 5px 0;
+    padding: 5px 0 0 10px;
 }
 
 #side-nav ul ul {
@@ -82,9 +82,20 @@
     padding: 3px 0 1px 9px;
 }
 
+#side-nav li a.heading
+{
+    display:block;
+    font-size:12px;
+    font-weight: bold;
+    margin:.5em 0 0 0;
+    padding: 3px 0 1px 9px;
+}
+
 #side-nav li a {
+    display: inline-block;
     text-decoration: none;
     padding: 0 0 0 18px;
+    white-space: normal;
     zoom: 1;
 }
 
@@ -175,7 +186,7 @@
 }
 
 #index-links {
-    padding: 7px 0 4px 18px;
+    padding: 7px 0 4px 8px;
     font-size: 10px;
     height: 37px;
     background-color: #3572A6;
@@ -534,7 +545,7 @@ div#naMessage strong {
 }
 
 #jd-content {
-    padding: 18px 15px;
+    padding: 0px 15px;
 }
 
 hr {
@@ -545,13 +556,24 @@ hr {
 
 /* DOC CLASSES */
 
+#jd-content h1 a {
+    color: #fff;
+}
+
 #jd-content h1 {
     /*sdk page*/
     font-family: Ubuntu, Arial, Helvetica;
     font-size: 1.6em;
     font-weight: bold;
-    color: #111;
+    color: #fff;
     margin: 0 0 .5em;
+    background-color: #3572A6;
+    margin-left: -15px;
+    margin-right: -15px;
+    /* margin-top: -5px; */
+    padding-top: 20px;
+    padding-bottom:10px;
+    padding-left: 15px;
 }
 
 #jd-content h2 {

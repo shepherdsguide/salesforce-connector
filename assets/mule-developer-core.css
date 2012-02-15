@@ -338,7 +338,7 @@ background:transparent url(images/preliminary.png) repeat scroll 0 0;  */
 /* tab highlighting */
 
 .home #home-link a,
-.guide #guide a,.streaming #streaming a,.bulk #bulk a,.java #java a,.mule #mule a,
+.guide #guide a,.userguide #userguide a,.java #java a,.mule #mule a,
 .reference #reference-link a,
 .sdk #sdk-link a,
 .resources #resources-link a,
@@ -377,7 +377,7 @@ background:transparent url(images/preliminary.png) repeat scroll 0 0;  */
 
 .home #home-link a:hover,
 .reference #reference-link a:hover,
-.guide #guide a:hover,.streaming #streaming a:hover,.bulk #bulk a:hover,.java #java a:hover,.mule #mule a:hover,
+.guide #guide a:hover,.userguide #userguide a:hover,.java #java a:hover,.mule #mule a:hover,
 .sdk #sdk-link a:hover,
 .resources #resources-link a:hover,
 .videos #videos-link  a:hover {

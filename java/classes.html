@@ -85,6 +85,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -103,6 +104,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 
@@ -117,12 +139,8 @@
 	    	<span class="en">Install Guide</span>
     	</a></li>
     
-    	<li id="streaming"><a href="../streaming.html">
-	    	<span class="en">Streaming Guide</span>
-    	</a></li>
-    
-    	<li id="bulk"><a href="../bulk.html">
-	    	<span class="en">Bulk Guide</span>
+    	<li id="userguide"><a href="../usage.html">
+	    	<span class="en">User Guide</span>
     	</a></li>
     
     	<li id="java"><a href="../java/packages.html">
@@ -215,9 +233,15 @@
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/package-summary.html">org.mule.modules.salesforce</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/adapters/package-summary.html">org.mule.modules.salesforce.adapters</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/config/package-summary.html">org.mule.modules.salesforce.config</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/salesforce/config/spring/package-summary.html">org.mule.modules.salesforce.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/processors/package-summary.html">org.mule.modules.salesforce.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/salesforce/sources/package-summary.html">org.mule.modules.salesforce.sources</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -381,19 +405,31 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/BatchInfoDefinitionParser.html">BatchInfoDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/BatchInfoDefinitionParser.html">BatchInfoDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/BatchInfoDefinitionParser.html">BatchInfoDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/sforce/async/BatchInfoList.html">BatchInfoList</a></td>
             <td class="jd-descrcol" width="100%">BatchInfoList --&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">BatchInfoMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#batchInfo(com.sforce.async.BatchInfo)">batchInfo(com.sforce.async.BatchInfo)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/BatchInfoMessageProcessor.html">BatchInfoMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">BatchInfoMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#batchInfo(com.sforce.async.BatchInfo)">batchInfo(com.sforce.async.BatchInfo)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -411,13 +447,25 @@
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/BatchResultDefinitionParser.html">BatchResultDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/BatchResultDefinitionParser.html">BatchResultDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/BatchResultDefinitionParser.html">BatchResultDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">BatchResultMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#batchResult(com.sforce.async.BatchInfo)">batchResult(com.sforce.async.BatchInfo)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/BatchResultMessageProcessor.html">BatchResultMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">BatchResultMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#batchResult(com.sforce.async.BatchInfo)">batchResult(com.sforce.async.BatchInfo)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -550,13 +598,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/ConvertLeadDefinitionParser.html">ConvertLeadDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">ConvertLeadMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/ConvertLeadMessageProcessor.html">ConvertLeadMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ConvertLeadMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)">convertLead(java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Boolean)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -574,25 +634,49 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateBulkDefinitionParser.html">CreateBulkDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateBulkDefinitionParser.html">CreateBulkDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">CreateBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#createBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">createBulk(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
     
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/CreateBulkMessageProcessor.html">CreateBulkMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#createBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">createBulk(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateDefinitionParser.html">CreateDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateDefinitionParser.html">CreateDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateDefinitionParser.html">CreateDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateMessageProcessor.html">CreateMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">create(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/CreateMessageProcessor.html">CreateMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">CreateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#create(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">create(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -604,13 +688,25 @@
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateSingleDefinitionParser.html">CreateSingleDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateSingleDefinitionParser.html">CreateSingleDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/CreateSingleDefinitionParser.html">CreateSingleDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">CreateSingleMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#createSingle(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">createSingle(java.lang.String, java.util.Map)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/CreateSingleMessageProcessor.html">CreateSingleMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">CreateSingleMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#createSingle(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">createSingle(java.lang.String, java.util.Map)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -685,19 +781,31 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DeleteDefinitionParser.html">DeleteDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DeleteDefinitionParser.html">DeleteDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DeleteDefinitionParser.html">DeleteDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/com/sforce/soap/partner/DeletedRecord.html">DeletedRecord</a></td>
             <td class="jd-descrcol" width="100%">Generated class, please do not edit.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DeleteMessageProcessor.html">DeleteMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DeleteMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#delete(java.util.List<java.lang.String>)">delete(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/DeleteMessageProcessor.html">DeleteMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">DeleteMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#delete(java.util.List<java.lang.String>)">delete(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -757,13 +865,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeGlobalDefinitionParser.html">DescribeGlobalDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DescribeGlobalMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeGlobal()">describeGlobal()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/DescribeGlobalMessageProcessor.html">DescribeGlobalMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">DescribeGlobalMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeGlobal()">describeGlobal()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -853,13 +973,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/DescribeSObjectDefinitionParser.html">DescribeSObjectDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">DescribeSObjectMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeSObject(java.lang.String)">describeSObject(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/DescribeSObjectMessageProcessor.html">DescribeSObjectMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">DescribeSObjectMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#describeSObject(java.lang.String)">describeSObject(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1018,13 +1150,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/EmptyRecycleBinDefinitionParser.html">EmptyRecycleBinDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">EmptyRecycleBinMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#emptyRecycleBin(java.util.List<java.lang.String>)">emptyRecycleBin(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/EmptyRecycleBinMessageProcessor.html">EmptyRecycleBinMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">EmptyRecycleBinMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#emptyRecycleBin(java.util.List<java.lang.String>)">emptyRecycleBin(java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1110,25 +1254,49 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedDefinitionParser.html">GetDeletedDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetDeletedDefinitionParser.html">GetDeletedDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetDeletedMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeleted(java.lang.String, int)">getDeleted(java.lang.String, int)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetDeletedMessageProcessor.html">GetDeletedMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetDeletedMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeleted(java.lang.String, int)">getDeleted(java.lang.String, int)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetDeletedRangeDefinitionParser.html">GetDeletedRangeDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetDeletedRangeMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetDeletedRangeMessageProcessor.html">GetDeletedRangeMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetDeletedRangeMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getDeletedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1164,13 +1332,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetSessionIdDefinitionParser.html">GetSessionIdDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetSessionIdDefinitionParser.html">GetSessionIdDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetSessionIdDefinitionParser.html">GetSessionIdDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetSessionIdMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getSessionId()">getSessionId()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetSessionIdMessageProcessor.html">GetSessionIdMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetSessionIdMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getSessionId()">getSessionId()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1182,25 +1362,49 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUpdatedDefinitionParser.html">GetUpdatedDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetUpdatedDefinitionParser.html">GetUpdatedDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUpdatedMessageProcessor.html">GetUpdatedMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetUpdatedMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUpdated(java.lang.String, int)">getUpdated(java.lang.String, int)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetUpdatedMessageProcessor.html">GetUpdatedMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetUpdatedMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUpdated(java.lang.String, int)">getUpdated(java.lang.String, int)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetUpdatedRangeDefinitionParser.html">GetUpdatedRangeDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUpdatedRangeDefinitionParser.html">GetUpdatedRangeDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetUpdatedRangeDefinitionParser.html">GetUpdatedRangeDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetUpdatedRangeMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUpdatedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getUpdatedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetUpdatedRangeMessageProcessor.html">GetUpdatedRangeMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetUpdatedRangeMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUpdatedRange(java.lang.String, java.util.Calendar, java.util.Calendar)">getUpdatedRange(java.lang.String, java.util.Calendar, java.util.Calendar)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1224,13 +1428,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">GetUserInfoMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUserInfo()">getUserInfo()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">GetUserInfoMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#getUserInfo()">getUserInfo()</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1684,13 +1900,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/PublishTopicDefinitionParser.html">PublishTopicDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">PublishTopicMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#publishTopic(java.lang.String, java.lang.String, java.lang.String)">publishTopic(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/PublishTopicMessageProcessor.html">PublishTopicMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">PublishTopicMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#publishTopic(java.lang.String, java.lang.String, java.lang.String)">publishTopic(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1727,13 +1955,25 @@
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QueryDefinitionParser.html">QueryDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QueryDefinitionParser.html">QueryDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QueryDefinitionParser.html">QueryDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QueryMessageProcessor.html">QueryMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">QueryMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#query(java.lang.String)">query(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/QueryMessageProcessor.html">QueryMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">QueryMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#query(java.lang.String)">query(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1769,13 +2009,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/QuerySingleDefinitionParser.html">QuerySingleDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">QuerySingleMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#querySingle(java.lang.String)">querySingle(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/QuerySingleMessageProcessor.html">QuerySingleMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">QuerySingleMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#querySingle(java.lang.String)">querySingle(java.lang.String)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1860,13 +2112,25 @@
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/RetrieveDefinitionParser.html">RetrieveDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/RetrieveDefinitionParser.html">RetrieveDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/RetrieveDefinitionParser.html">RetrieveDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">RetrieveMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#retrieve(java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">retrieve(java.lang.String, java.util.List, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/RetrieveMessageProcessor.html">RetrieveMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">RetrieveMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#retrieve(java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">retrieve(java.lang.String, java.util.List, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -1917,8 +2181,20 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></td>
+            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleCapabilitiesAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleCapabilitiesAdapter.html">SalesforceModuleCapabilitiesAdapter</a></td>
             <td class="jd-descrcol" width="100%">A <code>SalesforceModuleCapabilitiesAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleConfigDefinitionParser.html">SalesforceModuleConfigDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
@@ -1929,8 +2205,22 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></td>
+            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleConnectionManager</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds connection management capabilities to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleConnectionManager.html">SalesforceModuleConnectionManager</a></td>
             <td class="jd-descrcol" width="100%">A <code>SalesforceModuleConnectionManager</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds connection management capabilities to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleConnectionManager.ConnectionKey.html">SalesforceModuleConnectionManager.ConnectionKey</a></td>
+            <td class="jd-descrcol" width="100%">A tuple of connection parameters
+ 
+&nbsp;</td>
         </tr>
     
     
@@ -1941,8 +2231,20 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/adapters/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></td>
+            <td class="jd-descrcol" width="100%">A <code>SalesforceModuleLifecycleAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleLifecycleAdapter.html">SalesforceModuleLifecycleAdapter</a></td>
             <td class="jd-descrcol" width="100%">A <code>SalesforceModuleLifecycleAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SalesforceModuleNamespaceHandler.html">SalesforceModuleNamespaceHandler</a></td>
+            <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/sfdc</code>.&nbsp;</td>
         </tr>
     
     
@@ -2170,13 +2472,25 @@
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/SubscribeTopicDefinitionParser.html">SubscribeTopicDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></td>
+            <td class="jd-descrcol" width="100%">SubscribeTopicMessageSource wraps <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> as a message source capable of generating Mule events.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/sources/SubscribeTopicMessageSource.html">SubscribeTopicMessageSource</a></td>
             <td class="jd-descrcol" width="100%">SubscribeTopicMessageSource wraps <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)">subscribeTopic(java.lang.String, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code> as a message source capable of generating Mule events.&nbsp;</td>
         </tr>
     
@@ -2290,25 +2604,49 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpdateBulkDefinitionParser.html">UpdateBulkDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpdateBulkDefinitionParser.html">UpdateBulkDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">UpdateBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#updateBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">updateBulk(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/UpdateBulkMessageProcessor.html">UpdateBulkMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">UpdateBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#updateBulk(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">updateBulk(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpdateDefinitionParser.html">UpdateDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpdateDefinitionParser.html">UpdateDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpdateDefinitionParser.html">UpdateDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpdateMessageProcessor.html">UpdateMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">UpdateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#update(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">update(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/UpdateMessageProcessor.html">UpdateMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">UpdateMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#update(java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">update(java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
@@ -2326,25 +2664,49 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpsertBulkDefinitionParser.html">UpsertBulkDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpsertBulkDefinitionParser.html">UpsertBulkDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">UpsertBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsertBulk(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsertBulk(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/UpsertBulkMessageProcessor.html">UpsertBulkMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">UpsertBulkMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsertBulk(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsertBulk(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpsertDefinitionParser.html">UpsertDefinitionParser</a></td>
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpsertDefinitionParser.html">UpsertDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/spring/UpsertDefinitionParser.html">UpsertDefinitionParser</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/config/UpsertMessageProcessor.html">UpsertMessageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">UpsertMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsert(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/salesforce/processors/UpsertMessageProcessor.html">UpsertMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">UpsertMessageProcessor invokes the <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html#upsert(java.lang.String, java.lang.String, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>)">upsert(java.lang.String, java.lang.String, java.util.List)</a></code> method in <code><a href="../java/org/mule/modules/salesforce/SalesforceModule.html">SalesforceModule</a></code>.&nbsp;</td>
         </tr>
     

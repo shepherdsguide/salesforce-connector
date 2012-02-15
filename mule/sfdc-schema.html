@@ -1,0 +1,1984 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Salesforce Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>
+
+  SalesforceModule
+
+
+| Mule Salesforce Connector
+
+</title>
+<link href="../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../", "../assets/");
+</script>
+<script src="../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Salesforce Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Salesforce Connector</span>
+    
+    <ul id="header-tabs" class="mule">
+    
+    	<li id="guide"><a href="../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="userguide"><a href="../usage.html">
+	    	<span class="en">User Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+<div class="g-unit" id="all-content">
+
+<div id="api-info-block">
+
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF MODULE DATA ======== -->
+
+<div id="jd-header">
+    org.mule.modules
+<h1>mule-module-sfdc</h1>
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+<div class="jd-tagdata">
+      <table class="jd-tagtable">
+        <tbody><tr>
+          <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/sfdc</td>
+        </tr><tr>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd&nbsp;&nbsp;(<a href="sfdc-schema.html">View Schema</a>)</td>
+        </tr>
+<tr>
+          <th>Schema Version</th><td>4.0</td>
+        </tr>
+<tr>
+          <th>Minimum Mule Version</th><td>3.2</td>
+        </tr>
+    </tbody></table>
+  </div>
+
+<div class="jd-descr">
+<h2>Schema</h2>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;xs:schema xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; attributeFormDefault=&quot;unqualified&quot; targetNamespace=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot;&gt;
+  &lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot;&gt;&lt;/xs:import&gt;
+  &lt;xs:import schemaLocation=&quot;http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot; namespace=&quot;http://www.springframework.org/schema/beans&quot;&gt;&lt;/xs:import&gt;
+  &lt;xs:import schemaLocation=&quot;http://www.mulesoft.org/schema/mule/core/current/mule.xsd&quot; namespace=&quot;http://www.mulesoft.org/schema/mule/core&quot;&gt;&lt;/xs:import&gt;
+  &lt;xs:import schemaLocation=&quot;http://www.mulesoft.org/schema/mule/devkit/current/mule-devkit.xsd&quot; namespace=&quot;http://www.mulesoft.org/schema/mule/devkit&quot;&gt;&lt;/xs:import&gt;
+  &lt;xs:simpleType name=&quot;integerType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:integer&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;decimalType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:decimal&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;floatType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:float&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;doubleType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:double&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;dateTimeType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:dateTime&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;longType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:long&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;byteType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:byte&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;booleanType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:boolean&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;anyUriType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:anyURI&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;charType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:minLength value=&quot;1&quot;&gt;&lt;/xs:minLength&gt;
+          &lt;xs:maxLength value=&quot;1&quot;&gt;&lt;/xs:maxLength&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:pattern value=&quot;(\#\[[^\]]+\]|\$\{[^\}]+\})&quot;&gt;&lt;/xs:pattern&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:complexType name=&quot;XmlType&quot;&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+    &lt;/xs:sequence&gt;
+    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:attribute&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns:devkit=&quot;http://www.mulesoft.org/schema/mule/devkit&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;config&quot; substitutionGroup=&quot;mule:abstract-extension&quot; devkit:javaClass=&quot;org.mule.modules.salesforce.adapters.SalesforceModuleConnectionManager&quot;&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:complexContent&gt;
+        &lt;xs:extension base=&quot;mule:abstractExtensionType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The Salesforce Connector will allow to connect to the Salesforce application. Almost every operation that can be
+done via the Salesforce's API can be done thru this connector. This connector will also work if your Salesforce
+objects are customized with additional fields or even you are working with custom objects.
+&amp;lt;p/&amp;gt;
+Integrating with Salesforce consists of web service calls utilizing XML request/response setup
+over an HTTPS connection. The technical details of this connection such as request headers,
+error handling, HTTPS connection, etc. are all abstracted from the user to make implementation
+quick and easy.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;connection-pooling-profile&quot; minOccurs=&quot;0&quot; type=&quot;mule:poolingProfileType&quot;&gt;
+              &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;Characteristics of the connection pool.&lt;/xs:documentation&gt;
+              &lt;/xs:annotation&gt;
+            &lt;/xs:element&gt;
+          &lt;/xs:sequence&gt;
+          &lt;xs:attribute name=&quot;name&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Give a name to this configuration so it can be later referenced by config-ref.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;url&quot; default=&quot;https://login.salesforce.com/services/Soap/u/23.0&quot; use=&quot;optional&quot; type=&quot;anyUriType&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;SalesForce SOAP endpoint&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;proxyHost&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Proxy host&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;proxyPort&quot; default=&quot;80&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Proxy port&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;proxyUsername&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Proxy username&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;proxyPassword&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Proxy password&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
+        &lt;/xs:extension&gt;
+      &lt;/xs:complexContent&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;create&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CreateType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Adds one or more new records to your organization's data.
+&amp;lt;p/&amp;gt;
+&amp;lt;p class=&quot;caution&quot;&amp;gt;
+IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need
+to match the expected type of the object at Salesforce.
+&amp;lt;p/&amp;gt;
+Take the CloseDate of an Opportunity as an example, if you set that field to a string of value &quot;2011-12-13&quot;
+it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not
+of the expected type.
+&amp;lt;p/&amp;gt;
+The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression
+evaluator as &amp;lt;i&amp;gt;#[groovy:Date.parse(&quot;yyyy-MM-dd&quot;, &quot;2011-12-13&quot;)]&amp;lt;/i&amp;gt;.
+&amp;lt;/p&amp;gt;
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;CreateType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;An array of one or more sObjects objects.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Type of object to create&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;create-bulk&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CreateBulkType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Adds one or more new records to your organization's data.
+&amp;lt;p/&amp;gt;
+This call uses the Bulk API. The creation will be done in asynchronous fashion.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;CreateBulkType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;An array of one or more sObjects objects.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Type of object to create&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;create-single&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CreateSingleType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Adds one new records to your organization's data.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;CreateSingleType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;SObject to create&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:choice&gt;
+                &lt;xs:sequence&gt;
+                  &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                    &lt;xs:complexType&gt;
+                      &lt;xs:simpleContent&gt;
+                        &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                          &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                          &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                        &lt;/xs:extension&gt;
+                      &lt;/xs:simpleContent&gt;
+                    &lt;/xs:complexType&gt;
+                  &lt;/xs:element&gt;
+                &lt;/xs:sequence&gt;
+                &lt;xs:sequence&gt;
+                  &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                &lt;/xs:sequence&gt;
+              &lt;/xs:choice&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Type of object to create&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-session-id&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetSessionIdType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Returns the session id for the current connection
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetSessionIdType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Updates one or more existing records in your organization's data.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;UpdateType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;An array of one or more sObjects objects.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Type of object to update&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update-bulk&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateBulkType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Updates one or more existing records in your organization's data.
+&amp;lt;p/&amp;gt;
+This call uses the Bulk API. The creation will be done in asynchronous fashion.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;UpdateBulkType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;An array of one or more sObjects objects.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Type of object to update&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;upsert&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpsertType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;&amp;lt;a href=&quot;http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm&quot;&amp;gt;Upserts&amp;lt;/a&amp;gt;
+an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+In most cases, prefer  over ,
+to avoid creating unwanted duplicate records.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;UpsertType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;the objects to upsert&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;externalIdFieldName&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Contains the name of the field on this object with the external ID field attribute for custom objects or the idLookup field property for standard objects.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the type of the given objects. The list of objects to upsert must be homogeneous&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;upsert-bulk&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpsertBulkType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;&amp;lt;a href=&quot;http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm&quot;&amp;gt;Upserts&amp;lt;/a&amp;gt;
+an homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records.
+In most cases, prefer  over ,
+to avoid creating unwanted duplicate records.
+&amp;lt;p/&amp;gt;
+This call uses the Bulk API. The creation will be done in asynchronous fashion.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;UpsertBulkType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;objects&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;the objects to upsert&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:choice&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;inner-object&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                          &lt;xs:complexType&gt;
+                            &lt;xs:simpleContent&gt;
+                              &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                                &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                                &lt;xs:attribute name=&quot;key&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                              &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                          &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                      &lt;/xs:sequence&gt;
+                      &lt;xs:sequence&gt;
+                        &lt;xs:any maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; processContents=&quot;lax&quot;&gt;&lt;/xs:any&gt;
+                      &lt;/xs:sequence&gt;
+                    &lt;/xs:choice&gt;
+                    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                      &lt;xs:annotation&gt;
+                        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                      &lt;/xs:annotation&gt;
+                    &lt;/xs:attribute&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the type of the given objects. The list of objects to upsert must be homogeneous&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;externalIdFieldName&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Contains the name of the field on this object with the external ID field attribute for custom objects or the idLookup field property for standard objects.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;batch-info&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;BatchInfoType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Access latest  of a submitted . Allows to track execution status.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;BatchInfoType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;batchInfo-ref&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the  being monitored&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;batch-result&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;BatchResultType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Access  of a submitted .
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;BatchResultType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;batchInfo-ref&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the  being monitored&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;describe-global&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;DescribeGlobalType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves a list of available objects for your organization's data.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;DescribeGlobalType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;retrieve&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RetrieveType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves one or more records based on the specified IDs.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;RetrieveType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;ids&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;The ids of the objects to retrieve&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;id&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:simpleContent&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                        &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                      &lt;/xs:extension&gt;
+                    &lt;/xs:simpleContent&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+          &lt;xs:element name=&quot;fields&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;The fields to return for the matching objects&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;field&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:simpleContent&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                        &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                      &lt;/xs:extension&gt;
+                    &lt;/xs:simpleContent&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object type. The sp ecified value must be a valid object for your organization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;query&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;QueryType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Executes a query against the specified object and returns data that matches the specified criteria.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;QueryType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;query&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Query string that specifies the object to query, the fields to return, and any conditions for including a specific object in the query. For more information, see Salesforce Object Query Language (SOQL).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;query-single&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;QuerySingleType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Executes a query against the specified object and returns the first record that matches the specified criteria.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;QuerySingleType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;query&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Query string that specifies the object to query, the fields to return, and any conditions for including a specific object in the query. For more information, see Salesforce Object Query Language (SOQL).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;convert-lead&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;ConvertLeadType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Converts a Lead into an Account, Contact, or (optionally) an Opportunity.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;ConvertLeadType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;leadId&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;ID of the Lead to convert. Required. For information on IDs, see ID Field Type.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;contactId&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;ID of the Contact into which the lead will be merged (this contact must be associated with the specified accountId, and an accountId must be specified). Required only when updating an existing contact.IMPORTANT if you are converting a lead into a person account, do not specify the contactId or an error will result. Specify only the accountId of the person account. If no contactID is specified, then the API creates a new contact that is implicitly associated with the Account. To create a new contact, the client application must be logged in with sufficient access rights. To merge a lead into an existing contact, the client application must be logged in with read/write access to the specified contact. The contact name and other existing data are not overwritten (unless overwriteLeadSource is set to true, in which case only the LeadSource field is overwritten). For information on IDs, see ID Field Type.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accountId&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;ID of the Account into which the lead will be merged. Required only when updating an existing account, including person accounts. If no accountID is specified, then the API creates a new account. To create a new account, the client application must be logged in with sufficient access rights. To merge a lead into an existing account, the client application must be logged in with read/write access to the specified account. The account name and other existing data are not overwritten. For information on IDs, see ID Field Type.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;overWriteLeadSource&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specifies whether to overwrite the LeadSource field on the target Contact object with the contents of the LeadSource field in the source Lead object (true), or not (false, the default). To set this field to true, the client application must specify a contactId for the target contact.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;doNotCreateOpportunity&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specifies whether to create an Opportunity during lead conversion (false, the default) or not (true). Set this flag to true only if you do not want to create an opportunity from the lead. An opportunity is created by default.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;opportunityName&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Name of the opportunity to create. If no name is specified, then this value defaults to the company name of the lead. The maximum length of this field is 80 characters. If doNotCreateOpportunity argument is true, then no Opportunity is created and this field must be left blank; otherwise, an error is returned.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;convertedStatus&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Valid LeadStatus value for a converted lead. Required. To obtain the list of possible values, the client application queries the LeadStatus object, as in: Select Id, MasterLabel from LeadStatus where IsConverted=true&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;sendEmailToOwner&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specifies whether to send a notification email to the owner specified in the ownerId (true) or not (false, the default).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;empty-recycle-bin&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;EmptyRecycleBinType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;The recycle bin lets you view and restore recently deleted records for 30 days before they are
+permanently deleted. Your organization can have up to 5000 records per license in the Recycle Bin at any
+one time. For example, if your organization has five user licenses, 25,000 records can be stored in the
+Recycle Bin. If your organization reaches its Recycle Bin limit, Salesforce.com automatically removes
+the oldest records, as long as they have been in the recycle bin for at least two hours.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;EmptyRecycleBinType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;ids&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Array of one or more IDs associated with the records to delete from the recycle bin. Maximum number of records is 200.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;id&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:simpleContent&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                        &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                      &lt;/xs:extension&gt;
+                    &lt;/xs:simpleContent&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;delete&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;DeleteType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Deletes one or more records from your organization's data.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;DeleteType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;ids&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Array of one or more IDs associated with the objects to delete.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;id&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
+                  &lt;xs:complexType&gt;
+                    &lt;xs:simpleContent&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
+                        &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
+                      &lt;/xs:extension&gt;
+                    &lt;/xs:simpleContent&gt;
+                  &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+              &lt;/xs:sequence&gt;
+              &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+                &lt;xs:annotation&gt;
+                  &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+              &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-updated-range&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetUpdatedRangeType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetUpdatedRangeType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object type. The specified value must be a valid object for your organization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;startTime-ref&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for which to retrieve the data. The API ignores the seconds portion of the specified dateTime value ' (for example, 12:30:15 is interpreted as 12:30:00 UTC).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;endTime-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for which to retrieve the data. The API ignores the seconds portion of the specified dateTime value (for example, 12:35:15 is interpreted as 12:35:00 UTC). If it is not provided, the current server time will be used.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-deleted-range&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetDeletedRangeType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetDeletedRangeType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object type. The specified value must be a valid object for your organization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;startTime-ref&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for which to retrieve the data. The API ignores the seconds portion of the specified dateTime value ' (for example, 12:30:15 is interpreted as 12:30:00 UTC).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;endTime-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for which to retrieve the data. The API ignores the seconds portion of the specified dateTime value (for example, 12:35:15 is interpreted as 12:35:00 UTC). If not specific, the current server time will be used.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;describe-sobject&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;Describe-sobjectType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Describes metadata (field list and object properties) for the specified object.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;Describe-sobjectType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object. The specified value must be a valid object for your organization. For a complete list of objects, see Standard Objects&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-deleted&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetDeletedType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves the list of individual records that have been deleted between the range of now to the duration before now.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetDeletedType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object type. The specified value must be a valid object for your organization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;duration&quot; use=&quot;required&quot; type=&quot;integerType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The amount of time in minutes before now for which to return records from.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-updated&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetUpdatedType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves the list of individual records that have been updated between the range of now to the duration before now.
+&amp;lt;p/&amp;gt;
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetUpdatedType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;type&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Object type. The specified value must be a valid object for your organization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; name=&quot;duration&quot; use=&quot;required&quot; type=&quot;integerType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The amount of time in minutes before now for which to return records from.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;publish-topic&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;PublishTopicType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Creates a topic which represents a query that is the basis for notifying
+listeners of changes to records in an organization.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;PublishTopicType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;name&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Descriptive name of the push topic, such as MyNewCases or TeamUpdatedContacts. The maximum length is 25 characters. This value identifies the channel.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;query&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The SOQL query statement that determines which records' changes trigger events to be sent to the channel. Maximum length: 1200 characters&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;description&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Description of what kinds of records are returned by the query. Limit: 400 characters&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-user-info&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetUserInfoType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Retrieves personal information for the user associated with the current session.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetUserInfoType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;retryMax&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify how many times this operation can be retried automatically.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/sfdc&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;subscribe-topic&quot; substitutionGroup=&quot;mule:abstract-inbound-endpoint&quot; type=&quot;SubscribeTopicType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Subscribe to a topic.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;SubscribeTopicType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractInboundEndpointType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;topic&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The name of the topic to subscribe to&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Username used to initialize the session&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;password&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Password used to authenticate the user&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;securityToken&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;User's security token&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</pre>
+</div><!-- jd-descr -->
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
