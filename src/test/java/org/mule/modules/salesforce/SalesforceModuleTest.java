@@ -38,6 +38,7 @@ import org.mockito.Mockito;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -216,6 +217,24 @@ public class SalesforceModuleTest {
         module.describeGlobal();
 
         verify(partnerConnection).describeGlobal();
+    }
+
+    @Test
+    public void testRetrieve() throws Exception {
+        SalesforceModule module = new SalesforceModule();
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        module.setConnection(partnerConnection);
+
+        SObject sObject1 = Mockito.mock(SObject.class);
+        SObject sObject2 = Mockito.mock(SObject.class);
+
+        when(partnerConnection.retrieve(eq("Id,Name"), eq("Account"), eq(new String[] {"id1", "id2" }))).thenReturn(new SObject[] {sObject1, sObject2});
+
+        List<Map<String, Object>> result = module.retrieve("Account", Arrays.asList("id1", "id2"), Arrays.asList("Id", "Name"));
+
+        assertEquals(2, result.size());
     }
 
     @Test
@@ -478,6 +497,37 @@ public class SalesforceModuleTest {
         when(partnerConnection.getUserInfo()).thenReturn(getUserInfoResult);
 
         assertEquals(getUserInfoResult, module.getUserInfo());
+    }
+
+    @Test
+    public void testGetUpdatedRange() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+
+        module.getUpdatedRange("Account", Calendar.getInstance(), Calendar.getInstance());
+
+        verify(partnerConnection, atLeastOnce()).getUpdated(eq("Account"), any(Calendar.class), any(Calendar.class));
+    }
+
+    @Test
+    public void testGetUpdated() throws Exception {
+        SalesforceModule module = spy(new SalesforceModule());
+        PartnerConnection partnerConnection = Mockito.mock(PartnerConnection.class);
+        module.setConnection(partnerConnection);
+        RestConnection restConnection = Mockito.mock(RestConnection.class);
+        module.setRestConnection(restConnection);
+        GetServerTimestampResult getServerTimestampResult = Mockito.mock(GetServerTimestampResult.class);
+        when(partnerConnection.getServerTimestamp()).thenReturn(getServerTimestampResult);
+        when(getServerTimestampResult.getTimestamp()).thenReturn(Calendar.getInstance());
+
+        module.getUpdated("Account", 30);
+
+        verify(partnerConnection, atLeastOnce()).getUpdated(eq("Account"), any(Calendar.class), any(Calendar.class));
     }
 
     @Test

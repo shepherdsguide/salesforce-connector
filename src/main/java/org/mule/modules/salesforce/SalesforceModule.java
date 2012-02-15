@@ -24,6 +24,7 @@ import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.EmptyRecycleBinResult;
 import com.sforce.soap.partner.GetDeletedResult;
+import com.sforce.soap.partner.GetUpdatedResult;
 import com.sforce.soap.partner.GetUserInfoResult;
 import com.sforce.soap.partner.LeadConvert;
 import com.sforce.soap.partner.LeadConvertResult;
@@ -54,6 +55,7 @@ import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
+import org.springframework.util.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -106,7 +108,6 @@ public class SalesforceModule {
     private int proxyPort = -1;
 
     /**
-     *
      * Proxy username
      */
     @Configurable
@@ -216,7 +217,7 @@ public class SalesforceModule {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setOperation(op);
         jobInfo.setObject(type);
-        if( externalIdFieldName != null ) {
+        if (externalIdFieldName != null) {
             jobInfo.setExternalIdFieldName(externalIdFieldName);
         }
         return restConnection.createJob(jobInfo);
@@ -403,7 +404,7 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-info}
      *
-     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @param batchInfo the {@link BatchInfo} being monitored
      * @return Latest {@link BatchInfo} representing status of the batch job result.
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_info.htm">getBatchInfo()</a>
@@ -420,7 +421,7 @@ public class SalesforceModule {
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:batch-result}
      *
-     * @param batchInfo                   the {@link BatchInfo} being monitored
+     * @param batchInfo the {@link BatchInfo} being monitored
      * @return {@link BatchResult} representing result of the batch job result.
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_batches_get_results.htm">getBatchResult()</a>
@@ -446,6 +447,33 @@ public class SalesforceModule {
     @Processor
     public DescribeGlobalResult describeGlobal() throws Exception {
         return connection.describeGlobal();
+    }
+
+    /**
+     * Retrieves one or more records based on the specified IDs.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:retrieve}
+     *
+     * @param type   Object type. The sp ecified value must be a valid object for your organization.
+     * @param ids    The ids of the objects to retrieve
+     * @param fields The fields to return for the matching objects
+     * @return An array of {@link SObject}s
+     * @throws Exception
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public List<Map<String, Object>> retrieve(@Placement(group = "Information", order = 1) @FriendlyName("sObject Type") String type,
+                                              @Placement(group = "Ids to Retrieve") List<String> ids,
+                                              @Placement(group = "Fields to Retrieve") List<String> fields) throws Exception {
+        String fiedsCommaDelimited = StringUtils.collectionToCommaDelimitedString(fields);
+        SObject[] sObjects = connection.retrieve(fiedsCommaDelimited, type, ids.toArray(new String[ids.size()]));
+        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        if (sObjects != null) {
+            for (SObject sObject : sObjects) {
+                result.add(sObject.toMap());
+            }
+        }
+        return result;
     }
 
     /**
@@ -619,6 +647,38 @@ public class SalesforceModule {
     }
 
     /**
+     * Retrieves the list of individual records that have been created/updated within the given timespan for the specified object.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated-range}
+     *
+     * @param type      Object type. The specified value must be a valid object for your organization.
+     * @param startTime Starting date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+     *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value '
+     *                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).
+     * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
+     *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
+     *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC). If it is not provided, the current
+     *                  server time will be used.
+     * @return {@link GetUpdatedResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getupdatedrange.htm">getUpdatedRange()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetUpdatedResult getUpdatedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                            @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") @Optional Calendar endTime) throws Exception {
+        if (endTime == null) {
+            Calendar serverTime = connection.getServerTimestamp().getTimestamp();
+            endTime = (Calendar) serverTime.clone();
+            if (endTime.getTimeInMillis() - startTime.getTimeInMillis() < 60000) {
+                endTime.add(Calendar.MINUTE, 1);
+            }
+        }
+        return connection.getUpdated(type, startTime, endTime);
+    }
+
+    /**
      * Retrieves the list of individual records that have been deleted within the given timespan for the specified object.
      * <p/>
      * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-deleted-range}
@@ -630,7 +690,8 @@ public class SalesforceModule {
      *                  (for example, 12:30:15 is interpreted as 12:30:00 UTC).
      * @param endTime   Ending date/time (Coordinated Universal Time (UTC)not local timezone) of the timespan for
      *                  which to retrieve the data. The API ignores the seconds portion of the specified dateTime value
-     *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC).
+     *                  (for example, 12:35:15 is interpreted as 12:35:00 UTC). If not specific, the current server
+     *                  time will be used.
      * @return {@link GetDeletedResult}
      * @throws Exception
      * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getdeletedrange.htm">getDeletedRange()</a>
@@ -640,7 +701,14 @@ public class SalesforceModule {
     @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
     public GetDeletedResult getDeletedRange(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
                                             @Placement(group = "Information") @FriendlyName("Start Time Reference") Calendar startTime,
-                                            @Placement(group = "Information") @FriendlyName("End Time Reference") Calendar endTime) throws Exception {
+                                            @Placement(group = "Information") @FriendlyName("End Time Reference") @Optional Calendar endTime) throws Exception {
+        if (endTime == null) {
+            Calendar serverTime = connection.getServerTimestamp().getTimestamp();
+            endTime = (Calendar) serverTime.clone();
+            if (endTime.getTimeInMillis() - startTime.getTimeInMillis() < 60000) {
+                endTime.add(Calendar.MINUTE, 1);
+            }
+        }
         return connection.getDeleted(type, startTime, endTime);
     }
 
@@ -684,6 +752,30 @@ public class SalesforceModule {
 
         endTime.add(Calendar.MINUTE, duration);
         return getDeletedRange(type, startTime, endTime);
+    }
+
+    /**
+     * Retrieves the list of individual records that have been updated between the range of now to the duration before now.
+     * <p/>
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-sfdc.xml.sample sfdc:get-updated}
+     *
+     * @param type     Object type. The specified value must be a valid object for your organization.
+     * @param duration The amount of time in minutes before now for which to return records from.
+     * @return {@link GetDeletedResult}
+     * @throws Exception
+     * @api.doc <a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_getupdated.htm">getUpdated()</a>
+     */
+    @Processor
+    @InvalidateConnectionOn(exception = SoapConnection.SessionTimedOutException.class)
+    public GetUpdatedResult getUpdated(@Placement(group = "Information") @FriendlyName("sObject Type") String type,
+                                       @Placement(group = "Information") int duration) throws Exception {
+        Calendar serverTime = connection.getServerTimestamp().getTimestamp();
+        Calendar startTime = (Calendar) serverTime.clone();
+        Calendar endTime = (Calendar) serverTime.clone();
+
+        endTime.add(Calendar.MINUTE, duration);
+        return getUpdatedRange(type, startTime, endTime);
     }
 
     /**
@@ -879,7 +971,7 @@ public class SalesforceModule {
     private com.sforce.async.SObject toAsyncSObject(Map<String, Object> map) {
         com.sforce.async.SObject sObject = new com.sforce.async.SObject();
         for (String key : map.keySet()) {
-            if( map.get(key) != null ) {
+            if (map.get(key) != null) {
                 sObject.setField(key, map.get(key).toString());
             } else {
                 sObject.setField(key, null);
