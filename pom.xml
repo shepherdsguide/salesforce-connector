@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.mule.tools.devkit</groupId>
         <artifactId>mule-devkit-parent</artifactId>
-        <version>3.2</version>
+        <version>3.3-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -52,8 +52,7 @@
                         -hdf project.snapshotRepo.id "${project.distributionManagement.snapshotRepository.id}"
                         -hdf project.snapshotRepo.url "${project.distributionManagement.snapshotRepository.url}"
                         -d ${project.build.directory}/apidocs
-                        -markdown streaming ${basedir}/STREAMING.md "Streaming Guide"
-                        -markdown bulk ${basedir}/BULK.md "Bulk Guide"
+                        -markdown userguide ${basedir}/USAGE.md "User Guide"
                     </additionalparam>
                     <useStandardDocletOptions>false</useStandardDocletOptions>
                     <additionalJOption>-J-Xmx1024m</additionalJOption>
