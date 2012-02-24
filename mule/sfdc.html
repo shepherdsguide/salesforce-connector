@@ -64,6 +64,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -580,7 +582,6 @@ Summary:
 </div><!-- jd-descr (summary) -->
 
 
-
 <!-- ========= CONFIGURATION DETAIL ======== -->
 <A NAME="config"></A>
 <h2>Configuration</h2>
@@ -600,8 +601,9 @@ similar to the following:</p>
 
 &lt;/mule&gt;
 </pre>
+
 <p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
-the root of your Mule application. You can create as many configurations as you deem necesary as long as each carries
+the root of your Mule application. You can create as many configurations as you deem necessary as long as each carries
 its own name.</p>
 <p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
 specify which configuration to use.</p>
@@ -665,6 +667,7 @@ specify which configuration to use.</p>
       
     
 </table>
+
 
 
 
@@ -823,14 +826,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -935,14 +940,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1034,7 +1041,7 @@ attribute on each operation.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>overWriteLeadSource</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to overwrite the LeadSource field on the target Contact object
                                with the contents of the LeadSource field in the source Lead object (true), or
                                not (false, the default). To set this field to true, the client application
@@ -1046,7 +1053,7 @@ attribute on each operation.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>doNotCreateOpportunity</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to create an Opportunity during lead conversion (false, the
                                default) or not (true). Set this flag to true only if you do not want to create
                                an opportunity from the lead. An opportunity is created by default.</td>
@@ -1081,7 +1088,7 @@ attribute on each operation.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmailToOwner</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies whether to send a notification email to the owner specified in the
                                ownerId (true) or not (false, the default).</td>
                 </tr>
@@ -1161,14 +1168,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1303,14 +1312,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1435,14 +1446,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1564,14 +1577,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1676,14 +1691,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1777,14 +1794,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -1890,14 +1909,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2007,10 +2028,12 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2126,14 +2149,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2266,14 +2291,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2475,14 +2502,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2614,14 +2643,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2715,14 +2746,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2848,14 +2881,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -2962,14 +2997,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -3076,14 +3113,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -3207,10 +3246,12 @@ attribute on each operation.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -3328,14 +3369,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -3455,14 +3498,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
@@ -3601,10 +3646,12 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td>if a connection error occurs</td>
         </tr>
       </table>
@@ -3745,14 +3792,16 @@ attribute on each operation.</p>
     </div>
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th></td>
+            <td></td>
             <td>Exception</td>
         </tr>
         <tr>
-            <th>Exception</td>
+            <td>Exception</td>
             <td></td>
         </tr>
       </table>
