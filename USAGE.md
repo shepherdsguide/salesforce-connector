@@ -1,3 +1,11 @@
+Data types
+==========
+
+Date format
+-----------
+
+To store Date fields just use a String with the following format: yyyy-mm-dd.  Example: 2012-03-26.
+
 Streaming
 =========
 
